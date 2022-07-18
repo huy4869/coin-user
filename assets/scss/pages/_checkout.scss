@@ -1,0 +1,221 @@
+.checkout {
+  background-color: $color-background-default;
+  .breadcrumb {
+    font-size: 16px;
+    font-weight: bold;
+    .title {
+      border-right: 1px solid $color-dark-functional-300;
+      padding-right: 10px;
+    }
+    .information_and_checkout {
+      padding-left: 10px;
+    }
+  }
+  .content {
+    display: flex;
+    .information {
+      width: 50%;
+      h5 {
+        font-weight: bold;
+        font-size: 20px;
+        color: $color-dark-functional-600;
+        margin: 24px 0;
+      }
+      .login {
+        a {
+          color: $color-red-primary-500;
+        }
+      }
+      .user {
+        display: flex;
+        margin-bottom: 24px;
+        img {
+          margin-right: 20px;
+        }
+        .user-info {
+          font-size: 14px;
+          .user-name {
+            font-weight: bold;
+            margin-bottom: 4px;
+          }
+          .user-phone {
+            font-weight: 500;
+            color: $color-dark-functional-400;
+            margin-top: 0;
+            margin-bottom: 9px;
+          }
+          a {
+            font-weight: 500;
+            font-size: 13px;
+            color: $color-red-primary-500;
+          }
+        }
+      }
+      .el-form-item__content {
+        margin-left: 0 !important;
+      }
+      .input {
+        display: flex;
+        margin-right: -12px;
+        margin-left: -12px;
+        .el-form-item {
+          padding-right: 12px;
+          padding-left: 12px;
+          width: 50%;
+        }
+      }
+      .deposit-method {
+        display: flex;
+        .image {
+          width: 32px;
+          margin-right: 18px;
+        }
+        .information {
+          padding-top: 5px;
+          width: 100%;
+          font-weight: 500;
+          font-size: 14px;
+          input {
+            margin-top: 12px;
+          }
+        }
+        .bank {
+          display: flex;
+          margin-top: 30px;
+          img {
+            width: 74px;
+            height: 74px;
+            margin-right: 16px;
+          }
+          .bank-information {
+            font-weight: bold;
+            font-size: 14px;
+            .name {
+              margin-top: 0;
+            }
+            .bank-name {
+              font-weight: normal;
+            }
+          }
+        }
+      }
+      .el-button--primary {
+        background: $color-btn;
+        border: 1px solid $color-btn;
+        box-sizing: border-box;
+        border-radius: 4px;
+        height: 40px;
+        width: 275px;
+        float: right;
+        margin-top: 44px;
+      }
+    }
+    .products {
+      width: 50%;
+      background-color: $color-white;
+      border-radius: 8px;
+      margin-left: 20px;
+      padding: 32px 20px 20px 20px;
+      height: fit-content;
+      table {
+        border-bottom: 1px solid $color-dark-functional-300;
+        .product {
+          height: 118px;
+          .img {
+            float: left;
+            img {
+              width: 98px;
+              height: 98px;
+            }
+          }
+          .product-name {
+            width: 60%;
+            padding-left: 20px;
+            vertical-align: top;
+            p {
+              margin-top: 0;
+              font-size: 14px;
+              margin-bottom: 4px;
+              &.name {
+                font-weight: bold;
+              }
+              &.type {
+                color: $color-dark-functional-400;
+              }
+            }
+          }
+          .price {
+            width: 40%;
+            text-align: right;
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+      }
+      .note {
+        border-bottom: 1px solid $color-dark-functional-300;
+        .el-form-item__content {
+          margin-left: 0 !important;
+          textarea {
+            resize: none;
+          }
+          .el-input__count {
+            height: 27px;
+          }
+        }
+      }
+      .transport-fee {
+        border-bottom: 1px solid $color-dark-functional-300;
+        p {
+          font-weight: bold;
+          font-size: 14px;
+          span {
+            font-weight: normal;
+            float: right;
+          }
+        }
+      }
+      .total {
+        h5 {
+          font-weight: bold;
+          font-size: 16px;
+          margin-bottom: 8px;
+          margin-top: 20px;
+        }
+        p {
+          font-size: 14px;
+          font-weight: bold;
+          span {
+            font-weight: normal;
+            float: right;
+          }
+        }
+      }
+    }
+  }
+  .success {
+    text-align: center;
+    margin-top: 67px;
+    h4 {
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 0;
+    }
+    p {
+      margin-top: 16px;
+      font-weight: 500;
+      font-size: 16px;
+      a {
+        color: $color-btn;
+      }
+    }
+    button {
+      margin-top: 16px;
+      width: 275px;
+      a {
+        color: $color-white;
+      }
+    }
+  }
+}

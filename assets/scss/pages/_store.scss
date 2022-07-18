@@ -1,0 +1,112 @@
+  .icon-store {
+  background: url(/assets/images/icons/store.svg) center no-repeat;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+.icon-plus {
+  background: url(/assets/images/icons/plus.svg) center no-repeat;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+.icon-chat {
+  background: url(/assets/images/icons/chat.svg) center no-repeat;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+.icon-phone {
+  background: url(/assets/images/icons/phone.svg) center no-repeat;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+
+.button-list {
+  margin-top: 22px;
+  button {
+    height: 32px;
+    padding: 5px 10px;
+  }
+  span.button_text {
+    top: -2px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    position: relative;
+    display: inline-block;
+  }
+}
+
+.store_detail {
+  .el-button--danger.is-plain:hover, .el-button--danger.is-plain:focus {
+    color: $color-red-primary-600 !important;
+    border-color: $color-red-primary-600 !important;
+    background-color: $color-white;
+  }
+}
+
+.store {
+  margin-left: 20px;
+}
+.store_left {
+  .store_name {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  img {
+    width: 78px;
+    height: 78px;
+    border-radius: 8px;
+  }
+}
+.store_right {
+  span {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-dark-functional-400;
+  }
+  .store_right_detail {
+    margin-bottom: 20px;
+  }
+  .detail_info {
+    color: $color-red-primary-500;
+  }
+  .color-red {
+    font-weight: 500;
+    color: $color-red-primary-500;
+  }
+}
+
+.store_description {
+  background: $color-white;
+  border-radius: 8px;
+  padding: 20px;
+  width: calc(100% - 40px);
+  margin-bottom: 32px;
+  .store_description_title {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 16px;
+  }
+  .store_description_detail, .store_address {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .store_description_detail {
+    margin-bottom: 10px;
+  }
+}
+
+.list_filter_store {
+  .filter_basic {
+    background: $color-white;
+    border-radius: 8px;
+    padding: 20px;
+  }
+}
