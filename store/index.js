@@ -4,6 +4,7 @@ export const state = () => ({
   notifySuccess: { show: false, text: '' },
   notifyError: { show: false, text: '' },
   notifyWarning: { show: false, text: '' },
+  language: '',
   loading: false
 })
 
@@ -21,6 +22,9 @@ export const mutations = {
   },
   setLoading(state, loading) {
     state.loading = loading
+  },
+  setLanguage(state, language) {
+    state.language = language
   }
 }
 

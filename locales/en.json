@@ -1,5 +1,15 @@
 {
   "lang": "language",
+  "header": {
+    "eco": "Eco System",
+    "product": "Product",
+    "partner": "Partners",
+    "login": "Log in",
+    "register": "Register"
+  },
+  "footer": {
+    "copyright": "© Copyright 2022. All Rights Reserved"
+  },
   "account": {
     "login_title": "Log in",
     "email": "Email",
