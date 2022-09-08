@@ -9,6 +9,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 2;
+  min-height: 100vh;
 }
 
 h1 {
@@ -48,26 +49,31 @@ input, button, textarea {
   border: 1px solid $color-btn;
   border-radius: 4px;
   height: 40px;
+
   &:hover, &:focus {
     background: $color-red-primary-600;
     border: 1px solid $color-red-primary-600;
   }
 }
+
 .el-button--default {
   border-radius: 4px;
   height: 48px;
   border: 1px solid $color-btn;
   color: $color-btn-white;
   background: $color-red-primary;
+
   &:hover, &:focus {
     background: $color-white;
     color: $color-red-primary-600;
     border: 1px solid $color-red-primary-600;
   }
 }
+
 .el-button {
   padding: 0;
 }
+
 a {
   color: $color-btn;
 }
@@ -79,7 +85,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color:  rgba(255, 255, 255,.5);
+  background-color: rgba(255, 255, 255, .5);
   z-index: 9999;
 }
 
@@ -89,7 +95,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color:  rgba(255, 255, 255,.5);
+  background-color: rgba(255, 255, 255, .5);
   z-index: 9999;
 }
 
@@ -247,8 +253,40 @@ a {
 .color-red {
   color: $color-red-primary-500;
 }
+
 a.color-red:hover {
   color: $color-red-primary-600;
+}
+
+.el-button, .el-button:focus {
+  background: $color-btn-active;
+  border: 1px solid $color-btn-active;
+  color: $color-white;
+}
+
+.el-button:hover {
+  color: $color-white;
+  background: $color-btn-hover;
+  border: 1px solid $color-btn-hover;
+  box-shadow: 0px 0px 30px rgba(202, 1, 36, 0.7);
+}
+
+.el-button.is-disabled, .el-button.is-disabled:focus, .el-button.is-disabled:hover {
+  color: $color-white;
+  cursor: not-allowed;
+  background-image: none;
+  background-color: $color-btn-disable;
+  border-color: $color-btn-disable;
+  opacity: 0.5;
+}
+
+.el-button:active {
+
+}
+
+.el-dropdown-menu {
+  background-color: $color-bg-navbar;
+  border: 1px solid $color-white;
 }
 
 .el-input__inner {

@@ -91,6 +91,7 @@ import { validEmail } from '@/utils/validate'
 
 export default {
   name: 'LoginPage',
+  layout: 'auth',
   // middleware: 'auth-guard',
   data() {
     const validdateEmail = (rule, value, callback) => {

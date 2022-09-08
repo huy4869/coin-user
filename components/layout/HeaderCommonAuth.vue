@@ -4,15 +4,8 @@
       <div class="container-header">
         <div class="header_left">
           <img src="~/assets/images/logo_header.png" alt="" class="logo_header" @click="redirect('/')">
-          <span class="title_nav">{{ $t('header.eco') }}</span>
-          <span class="title_nav">{{ $t('header.product') }}</span>
-          <span class="title_nav">{{ $t('header.partner') }}</span>
         </div>
         <div class="header_right">
-          <span class="title_nav">{{ $t('header.login') }}</span>
-          <el-button class="btn_register title_nav">
-            {{ $t('header.register') }}
-          </el-button>
 
           <el-dropdown class="cursor-pointer d-flex lang_div" trigger="click" placement="bottom-start">
             <span class="img_lang">
