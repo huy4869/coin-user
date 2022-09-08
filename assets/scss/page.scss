@@ -478,6 +478,7 @@ a {
 
 .el-form-item__content {
   margin-left: 0 !important;
+  font-size: 16px;
 }
 
 .modal-login {
@@ -704,19 +705,21 @@ a {
 }
 
 .home {
-  background-color: $color-background-default;
-  padding: 40px 60px;
-  max-width: 1160px;
-  margin: auto;
-  min-height: calc(100vh - 587px);
-  img {
-    object-fit: cover;
-    border-radius: 8px 8px 0px 0px;
-  }
+  // background-color: $color-background-default;
+  // padding: 40px 60px;
+  // max-width: 1160px;
+  // margin: auto;
+  // min-height: calc(100vh - 587px);
+  // // img {
+  // //   object-fit: cover;
+  // //   border-radius: 8px 8px 0px 0px;
+  // // }
 
-  .el-button--danger:hover {
-    background-color: $color-red-primary-600;
-  }
+  // .el-button--danger:hover {
+  //   background-color: $color-red-primary-600;
+  // }
+  min-height: calc(100vh - 482px - 64px);
+  margin: 0 0 45px;
 }
 
 .home_background {

@@ -1,9 +1,14 @@
 body {
-  font-family: 'Mulish', sans-serif;
+  font-family: $font-mont;
+  font-size: 16px;
   margin: 0;
   font-style: normal;
-  color: $color-dark-functional-600;
+  color: $color-white;
   background-color: $color-background-default;
+  background-image: url('../images/BG.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 2;
 }
 
 h1 {
@@ -50,9 +55,10 @@ input, button, textarea {
 }
 .el-button--default {
   border-radius: 4px;
-  height: 40px;
+  height: 48px;
   border: 1px solid $color-btn;
-  color: $color-btn;
+  color: $color-btn-white;
+  background: $color-red-primary;
   &:hover, &:focus {
     background: $color-white;
     color: $color-red-primary-600;
@@ -244,3 +250,28 @@ a {
 a.color-red:hover {
   color: $color-red-primary-600;
 }
+
+.el-input__inner {
+  height: 48px;
+  padding: 0 1rem;
+  background: $color-background;
+  color: $color-white;
+}
+
+.el-input {
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  .el-input__suffix {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+

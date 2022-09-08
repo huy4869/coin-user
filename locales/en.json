@@ -1,3 +1,42 @@
 {
-  "lang": "language"
+  "lang": "language",
+  "account": {
+    "login_title": "Log in",
+    "email": "Email",
+    "password": "Password",
+    "capcha": "Captcha Code",
+    "no_account": " Do not have an account?",
+    "remember_me": " Remember me",
+    "forgot_password": " Forget password?",
+    "login": " Sign in",
+    "password_new_confirmation": " Confirm New Password",
+    "password_confirmation": " Confirm Password",
+    "referral_code": " Referral Code",
+    "register": "Sign up",
+    "set_password": "Set Password",
+    "new_password": "New Password",
+    "reset_password": " Reset Password",
+    "security_verification": " Security verification",
+    "secure_your_account": " To secure your account, please complete the following verification.",
+    "phoneNumber": "Phone number",
+    "fullName": "Full name",
+    "social": "Telegram, Viber, Zalo, Whatsapp",
+    "current_pass": "Recently Password",
+    "reset_pass": "SEND",
+    "here": "here",
+    "pre_phone": "Code sent by phone"
+  },
+  "register": {
+    "preAgree": " I agree with",
+    "and": " and ",
+    "term": " Terms & Conditions",
+    "policy": " Privacy Policy",
+    "back_signin": "Back to sign in",
+    "ref_code": "Referral code"
+  },
+  "forgot_password": {
+    "sub_title": "Please enter your email that has been registered",
+    "sent_notify": "Password reset link has been sent",
+    "check_mail": "Please check your email and check the password reset link"
+  }
 }
