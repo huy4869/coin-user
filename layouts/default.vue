@@ -1,12 +1,12 @@
 <template>
   <div :class="['body-content']">
     <client-only>
-      <HeaderCommon />
-      <NotificationBlock />
+      <HeaderCommon/>
+      <NotificationBlock/>
       <div class="home">
-        <nuxt />
+        <nuxt/>
       </div>
-      <LoadingBar />
+      <LoadingBar/>
       <FooterCommon/>
     </client-only>
   </div>
@@ -20,6 +20,9 @@ import FooterCommon from '~/components/layout/FooterCommon'
 
 export default {
   name: 'DefaultLayout',
-  components: { FooterCommon, LoadingBar, HeaderCommon, NotificationBlock }
+  components: { FooterCommon, LoadingBar, HeaderCommon, NotificationBlock },
+  mounted() {
+    // this.$store.commit(INDEX_SET_LOADING, true)
+  }
 }
 </script>
