@@ -110,13 +110,13 @@ export default {
       await this.openModalLogin()
     },
     async resetCartState() {
-      await this.fetchCart()
+      // await this.fetchCart()
     }
   },
   async created() {
     if (this.$auth.loggedIn) {
       await this.fetchData()
-      await this.fetchCart()
+      // await this.fetchCart()
     }
   },
   mounted() {

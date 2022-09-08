@@ -1,0 +1,102 @@
+.main-login {
+  width: 450px;
+  margin: 31px 0 0 71px;
+  background: $color-background;
+  padding: 24px !important;
+  @media only screen and (max-width: 500px) {
+    margin: 20px auto;
+    width: 100%;
+    padding: 0 12px !important;
+  }
+
+  .otp-block-register {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(6, minmax(0, 100%));
+    column-gap: 20px;
+    justify-content: center;
+    justify-items: center;
+    @media only screen and (max-width: 400px) {
+      column-gap: 5px;
+    }
+  }
+
+  h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2rem !important;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .sub_title {
+    font-family: $font-mont;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    padding-bottom: 24px;
+  }
+
+  .el-input__suffix {
+    display: flex;
+    align-items: center;
+    right: 10px;
+  }
+
+  .icon-show-pass {
+    display: flex;
+  }
+
+  .email-login {
+    .birthday {
+      width: 100%;
+    }
+  }
+
+  .password-title-sub {
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+
+  .agree-block {
+    display: flex;
+    align-items: baseline;
+    column-gap: 10px;
+
+    &-label {
+      font-size: 1rem;
+      line-height: 22px;
+    }
+
+  }
+}
+
+.forgot-pass {
+  margin: 0.5rem 0 1.75rem 0;
+
+  .login-page__forgot-password {
+    width: fit-content;
+    margin-left: auto;
+  }
+}
+.login-page__forgot-password {
+  text-align: center !important;
+}
+
+.no_account {
+  // margin-bottom: 26px;
+
+  .here {
+    cursor: pointer;
+    color: $color-red-primary;
+    // text-decoration: underline
+  }
+}
+
+.common-button {
+  margin-bottom: 20px;
+
+  .el-button {
+    width: 100%;
+  }
+}

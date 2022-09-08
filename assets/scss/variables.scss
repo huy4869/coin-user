@@ -1,5 +1,5 @@
 // Primary Color
-$color-red-primary: #fcefec;
+$color-red-primary: #CA0124;
 $color-red-primary-200: #fadfda;
 $color-red-primary-500: #dc5e4f;
 $color-red-primary-600: #db2f1a;
@@ -27,11 +27,17 @@ $color-dark-functional-600: #11284d;
 //color-primary
 $color-white: #ffffff;
 $color-black: #000000;
+$color-orange: #FFC85E;
 $color-background-default: #f9f9f9;
 $color-slide-out: #e5e5e5;
+$color-background: #091124;
 
 //color-btn
 $color-btn: #DC5E4F;
+$color-btn-white: #FCFCFC;
 $color-text: #11284D;
 $color-text-disable: #7B8799;
-$color-background: #f9f9f9;
+
+//fonts
+$font-root: 'Noto Serif';
+$font-mont: 'Montserrat', sans-serif;
