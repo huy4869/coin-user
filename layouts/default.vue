@@ -1,21 +1,14 @@
 <template>
-  <div>
-    <HeaderCommon />
-    <NotificationBlock />
-    <div class="home">
-      <nuxt />
-    </div>
-    <div v-if="$route.path === '/'">
-      <div class="home_background">
-        <div class="home_service">
-          <ServiceCommon />
-        </div>
+  <div :class="['body-content']">
+    <client-only>
+      <HeaderCommon />
+      <NotificationBlock />
+      <div class="home">
+        <nuxt />
       </div>
-      <div class="home_service">
-        <RegisterCommon />
-      </div>
-    </div>
-    <LoadingBar />
+      <LoadingBar />
+      <FooterCommon/>
+    </client-only>
   </div>
 </template>
 
@@ -23,14 +16,10 @@
 import HeaderCommon from '../components/layout/HeaderCommon'
 import LoadingBar from '../components/LoadingBar'
 import NotificationBlock from '../components/block-ui/NotificationBlock'
-import ServiceCommon from '../components/home/ServiceCommon'
-import RegisterCommon from '../components/home/RegisterCommon'
+import FooterCommon from '~/components/layout/FooterCommon'
 
 export default {
   name: 'DefaultLayout',
-  components: { LoadingBar, HeaderCommon, NotificationBlock, ServiceCommon, RegisterCommon },
-  async fetch() {
-    await this.fetchDataCategory()
-  }
+  components: { FooterCommon, LoadingBar, HeaderCommon, NotificationBlock }
 }
 </script>

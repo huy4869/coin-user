@@ -1,42 +1,127 @@
 <template>
-  <div class="pagination_common">
-    <ul class="pagination flex">
-      <li :class="['page-item', currentPage === 1 ? 'disable' : '']">
-        <span class="icon-next button_prev" @click="prePage"></span>
-      </li>
-      <li
-        v-for="(item, index) in lastPage" :key="index"
-        :class="['page-item', item === currentPage ? 'active' : '']" @click="changePage(item)">
-        <span class="page-link" href="#">{{ item }}</span>
-      </li>
-      <li :class="['page-item', currentPage === lastPage ? 'disable' : '']">
-        <span class="icon-next" @click="nextPage"></span>
-      </li>
-    </ul>
+  <div :class="{'hidden':hidden}" class="pagination-container">
+    <el-pagination
+      :background="background"
+      :current-page.sync="currentPage"
+      :page-size.sync="pageSize"
+      :layout="layout"
+      :pager-count="paperCount"
+      :small="isSmall"
+      :page-sizes="pageSizes"
+      :total="total"
+      v-bind="$attrs"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    />
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'PaginationCommon',
-  props: ['currentPage', 'lastPage'],
-  methods: {
-    changePage(page) {
-      this.$emit('change', page)
+  name: 'PaginationComponent',
+  props: {
+    total: {
+      required: true,
+      type: Number
     },
-    prePage() {
-      if (this.currentPage >= 2) {
-        this.changePage(this.currentPage - 1)
+    page: {
+      type: Number,
+      default: 1
+    },
+    limit: {
+      type: Number,
+      default: 20
+    },
+    paperCount: {
+      type: Number,
+      default: 7
+    },
+    isSmall: {
+      type: Boolean,
+      default: false
+    },
+    pageSizes: {
+      type: Array,
+      default() {
+        return [10, 20, 30, 50]
       }
     },
-    nextPage() {
-      if (this.currentPage <= this.lastPage - 1) {
-        this.changePage(this.currentPage + 1)
+    layout: {
+      type: String,
+      default: 'prev, pager, next'
+    },
+    background: {
+      type: Boolean,
+      default: true
+    },
+    autoScroll: {
+      type: Boolean,
+      default: true
+    },
+    hidden: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    currentPage: {
+      get() {
+        return this.page
+      },
+      set(val) {
+        this.$emit('update:page', val)
+      }
+    },
+    pageSize: {
+      get() {
+        return this.limit
+      },
+      set(val) {
+        this.$emit('update:limit', val)
+      }
+    }
+  },
+  methods: {
+    handleSizeChange(val) {
+      this.$emit('pagination', { page: this.currentPage, limit: val })
+      if (this.autoScroll) {
+        scrollTo(0, 800)
+      }
+    },
+    handleCurrentChange(val) {
+      this.$emit('pagination', { page: val, limit: this.pageSize })
+      if (this.autoScroll) {
+        scrollTo(0, 800)
       }
     }
   }
 }
 </script>
+<style>
+.pagination-container {
+  margin-top: 20px;
+  text-align: center;
+}
 
-<style scoped lang="scss">
+.pagination-container.hidden {
+  display: none;
+}
+
+.btn-prev, .btn-next {
+  height: 29px !important;
+  color: white !important;
+  background: #042F47 !important;
+  box-shadow: -9px -9px 20px -4px #042f47 !important;
+}
+
+.el-pager li {
+  color: white !important;
+  background: #042F47 !important;
+  box-shadow: -9px -9px 20px -4px #042f47 !important;
+}
+
+.el-pager li.active {
+  background: #134e6efc !important;
+}
 </style>

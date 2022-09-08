@@ -8,7 +8,7 @@
             <div>
               <div :class="['show-modal-panel-header', {'show-modal': showModal}, {'hide-modal': hideModal}]">
                 <div class="title-page-div">
-                <span class="title-page"><img src="/assets/images/page.svg" alt=""></span>
+                  <span class="title-page"><img src="/assets/images/page.svg" alt=""></span>
                 </div>
                 <div v-for="(menu, index) in listMenu" :key="index" class="header-menu">
                   <div class="cursor-pointer" @click="changeToLink(menu.link)">
@@ -20,7 +20,10 @@
                   </div>
                 </div>
                 <div class="button-auth">
-                  <button v-if="$auth.user" type="button" class="button-logout" @click="logout">{{ $t('logout') }}</button>
+                  <button v-if="$auth.user" type="button" class="button-logout" @click="logout">{{
+                      $t('logout')
+                    }}
+                  </button>
                   <button v-else class="button-login" type="button" @click="openModalLogin">{{ $t('login') }}</button>
                 </div>
               </div>
@@ -34,7 +37,8 @@
         <div class="input-search-header">
           <div class="icon-left-search">
             <img class="cursor-pointer" src="/assets/images/icons/search.svg" alt="" @click="searchKeyword">
-            <input v-model="keyword" type="text" class="input-search" :placeholder="$t('home.placeholder_search_input')" @keyup.enter="searchKeyword">
+            <input v-model="keyword" type="text" class="input-search" :placeholder="$t('home.placeholder_search_input')"
+                   @keyup.enter="searchKeyword">
           </div>
         </div>
         <div class="cart-header">
@@ -51,21 +55,11 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import ModalElement from '../modals/modal'
-import LoginElement from '../element-ui/LoginElement'
-import RegisterElement from '../element-ui/RegisterElement'
-import ForgotPasswordElement from '../element-ui/ForgotPasswordElement'
-import {
-  INDEX_SET_LOADING,
-  AUTH_LOGOUT,
-  CART_COUNT,
-  CART_SET_COUNT,
-  CART_GET_CART
-} from '@/store/store.const'
+import { AUTH_LOGOUT, INDEX_SET_LOADING } from '@/store/store.const'
 import { textToHref } from '@/utils/utils'
+
 export default {
   name: 'HeaderCommon',
-  components: { ForgotPasswordElement, ModalElement, LoginElement, RegisterElement },
   data() {
     return {
       keyword: '',
@@ -155,20 +149,9 @@ export default {
           break
       }
     },
-    async closeModalLogin() {
+    closeModalLogin() {
       this.modalLogin = false
-      await this.fetchCart()
       this.addHashToLocation('')
-    },
-    async fetchCart() {
-      this.cartCount = 0
-      const res = await this.$store.dispatch(CART_GET_CART)
-      if (res.data) {
-        const shops = res.data
-        shops.forEach((shop) => {
-          this.cartCount += shop.cart.length
-        })
-      }
     },
     searchKeyword() {
       const data = this.keyword
@@ -188,19 +171,13 @@ export default {
       await this.$auth.logout()
       try {
         await this.$store.dispatch(AUTH_LOGOUT)
-        await this.fetchCart()
+        this.fetchCart()
       } catch (e) {
       }
       await this.openModalLogin()
       this.$store.commit(INDEX_SET_LOADING, false)
     },
-    async fetchData() {
-      try {
-        const cart = await this.$store.dispatch(CART_COUNT)
-        await this.$store.commit(CART_SET_COUNT, cart.data.cart_count)
-      } catch (e) {
-        console.log(e)
-      }
+    fetchData() {
     },
     addHashToLocation(params) {
       history.pushState(
