@@ -1,8 +1,9 @@
 <template>
-  <div class="main-login">
+  <div class="main-login" style="margin: 84px auto">
     <div>
       <div class="login login-width login-mobile">
-        <h3 class="title">{{ $t('register.title') }}</h3>
+        <h3 v-if="step===1" class="title">{{ $t('register.title') }}</h3>
+        <h3 v-else class="title">{{ $t('otp.otpTitle') }}</h3>
         <el-form
           v-if="step===1"
           ref="accountForm"
@@ -50,9 +51,8 @@
               :placeholder="$t('register.phone')"
               name="phone"
               type="text"
-              tabindex="2"
-              minlength="10"
-              show-word-limit
+              tabindex="3"
+              maxlength="12"
               @focus="resetValidate('phone')"
             />
           </el-form-item>
@@ -65,7 +65,7 @@
               :placeholder="$t('account.password')"
               name="password"
               :type="showPass?'text':'password'"
-              tabindex="3"
+              tabindex="4"
               maxlength="32"
               autocomplete="off"
               @focus="resetValidate('password')"
@@ -85,7 +85,7 @@
               :placeholder="$t('account.password_confirmation')"
               name="password_confirmation"
               :type="showPassConfirm?'text':'password'"
-              tabindex="4"
+              tabindex="5"
               maxlength="32"
               autocomplete="off"
               @focus="resetValidate('password_confirmation')"
@@ -96,19 +96,44 @@
               </i>
             </el-input>
           </el-form-item>
-          <!-- <el-form-item prop="agree">
-            <div class="agree-block">
-              <el-checkbox
-                ref="agree"
-                v-model="accountForm.agree"
-                @change="$refs.accountForm.validateField('agree')">
-              </el-checkbox>
-              <div class="agree-block-label">
-                <span>{{ $t('register.agree') }}</span>
-                <span class="color-orange cursor-pointer">{{ $t('register.privacy_policy') }}</span>
-              </div>
-            </div>
-          </el-form-item> -->
+          <!--  -->
+          <hr class="line-through">
+          <!--  -->
+          <div class="d-flex align-items-center text-center" style="margin-top: 1.5rem">
+            <span class="bnb-title">
+              BNB Smart Chain (BEP20)
+            </span>
+          </div>
+          <div class="bnb-description">
+                <span>Please use BNB Smart Chain wallet (BEP20) to register an account. This wallet address will be used for deposit.</span>
+          </div>
+          <!--  -->
+          <el-form-item :label="$t('register.wallet_address')" prop="wallet_address">
+            <el-input
+              ref="wallet_address"
+              v-model.trim="accountForm.wallet_address"
+              :placeholder="$t('register.wallet_address')"
+              :error="getErrResponse('wallet_address')"
+              name="wallet_address"
+              type="text"
+              tabindex="6"
+              maxlength="30"
+              @focus="resetValidate('wallet_address')"
+            />
+          </el-form-item>
+          <el-form-item :label="$t('register.memo')" prop="memo">
+            <el-input
+              ref="memo"
+              v-model.trim="accountForm.memo"
+              :placeholder="$t('register.memo')"
+              :error="getErrResponse('memo')"
+              name="memo"
+              type="text"
+              tabindex="7"
+              maxlength="30"
+              @focus="resetValidate('memo')"
+            />
+          </el-form-item>
           <!-- <el-form-item class="captcha" :error="getErrResponse('g-recaptcha-response')" prop="captcha">
             <template>
               <recaptcha
@@ -130,14 +155,6 @@
                 {{ $t('register.title') }}
               </el-button>
             </div>
-            <div class="d-flex align-items-center text-center" style="margin-top: 1.5rem">
-              <span>
-                {{ $t('register.already_account') }}
-              </span>
-              <router-link to="/login" class="align-items-center color-orange cursor-pointer underline lowercase">
-                {{ $t('account.login') }}
-              </router-link>
-            </div>
           </el-form-item>
         </el-form>
         <div v-if="step===2" class="otp">
@@ -151,12 +168,12 @@
 import { mapState } from 'vuex'
 import { AUTH_REGISTER, INDEX_SET_ERROR, INDEX_SET_LOADING, INDEX_SET_SUCCESS, SET_EMAIL } from '@/store/store.const'
 import { TYPE_REGISTER_OTP } from '@/constants/store'
-import { validEmail, validPassword } from '@/utils/validate'
-// import OtpPage from '@/components/auth/otp'
+import { validEmail, validPassword, validPhoneNoPrefix } from '@/utils/validate'
+import OtpPage from '@/components/auth/otp'
 
 export default {
   name: 'RegisterPage',
-  // components: { OtpPage },
+  components: { OtpPage },
   // middleware: 'auth-guard',
   data() {
     const validdateEmail = (rule, value, callback) => {
@@ -188,16 +205,16 @@ export default {
         callback()
       }
     }
-    const validateAgree = (rule, value, callback) => {
-      if (this.accountForm.agree == null || !this.accountForm.agree) {
-        callback(new Error(this.$t('validation.agree')))
-      } else {
-        callback()
-      }
-    }
-    const validateCaptcha = (rule, value, callback) => {
-      if (this.captcha == null || !this.captcha) {
-        callback(new Error(this.$t('validation.captcha_req')))
+    // const validateCaptcha = (rule, value, callback) => {
+    //   if (this.captcha == null || !this.captcha) {
+    //     callback(new Error(this.$t('validation.captcha_req')))
+    //   } else {
+    //     callback()
+    //   }
+    // }
+    const validPhoneNumber = (rule, value, callback) => {
+      if (!validPhoneNoPrefix(value)) {
+        callback(new Error(this.$t('validation.phone')))
       } else {
         callback()
       }
@@ -215,7 +232,8 @@ export default {
         password: '',
         phone: '',
         password_confirmation: '',
-        // agree: false,
+        wallet_address: '',
+        memo: '',
         errors: {}
       },
       errorResponse: [],
@@ -261,16 +279,33 @@ export default {
             trigger: 'blur'
           }
         ],
-        agree: [
+        wallet_address: [
           {
-            validator: validateAgree, trigger: 'blur'
+            required: true,
+            message: this.$t('validation.required', { _field_: this.$t('register.wallet_address') }),
+            trigger: 'blur'
           }
         ],
-        captcha: [
+        memo: [
           {
-            validator: validateCaptcha, trigger: 'blur'
+            required: true,
+            message: this.$t('validation.required', { _field_: this.$t('register.memo') }),
+            trigger: 'blur'
           }
+        ],
+        phone: [
+          {
+            required: true,
+            message: this.$t('validation.required', { _field_: this.$t('register.phone') }),
+            trigger: 'blur'
+          },
+          { validator: validPhoneNumber, trigger: 'blur' }
         ]
+        // captcha: [
+        //   {
+        //     validator: validateCaptcha, trigger: 'blur'
+        //   }
+        // ]
       },
       valid: false,
       loading: false,
@@ -292,7 +327,8 @@ export default {
         return
       }
       return this.accountForm.email === '' || this.accountForm.password === '' ||
-        this.accountForm.password_confirmation === '' || this.captcha === ''
+        this.accountForm.password_confirmation === ''
+        // || this.captcha === ''
     }
   },
   watch: {
@@ -326,13 +362,6 @@ export default {
           callback()
         }
       }
-      const validateAgree = (rule, value, callback) => {
-        if (this.accountForm.agree == null || !this.accountForm.agree) {
-          callback(new Error(this.$t('validation.agree')))
-        } else {
-          callback()
-        }
-      }
       const validateCaptcha = (rule, value, callback) => {
         if (this.captcha == null || !this.captcha) {
           callback(new Error(this.$t('validation.captcha_req')))
@@ -340,7 +369,21 @@ export default {
           callback()
         }
       }
+      const validPhoneNumber = (rule, value, callback) => {
+        if (!validPhoneNoPrefix(value)) {
+          callback(new Error(this.$t('validation.phone')))
+        } else {
+          callback()
+        }
+      }
       this.accountRules = {
+        name: [
+          {
+            required: true,
+            message: this.$t('validation.required', { _field_: this.$t('register.name') }),
+            trigger: 'blur'
+          }
+        ],
         email: [
           {
             required: true,
@@ -371,9 +414,26 @@ export default {
             trigger: 'blur'
           }
         ],
-        agree: [
+        phone: [
           {
-            validator: validateAgree, trigger: 'blur'
+            required: true,
+            message: this.$t('validation.required', { _field_: this.$t('register.phone') }),
+            trigger: 'blur'
+          },
+          { validator: validPhoneNumber, trigger: 'blur' }
+        ],
+        wallet_address: [
+          {
+            required: true,
+            message: this.$t('validation.required', { _field_: this.$t('register.wallet_address') }),
+            trigger: 'blur'
+          }
+        ],
+        memo: [
+          {
+            required: true,
+            message: this.$t('validation.required', { _field_: this.$t('register.memo') }),
+            trigger: 'blur'
           }
         ],
         captcha: [
@@ -413,18 +473,18 @@ export default {
       }
       try {
         await this.$store.commit(INDEX_SET_LOADING, true)
-        if (this.captcha == null || !this.captcha) {
-          const token = await this.$recaptcha.getResponse()
-          this.captcha = token.toString()
-        }
-        let dto = {
+        // if (this.captcha == null || !this.captcha) {
+        //   const token = await this.$recaptcha.getResponse()
+        //   this.captcha = token.toString()
+        // }
+        const dto = {
+          name: this.accountForm.name,
           email: this.accountForm.email,
           password: this.accountForm.password,
           password_confirmation: this.accountForm.password_confirmation,
-          name: this.accountForm.name
-        }
-        if (this.accountForm.invite_code != null && this.accountForm.invite_code !== '') {
-          dto = { ...dto, invite_code: this.accountForm.invite_code }
+          memo: this.accountForm.memo,
+          wallet_address: this.accountForm.wallet_address,
+          phone: this.accountForm.phone
         }
         const data = await this.$store.dispatch(AUTH_REGISTER, {
           ...dto,

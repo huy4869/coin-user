@@ -5,6 +5,8 @@ export const state = () => ({
   notifyError: { show: false, text: '' },
   notifyWarning: { show: false, text: '' },
   language: '',
+  email: '',
+  isOtpPage: false,
   loading: false
 })
 
@@ -25,6 +27,12 @@ export const mutations = {
   },
   setLanguage(state, language) {
     state.language = language
+  },
+  setEmail(state, email) {
+    state.email = email
+  },
+  setIsOtpPage(state, isOtpPage) {
+    state.isOtpPage = isOtpPage
   }
 }
 
