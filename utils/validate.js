@@ -96,6 +96,11 @@ export function validPhone(str) {
   return reg.test(str)
 }
 
+export function validPhoneNoPrefix(str) {
+  const reg = /^([0-9]{9,12})$\b/
+  return reg.test(str)
+}
+
 export function checkDate(str, day = 0) {
   if (str) {
     return new Date(str) < new Date().setDate(new Date().getDate() + day)

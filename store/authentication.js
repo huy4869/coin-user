@@ -1,3 +1,5 @@
+import { handleApi } from '@/utils/handleApi'
+
 export const state = () => ({
   roles: [],
   permissions: [],
@@ -14,4 +16,15 @@ export const mutations = {
   }
 }
 
-export const actions = {}
+export const actions = {
+  register(context, data) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post('/auth/register', data), context)
+    })
+  },
+  verifyRegisterOtp(context, data) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post('/auth/verify-register', data), context)
+    })
+  }
+}

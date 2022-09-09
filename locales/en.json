@@ -42,11 +42,46 @@
     "term": " Terms & Conditions",
     "policy": " Privacy Policy",
     "back_signin": "Back to sign in",
-    "ref_code": "Referral code"
+    "ref_code": "Referral code",
+    "title": "Sign up",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "wallet_address": "Wallet address",
+    "memo": "BNB Memo"
   },
   "forgot_password": {
     "sub_title": "Please enter your email that has been registered",
     "sent_notify": "Password reset link has been sent",
     "check_mail": "Please check your email and check the password reset link"
+  },
+  "validation": {
+    "required": "The {_field_} field is required",
+    "email": "The {_field_} must be a valid email address.",
+    "float": "The {_field_} must be a number.",
+    "max_content_file": "The maximum size has been exceeded. Please select again.",
+    "accept_file_type": "Only JPEG, PNG, and JPG extensions can be selected. Please select again.",
+    "max": "{_field_} must be within {length} characters.",
+    "passNotMatch": "The Password do not match. Please try again",
+    "email_format": "The Email format is incorrect",
+    "pass_format": "Password must be between 8 and 32 characters, including letters, numbers and special characters.",
+    "insufficient_balance": "Insufficient available balance",
+    "phone": "Prefix and Phone",
+    "code_phone_format": "The Code format is incorrect",
+    "invalid_2mb_image": "Max size is 2MB",
+    "length_phone": "The Phone number must be between 9 and 15 characters",
+    "captcha_req": "Please check captcha",
+    "agree": "PLease agree Terms"
+  },
+  "otp": {
+    "otpTitle": "Security Code",
+    "submit": "Confirm",
+    "code": " Email verification code",
+    "notifySent": " Enter the 6 digit code sent to {email}",
+    "notReceived": " Haven't received the code yet?",
+    "reqCode1": " Claim a new code in ",
+    "reqCode2": "{time} seconds.",
+    "resendCode": " Resend code",
+    "error": " Invalid code"
   }
 }

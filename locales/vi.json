@@ -48,6 +48,8 @@
     "agree": "Tôi đồng ý với các ",
     "privacy_policy": "Điều khoản & Điều kiện và Chính sách Bảo mật.",
     "button": "Đăng ký",
+    "wallet_address": "Wallet Address",
+    "memo": "BNB Memo",
     "already_account": "Đã có tài khoản về"
   },
   "validation": {
@@ -80,5 +82,17 @@
   },
   "error": {
     "login": "Thông tin đăng nhập không chính xác vui lòng thử lại"
+  },
+  "otp": {
+    "otpTitle": "Mã Xác Minh",
+    "otpContent": "Để bảo mật tài khoản của bạn, vui lòng hoàn thành xác minh.",
+    "submit": "Xác nhận",
+    "code": "Mã xác minh Email",
+    "notifySent": "Nhập mã gồm 6 chữ số được gửi đến {email}",
+    "notReceived": "Bạn chưa nhận được mã? ",
+    "reqCode1": "Yêu cầu mã mới sau ",
+    "reqCode2": "{time} giây.",
+    "resendCode": "Gửi lại mã",
+    "error": "Mã không hợp lệ"
   }
 }
