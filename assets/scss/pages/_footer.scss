@@ -5,46 +5,55 @@
   position: relative;
 
   .container-footer {
-    margin: auto;
-    max-width: $max-width-header;
-    display: flex;
-    justify-content: space-between;
-    padding: 30px;
+    width: 100%;
     background-color: $color-bg-navbar;
 
-    .footer-left {
+    .content {
+      margin: auto;
       display: flex;
       justify-content: space-between;
-      gap: 24px;
-      align-items: center;
+      padding: 30px;
+      //max-width: $max-width-header;
 
-      .img_footer {
-        cursor: pointer;
-        max-width: 100%;
+      .footer-left {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: center;
+
+        .img_footer {
+          cursor: pointer;
+          max-width: 100%;
+        }
+
+        .hr {
+          width: 2px;
+          height: calc(100% + 10px);
+          background: #D9D9D9
+        }
+
+        .title_nav_footer {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 20px;
+          cursor: pointer;
+        }
       }
 
-      .hr {
-        width: 2px;
-        height: calc(100% + 10px);
-        background: #D9D9D9
-      }
+      .footer-right {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: center;
 
-      .title_nav_footer {
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 20px;
-        cursor: pointer;
-      }
-    }
+        a {
+          height: fit-content;
+        }
 
-    .footer-right {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-
-      img {
-        max-width: 24px;
-        cursor: pointer;
+        img {
+          max-width: 24px;
+          cursor: pointer;
+        }
       }
     }
   }

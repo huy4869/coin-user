@@ -475,3 +475,51 @@ a.color-red:hover {
     line-height: 1.5;
   }
 }
+
+
+.filter_img {
+  filter: drop-shadow(-10px 7px 60px #1400e0) !important;
+}
+
+.work-break {
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.w-100 {
+  max-width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.pt-20 {
+  padding-top: 20px;
+}
+
+.zoom_hover {
+  transition: transform 1s;
+}
+
+.zoom_hover:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5);
+}
+
+.zoom_hover:hover h3 {
+  content: attr(data-text);
+  left: 0;
+  left: -2px;
+  text-shadow: -2px 0 #00f7ff, 2px 2px #ff00c1;
+}
+
+.pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite
+}
+
+
+.tex-center {
+  text-align: center;
+}

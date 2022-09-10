@@ -83,5 +83,20 @@
     "reqCode2": "{time} seconds.",
     "resendCode": " Resend code",
     "error": " Invalid code"
+  },
+  "landing": {
+    "title": "Chiliz Meta Zone",
+    "sub_title": "The first fanzone blockchain for Sport Community",
+    "eco": "Chiliz eco system",
+    "system": "Chiliz Meta System",
+    "sub_system": "Unlimited earning with 150CHZ. 1 time spend gain whole life.",
+    "total_user": "Total Number User:",
+    "total_chz": "total CHZ:",
+    "app": "Enter App",
+    "product": "product",
+    "p1": "Predict the winning team",
+    "p2": "Predict the champion team",
+    "p3": "Jackpot",
+    "partner": "Our partners"
   }
 }

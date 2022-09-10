@@ -105,7 +105,7 @@
             </span>
           </div>
           <div class="bnb-description">
-                <span>Please use BNB Smart Chain wallet (BEP20) to register an account. This wallet address will be used for deposit.</span>
+            <span>Please use BNB Smart Chain wallet (BEP20) to register an account. This wallet address will be used for deposit.</span>
           </div>
           <!--  -->
           <el-form-item :label="$t('register.wallet_address')" prop="wallet_address">
@@ -174,6 +174,7 @@ import OtpPage from '@/components/auth/otp'
 export default {
   name: 'RegisterPage',
   components: { OtpPage },
+  layout: 'auth',
   // middleware: 'auth-guard',
   data() {
     const validdateEmail = (rule, value, callback) => {
@@ -328,7 +329,7 @@ export default {
       }
       return this.accountForm.email === '' || this.accountForm.password === '' ||
         this.accountForm.password_confirmation === ''
-        // || this.captcha === ''
+      // || this.captcha === ''
     }
   },
   watch: {

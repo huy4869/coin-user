@@ -28,14 +28,18 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    '@/assets/scss/index.scss'
+    '@/assets/scss/index.scss',
+    'aos/dist/aos.css',
+    'vue-slick-carousel/dist/vue-slick-carousel.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/i18n.js',
-    '@/plugins/permission.js'
+    '@/plugins/permission.js',
+    { src: '@/plugins/aos.js', ssr: false },
+    '@/plugins/vue-slick-carousel.js'
   ],
 
   // middleware route

@@ -431,9 +431,8 @@ a {
   }
 }
 
-.home {
-  padding: 40px 60px;
-  max-width: 1160px;
+.home, .home-auth {
+  //max-width: 1160px;
   margin: auto;
   img {
     object-fit: cover;
@@ -443,9 +442,14 @@ a {
   // .el-button--danger:hover {
   //   background-color: $color-red-primary-600;
   // }
-  min-height: calc(100vh - 157px - 80px - 2 * 40px);
+  min-height: calc(100vh - 157px - 80px);
   //min-height: calc(100vh - 482px - 64px);
   //margin: 0 0 45px;
+}
+
+.home-auth {
+  padding: 40px 60px;
+  min-height: calc(100vh - 157px - 80px - 2 * 40px);
 }
 
 .home_background {

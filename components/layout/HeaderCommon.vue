@@ -9,8 +9,8 @@
           <span class="title_nav">{{ $t('header.partner') }}</span>
         </div>
         <div class="header_right">
-          <span class="title_nav">{{ $t('header.login') }}</span>
-          <el-button class="btn_register title_nav">
+          <span class="title_nav" @click="$router.push('/login')">{{ $t('header.login') }}</span>
+          <el-button class="btn_register title_nav" @click="$router.push('/register')">
             {{ $t('header.register') }}
           </el-button>
 
