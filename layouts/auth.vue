@@ -3,7 +3,7 @@
     <client-only>
       <HeaderCommonAuth/>
       <NotificationBlock/>
-      <div class="home">
+      <div class="home-auth">
         <nuxt/>
       </div>
       <LoadingBar/>
