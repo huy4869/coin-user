@@ -1,5 +1,5 @@
 <template>
-  <div class="main-login">
+  <div class="main-login" style="margin: 31px 0 0 71px">
     <div>
       <div class="login login-width login-mobile">
         <h3 class="title">{{ $t('account.login_title') }}</h3>
@@ -92,7 +92,7 @@ import { validEmail } from '@/utils/validate'
 export default {
   name: 'LoginPage',
   layout: 'auth',
-  // middleware: 'auth-guard',
+  middleware: 'auth-guard',
   data() {
     const validdateEmail = (rule, value, callback) => {
       if (!validEmail(value)) {
@@ -162,7 +162,7 @@ export default {
   },
   computed: {
     disabledButton() {
-      return this.accountForm.email === '' || this.accountForm.password === '' || this.captcha === ''
+      return this.accountForm.email === '' || this.accountForm.password === ''
     }
   },
   methods: {
@@ -188,10 +188,10 @@ export default {
       }
       try {
         this.$store.commit(INDEX_SET_LOADING, true)
-        // const token = await this.$recaptcha.getResponse()
-        // if (this.captcha == null || this.captcha !== token.toString()) {
-        //   this.captcha = token.toString()
-        // }
+        const token = await this.$recaptcha.getResponse()
+        if (this.captcha == null || this.captcha !== token.toString()) {
+          this.captcha = token.toString()
+        }
         const dto = {
           email: this.accountForm.email,
           password: this.accountForm.password,
