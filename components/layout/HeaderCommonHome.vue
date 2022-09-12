@@ -2,7 +2,13 @@
   <div>
     <div class="header header_home">
       <div class="container-header">
-        <div class="header_left"></div>
+        <div class="header_left">
+          <div class="token_div">
+            <img src="~/assets/images/icons/logo_token.svg" alt="" class="w-100">
+            <span class="token_title">{{ $t('header.token', { v: user ? user.coin : 0 }) }}</span>
+          </div>
+          <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
+        </div>
         <div class="header_right">
 
           <el-dropdown class="cursor-pointer d-flex lang_div" trigger="click" placement="bottom-start">
@@ -28,16 +34,31 @@
         </div>
       </div>
     </div>
+    <el-dialog
+      :center="true" :close-on-click-modal="false" :destroy-on-close="true"
+      :show-close="true" :visible.sync="receiveModal" class="dialog-deposit">
+      <modal-deposit
+        :address="address"
+        :memo="user.memo"
+        @close="closeReceive()"/>
+    </el-dialog>
   </div>
 
 </template>
 <script>
 import { mapGetters, mapState } from 'vuex'
-import { AUTH_LOGOUT, INDEX_SET_LOADING, SET_LANGUAGE } from '@/store/store.const'
+import {
+  AUTH_LOGOUT,
+  INDEX_SET_ERROR,
+  INDEX_SET_LOADING,
+  SET_LANGUAGE,
+  USER_GET_SYSTEM_WALLET
+} from '@/store/store.const'
+import ModalDeposit from '@/components/modals/modal-deposit'
 
 export default {
   name: 'HeaderCommonHome',
-  components: {},
+  components: { ModalDeposit },
   computed: {
     ...mapGetters([
       'sidebar',
@@ -53,8 +74,9 @@ export default {
       keyword: '',
       showModal: false,
       hideModal: false,
-      cartCount: 0,
-      user: {},
+      receiveModal: false,
+      user: this.$auth.user,
+      address: '',
       listLanguage: [
         {
           id: 1,
@@ -81,12 +103,8 @@ export default {
     }
   },
   watch: {},
-  async created() {
-    if (this.$auth.loggedIn) {
-      await this.fetchData()
-    }
-  },
-  mounted() {
+  async mounted() {
+    await this.init()
   },
   methods: {
     async logout() {
@@ -99,7 +117,10 @@ export default {
       }
       this.$store.commit(INDEX_SET_LOADING, false)
     },
-    fetchData() {
+    async init() {
+      await this.$store.commit(INDEX_SET_LOADING, true)
+      await this.getSystemWallet()
+      await this.$store.commit(INDEX_SET_LOADING, false)
     },
     changeLanguage(language) {
       if (this.$i18n.locale !== language.lang) {
@@ -112,6 +133,33 @@ export default {
     },
     redirect(url) {
       this.$router.push(url)
+    },
+    closeReceive() {
+      this.receiveModal = false
+    },
+    async openReceive() {
+      await this.getSystemWallet()
+      this.receiveModal = true
+    },
+    async getSystemWallet() {
+      try {
+        const data = await this.$store.dispatch(USER_GET_SYSTEM_WALLET)
+        switch (data.status_code) {
+          case 200:
+            this.address = data.data.address
+            break
+          case 422:
+            for (const [key] of Object.entries(data.data)) {
+              this.error = { key, value: data.data[key][0] }
+            }
+            break
+          default:
+            this.$store.commit(INDEX_SET_ERROR, { show: true, text: data.message })
+            break
+        }
+      } catch (err) {
+        this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
+      }
     }
   }
 }

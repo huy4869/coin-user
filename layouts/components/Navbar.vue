@@ -38,12 +38,6 @@ export default {
   components: {
     Hamburger
   },
-  computed: {
-    ...mapGetters([
-      'sidebar',
-      'device'
-    ])
-  },
   data() {
     return {
       user: this.$auth.user,
@@ -67,6 +61,12 @@ export default {
         icon: require('~/assets/images/english.svg')
       }
     }
+  },
+  computed: {
+    ...mapGetters([
+      'sidebar',
+      'device'
+    ])
   },
   methods: {
     toggleSideBar() {
@@ -100,6 +100,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "assets/scss/variables";
+
 .navbar {
   height: 50px;
   overflow: hidden;

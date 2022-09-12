@@ -531,3 +531,14 @@ a.color-red:hover {
 .oc-0 {
   opacity: 0;
 }
+
+.el-input__suffix {
+  right: 10px;
+}
+
+.el-input__suffix-inner {
+  pointer-events: all;
+  align-items: center;
+  text-align: center;
+  display: flex;
+}
