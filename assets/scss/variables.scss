@@ -25,6 +25,7 @@ $color-dark-functional-400: #7b8799;
 $color-dark-functional-500: #465773;
 $color-dark-functional-600: #11284d;
 $color-dark-orange: #FFC85E;
+$color-blue-primary: #002337;
 
 //color-primary
 $color-white: #ffffff;
@@ -41,14 +42,17 @@ $color-text: #A0A3BD;
 $color-text-disable: #7B8799;
 $color-placeholder: #555555;
 $color-text-4: #828B92;
+$color-text-5: #CDD1D5;
 
 //fonts
 // $font-root: 'Noto Serif';
 $font-mont: 'Montserrat', sans-serif;
+$font-rale: 'Raleway', sans-serif;
 
 $color-btn-hover: #CA0124;
 $color-btn-active: #CA0124;
 $color-btn-disable: #CA0124;
+$color-border-sidebar: #555555;
 
 //fonts
 $fonts-root: 'Montserrat';
@@ -56,7 +60,32 @@ $fonts-root: 'Montserrat';
 //bg-color
 $color-bg-navbar: #091124;
 
+//height
+$height-header-home: 72px;
+
 //width
 $max-width-header: 1280px;
 $max-width: 1280px;
 $max-width-system-div: 800px;
+
+$menuText: #bfcbd9;
+$menuActiveText: #FFC85E;
+$subMenuActiveText: #f4f4f5;
+
+$menuBg: #002337;
+
+$subMenuBg: #002337;
+
+$sideBarWidth: 250px;
+
+:export {
+  menuText: $color-white;
+  menuActiveText: $color-dark-orange;
+  subMenuActiveText: $color-dark-orange;
+  menuBg: $color-blue-primary;
+  menuHover: $color-dark-orange;
+  subMenuBg: $color-dark-orange;
+  subMenuHover: $color-dark-orange;
+  sideBarWidth: $color-blue-primary;
+}
+

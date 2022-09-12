@@ -23,12 +23,16 @@
             <span class="eco_title title--glitch" :data-text="$t('landing.eco')">{{ $t('landing.eco') }}</span>
           </div>
           <div class="eco_content_div" data-aos="fade-up-right" data-aos-duration="1500">
-            <a href="https://www.chiliz.net/" target="_blank"><img src="~/assets/images/eco1.png" alt="" class="eco_img"></a>
+            <a href="https://www.chiliz.net/" target="_blank"><img src="~/assets/images/eco1.png" alt=""
+                                                                   class="eco_img"></a>
             <div class="download">
-              <a href="https://play.google.com/store/apps/details?id=net.chiliz.broker.android" target="_blank"><img src="~/assets/images/chplay.png" alt="" class="eco_img"></a>
-              <a href="https://apps.apple.com/vn/app/chiliz-exchange/id1493980225" target="_blank"><img src="~/assets/images/ios.png" alt="" class="eco_img"></a>
+              <a href="https://play.google.com/store/apps/details?id=net.chiliz.broker.android" target="_blank"><img
+                src="~/assets/images/chplay.png" alt="" class="eco_img"></a>
+              <a href="https://apps.apple.com/vn/app/chiliz-exchange/id1493980225" target="_blank"><img
+                src="~/assets/images/ios.png" alt="" class="eco_img"></a>
             </div>
-            <a href="https://www.socios.com/" target="_blank"><img src="~/assets/images/eco2.png" alt="" class="eco_img"></a>
+            <a href="https://www.socios.com/" target="_blank"><img src="~/assets/images/eco2.png" alt=""
+                                                                   class="eco_img"></a>
             <img src="~/assets/images/eco3.png" alt="" class="eco_img">
           </div>
         </div>
@@ -160,6 +164,7 @@
 
 export default {
   name: 'IndexPage',
+  layout: 'home',
   data() {
     return {
       slickOptions1: {},
