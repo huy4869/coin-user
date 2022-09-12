@@ -431,7 +431,7 @@ a {
   }
 }
 
-.home, .home-auth {
+.home, .home-auth, .home-sidebar {
   //max-width: 1160px;
   margin: auto;
   img {
@@ -450,6 +450,10 @@ a {
 .home-auth {
   padding: 40px 60px;
   min-height: calc(100vh - 157px - 80px - 2 * 40px);
+}
+.home-sidebar {
+  padding: 40px 60px;
+  min-height: calc(100vh - 157px - $height-header-home - 2 * 40px);
 }
 
 .home_background {
