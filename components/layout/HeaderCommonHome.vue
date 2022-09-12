@@ -1,0 +1,118 @@
+<template>
+  <div>
+    <div class="header header_home">
+      <div class="container-header">
+        <div class="header_left"></div>
+        <div class="header_right">
+
+          <el-dropdown class="cursor-pointer d-flex lang_div" trigger="click" placement="bottom-start">
+            <span class="img_lang">
+              <img class="image-language" :src="languageActive.icon" alt="">
+              <img class="image-dropdown" src="~/assets/images/icons/arrow_down.svg" alt="">
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu class="dropdown-language">
+                <el-dropdown-item v-for="(language, index) in listLanguage" :key="index" :command="index">
+                  <div class="select-language d-flex" @click="changeLanguage(language)">
+                    <img :src="language.icon" alt="">
+                    <div class="language-name pd-l-10">{{ language.name }}</div>
+                  </div>
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+          <div class="logout_div" @click="logout">
+            <img src="~/assets/images/icons/logout.svg" alt="" class="img_logout">
+            <span class="logout_title">{{ $t('header.logout') }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+<script>
+import { mapGetters, mapState } from 'vuex'
+import { AUTH_LOGOUT, INDEX_SET_LOADING, SET_LANGUAGE } from '@/store/store.const'
+
+export default {
+  name: 'HeaderCommonHome',
+  components: {},
+  computed: {
+    ...mapGetters([
+      'sidebar',
+      'device'
+    ]),
+    ...mapState('authentication', {
+      resetCartState: state => state.resetCartState,
+      openModalLoginState: state => state.openModalLoginState
+    })
+  },
+  data() {
+    return {
+      keyword: '',
+      showModal: false,
+      hideModal: false,
+      cartCount: 0,
+      user: {},
+      listLanguage: [
+        {
+          id: 1,
+          name: 'English',
+          lang: 'en',
+          icon: require('~/assets/images/english.svg')
+        },
+        {
+          id: 2,
+          name: 'Tiếng Việt',
+          lang: 'vi',
+          icon: require('~/assets/images/vietnam.svg')
+        }
+      ],
+      languageActive: {
+        id: 1,
+        name: 'English',
+        icon: require('~/assets/images/english.svg')
+      },
+      modalLogin: false,
+      modalState: 'login',
+      titleRegister: this.$t('register_account'),
+      titleForgot: this.$t('modal_login.send_forgot_password')
+    }
+  },
+  watch: {},
+  async created() {
+    if (this.$auth.loggedIn) {
+      await this.fetchData()
+    }
+  },
+  mounted() {
+  },
+  methods: {
+    async logout() {
+      this.$store.commit(INDEX_SET_LOADING, true)
+      await this.$auth.logout()
+      try {
+        await this.$store.dispatch(AUTH_LOGOUT)
+        this.$router.push('/')
+      } catch (e) {
+      }
+      this.$store.commit(INDEX_SET_LOADING, false)
+    },
+    fetchData() {
+    },
+    changeLanguage(language) {
+      if (this.$i18n.locale !== language.lang) {
+        this.$i18n.locale = language.lang
+        this.languageActive = language
+        this.$store.commit(SET_LANGUAGE, language.lang)
+        this.$cookies.set('lang', language.lang)
+        // window.location.reload()
+      }
+    },
+    redirect(url) {
+      this.$router.push(url)
+    }
+  }
+}
+</script>

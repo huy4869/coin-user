@@ -40,7 +40,7 @@
     }
 
     .header_right {
-      gap: 24px;
+      gap: 30px;
 
       .btn_register span {
         padding: 10px;
@@ -57,8 +57,40 @@
           }
         }
       }
+
+      .logout_div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+
+        &:hover {
+          img {
+            content: url("assets/images/icons/logout_active.svg");
+          }
+
+          span {
+            color: $color-red-primary;
+          }
+        }
+
+        .logout_title {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 20px;
+          align-items: center;
+
+        }
+      }
     }
   }
+}
+
+.header_home {
+  height: $height-header-home;
+  box-shadow: unset;
 }
 
 .language-name {

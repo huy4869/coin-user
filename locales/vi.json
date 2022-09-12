@@ -31,8 +31,7 @@
     "here": "tại đây",
     "forgot_title": "Vui lòng nhập email của bạn đã được đăng ký",
     "send": "Gửi",
-    "back": "Quay về",
-    "home": "trang chủ.",
+    "back": "Quay về trang chủ",
     "reset": "Đặt lại"
   },
   "register": {
@@ -94,5 +93,15 @@
     "reqCode2": "{time} giây.",
     "resendCode": "Gửi lại mã",
     "error": "Mã không hợp lệ"
+  },
+  "noti": {
+    "success": "Thành công",
+    "send_mail_forgot": "Liên kết đặt lại mật khẩu đã được gửi. ",
+    "send_mail_forgot_sub": "Vui lòng kiểm tra email của bạn và kiểm tra liên kết đặt lại mật khẩu.",
+    "reset_success": "Đặt lại mật khẩu thành công.",
+    "empty": "Không có dữ liệu",
+    "register_success": "Đăng ký thành công",
+    "buy_success": "Mua gói thành công",
+    "ok": "Đồng ý"
   }
 }

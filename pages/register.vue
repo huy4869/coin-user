@@ -1,5 +1,5 @@
 <template>
-  <div class="main-login" style="margin: 84px auto">
+  <div class="main-login">
     <div>
       <div class="login login-width login-mobile">
         <h3 v-if="step===1" class="title">{{ $t('register.title') }}</h3>
@@ -44,7 +44,7 @@
               @focus="resetValidate('email')"
             />
           </el-form-item>
-          <el-form-item :label="$t('register.phone')" prop="phone">
+          <el-form-item :label="$t('register.phone')" prop="phone" :error="getErrResponse('phone')">
             <el-input
               ref="phone"
               v-model.trim="accountForm.phone"
@@ -108,12 +108,11 @@
             <span>Please use BNB Smart Chain wallet (BEP20) to register an account. This wallet address will be used for deposit.</span>
           </div>
           <!--  -->
-          <el-form-item :label="$t('register.wallet_address')" prop="wallet_address">
+          <el-form-item :label="$t('register.wallet_address')" prop="wallet_address" :error="getErrResponse('wallet_address')">
             <el-input
               ref="wallet_address"
               v-model.trim="accountForm.wallet_address"
               :placeholder="$t('register.wallet_address')"
-              :error="getErrResponse('wallet_address')"
               name="wallet_address"
               type="text"
               tabindex="6"
@@ -121,12 +120,11 @@
               @focus="resetValidate('wallet_address')"
             />
           </el-form-item>
-          <el-form-item :label="$t('register.memo')" prop="memo">
+          <el-form-item :label="$t('register.memo')" prop="memo" :error="getErrResponse('memo')">
             <el-input
               ref="memo"
               v-model.trim="accountForm.memo"
               :placeholder="$t('register.memo')"
-              :error="getErrResponse('memo')"
               name="memo"
               type="text"
               tabindex="7"
@@ -134,7 +132,19 @@
               @focus="resetValidate('memo')"
             />
           </el-form-item>
-          <!-- <el-form-item class="captcha" :error="getErrResponse('g-recaptcha-response')" prop="captcha">
+          <el-form-item :label="$t('register.referral_code')" prop="invite_code" :error="getErrResponse('invite_code')">
+            <el-input
+              ref="referral_code"
+              v-model.trim="accountForm.invite_code"
+              :placeholder="$t('register.referral_code')"
+              name="invite_code"
+              type="text"
+              tabindex="8"
+              maxlength="20"
+              @focus="resetValidate('invite_code')"
+            />
+          </el-form-item>
+          <el-form-item class="captcha" :error="getErrResponse('g-recaptcha-response')" prop="captcha">
             <template>
               <recaptcha
                 ref="captcha"
@@ -143,7 +153,7 @@
                 @expired="onExpired"
               />
             </template>
-          </el-form-item> -->
+          </el-form-item>
           <el-form-item>
             <div :class="{'disabled' : disabledButton, 'common-button': 'common-button'}">
               <el-button
@@ -175,7 +185,7 @@ export default {
   name: 'RegisterPage',
   components: { OtpPage },
   layout: 'auth',
-  // middleware: 'auth-guard',
+  middleware: 'auth-guard',
   data() {
     const validdateEmail = (rule, value, callback) => {
       if (!validEmail(value)) {
@@ -206,13 +216,13 @@ export default {
         callback()
       }
     }
-    // const validateCaptcha = (rule, value, callback) => {
-    //   if (this.captcha == null || !this.captcha) {
-    //     callback(new Error(this.$t('validation.captcha_req')))
-    //   } else {
-    //     callback()
-    //   }
-    // }
+    const validateCaptcha = (rule, value, callback) => {
+      if (this.captcha == null || !this.captcha) {
+        callback(new Error(this.$t('validation.captcha_req')))
+      } else {
+        callback()
+      }
+    }
     const validPhoneNumber = (rule, value, callback) => {
       if (!validPhoneNoPrefix(value)) {
         callback(new Error(this.$t('validation.phone')))
@@ -235,6 +245,7 @@ export default {
         password_confirmation: '',
         wallet_address: '',
         memo: '',
+        invite_code: this.$route.params.code ? this.$route.params.code : '',
         errors: {}
       },
       errorResponse: [],
@@ -301,12 +312,12 @@ export default {
             trigger: 'blur'
           },
           { validator: validPhoneNumber, trigger: 'blur' }
+        ],
+        captcha: [
+          {
+            validator: validateCaptcha, trigger: 'blur'
+          }
         ]
-        // captcha: [
-        //   {
-        //     validator: validateCaptcha, trigger: 'blur'
-        //   }
-        // ]
       },
       valid: false,
       loading: false,
@@ -328,8 +339,7 @@ export default {
         return
       }
       return this.accountForm.email === '' || this.accountForm.password === '' ||
-        this.accountForm.password_confirmation === ''
-      // || this.captcha === ''
+        this.accountForm.password_confirmation === '' || this.captcha === ''
     }
   },
   watch: {
@@ -474,11 +484,11 @@ export default {
       }
       try {
         await this.$store.commit(INDEX_SET_LOADING, true)
-        // if (this.captcha == null || !this.captcha) {
-        //   const token = await this.$recaptcha.getResponse()
-        //   this.captcha = token.toString()
-        // }
-        const dto = {
+        if (this.captcha == null || !this.captcha) {
+          const token = await this.$recaptcha.getResponse()
+          this.captcha = token.toString()
+        }
+        let dto = {
           name: this.accountForm.name,
           email: this.accountForm.email,
           password: this.accountForm.password,
@@ -486,6 +496,9 @@ export default {
           memo: this.accountForm.memo,
           wallet_address: this.accountForm.wallet_address,
           phone: this.accountForm.phone
+        }
+        if (this.accountForm.invite_code != null && this.accountForm.invite_code !== '') {
+          dto = { ...dto, invite_code: this.accountForm.invite_code }
         }
         const data = await this.$store.dispatch(AUTH_REGISTER, {
           ...dto,

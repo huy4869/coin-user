@@ -26,5 +26,30 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.post('/auth/verify-register', data), context)
     })
+  },
+  resendOtp(context, data) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post('auth/resend-otp', data), context)
+    })
+  },
+  sendEmailForgot(context, data) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post('auth/forgot-password', data), context)
+    })
+  },
+  resetPass(context, data) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post('auth/reset-password', data), context)
+    })
+  },
+  checkToken(context, data) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post('auth/check-token', data), context)
+    })
+  },
+  logout(context) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post('auth/logout'), context)
+    })
   }
 }

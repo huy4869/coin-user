@@ -5,7 +5,8 @@
     "product": "Product",
     "partner": "Partners",
     "login": "Log in",
-    "register": "Register"
+    "register": "Register",
+    "logout": "Sign out"
   },
   "footer": {
     "copyright": "© Copyright 2022. All Rights Reserved"
@@ -17,7 +18,7 @@
     "capcha": "Captcha Code",
     "no_account": " Do not have an account?",
     "remember_me": " Remember me",
-    "forgot_password": " Forget password?",
+    "forgot_password": " Forgot password?",
     "login": " Sign in",
     "password_new_confirmation": " Confirm New Password",
     "password_confirmation": " Confirm Password",
@@ -25,7 +26,7 @@
     "register": "Sign up",
     "set_password": "Set Password",
     "new_password": "New Password",
-    "reset_password": " Reset Password",
+    "reset_password": " Forgot Password",
     "security_verification": " Security verification",
     "secure_your_account": " To secure your account, please complete the following verification.",
     "phoneNumber": "Phone number",
@@ -34,11 +35,16 @@
     "current_pass": "Recently Password",
     "reset_pass": "SEND",
     "here": "here",
-    "pre_phone": "Code sent by phone"
+    "forgot_title": "Please enter your registered email",
+    "send": "Send",
+    "back": "Back to home page",
+    "pre_phone": "Code sent by phone",
+    "reset": "Save"
   },
   "register": {
     "preAgree": " I agree with",
     "and": " and ",
+    "referral_code": " Referral Code",
     "term": " Terms & Conditions",
     "policy": " Privacy Policy",
     "back_signin": "Back to sign in",
@@ -51,6 +57,7 @@
     "memo": "BNB Memo"
   },
   "forgot_password": {
+    "title": "Forgot Password",
     "sub_title": "Please enter your email that has been registered",
     "sent_notify": "Password reset link has been sent",
     "check_mail": "Please check your email and check the password reset link"
@@ -98,5 +105,22 @@
     "p2": "Predict the champion team",
     "p3": "Jackpot",
     "partner": "Our partners"
+  },
+
+  "home": {
+    "home": "Home",
+    "team": "My team"
+  },
+  "noti": {
+    "success": "Thành công",
+    "send_mail_forgot": "Password reset link sent. ",
+    "send_mail_forgot_sub": "Please check your email and check the password reset link.",
+    "reset_success": "You have successfully reset your password.",
+    "empty": "Không có dữ liệu",
+    "register_success": "Register successful",
+    "ok": "OK"
+  },
+  "message": {
+    "message_error": "Something Went Wrong"
   }
 }
