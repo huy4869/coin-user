@@ -1,0 +1,45 @@
+.dialog-deposit {
+  .el-dialog {
+    box-sizing: border-box;
+    border: 1px solid $color-border-sidebar;
+    border-radius: 8px;
+    background: $color-bg-navbar;
+    max-width: 500px;
+
+    .el-dialog__body {
+      padding: 20px 25px 30px;
+      color: $color-white;
+    }
+  }
+}
+
+.el-dialog__header {
+  display: none;
+}
+
+.deposit_component {
+  position: relative;
+
+  .close_img {
+    position: absolute;
+    top: -15px;
+    right: -5px;
+    cursor: pointer;
+  }
+
+  .modal-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .sub-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: $color-text-6;
+  }
+}

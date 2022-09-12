@@ -91,6 +91,35 @@
 .header_home {
   height: $height-header-home;
   box-shadow: unset;
+
+  .container-header {
+
+    .header_left {
+      gap: 24px;
+      .token_div {
+        border: 1px solid $color-border-sidebar;
+        border-radius: 8px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 10px;
+
+        .token_title {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+
+      .btn_receive {
+        padding: 12px 17px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+  }
 }
 
 .language-name {

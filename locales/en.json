@@ -1,12 +1,17 @@
 {
   "lang": "language",
+  "common": {
+    "confirm": "Confirm"
+  },
   "header": {
     "eco": "Eco System",
     "product": "Product",
     "partner": "Partners",
     "login": "Log in",
     "register": "Register",
-    "logout": "Sign out"
+    "logout": "Sign out",
+    "token": "{v} CHZ",
+    "receive": "Receive"
   },
   "footer": {
     "copyright": "© Copyright 2022. All Rights Reserved"
@@ -106,10 +111,18 @@
     "p3": "Jackpot",
     "partner": "Our partners"
   },
-
   "home": {
     "home": "Home",
     "team": "My team"
+  },
+  "deposit": {
+    "title": "Receive",
+    "direct_title": "BNB Smart Chain (BEP20)",
+    "direct1": "Send CHZ tokens to this correct wallet address. Sending another token may cause you to lose your token.",
+    "direct2": "After send token to wallet , you can click \"confirm\" button for speed up or wait a few minute.",
+    "address": "Wallet address",
+    "memo": "Memo",
+    "confirm": "Confirm"
   },
   "noti": {
     "success": "Thành công",
@@ -118,7 +131,8 @@
     "reset_success": "You have successfully reset your password.",
     "empty": "Không có dữ liệu",
     "register_success": "Register successful",
-    "ok": "OK"
+    "ok": "OK",
+    "copy_success": "Sao chép thành công!"
   },
   "message": {
     "message_error": "Something Went Wrong"
