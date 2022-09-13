@@ -1,8 +1,14 @@
 <template>
-  <div class="main-login">
+  <div class="main-setting" style="display: flex">
     <div>
+      <el-button :class="{'active' : !isChangePass}" class="btn_common" @click="showChangePass(false)">{{ $t('account.setting') }}</el-button>
+      <br>
+      <el-button :class="{'active' : isChangePass}" class="btn_common" @click="showChangePass(true)">{{ $t('account.change_pass') }}</el-button>
+    </div>
+    <div class="main-login" style="margin: 0 auto">
       <div class="login login-width login-mobile">
-        <h3 class="title">{{ $t('account.setting') }}</h3>
+        <h3 v-if="!isChangePass" class="title">{{ $t('account.setting') }}</h3>
+        <h3 v-else class="title">{{ $t('account.change_pass') }}</h3>
         <el-form
           ref="accountForm"
           :model="accountForm"
@@ -10,105 +16,107 @@
           label-position="left"
           @keyup.enter.native="update"
         >
-          <el-form-item
-            class="email-login"
-            :label="$t('register.name')"
-            prop="name"
-            :error="getErrResponse('name')">
-            <el-input
-              ref="name"
-              v-model="accountForm.name"
-              :placeholder="$t('register.name')"
-              name="name"
-              type="text"
-              tabindex="1"
-              maxlength="50"
-              @focus="resetValidate('name')"
-            />
-          </el-form-item>
-          <el-form-item
-            class="email-login"
-            :label="$t('register.email')"
-            prop="email"
-            :error="getErrResponse('email')">
-            <el-input
-              ref="email"
-              v-model.trim="accountForm.email"
-              :placeholder="$t('register.email')"
-              name="email"
-              type="text"
-              tabindex="2"
-              maxlength="50"
-              @focus="resetValidate('email')"
-            />
-          </el-form-item>
-          <el-form-item :label="$t('register.phone')" prop="phone" :error="getErrResponse('phone')">
-            <el-input
-              ref="phone"
-              v-model.trim="accountForm.phone"
-              :placeholder="$t('register.phone')"
-              name="phone"
-              type="text"
-              tabindex="3"
-              maxlength="12"
-              @focus="resetValidate('phone')"
-            />
-          </el-form-item>
-          <el-form-item :label="$t('register.referral_code')" prop="invite_code" :error="getErrResponse('invite_code')">
-            <el-input
-              ref="referral_code"
-              v-model.trim="accountForm.invite_code"
-              :placeholder="$t('register.referral_code')"
-              name="invite_code"
-              disabled
-              type="text"
-              tabindex="8"
-              maxlength="20"
-              @focus="resetValidate('invite_code')"
-            />
-          </el-form-item>
+          <div :class="{change_pass: isChangePass}">
+            <el-form-item
+              class="email-login"
+              :label="$t('register.name')"
+              prop="name"
+              :error="getErrResponse('name')">
+              <el-input
+                ref="name"
+                v-model="accountForm.name"
+                :placeholder="$t('register.name')"
+                name="name"
+                type="text"
+                tabindex="1"
+                maxlength="50"
+                @focus="resetValidate('name')"
+              />
+            </el-form-item>
+            <el-form-item
+              class="email-login"
+              :label="$t('register.email')"
+              prop="email"
+              :error="getErrResponse('email')">
+              <el-input
+                ref="email"
+                v-model.trim="accountForm.email"
+                :placeholder="$t('register.email')"
+                name="email"
+                type="text"
+                tabindex="2"
+                maxlength="50"
+                @focus="resetValidate('email')"
+              />
+            </el-form-item>
+            <el-form-item :label="$t('register.phone')" prop="phone" :error="getErrResponse('phone')">
+              <el-input
+                ref="phone"
+                v-model.trim="accountForm.phone"
+                :placeholder="$t('register.phone')"
+                name="phone"
+                type="text"
+                tabindex="3"
+                maxlength="12"
+                @focus="resetValidate('phone')"
+              />
+            </el-form-item>
+            <!-- <el-form-item :label="$t('register.referral_code')" prop="invite_code" :error="getErrResponse('invite_code')">
+              <el-input
+                ref="referral_code"
+                v-model.trim="accountForm.invite_code"
+                :placeholder="$t('register.referral_code')"
+                name="invite_code"
+                disabled
+                type="text"
+                tabindex="8"
+                maxlength="20"
+                @focus="resetValidate('invite_code')"
+              />
+            </el-form-item> -->
           <!--  -->
-          <hr class="line-through">
-          <!--  -->
-          <div class="d-flex align-items-center text-center" style="margin-top: 1.5rem">
-            <span class="bnb-title">
-              BNB Smart Chain (BEP20)
-            </span>
+            <hr class="line-through">
+            <!--  -->
+            <div class="d-flex align-items-center text-center" style="margin-top: 1.5rem">
+              <span class="bnb-title">
+                BNB Smart Chain (BEP20)
+              </span>
+            </div>
+            <div class="bnb-description">
+              <span>Please use BNB Smart Chain wallet (BEP20) to register an account. This wallet address will be used for deposit.</span>
+            </div>
+            <!--  -->
+            <el-form-item :label="$t('register.wallet_address')" prop="wallet_address" :error="getErrResponse('wallet_address')">
+              <el-input
+                ref="wallet_address"
+                v-model.trim="accountForm.wallet_address"
+                :placeholder="$t('register.wallet_address')"
+                name="wallet_address"
+                type="text"
+                tabindex="6"
+                disabled
+                maxlength="30"
+                @focus="resetValidate('wallet_address')"
+              />
+            </el-form-item>
+            <el-form-item :label="$t('register.memo')" prop="memo" :error="getErrResponse('memo')">
+              <el-input
+                ref="memo"
+                v-model.trim="accountForm.memo"
+                :placeholder="$t('register.memo')"
+                name="memo"
+                disabled
+                type="text"
+                tabindex="7"
+                maxlength="30"
+                @focus="resetValidate('memo')"
+              />
+            </el-form-item>
           </div>
-          <div class="bnb-description">
-            <span>Please use BNB Smart Chain wallet (BEP20) to register an account. This wallet address will be used for deposit.</span>
-          </div>
           <!--  -->
-          <el-form-item :label="$t('register.wallet_address')" prop="wallet_address" :error="getErrResponse('wallet_address')">
-            <el-input
-              ref="wallet_address"
-              v-model.trim="accountForm.wallet_address"
-              :placeholder="$t('register.wallet_address')"
-              name="wallet_address"
-              type="text"
-              tabindex="6"
-              disabled
-              maxlength="30"
-              @focus="resetValidate('wallet_address')"
-            />
-          </el-form-item>
-          <el-form-item :label="$t('register.memo')" prop="memo" :error="getErrResponse('memo')">
-            <el-input
-              ref="memo"
-              v-model.trim="accountForm.memo"
-              :placeholder="$t('register.memo')"
-              name="memo"
-              disabled
-              type="text"
-              tabindex="7"
-              maxlength="30"
-              @focus="resetValidate('memo')"
-            />
-          </el-form-item>
-          <!--  -->
-          <div class="d-flex align-items-center text_link">
+          <!-- <div class="d-flex align-items-center text_link">
             <div class="here" @click="showChangePass()">{{ $t('account.change_pass') }}</div>
-          </div>
+          </div> -->
           <div :class="{change_pass: !isChangePass}">
             <el-form-item
               class="email-login" :label="$t('account.current_pass')" prop="password"
@@ -264,7 +272,7 @@ export default {
         new_password_confirmation: '',
         wallet_address: this.$auth.user.wallet_address,
         memo: this.$auth.user.memo,
-        invite_code: this.$auth.user.invite_code ? this.$route.params.invite_code : '',
+        invite_code: this.$auth.user.invite_code ? this.$auth.user.invite_code : '',
         errors: {}
       },
       error: {
@@ -349,8 +357,8 @@ export default {
     handeRegister() {
       this.$router.push('/register')
     },
-    showChangePass() {
-      this.isChangePass = !this.isChangePass
+    showChangePass(option) {
+      this.isChangePass = option
       this.accountForm.password = ''
       this.accountForm.new_password = ''
       this.accountForm.new_password_confirmation = ''
