@@ -130,11 +130,22 @@
     // text-decoration: underline
   }
 }
-
+.text_link{
+  margin: 40px 0 20px 0;
+  .here {
+    cursor: pointer;
+    color: $color-red-primary;
+    text-decoration: underline
+  }
+}  
 .common-button {
   margin-bottom: 20px;
 
   .el-button {
     width: 100%;
   }
+}
+
+.change_pass {
+  display: none;
 }
