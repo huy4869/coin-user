@@ -5,14 +5,16 @@
         <div class="header_left">
           <img src="~/assets/images/logo_header.png" alt="" class="logo_header" @click="redirect('/')">
           <span class="title_nav">{{ $t('header.eco') }}</span>
-          <span class="title_nav">{{ $t('header.product') }}</span>
+          <span class="title_nav" @click="$router.push('/home')">{{ $t('header.product') }}</span>
           <span class="title_nav">{{ $t('header.partner') }}</span>
         </div>
         <div class="header_right">
-          <span class="title_nav" @click="$router.push('/login')">{{ $t('header.login') }}</span>
-          <el-button class="btn_register title_nav" @click="$router.push('/register')">
-            {{ $t('header.register') }}
-          </el-button>
+          <template v-if="!$auth.loggedIn">
+            <span class="title_nav" @click="$router.push('/login')">{{ $t('header.login') }}</span>
+            <el-button class="btn_register title_nav" @click="$router.push('/register')">
+              {{ $t('header.register') }}
+            </el-button>
+          </template>
 
           <el-dropdown class="cursor-pointer d-flex lang_div" trigger="click" placement="bottom-start">
             <span class="img_lang">
@@ -31,6 +33,10 @@
             </template>
           </el-dropdown>
 
+          <div v-if="$auth.loggedIn" class="logout_div" @click="logout">
+            <img src="~/assets/images/icons/logout.svg" alt="" class="img_logout">
+            <span class="logout_title">{{ $t('header.logout') }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -95,6 +101,7 @@ export default {
       await this.$auth.logout()
       try {
         await this.$store.dispatch(AUTH_LOGOUT)
+        this.$router.push('/')
       } catch (e) {
       }
       this.$store.commit(INDEX_SET_LOADING, false)

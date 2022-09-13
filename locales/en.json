@@ -136,5 +136,16 @@
   },
   "message": {
     "message_error": "Something Went Wrong"
+  },
+  "profile": {
+    "title": "account",
+    "address": "Wallet address",
+    "referral": "Your Referral ID",
+    "link": "Your referral link",
+    "note_title": "Note",
+    "note1": "Share the link and invite  your friend to Chiliz Meta Zone to build your team. ",
+    "note2": "Share your referral/affiliate ID with a friend who doesn't have an account.",
+    "note3": "Referred person must register an account and use the system to count as a successful referral.",
+    "product": "product"
   }
 }

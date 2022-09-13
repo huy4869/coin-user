@@ -7,20 +7,20 @@
         <nuxt/>
       </div>
       <LoadingBar/>
-      <FooterCommonAuth/>
+      <FooterCommonHome/>
     </client-only>
   </div>
 </template>
 
 <script>
 import HeaderCommonAuth from '../components/layout/HeaderCommonAuth'
-import FooterCommonAuth from '../components/layout/FooterCommonAuth'
 import LoadingBar from '../components/LoadingBar'
 import NotificationBlock from '../components/block-ui/NotificationBlock'
+import FooterCommonHome from '@/components/layout/FooterCommonHome'
 
 export default {
   name: 'AuthLayout',
-  components: { HeaderCommonAuth, FooterCommonAuth, LoadingBar, NotificationBlock },
+  components: { FooterCommonHome, HeaderCommonAuth, LoadingBar, NotificationBlock },
   mounted() {
     // this.$store.commit(INDEX_SET_LOADING, true)
   }

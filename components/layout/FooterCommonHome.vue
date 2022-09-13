@@ -1,25 +1,5 @@
 <template>
   <div class="footer footer_home">
-    <div class="container-footer container-footer-auth">
-      <div class="content">
-        <div class="footer-left">
-          <img src="~/assets/images/logo_header.png" alt="" class="img_footer"
-               @click="$router.push('/')">
-          <div class="hr"></div>
-          <span class="title_nav_footer">{{ $t('header.eco') }}</span>
-          <span class="title_nav_footer">{{ $t('header.product') }}</span>
-          <span class="title_nav_footer">{{ $t('header.partner') }}</span>
-        </div>
-        <div class="footer-right">
-          <img src="~/assets/images/icons/footer/face.svg" alt="">
-          <img src="~/assets/images/icons/footer/twiiter.svg" alt="">
-          <img src="~/assets/images/icons/footer/telegram.svg" alt="">
-          <img src="~/assets/images/icons/footer/medium.svg" alt="">
-          <img src="~/assets/images/icons/footer/discord.svg" alt="">
-          <img src="~/assets/images/icons/footer/reddit.svg" alt="">
-        </div>
-      </div>
-    </div>
     <div class="footer-bottom">
       <span>{{ $t('footer.copyright') }}</span>
     </div>
