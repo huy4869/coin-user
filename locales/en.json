@@ -44,6 +44,8 @@
     "send": "Send",
     "back": "Back to home page",
     "pre_phone": "Code sent by phone",
+    "setting": "Setting",
+    "change_pass": "Change password",
     "reset": "Save"
   },
   "register": {
@@ -81,7 +83,7 @@
     "phone": "Prefix and Phone",
     "code_phone_format": "The Code format is incorrect",
     "invalid_2mb_image": "Max size is 2MB",
-    "length_phone": "The Phone number must be between 9 and 15 characters",
+    "phone_length": "The Phone number must be between 9 and 15 characters",
     "captcha_req": "Please check captcha",
     "agree": "PLease agree Terms"
   },
@@ -113,7 +115,8 @@
   },
   "home": {
     "home": "Home",
-    "team": "My team"
+    "team": "My team",
+    "setting": "Setting"
   },
   "deposit": {
     "title": "Receive",

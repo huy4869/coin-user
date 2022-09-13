@@ -21,5 +21,10 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.get('/wallets/system'), context)
     })
+  },
+  update(context, params) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post(`/user`, params), context)
+    })
   }
 }

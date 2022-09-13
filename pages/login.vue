@@ -162,7 +162,7 @@ export default {
   },
   computed: {
     disabledButton() {
-      return this.accountForm.email === '' || this.accountForm.password === ''
+      return this.accountForm.email === '' || this.accountForm.password === '' || this.captcha === ''
     }
   },
   methods: {

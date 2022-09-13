@@ -96,6 +96,18 @@
               </i>
             </el-input>
           </el-form-item>
+          <el-form-item :label="$t('register.referral_code')" prop="invite_code" :error="getErrResponse('invite_code')">
+            <el-input
+              ref="referral_code"
+              v-model.trim="accountForm.invite_code"
+              :placeholder="$t('register.referral_code')"
+              name="invite_code"
+              type="text"
+              tabindex="8"
+              maxlength="20"
+              @focus="resetValidate('invite_code')"
+            />
+          </el-form-item>
           <!--  -->
           <hr class="line-through">
           <!--  -->
@@ -130,18 +142,6 @@
               tabindex="7"
               maxlength="30"
               @focus="resetValidate('memo')"
-            />
-          </el-form-item>
-          <el-form-item :label="$t('register.referral_code')" prop="invite_code" :error="getErrResponse('invite_code')">
-            <el-input
-              ref="referral_code"
-              v-model.trim="accountForm.invite_code"
-              :placeholder="$t('register.referral_code')"
-              name="invite_code"
-              type="text"
-              tabindex="8"
-              maxlength="20"
-              @focus="resetValidate('invite_code')"
             />
           </el-form-item>
           <el-form-item class="captcha" :error="getErrResponse('g-recaptcha-response')" prop="captcha">
