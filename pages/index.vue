@@ -17,7 +17,7 @@
 
     <section class="bg_eco">
       <div class="eco_home">
-        <div class="eco_left">
+        <div class="eco_left" data-aos="fade-up-right" data-aos-duration="1500">
           <div class="title_left_div">
             <div class="red_hr"></div>
             <span class="eco_title title--glitch" :data-text="$t('landing.eco')">{{ $t('landing.eco') }}</span>
@@ -36,26 +36,43 @@
             <img src="~/assets/images/eco3.png" alt="" class="eco_img">
           </div>
         </div>
+
+        <div class="eco_center" data-aos="fade-up" data-aos-duration="1500">
+          <div class="bg_nft">
+            <img src="~/assets/images/list_nft.png" alt="" class="list_nft filter_img">
+            <div class="nft_div">
+              <img
+                src="~/assets/images/cup_logo.png" alt="" class="cup_img pulse filter_img" data-aos="fade-up"
+                data-aos-duration="1500"/>
+              <div class="gift_div">
+                <img src="~/assets/images/box.png" alt="" class="box shake">
+                <img src="~/assets/images/under_gift.png" alt="" class="under_gift filter_img">
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="eco_right" data-aos="fade-up-left" data-aos-duration="1500">
           <img src="~/assets/images/messi.png" alt="" class="img_messi">
         </div>
       </div>
     </section>
 
-    <section class="bg_nft">
-      <img src="~/assets/images/list_nft.png" alt="" class="list_nft filter_img">
-      <div class="nft_div">
-        <img
-          src="~/assets/images/cup_logo.png" alt="" class="cup_img pulse filter_img" data-aos="fade-up"
-          data-aos-duration="1500"/>
-        <div class="gift_div">
-          <img src="~/assets/images/box.png" alt="" class="box shake">
-          <img src="~/assets/images/under_gift.png" alt="" class="under_gift filter_img">
-        </div>
-      </div>
-    </section>
+    <!--    <section class="bg_nft">-->
+    <!--      <img src="~/assets/images/list_nft.png" alt="" class="list_nft filter_img">-->
+    <!--      <div class="nft_div">-->
+    <!--        <img-->
+    <!--          src="~/assets/images/cup_logo.png" alt="" class="cup_img pulse filter_img" data-aos="fade-up"-->
+    <!--          data-aos-duration="1500"/>-->
+    <!--        <div class="gift_div">-->
+    <!--          <img src="~/assets/images/box.png" alt="" class="box shake">-->
+    <!--          <img src="~/assets/images/under_gift.png" alt="" class="under_gift filter_img">-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </section>-->
 
     <section class="system_div_component">
+      <img src="~/assets/images/bg_meta1.png" alt="" class="bg_meta1">
       <div class="title_system_div">
         <h1 class="system_title title--glitch" :data-text="$t('landing.system')">{{ $t('landing.system') }}</h1>
         <h3 class="sub_system_title work-break">{{ $t('landing.sub_system') }}</h3>
@@ -80,6 +97,7 @@
         </div>
       </div>
       <img src="~/assets/images/coin_system1.png" alt="" class="coin_system1 filter_img">
+      <img src="~/assets/images/bg_meta2.png" alt="" class="bg_meta2">
 
     </section>
     <section class="product_component">
