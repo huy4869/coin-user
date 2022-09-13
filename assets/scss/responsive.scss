@@ -1,0 +1,15 @@
+@media only screen and (max-width: 992px) {
+  .header_right {
+    display: none !important;
+  }
+  .header-main-menu-mobile {
+    display: block !important;
+    cursor: pointer;
+  }
+  .main-setting {
+    display: block !important;
+  }
+  .btn-common-mobile {
+    display: flex !important;
+  }
+}

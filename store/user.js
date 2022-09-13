@@ -24,7 +24,7 @@ export const actions = {
   },
   update(context, params) {
     return new Promise((resolve, reject) => {
-      handleApi(resolve, reject, this.$axios.post(`/user`, params), context)
+      handleApi(resolve, reject, this.$axios.post(`/profile`, params), context)
     })
   }
 }

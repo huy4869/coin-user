@@ -3,10 +3,10 @@
   margin: 84px auto;
   background: $color-background;
   padding: 24px !important;
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 600px) {
     margin: 20px auto;
-    width: 100%;
-    padding: 0 12px !important;
+    width: 80%;
+    padding: 12px !important;
   }
 
   .otp-block-register {
@@ -155,7 +155,7 @@
   font-size: 16px;
   font-weight: 600;
   background: $color-background;
-  margin-bottom: 12px;
+  margin: 0 12px 12px 6px;
   line-height: 20px;
   border: 1px solid $color-border-sidebar;
 }
@@ -165,7 +165,7 @@
   font-size: 16px;
   font-weight: 600;
   background: $color-red-primary !important;
-  margin-bottom: 12px;
+  margin: 0 12px 12px 6px;
   line-height: 20px;
   border: 1px solid $color-border-sidebar;
 }

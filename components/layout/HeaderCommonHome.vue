@@ -32,6 +32,14 @@
             <span class="logout_title">{{ $t('header.logout') }}</span>
           </div>
         </div>
+        <!--  -->
+        <div class="header-main-menu-mobile">
+          <label for="nav-mobile-input">
+            <div class="menu-mobile pointer">
+              <img src="@/assets/images/icons/menu.svg" alt="">
+            </div>
+          </label>
+        </div>
       </div>
     </div>
     <el-dialog

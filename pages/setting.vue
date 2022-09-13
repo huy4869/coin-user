@@ -1,6 +1,6 @@
 <template>
   <div class="main-setting" style="display: flex">
-    <div>
+    <div class="btn-common-mobile">
       <el-button :class="{'active' : !isChangePass}" class="btn_common" @click="showChangePass(false)">{{ $t('account.setting') }}</el-button>
       <br>
       <el-button :class="{'active' : isChangePass}" class="btn_common" @click="showChangePass(true)">{{ $t('account.change_pass') }}</el-button>
@@ -281,31 +281,31 @@ export default {
       },
       accountRules: {
         email: [
-          {
-            required: true,
-            message: this.$t('validation.required', { _field_: this.$t('account.email') }),
-            trigger: 'blur'
-          },
+          // {
+          //   required: !this.isChangePass,
+          //   message: this.$t('validation.required', { _field_: this.$t('account.email') }),
+          //   trigger: 'blur'
+          // },
           {
             validator: validateEmail, trigger: 'blur'
           }
         ],
         phone: [
-          {
-            required: true,
-            message: this.$t('validation.required', { _field_: this.$t('account.phoneNumber') }),
-            trigger: 'blur'
-          },
+          // {
+          //   required: !this.isChangePass,
+          //   message: this.$t('validation.required', { _field_: this.$t('account.phoneNumber') }),
+          //   trigger: 'blur'
+          // },
           {
             validator: validPhoneNumber, trigger: 'blur'
           }
         ],
         name: [
-          {
-            required: true,
-            message: this.$t('validation.required', { _field_: this.$t('account.fullName') }),
-            trigger: 'blur'
-          }
+          // {
+          //   required: !this.isChangePass,
+          //   message: this.$t('validation.required', { _field_: this.$t('account.fullName') }),
+          //   trigger: 'blur'
+          // }
         ],
         // password: [
         //   {
@@ -386,7 +386,8 @@ export default {
         phone: this.accountForm.phone,
         password: this.accountForm.password,
         new_password: this.accountForm.new_password,
-        new_password_confirmation: this.accountForm.new_password_confirmation
+        new_password_confirmation: this.accountForm.new_password_confirmation,
+        avatar: 'avatar'
       }
       // if (this.isChangePass) {
       //   dto = {
