@@ -44,7 +44,7 @@
     "send": "Send",
     "back": "Back to home page",
     "pre_phone": "Code sent by phone",
-    "setting": "Setting",
+    "setting": "Account setting",
     "change_pass": "Change password",
     "reset": "Save"
   },
@@ -116,7 +116,7 @@
   "home": {
     "home": "Home",
     "team": "My team",
-    "setting": "Setting"
+    "setting": "Account"
   },
   "deposit": {
     "title": "Receive",

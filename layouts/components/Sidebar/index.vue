@@ -86,8 +86,8 @@ export default {
         },
         {
           id: 2,
-          icon: 'team.svg',
-          icon_active: 'team_active.svg',
+          icon: 'user.svg',
+          icon_active: 'user_active.svg',
           path: '/setting',
           title: this.$t('home.setting'),
           active: false,
