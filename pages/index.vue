@@ -211,12 +211,15 @@ export default {
           {
             breakpoint: 768,
             settings: {
-              slidesToShow: 3
+              slidesToShow: 6
             }
           },
           {
-            breakpoint: 480,
-            settings: {}
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 5,
+              speed: 3000
+            }
           }
         ]
       },
