@@ -4,7 +4,7 @@
       <div class="container-header">
         <div class="header_left">
           <div class="token_div">
-            <img src="~/assets/images/icons/logo_token.svg" alt="" class="w-100">
+             <img src="~/assets/images/icons/logo_token.svg" alt="" class="w-100">
             <span class="token_title">{{ $t('header.token', { v: user ? user.coin : 0 }) }}</span>
           </div>
           <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>

@@ -197,7 +197,7 @@
   </div>
 </template>
 <script>
-import { INDEX_SET_ERROR, INDEX_SET_LOADING, INDEX_SET_SUCCESS, USER_UPDATE } from '@/store/store.const'
+import { INDEX_SET_ERROR, INDEX_SET_LOADING, INDEX_SET_SUCCESS, USER_UPDATE, USER_UPDATE_PASS } from '@/store/store.const'
 import { validEmail, validPassword, validPhoneNoPrefix } from '@/utils/validate'
 
 export default {
@@ -347,7 +347,7 @@ export default {
     disabledButton() {
       let check = false
       this.isChangePass
-        ? check = this.accountForm.name === '' || this.accountForm.password === '' ||
+        ? check = this.accountForm.password === '' ||
           this.accountForm.new_password === '' || this.accountForm.new_password_confirmation === ''
         : check = this.accountForm.name === '' || this.accountForm.email === '' || this.accountForm.phone === ''
       return check
@@ -397,7 +397,17 @@ export default {
       //     new_password_confirmation: this.accountForm.new_password_confirmation
       //   }
       // }
-      const response = await this.$store.dispatch(USER_UPDATE, dto)
+      let response = null
+      if (!this.isChangePass) {
+        response = await this.$store.dispatch(USER_UPDATE, dto)
+      } else {
+        const dto = {
+          old_password: this.accountForm.password,
+          password: this.accountForm.new_password,
+          password_confirmation: this.accountForm.new_password_confirmation
+        }
+        response = await this.$store.dispatch(USER_UPDATE_PASS, dto)
+      }
       if (response.status_code === 200) {
         await this.$store.commit(INDEX_SET_SUCCESS, {
           show: true,

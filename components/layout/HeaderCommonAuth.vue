@@ -6,7 +6,6 @@
           <img src="~/assets/images/logo_header.png" alt="" class="logo_header" @click="redirect('/')">
         </div>
         <div class="header_right">
-
           <el-dropdown class="cursor-pointer d-flex lang_div" trigger="click" placement="bottom-start">
             <span class="img_lang">
               <img class="image-language" :src="languageActive.icon" alt="">
@@ -23,8 +22,16 @@
               </el-dropdown-menu>
             </template>
           </el-dropdown>
-
         </div>
+        <!--  -->
+        <div class="header-main-menu-mobile">
+          <label for="nav-mobile-input">
+            <div class="menu-mobile pointer">
+              <img src="@/assets/images/icons/menu.svg" alt="">
+            </div>
+          </label>
+        </div>
+        <!--  -->
       </div>
     </div>
   </div>

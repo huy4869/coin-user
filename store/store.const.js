@@ -37,6 +37,7 @@ export const AUTH_RESEND_OTP = 'authentication/resendOtp'
 // user
 export const USER_GET_SYSTEM_WALLET = 'user/getWallet'
 export const USER_UPDATE = 'user/update'
+export const USER_UPDATE_PASS = 'user/updatePass'
 
 // plan
 export const PLAN_BUY_PACKAGE = 'plan/buyPackage'
