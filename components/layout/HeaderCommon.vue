@@ -58,16 +58,27 @@
                 <img id="close_btn" src="@/assets/images/icons/close1.svg" alt="">
               </label>
             </div>
+            <div class="menu-mobile-alt ">
+              <ul>
+                <li>
+                  {{ $t('header.eco') }}</li>
+                <li @click="handeClick('/home')">
+                  {{ $t('header.product') }}</li>
+                <li>
+                  {{ $t('header.partner') }}</li>
+              </ul>
+            </div>
             <div class="header-main-actions-mobile flex">
-              <el-button class="btn_register title_nav" @click="handeClick('/login')">
+              <el-button class="btn-mobile" @click="handeClick('/login')">
               {{ $t('header.login') }}
               </el-button>
-              <el-button class="btn_register title_nav" @click="handeClick('/register')">
+              <el-button class="btn-mobile" @click="handeClick('/register')">
                 {{ $t('header.register') }}
               </el-button>
             </div>
           </div>
         </div>
+        <!--  -->
       </div>
     </div>
   </div>
