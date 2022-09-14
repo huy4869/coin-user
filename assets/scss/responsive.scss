@@ -1,3 +1,16 @@
+@media only screen and (max-width: 600px) {
+  .home-auth {
+    padding: 24px 12px !important;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .main-login {
+    padding: 24px !important;
+    margin: 24px 12px 24px 0 !important;
+  }
+}
+
 @media only screen and (max-width: 992px) {
   .header_right {
     display: none !important;

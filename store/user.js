@@ -26,5 +26,10 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.post(`/profile`, params), context)
     })
+  },
+  updatePass(context, params) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post(`/auth/change-password`, params), context)
+    })
   }
 }

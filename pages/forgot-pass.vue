@@ -72,6 +72,7 @@ import { AUTH_SEND_EMAIL_FORGOT } from '@/constants/store'
 
 export default {
   name: 'ForgotPage',
+  layout: 'auth',
   middleware: 'auth-guard',
   data() {
     const validdateEmail = (rule, value, callback) => {
