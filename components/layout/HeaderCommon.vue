@@ -4,9 +4,9 @@
       <div class="container-header">
         <div class="header_left">
           <img src="~/assets/images/logo_header.png" alt="" class="logo_header" @click="redirect('/')">
-          <span class="title_nav">{{ $t('header.eco') }}</span>
-          <span class="title_nav" @click="$router.push('/home')">{{ $t('header.product') }}</span>
-          <span class="title_nav">{{ $t('header.partner') }}</span>
+          <span class="title_nav" id="nav-item">{{ $t('header.eco') }}</span>
+          <span class="title_nav" id="nav-item" @click="$router.push('/home')">{{ $t('header.product') }}</span>
+          <span class="title_nav" id="nav-item">{{ $t('header.partner') }}</span>
         </div>
         <div class="header_right">
           <template v-if="!$auth.loggedIn">
@@ -36,6 +36,36 @@
           <div v-if="$auth.loggedIn" class="logout_div" @click="logout">
             <img src="~/assets/images/icons/logout.svg" alt="" class="img_logout">
             <span class="logout_title">{{ $t('header.logout') }}</span>
+          </div>
+        </div>
+        <!--  -->
+        <div class="header-main-menu-mobile">
+          <label for="nav-mobile-input">
+            <div class="menu-mobile pointer">
+              <img src="@/assets/images/icons/menu.svg" alt="">
+            </div>
+          </label>
+          <input id="nav-mobile-input" type="checkbox" name="" hidden class="nav-input">
+          <label for="nav-mobile-input" class="nav-overlay"></label>
+          <div class="nav_mobile">
+            <div class="flex justify-between items-center menu-mobile-top ">
+              <div class="img-logo">
+                <a href="/">
+                <img src="~/assets/images/logo_header.png" alt="">
+                </a>
+              </div>
+              <label for="nav-mobile-input" class="icon-close">
+                <img id="close_btn" src="@/assets/images/icons/close1.svg" alt="">
+              </label>
+            </div>
+            <div class="header-main-actions-mobile flex">
+              <el-button class="btn_register title_nav" @click="handeClick('/login')">
+              {{ $t('header.login') }}
+              </el-button>
+              <el-button class="btn_register title_nav" @click="handeClick('/register')">
+                {{ $t('header.register') }}
+              </el-button>
+            </div>
           </div>
         </div>
       </div>
@@ -96,6 +126,10 @@ export default {
   mounted() {
   },
   methods: {
+    async handeClick(link) {
+      await this.$router.push(link)
+      document.getElementById('close_btn').click()
+    },
     async logout() {
       this.$store.commit(INDEX_SET_LOADING, true)
       await this.$auth.logout()

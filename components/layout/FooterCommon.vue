@@ -10,6 +10,18 @@
           <span class="title_nav_footer">{{ $t('header.product') }}</span>
           <span class="title_nav_footer">{{ $t('header.partner') }}</span>
         </div>
+        <div class="footer-left-mobile">
+          <div>
+            <img src="~/assets/images/logo_header.png" alt="" class="img_footer"
+               @click="$router.push('/')">
+          </div>
+          <div class="hr-moblie"></div>
+          <div class="nav-item-mobile">
+            <span class="title_nav_footer">{{ $t('header.eco') }}</span>
+            <span class="title_nav_footer">{{ $t('header.product') }}</span>
+            <span class="title_nav_footer">{{ $t('header.partner') }}</span>
+          </div>
+        </div>
         <div class="footer-right">
           <a href="https://www.facebook.com/chilizdotcom/" target="_blank"><img
             src="~/assets/images/icons/footer/face.svg" alt=""></a>

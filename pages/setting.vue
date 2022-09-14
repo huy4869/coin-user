@@ -5,7 +5,7 @@
       <br>
       <el-button :class="{'active' : isChangePass}" class="btn_common" @click="showChangePass(true)">{{ $t('account.change_pass') }}</el-button>
     </div>
-    <div class="main-login" style="margin: 0 auto">
+    <div class="main-login" style="margin: 0 auto; border: 1px solid #555;">
       <div class="login login-width login-mobile">
         <h3 v-if="!isChangePass" class="title">{{ $t('account.setting') }}</h3>
         <h3 v-else class="title">{{ $t('account.change_pass') }}</h3>
