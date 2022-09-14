@@ -30,8 +30,39 @@
               <img src="@/assets/images/icons/menu.svg" alt="">
             </div>
           </label>
+          <input id="nav-mobile-input" type="checkbox" name="" hidden class="nav-input">
+          <label for="nav-mobile-input" class="nav-overlay"></label>
+          <div class="nav_mobile">
+            <div class="flex justify-between items-center menu-mobile-top ">
+              <div class="img-logo">
+                <a href="/">
+                <img src="~/assets/images/logo_header.png" alt="">
+                </a>
+              </div>
+              <label for="nav-mobile-input" class="icon-close">
+                <img id="close_btn" src="@/assets/images/icons/close1.svg" alt="">
+              </label>
+            </div>
+            <div class="menu-mobile-alt ">
+              <ul>
+                <li>
+                  {{ $t('header.eco') }}</li>
+                <li @click="handeClick('/home')">
+                  {{ $t('header.product') }}</li>
+                <li>
+                  {{ $t('header.partner') }}</li>
+              </ul>
+            </div>
+            <div class="header-main-actions-mobile flex">
+              <el-button class="btn-mobile" @click="handeClick('/login')">
+              {{ $t('header.login') }}
+              </el-button>
+              <el-button class="btn-mobile" @click="handeClick('/register')">
+                {{ $t('header.register') }}
+              </el-button>
+            </div>
+          </div>
         </div>
-        <!--  -->
       </div>
     </div>
   </div>
@@ -90,6 +121,10 @@ export default {
   mounted() {
   },
   methods: {
+    async handeClick(link) {
+      await this.$router.push(link)
+      document.getElementById('close_btn').click()
+    },
     async logout() {
       this.$store.commit(INDEX_SET_LOADING, true)
       await this.$auth.logout()
