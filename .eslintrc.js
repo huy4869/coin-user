@@ -7,10 +7,9 @@ module.exports = {
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
-    requireConfigFile: false,
-    sourceType: 'module'
+    requireConfigFile: false
   },
-  ignorePatterns: ['*/node_modules/**'],
+  ignorePatterns: ['*/node_modules/**', 'tree.vue'],
   extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier'],
   plugins: [],
   // add your custom rules here

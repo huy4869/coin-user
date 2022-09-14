@@ -1,7 +1,10 @@
 {
   "lang": "language",
   "common": {
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "zoomIn": "Zoom In",
+    "zoomOut": "Zoom Out",
+    "zoomReset": "Reset"
   },
   "header": {
     "eco": "Eco System",

@@ -18,6 +18,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
+      { rel: 'stylesheet', href: 'https://unpkg.com/vue2-org-tree/dist/style.css' },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;1,400;1,700&display=swap' },
@@ -40,7 +41,9 @@ export default {
     '@/plugins/i18n.js',
     '@/plugins/permission.js',
     { src: '@/plugins/aos.js', ssr: false },
-    '@/plugins/vue-slick-carousel.js'
+    '@/plugins/vue-slick-carousel.js',
+    { src: '@/plugins/vue-tree-chart.js', ssr: false },
+    { src: '@/plugins/vue2Orgtree.js', ssr: false }
   ],
 
   // middleware route

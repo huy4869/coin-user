@@ -15,6 +15,12 @@ $color-blue-functional-500: #3d8af2;
 $color-yellow-functional: #fdf8ed;
 $color-yellow-functional-200: #fbf1dc;
 $color-yellow-functional-500: #ffcc59;
+$color-orange: #FFC85E;
+$color-dark-orange: #FFC85E;
+$color-orange-1: #FAAD14;
+$color-orange-2: #FF9900;
+$color-orange-3: #FFDE9C;
+$color-orange-3: #051f2e;
 
 // Dark Color
 $color-dark-functional: #f3f6fb;
@@ -26,6 +32,7 @@ $color-dark-functional-500: #465773;
 $color-dark-functional-600: #11284d;
 $color-dark-orange: #FFC85E;
 $color-blue-primary: #002337;
+$color-bg-node: #0f202a;
 
 //color-primary
 $color-white: #ffffff;
@@ -89,6 +96,6 @@ $sideBarWidth: 250px;
   menuHover: $color-dark-orange;
   subMenuBg: $color-dark-orange;
   subMenuHover: $color-dark-orange;
-  sideBarWidth: $color-blue-primary;
+  sideBarWidth: $sideBarWidth;
 }
 

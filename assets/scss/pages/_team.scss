@@ -1,0 +1,84 @@
+.team_component {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  //grid-template-columns: auto auto;
+  gap: 20px;
+
+  .team_btn_div {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px;
+    height: fit-content;
+
+    button {
+      margin-left: 0;
+    }
+  }
+
+  .network_div {
+    width: 10000%;
+    box-sizing: border-box;
+    background: $color-bg-navbar;
+    border: 1px solid $color-border-sidebar;
+    border-radius: 6px;
+  }
+}
+
+.org-tree-node-label-inner {
+  color: red;
+}
+
+.org-tree-container, .tree-container {
+  background-color: unset !important;
+}
+
+.org-tree-node-label {
+  border: 1px solid $color-red-primary;
+  border-radius: 4px;
+}
+
+.org-tree-node-label .org-tree-node-label-inner {
+  padding: 0 !important;
+}
+
+.org-tree-node {
+  min-width: 100px !important;
+  width: fit-content;
+
+  &:after {
+    border-left: 1px solid $color-red-primary;
+  }
+}
+
+.org-tree-node:not(:first-child):before, .org-tree-node:not(:last-child):after {
+  border-top: 1px solid $color-red-primary;
+}
+
+.collapsable .org-tree-node.collapsed .org-tree-node-label:after {
+  border-right: 1px solid $color-red-primary;
+}
+
+.org-tree-node-children:before {
+  border-left: 1px solid $color-red-primary;
+}
+
+.org-tree-node-btn {
+  border: 1px solid $color-red-primary;
+  left: calc(50.3%);
+
+  &:before {
+    top: 50%;
+    border-top: 2px solid $color-red-primary !important;
+  }
+
+  &:after {
+    border-left: 2px solid $color-red-primary;
+    left: 44.5%;
+
+    &:hover {
+      left: 43%;
+    }
+  }
+}
+
