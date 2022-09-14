@@ -36,9 +36,9 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      if (this.$device.isTablet) {
-        // this.$refs.scaleTree.zoomOut()
-      }
+      // if (this.$device.isTablet) {
+      // this.$refs.scaleTree.zoomOut()
+      // }
       this.backToRoot()
     }, 0)
   },
@@ -98,7 +98,7 @@ export default {
 .node-slot {
   .rich-media-node {
     background-color: $color-bg-node !important;
-    height: 154px;
+    height: 200px;
     padding: 9px;
     flex-direction: column;
     align-items: flex-start;
@@ -107,19 +107,20 @@ export default {
     border: 1px solid $color-red-primary;
     border-radius: 4px;
     font-family: 'Montserrat';
-    width: max-content;
+    width: 200px;
     display: grid;
     grid-template-columns: auto;
+    gap: 15px;
 
     .row_info {
       display: grid;
       grid-template-columns: auto;
-      gap: 5px;
+      gap: 10px;
       text-align: left;
 
       .title {
         font-weight: 400;
-        font-size: 9px;
+        font-size: 11px;
         line-height: 11px;
         color: $color-text-6;
 
@@ -127,7 +128,7 @@ export default {
 
       .value {
         font-weight: 600;
-        font-size: 10px;
+        font-size: 12px;
         line-height: 12px;
         align-items: center;
       }

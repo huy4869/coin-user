@@ -23,7 +23,7 @@ export default {
     return {
       horizontal: false,
       collapsable: true,
-      expandAll: true,
+      expandAll: false,
       labelClassName: 'bg-white',
       zoom: true,
       pan: true,
@@ -38,11 +38,11 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      if (this.dataProp.children.length > 0) {
-        [...document.getElementsByClassName('org-tree-node-btn')][0].click()
-      }
-    }, 1000)
+    // setTimeout(() => {
+    //   if (this.dataProp.children.length > 0) {
+    //     [...document.getElementsByClassName('org-tree-node-btn')][0].click()
+    //   }
+    // }, 1000)
   },
   methods: {
     renderContent(h, data) {
@@ -50,19 +50,19 @@ export default {
         <div class="rich-media-node">
           <div class="row_info">
             <span class="title">Name:</span>
-            <span class="value">Andrew Tate</span>
+            <span class="value">{data.name}</span>
           </div>
           <div class="row_info">
             <span class="title">Email:</span>
-            <span class="value">TopG.trueking@gmail.com</span>
+            <span class="value">{data.email}</span>
           </div>
           <div class="row_info">
             <span class="title">Wallet address:</span>
-            <span class="value">0xa8944tgse4334524b00fc</span>
+            <span class="value">{data.wallet_address}</span>
           </div>
           <div class="row_info">
             <span class="title">Transaction hash:</span>
-            <span class="value">0xa8944tgse4334524b00fc</span>
+            <span class="value">{data.txhash}</span>
           </div>
         </div>
       )

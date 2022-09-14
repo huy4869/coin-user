@@ -38,6 +38,8 @@ export const AUTH_RESEND_OTP = 'authentication/resendOtp'
 export const USER_GET_SYSTEM_WALLET = 'user/getWallet'
 export const USER_UPDATE = 'user/update'
 export const USER_UPDATE_PASS = 'user/updatePass'
+export const USER_LST_TEAM = 'user/getLstTeam'
+export const USER_TREE_BY_TEAM = 'user/getTreeByTeam'
 
 // plan
 export const PLAN_BUY_PACKAGE = 'plan/buyPackage'
