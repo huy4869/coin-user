@@ -58,11 +58,11 @@
             <div class="hr-moblie"></div>
             <div class="menu-mobile-alt ">
               <ul>
-                <li id="li-home" @click="handeClick('/home')">
+                <li id="li-home" @click="handeClick('/home')" :class="{'is-active' : $route.path === '/home' }">
                 <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/menu/home.svg')" alt="copy">{{ $t('home.home') }}</li>
-                <li id="li-home" @click="handeClick('/team')">
+                <li id="li-home" @click="handeClick('/team')" :class="{'is-active' : $route.path === '/team' }">
                 <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/menu/team.svg')" alt="copy">{{ $t('home.team') }}</li>
-                <li id="li-home" @click="handeClick('/setting')">
+                <li id="li-home" @click="handeClick('/setting')" :class="{'is-active' : $route.path === '/setting' }">
                 <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/menu/user.svg')" alt="copy">{{ $t('home.setting') }}</li>
                 <li id="li-home" @click="logout">
                 <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/logout.svg')" alt="copy">{{ $t('header.logout') }}</li>

@@ -4,9 +4,28 @@
       <el-button
         v-for="(team, index) in lstTeam" :key="index"
         :class="[idTeam===team?'btn_common_red':'btn_common_black']"
-        @click="changeTeam(team)">Team {{ index }}
+        @click="changeTeam(team, index)">Team {{ index + 1 }}
       </el-button>
     </div>
+
+    <el-dropdown class="dropdown-mobile cursor-pointer" trigger="click" placement="bottom-start">
+      <div class="team">
+        Team {{ selectedTeam }}
+      </div>
+      <template #dropdown>
+        <el-dropdown-menu class="dropdown-team">
+          <el-dropdown-item v-for="(team, index) in lstTeam" :key="index" :command="index">
+            <div>
+              <el-button
+                :class="[idTeam===team?'btn_common_red':'btn_common_black']"
+                @click="changeTeam(team, index)">Team {{ index + 1 }}
+              </el-button>
+            </div>
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
+
     <div class="network_div">
       <chart :data-tree="userRoot"></chart>
     </div>
@@ -28,6 +47,7 @@ export default {
       invite_code: '',
       total_profit: '',
       idTeam: 1,
+      selectedTeam: 1,
       lstTeam: [],
       userRoot: {},
       lstUser: [],
@@ -42,8 +62,9 @@ export default {
     await this.$store.commit(INDEX_SET_LOADING, false)
   },
   methods: {
-    async changeTeam(id) {
+    async changeTeam(id, index) {
       this.idTeam = id
+      this.selectedTeam = index + 1
       await this.getTree()
     },
     async getLstTeam() {
