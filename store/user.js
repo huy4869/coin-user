@@ -31,5 +31,15 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.post(`/auth/change-password`, params), context)
     })
+  },
+  getLstTeam(context) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/profile/nodes'), context)
+    })
+  },
+  getTreeByTeam(context, data) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get(`/profile/nodes/${data}`), context)
+    })
   }
 }
