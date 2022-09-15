@@ -5,7 +5,7 @@
     <div class='stars3'></div>
     <section class="bg_video">
       <video class="video_goal" autoplay loop muted>
-        <source src="~/assets/video/bg.mp4" type="video/mp4">
+        <source src="~/assets/video/messi.mp4" type="video/mp4">
         Your browser does not support HTML video.
       </video>
 
