@@ -32,7 +32,7 @@
           </label>
           <input id="nav-mobile-input" type="checkbox" name="" hidden class="nav-input">
           <label for="nav-mobile-input" class="nav-overlay"></label>
-          <div class="nav_mobile">
+          <div class="nav_mobile" style="position: fixed !important">
             <div class="flex justify-between items-center menu-mobile-top ">
               <div class="img-logo">
                 <a href="/">
