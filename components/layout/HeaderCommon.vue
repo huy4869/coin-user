@@ -66,9 +66,12 @@
                   {{ $t('header.product') }}</li>
                 <li>
                   {{ $t('header.partner') }}</li>
+                <li v-if="$auth.loggedIn" @click="logout">
+                  <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/logout.svg')" alt="logout">
+                {{ $t('header.logout') }}</li>
               </ul>
             </div>
-            <div class="header-main-actions-mobile flex">
+            <div v-if="!$auth.loggedIn" class="header-main-actions-mobile flex">
               <el-button class="btn-mobile" @click="handeClick('/login')">
               {{ $t('header.login') }}
               </el-button>

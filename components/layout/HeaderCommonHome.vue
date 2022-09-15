@@ -2,12 +2,15 @@
   <div>
     <div class="header header_home">
       <div class="container-header">
-        <div class="header_left">
+        <div class="header_left" id="header_left_home">
           <div class="token_div">
             <img src="~/assets/images/icons/logo_token.svg" alt="" class="w-100">
             <span class="token_title">{{ $t('header.token', { v: user ? user.coin : 0 }) }}</span>
           </div>
           <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
+        </div>
+        <div class="header_left_home_mobile">
+          <img src="~/assets/images/logo_header.png" alt="" class="logo_header" @click="redirect('/')">
         </div>
         <div class="header_right">
 
@@ -39,7 +42,42 @@
               <img src="@/assets/images/icons/menu.svg" alt="">
             </div>
           </label>
+          <input id="nav-mobile-input" type="checkbox" name="" hidden class="nav-input">
+          <label for="nav-mobile-input" class="nav-overlay"></label>
+          <div class="nav_mobile" style="position: fixed !important">
+            <div class="flex justify-between items-center menu-mobile-top ">
+              <div class="img-logo">
+                <a href="/">
+                <img src="~/assets/images/logo_header.png" alt="">
+                </a>
+              </div>
+              <label for="nav-mobile-input" class="icon-close">
+                <img id="close_btn" src="@/assets/images/icons/close1.svg" alt="">
+              </label>
+            </div>
+            <div class="hr-moblie"></div>
+            <div class="menu-mobile-alt ">
+              <ul>
+                <li id="li-home" @click="handeClick('/home')">
+                <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/menu/home.svg')" alt="copy">{{ $t('home.home') }}</li>
+                <li id="li-home" @click="handeClick('/team')">
+                <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/menu/team.svg')" alt="copy">{{ $t('home.team') }}</li>
+                <li id="li-home" @click="handeClick('/setting')">
+                <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/menu/user.svg')" alt="copy">{{ $t('home.setting') }}</li>
+                <li id="li-home" @click="logout">
+                <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/logout.svg')" alt="copy">{{ $t('header.logout') }}</li>
+              </ul>
+            </div>
+          </div>
         </div>
+        <!--  -->
+      </div>
+      <div v-if="$route.path === '/home'" class="header-left-mobile" style="display: none">
+        <div class="token_div">
+          <img src="~/assets/images/icons/logo_token.svg" alt="" class="w-100">
+          <span class="token_title">{{ $t('header.token', { v: user ? user.coin : 0 }) }}</span>
+        </div>
+        <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
       </div>
     </div>
     <el-dialog
@@ -115,6 +153,10 @@ export default {
     await this.init()
   },
   methods: {
+    async handeClick(link) {
+      await this.$router.push(link)
+      document.getElementById('close_btn').click()
+    },
     async logout() {
       this.$store.commit(INDEX_SET_LOADING, true)
       await this.$auth.logout()
