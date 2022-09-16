@@ -132,7 +132,10 @@
               @focus="resetValidate('wallet_address')"
             />
           </el-form-item>
-          <el-form-item :label="$t('register.memo')" prop="memo" :error="getErrResponse('memo')">
+          <el-form-item prop="memo" :error="getErrResponse('memo')">
+            <label for="memo" >{{ $t('register.memo') }}</label>
+            <br>
+            <div class="sub-label">{{ $t('register.memo-sub') }}</div>
             <el-input
               ref="memo"
               v-model.trim="accountForm.memo"
@@ -295,13 +298,6 @@ export default {
           {
             required: true,
             message: this.$t('validation.required', { _field_: this.$t('register.wallet_address') }),
-            trigger: 'blur'
-          }
-        ],
-        memo: [
-          {
-            required: true,
-            message: this.$t('validation.required', { _field_: this.$t('register.memo') }),
             trigger: 'blur'
           }
         ],

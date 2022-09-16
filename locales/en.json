@@ -64,7 +64,8 @@
     "email": "Email",
     "phone": "Phone Number",
     "wallet_address": "Wallet address",
-    "memo": "BNB Memo"
+    "memo": "BNB Memo",
+    "memo-sub" : "* You might lose your tokens if you dont fill the MEMO (Binance wallet users)"
   },
   "forgot_password": {
     "title": "Forgot Password",
