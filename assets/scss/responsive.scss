@@ -1,10 +1,33 @@
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 376px) {
+  .main-setting {
+    .btn-common {
+      width: 112% !important;
+      margin-left: -15px !important;
+    }
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 500px) {
   .img-partner {
     max-width: 50px !important;
     max-height: 50px !important;
   }
+  .main-setting {
+    .btn-common {
+      width: 107%;
+      .btn-common-mobile {
+        margin-left: -20px;
+      }
+    }
+  }
 }
-@media only screen and (max-width: 600px) {
+
+@media only screen and (min-width: 500px) and (max-width: 600px) {
+  .main-setting {
+    .btn-common {
+      width: 105%;
+      margin-left: -10px;
+    }
+  }
   .footer-left {
     display: none !important;
   }
@@ -70,7 +93,9 @@
 @media only screen and (min-width: 600px) and (max-width: 768px) {
   .main-login {
     padding: 24px !important;
-    margin: 24px 12px 24px 0 !important;
+    #login{
+      margin: 24px 12px 24px 0 !important;
+    }
   }
   .footer-left {
     display: none !important;
@@ -255,8 +280,12 @@
   .main-setting, .team_component, .account_div {
     display: block !important;
   }
-  .btn-common-mobile {
-    display: flex !important;
+  .btn-common {
+    width: 560px;
+    margin: 0 auto;
+    .btn-common-mobile {
+      display: flex !important;
+    }
   }
   .header_home {
     display: table !important;

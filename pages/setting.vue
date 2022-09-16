@@ -1,9 +1,11 @@
 <template>
   <div class="main-setting" style="display: flex">
-    <div class="btn-common-mobile">
-      <el-button :class="{'active' : !isChangePass}" class="btn_common" @click="showChangePass(false)">{{ $t('account.setting') }}</el-button>
-      <br>
-      <el-button :class="{'active' : isChangePass}" class="btn_common" @click="showChangePass(true)">{{ $t('account.change_pass') }}</el-button>
+    <div class="btn-common">
+      <div class="btn-common-mobile">
+        <el-button :class="{'active' : !isChangePass}" class="btn_common" @click="showChangePass(false)">{{ $t('account.setting') }}</el-button>
+        <br>
+        <el-button :class="{'active' : isChangePass}" class="btn_common" @click="showChangePass(true)">{{ $t('account.change_pass') }}</el-button>
+      </div>
     </div>
     <div class="main-login" style="margin: 0 auto; border: 1px solid #555;">
       <div class="login login-width login-mobile">
