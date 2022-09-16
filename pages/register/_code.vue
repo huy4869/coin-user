@@ -1,5 +1,5 @@
 <template>
-  <div class="main-login">
+  <div class="main-login" id="register">
     <div>
       <div class="login login-width login-mobile">
         <h3 v-if="step===1" class="title">{{ $t('register.title') }}</h3>
