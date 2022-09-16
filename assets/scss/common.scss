@@ -829,6 +829,7 @@ a.color-red:hover {
   font-size: 16px;
   font-weight: 600;
   background: $color-red-primary;
+  //border: unset !important;
   padding: 12px;
   font-weight: 600;
 }

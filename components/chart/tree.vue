@@ -161,21 +161,6 @@ export default {
   }
 }
 
-.img_mail {
-  content: url("../../assets/images/icons/tree/mail.svg");
-}
-
-.img_building {
-  content: url("../../assets/images/icons/tree/building.svg");
-}
-
-.img_bag {
-  content: url("../../assets/images/icons/tree/bag.svg");
-}
-
-.img_coin {
-  content: url("../../assets/images/icons/tree/coin.svg");
-}
 </style>
 <!--<style lang="css">-->
 <!--.org-tree-node-label {-->

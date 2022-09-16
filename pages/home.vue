@@ -70,7 +70,7 @@
         <h3>{{ $t('profile.product') }}</h3>
       </div>
       <div class="lst_product_div lst_product_div_home">
-        <div data-aos="fade-up-right" class="product_div bg_pr_1">
+        <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div bg_pr_1">
           <div class="img_top img_top_div">
             <img src="~/assets/images/landing/ball_red.png" alt="" class="img_ball">
             <img src="~/assets/images/landing/vs.png" alt="" class="">
@@ -78,13 +78,14 @@
           </div>
           <div class="product_des title--glitch">{{ $t('landing.p1') }}</div>
         </div>
-        <div data-aos="fade-up" class="product_div bg_pr_2">
+        <div @click="dialogComingSoon=true" data-aos="fade-up" class="product_div bg_pr_2">
           <div class="tex-center img_top_div">
             <img src="~/assets/images/landing/cup.png" alt="" class="h-100 w-100 cup filter_img">
           </div>
           <div class="product_des title--glitch">{{ $t('landing.p2') }}</div>
         </div>
-        <div data-aos="fade-up-left" class="product_div bg_pr_3">
+        <div @click="dialogComingSoon=true" :data-aos="$device.isDesktop?'fade-up-left':'fade-up'"
+             class="product_div bg_pr_3">
           <div class="tex-center img_top_div img_jackpot">
             <img src="~/assets/images/landing/arrow_jackpot.png" alt="" class="w-100 arrow_jackpot filter_img">
             <img src="~/assets/images/landing/jackpot.png" alt="" class="h-100 w-100 jackpot filter_img">
@@ -95,21 +96,28 @@
         </div>
       </div>
     </div>
+
+    <el-dialog :visible.sync="dialogComingSoon" top="5vh" class="dialog-coming-soon" :center="true">
+      <coming-soon-modal @close="dialogComingSoon = false"/>
+    </el-dialog>
   </div>
 </template>
 
 <script>
 import { INDEX_SET_SUCCESS } from '@/store/store.const'
+import ComingSoonModal from '@/components/modals/coming_soon'
 
 export default {
   name: 'HomeComponent',
+  components: { ComingSoonModal },
   layout: 'default',
   middleware: 'auth-guard',
   data() {
     return {
       account: this.$auth.user,
       link_ref: window.location.origin.toString(),
-      link_ref_short: window.location.protocol.toString()
+      link_ref_short: window.location.protocol.toString(),
+      dialogComingSoon: false
     }
   },
   async created() {

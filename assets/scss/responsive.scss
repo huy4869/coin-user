@@ -27,7 +27,7 @@
     .eco_home {
       display: block !important;
       .eco_content_div {
-        margin: 50px 0 25px 20px !important; 
+        margin: 50px 0 25px 20px !important;
       }
     }
     .system_title, .eco_title {
@@ -51,7 +51,7 @@
     }
   }
   .el-dialog {
-    margin: 0 6%;
+    //margin: 0 6%;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -127,7 +127,7 @@
   .main-container {
     margin: 0 !important;
   }
-  
+
   .nav_mobile {
     position: absolute;
     background-color: $color-background ;
@@ -213,23 +213,23 @@
   .header-main-menu ul li {
     position: relative;
   }
-  
+
   // .nav_mobile .menu-mobile-alt ul li:before {
   //   content: "";
   //   width: 0;
   //   border-left: 1px solid $color-white;
   //   position: absolute;
   //   left: 0;
-    
+
   //   margin-bottom: 0px;
   //   transition: width 0.25s ease-in;
   // }
-  
+
   // .nav_mobile .menu-mobile-alt ul li.active {
   //   padding-bottom: 6px;
   //   border-left: 1px solid $color-white;
   // }
-  
+
   // .nav_mobile .menu-mobile-alt ul li:hover:before {
   //   height: 40px;
   //   width: 100%;
@@ -271,14 +271,14 @@
         justify-content: left;
         gap: 10px;
         width: 42%;
-  
+
         .token_title {
           font-weight: 600;
           font-size: 14px;
           line-height: 17px;
         }
       }
-  
+
       .btn_receive {
         padding: 12px;
         font-weight: 600;
