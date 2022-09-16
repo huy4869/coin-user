@@ -103,7 +103,7 @@
     <section class="product_component">
       <h1 class="title_product title--glitch" :data-text="$t('landing.product')">{{ $t('landing.product') }}</h1>
       <div class="lst_product_div">
-        <div data-aos="fade-up-right" class="product_div bg_pr_1">
+        <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div bg_pr_1">
           <div class="img_top img_top_div">
             <img src="~/assets/images/landing/ball_red.png" alt="" class="img_ball">
             <img src="~/assets/images/landing/vs.png" alt="" class="">
@@ -111,13 +111,13 @@
           </div>
           <div class="product_des title--glitch">{{ $t('landing.p1') }}</div>
         </div>
-        <div data-aos="fade-up" class="product_div bg_pr_2">
+        <div @click="dialogComingSoon=true" data-aos="fade-up" class="product_div bg_pr_2">
           <div class="tex-center img_top_div">
             <img src="~/assets/images/landing/cup.png" alt="" class="h-100 w-100 cup filter_img">
           </div>
           <div class="product_des title--glitch">{{ $t('landing.p2') }}</div>
         </div>
-        <div data-aos="fade-up-left" class="product_div bg_pr_3">
+        <div @click="dialogComingSoon=true" data-aos="fade-up-left" class="product_div bg_pr_3">
           <div class="tex-center img_top_div img_jackpot">
             <img src="~/assets/images/landing/arrow_jackpot.png" alt="" class="w-100 arrow_jackpot filter_img">
             <img src="~/assets/images/landing/jackpot.png" alt="" class="h-100 w-100 jackpot filter_img">
@@ -175,13 +175,18 @@
         </VueSlickCarousel>
       </div>
     </section>
+
+    <el-dialog :visible.sync="dialogComingSoon" top="5vh" class="dialog-coming-soon" :center="true">
+      <coming-soon-modal @close="dialogComingSoon = false"/>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-
+import ComingSoonModal from '@/components/modals/coming_soon'
 export default {
   name: 'IndexPage',
+  components: { ComingSoonModal },
   layout: 'home',
   data() {
     return {
@@ -228,7 +233,8 @@ export default {
       htmlRow1: '',
       htmlRow2: '',
       htmlRow3: '',
-      htmlRow4: ''
+      htmlRow4: '',
+      dialogComingSoon: false
     }
   },
   created() {

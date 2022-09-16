@@ -138,7 +138,8 @@
     "empty": "Không có dữ liệu",
     "register_success": "Register successful",
     "ok": "OK",
-    "copy_success": "Sao chép thành công!"
+    "copy_success": "Sao chép thành công!",
+    "coming": "COMING SOON"
   },
   "message": {
     "message_error": "Something Went Wrong"
