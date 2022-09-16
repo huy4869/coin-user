@@ -28,6 +28,11 @@
   .header-left-mobile {
     padding: 0 15px;
   }
+  .product_component {
+    .lst_product_div {
+      width: 90%;
+    }
+  }
 }
 
 @media only screen and (min-width: 500px) and (max-width: 600px) {
@@ -56,24 +61,7 @@
     // .eco_title {
     //   width: 300px;
     // }
-    .eco_home {
-      display: block !important;
-      .eco_content_div {
-        margin: 50px 0 25px 20px !important;
-      }
-    }
-    .system_title, .eco_title {
-      letter-spacing: 0 !important
-    }
-    .system_main_div{
-      padding-top: 50px !important;
-      .content {
-        display: inline-block !important;
-        .system_right{
-          margin-top: 40px !important;
-        }
-      }
-    }
+    
     .lst_product_div {
       display: inline-block;
       .product_div {
@@ -174,15 +162,17 @@
       margin: 24px 12px 24px 0 !important;
     }
   }
-  .footer-left {
-    display: none !important;
-  }
-  .footer-left-mobile {
-    display: block !important;
-  }
   .product_div {
     height: 210px !important;
     margin: 24px 12px;
+  }
+  .img_messi {
+    margin: 30px 0 0 15% !important
+  }
+  .product_component {
+    .lst_product_div {
+      grid-gap: 0px !important
+    }
   }
 }
 
@@ -193,6 +183,29 @@
     .product_div {
       height: 250px !important;
       margin: 24px 12px;
+    }
+  }
+
+  .container-footer {
+    .footer-left {
+      justify-content: space-around !important;
+      margin-bottom: 30px;
+    }
+    .footer-right {
+      justify-content: space-around !important;
+    }
+    .img_messi {
+      margin: 30px 0 0 15% !important
+    }
+  }
+
+  .product_component {
+    .lst_product_div {
+      grid-gap: 10px !important;
+      width: 96% !important ;
+      .product_div {
+        height: 220px !important;
+      }
     }
   }
 }
@@ -230,6 +243,24 @@
     .container-footer{
       .content {
         display: block !important;
+      }
+    }
+  }
+  .eco_home {
+    display: block !important;
+    .eco_content_div {
+      margin: 50px 0 25px 20px !important;
+    }
+  }
+  .system_title, .eco_title {
+    letter-spacing: 0 !important
+  }
+  .system_main_div{
+    padding-top: 50px !important;
+    .content {
+      display: inline-block !important;
+      .system_right{
+        margin-top: 40px !important;
       }
     }
   }
