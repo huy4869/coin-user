@@ -53,6 +53,7 @@
               type="text"
               tabindex="3"
               maxlength="12"
+              oninput="this.value=this.value.replace(/[^/0-9]/g,'');"
               @focus="resetValidate('phone')"
             />
           </el-form-item>
@@ -117,10 +118,11 @@
             </span>
           </div>
           <div class="bnb-description">
-            <span>Please use BNB Smart Chain wallet (BEP20) to register an account. This wallet address will be used for deposit.</span>
+            <span>{{ $t('common.bnb_des') }}</span>
           </div>
           <!--  -->
-          <el-form-item :label="$t('register.wallet_address')" prop="wallet_address" :error="getErrResponse('wallet_address')">
+          <el-form-item :label="$t('register.wallet_address')" prop="wallet_address"
+                        :error="getErrResponse('wallet_address')">
             <el-input
               ref="wallet_address"
               v-model.trim="accountForm.wallet_address"
@@ -133,7 +135,7 @@
             />
           </el-form-item>
           <el-form-item prop="memo" :error="getErrResponse('memo')">
-            <label for="memo" >{{ $t('register.memo') }}</label>
+            <label for="memo">{{ $t('register.memo') }}</label>
             <br>
             <div class="sub-label">{{ $t('register.memo-sub') }}</div>
             <el-input
@@ -248,7 +250,7 @@ export default {
         password_confirmation: '',
         wallet_address: '',
         memo: '',
-        invite_code: this.$route.params.code ? this.$route.params.code : '',
+        invite_code: this.$route.query.code ? this.$route.query.code : '',
         errors: {}
       },
       errorResponse: [],
@@ -516,6 +518,10 @@ export default {
               this.error = { key: k, value: data.data[k][0] }
               this.errorResponse.push({ key: k, value: data.data[k][0] })
             }
+            this.$store.commit(INDEX_SET_ERROR, {
+              show: true,
+              text: data.message
+            })
             break
           default:
             this.$store.commit(INDEX_SET_ERROR, { show: true, text: data.message })

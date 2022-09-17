@@ -4,7 +4,8 @@
     "confirm": "Confirm",
     "zoomIn": "Zoom In",
     "zoomOut": "Zoom Out",
-    "zoomReset": "Reset"
+    "zoomReset": "Reset",
+    "bnb_des": "Please use BNB Smart Chain wallet (BEP20) to register an account. This wallet address will be used for deposit."
   },
   "header": {
     "eco": "Eco System",
@@ -87,7 +88,7 @@
     "phone": "Prefix and Phone",
     "code_phone_format": "The Code format is incorrect",
     "invalid_2mb_image": "Max size is 2MB",
-    "phone_length": "The Phone number must be between 9 and 15 characters",
+    "phone_length": "The Phone number must be between 9 and 12 characters",
     "captcha_req": "Please check captcha",
     "agree": "PLease agree Terms"
   },
@@ -132,14 +133,14 @@
     "confirm": "Confirm"
   },
   "noti": {
-    "success": "Thành công",
+    "success": "Successful",
     "send_mail_forgot": "Password reset link sent. ",
     "send_mail_forgot_sub": "Please check your email and check the password reset link.",
     "reset_success": "You have successfully reset your password.",
-    "empty": "Không có dữ liệu",
+    "empty": "No data",
     "register_success": "Register successful",
     "ok": "OK",
-    "copy_success": "Sao chép thành công!",
+    "copy_success": "Copy successful!",
     "coming": "COMING SOON"
   },
   "message": {

@@ -63,7 +63,7 @@
             </div>
           </el-form-item>
           <div class="back" style="margin-top: 1.5rem">
-            <router-link to="/" class="align-items-center color-orange cursor-pointer underline lowercase">
+            <router-link to="/" class="align-items-center color-orange cursor-pointer underline">
               {{ $t('account.back') }}
             </router-link>
           </div>
@@ -80,6 +80,7 @@ import { validPassword } from '@/utils/validate'
 
 export default {
   name: 'ResetPasswordPage',
+  layout: 'auth',
   data() {
     const validatePass = (rule, value, callback) => {
       if (value === '') {

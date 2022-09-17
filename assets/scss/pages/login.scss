@@ -58,7 +58,7 @@
     font-size: 0.875rem;
   }
 
-  
+
   .agree-block {
     display: flex;
     align-items: baseline;
@@ -70,12 +70,14 @@
     }
 
   }
+
   .bnb-title {
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
     padding-bottom: 30px;
   }
+
   .bnb-description {
     font-weight: 400;
     font-size: 14px;
@@ -83,30 +85,37 @@
     color: $color-text;
     padding-bottom: 30px;
   }
+
   .line-through {
     border: 0.5px solid $color-placeholder;
     margin: 30px 0;
   }
+
   .back {
     text-align: center;
+
     a {
       color: $color-red-primary !important;
     }
   }
+
   .noti-img {
     margin-left: auto;
     margin-right: auto;
     display: block;
   }
+
   .noti-title {
     color: $color-red-primary;
     font-size: 24px !important;
   }
+
   .noti-subtitle {
     color: $color-placeholder;
     text-align: center;
     margin: 0 40px 40px 40px;
   }
+
   .sub-label {
     font-weight: 700;
     font-size: 14px;
@@ -127,6 +136,7 @@
     margin-left: auto;
   }
 }
+
 .login-page__forgot-password {
   text-align: center !important;
 }
@@ -140,20 +150,27 @@
     // text-decoration: underline
   }
 }
-.text_link{
+
+.text_link {
   margin: 40px 0 20px 0;
+
   .here {
     cursor: pointer;
     color: $color-red-primary;
     text-decoration: underline
   }
-}  
+}
+
 .common-button {
   margin-bottom: 20px;
 
   .el-button {
     width: 100%;
   }
+}
+
+.setting-button {
+  margin-bottom: -10px;
 }
 
 .change_pass {
@@ -179,6 +196,7 @@
   line-height: 20px;
   border: 1px solid $color-border-sidebar;
 }
+
 #register {
   .el-form-item {
     margin-bottom: 32px !important;

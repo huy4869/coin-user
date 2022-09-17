@@ -37,13 +37,13 @@ export default {
       deleteNode: ''
     }
   },
-  mounted() {
-    // setTimeout(() => {
-    //   if (this.dataProp.children.length > 0) {
-    //     [...document.getElementsByClassName('org-tree-node-btn')][0].click()
-    //   }
-    // }, 1000)
-  },
+  // mounted() {
+  //   // setTimeout(() => {
+  //   //   if (this.dataProp.children.length > 0) {
+  //   //     [...document.getElementsByClassName('org-tree-node-btn')][0].click()
+  //   //   }
+  //   // }, 1000)
+  // },
   methods: {
     renderContent(h, data) {
       return (

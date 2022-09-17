@@ -129,8 +129,8 @@
       margin: auto;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      height: fit-content;
-      padding: 35px;
+      height: 100%;
+      padding: 35px 35px 0;
       //gap: 20px;
       max-width: $max-width-ecosystem;
       align-content: center;
@@ -194,10 +194,17 @@
       }
 
       .eco_right {
-        animation: zoominout 4s infinite;
+        //animation: zoominout 4s infinite;
+        height: 100%;
+        position: relative;
 
         .img_messi {
           max-width: 100%;
+          position: absolute;
+          bottom: -8px;
+          left: 0;
+          right: 0;
+          margin: auto;
           filter: drop-shadow(-10px 7px 60px #1400e0) !important;
         }
       }
@@ -215,7 +222,6 @@
       position: absolute;
       max-width: 100%;
       top: 0;
-      bottom: 0;
       right: 0;
       left: 0;
       margin: auto;
@@ -225,13 +231,13 @@
     }
 
     .nft_div {
-      padding: 50px 0;
+      padding: 0;
       margin: auto;
       position: relative;
       text-align: center;
       display: grid;
       grid-template-columns: auto;
-      gap: 310px;
+      gap: 259px;
 
       .cup_img {
         max-width: 100%;
@@ -376,6 +382,21 @@
       z-index: -1;
       animation: MoveUpDown 2s linear infinite;
     }
+
+    .coin_system1_top, .coin_system1_bottom {
+      position: absolute;
+      right: -60px;
+      top: 0;
+      transform: rotate(-40deg) scale(0.8);
+      opacity: 0.8;
+    }
+
+    .coin_system1_bottom {
+      right: auto;
+      left: 0;
+      bottom: 170px;
+      top:auto;
+    }
   }
 
   .product_component {
@@ -436,7 +457,7 @@
     //border-radius: 35px;
 
     height: 100%;
-    padding: 20px 20px 0;
+    padding: 45px 20px 0;
     cursor: pointer;
     z-index: 1;
 
@@ -448,7 +469,7 @@
     }
 
     .img_top_div {
-      height: 70%;
+      height: 65%;
 
       .cup {
         animation: shake 5s ease infinite;
@@ -500,6 +521,9 @@
       font-size: 16px;
       line-height: 20px;
       letter-spacing: 0;
+      text-align: center;
+      max-width: 100%;
+      word-break: break-word;
     }
   }
 

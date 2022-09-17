@@ -80,11 +80,11 @@ export default {
       },
       otpRules: {
         verifyCode: [
-          {
-            required: true,
-            message: this.$t('validation.required', { _field_: this.$t('otp.error') }),
-            trigger: 'blur'
-          }
+          // {
+          //   required: true,
+          //   message: this.$t('validation.required', { _field_: this.$t('otp.error') }),
+          //   trigger: 'blur'
+          // }
         ]
       },
       valid: false,
