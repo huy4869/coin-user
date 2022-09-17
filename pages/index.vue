@@ -1,8 +1,5 @@
 <template>
   <div class="landing_component">
-    <div class='stars'></div>
-    <div class='stars2'></div>
-    <div class='stars3'></div>
     <section class="bg_video">
       <video class="video_goal" autoplay loop muted>
         <source src="~/assets/video/messi.mp4" type="video/mp4">
@@ -14,6 +11,10 @@
         <h3 class="sub_title_home title--glitch" :data-text="$t('landing.sub_title')">{{ $t('landing.sub_title') }}</h3>
       </div>
     </section>
+
+    <div class='stars'></div>
+    <div class='stars2'></div>
+    <div class='stars3'></div>
 
     <section class="bg_eco">
       <div class="eco_home">
@@ -79,6 +80,8 @@
       </div>
 
       <div class="system_main_div">
+        <img src="~/assets/images/coin_system1.png" alt="" class="coin_system1_top filter_img">
+
         <img src="~/assets/images/coin_system.png" alt="" class="coin_system filter_img">
         <div class="content">
           <div class="system_div system_left" data-aos="fade-up-right" data-aos-duration="1500">
@@ -96,6 +99,7 @@
           <el-button class="enter_app_btn">{{ $t('landing.app') }}</el-button>
         </div>
       </div>
+      <img src="~/assets/images/coin_system1.png" alt="" class="coin_system1_bottom filter_img">
       <img src="~/assets/images/coin_system1.png" alt="" class="coin_system1 filter_img">
       <img src="~/assets/images/bg_meta2.png" alt="" class="bg_meta2">
 
@@ -113,7 +117,7 @@
         </div>
         <div @click="dialogComingSoon=true" data-aos="fade-up" class="product_div bg_pr_2">
           <div class="tex-center img_top_div">
-            <img src="~/assets/images/landing/cup.png" alt="" class="h-100 w-100 cup filter_img">
+            <img src="~/assets/images/landing/cup.svg" alt="" class="h-100 w-100 cup filter_img">
           </div>
           <div class="product_des title--glitch">{{ $t('landing.p2') }}</div>
         </div>

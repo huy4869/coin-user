@@ -10,7 +10,8 @@
           <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
         </div>
         <div class="header_left_home_mobile">
-          <img src="~/assets/images/logo_header.png" alt="" class="logo_header" @click="redirect('/')">
+          <img v-if="!$device.isDesktop" src="~/assets/images/logo_header.png" alt="" class="logo_header"
+               @click="redirect('/')">
         </div>
         <div class="header_right">
 
@@ -37,6 +38,24 @@
         </div>
         <!--  -->
         <div class="header-main-menu-mobile">
+          <div class="header_right lang_mobile_div">
+            <el-dropdown class="cursor-pointer d-flex lang_div" trigger="click" placement="bottom-start">
+            <span class="img_lang">
+              <img class="image-language" :src="languageActive.icon" alt="">
+              <img class="image-dropdown" src="~/assets/images/icons/arrow_down.svg" alt="">
+            </span>
+              <template #dropdown>
+                <el-dropdown-menu class="dropdown-language">
+                  <el-dropdown-item v-for="(language, index) in listLanguage" :key="index" :command="index">
+                    <div class="select-language d-flex" @click="changeLanguage(language)">
+                      <img :src="language.icon" alt="">
+                      <div class="language-name pd-l-10">{{ language.name }}</div>
+                    </div>
+                  </el-dropdown-item>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
+          </div>
           <label for="nav-mobile-input">
             <div class="menu-mobile pointer">
               <img src="@/assets/images/icons/menu.svg" alt="">
@@ -48,7 +67,7 @@
             <div class="flex justify-between items-center menu-mobile-top ">
               <div class="img-logo">
                 <a href="/">
-                <img src="~/assets/images/logo_header.png" alt="">
+                  <img src="~/assets/images/logo_header.png" alt="">
                 </a>
               </div>
               <label for="nav-mobile-input" class="icon-close">
@@ -59,13 +78,21 @@
             <div class="menu-mobile-alt ">
               <ul>
                 <li id="li-home" @click="handeClick('/home')" :class="{'is-active' : $route.path === '/home' }">
-                <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/menu/home.svg')" alt="copy">{{ $t('home.home') }}</li>
+                  <img style="width: 18px; height: 18px; margin-right: 11px"
+                       :src="require('@/assets/images/icons/menu/home.svg')" alt="copy">{{ $t('home.home') }}
+                </li>
                 <li id="li-home" @click="handeClick('/team')" :class="{'is-active' : $route.path === '/team' }">
-                <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/menu/team.svg')" alt="copy">{{ $t('home.team') }}</li>
+                  <img style="width: 18px; height: 18px; margin-right: 11px"
+                       :src="require('@/assets/images/icons/menu/team.svg')" alt="copy">{{ $t('home.team') }}
+                </li>
                 <li id="li-home" @click="handeClick('/setting')" :class="{'is-active' : $route.path === '/setting' }">
-                <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/menu/user.svg')" alt="copy">{{ $t('home.setting') }}</li>
+                  <img style="width: 18px; height: 18px; margin-right: 11px"
+                       :src="require('@/assets/images/icons/menu/user.svg')" alt="copy">{{ $t('home.setting') }}
+                </li>
                 <li id="li-home" @click="logout">
-                <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/logout.svg')" alt="copy">{{ $t('header.logout') }}</li>
+                  <img style="width: 18px; height: 18px; margin-right: 11px"
+                       :src="require('@/assets/images/icons/logout.svg')" alt="copy">{{ $t('header.logout') }}
+                </li>
               </ul>
             </div>
           </div>
@@ -149,6 +176,13 @@ export default {
     }
   },
   watch: {},
+  created() {
+    const dataLanguage = this.$cookies.get('lang') || 'en'
+    this.languageActive = this.listLanguage.find(item => item.lang === dataLanguage)
+    if (!this.languageActive) {
+      this.languageActive = this.listLanguage.find(item => item.lang === 'en')
+    }
+  },
   async mounted() {
     await this.init()
   },

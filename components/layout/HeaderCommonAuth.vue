@@ -25,6 +25,24 @@
         </div>
         <!--  -->
         <div class="header-main-menu-mobile">
+          <div class="header_right lang_mobile_div">
+            <el-dropdown class="cursor-pointer d-flex lang_div" trigger="click" placement="bottom-start">
+            <span class="img_lang">
+              <img class="image-language" :src="languageActive.icon" alt="">
+              <img class="image-dropdown" src="~/assets/images/icons/arrow_down.svg" alt="">
+            </span>
+              <template #dropdown>
+                <el-dropdown-menu class="dropdown-language">
+                  <el-dropdown-item v-for="(language, index) in listLanguage" :key="index" :command="index">
+                    <div class="select-language d-flex" @click="changeLanguage(language)">
+                      <img :src="language.icon" alt="">
+                      <div class="language-name pd-l-10">{{ language.name }}</div>
+                    </div>
+                  </el-dropdown-item>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
+          </div>
           <label for="nav-mobile-input">
             <div class="menu-mobile pointer">
               <img src="@/assets/images/icons/menu.svg" alt="">
@@ -36,7 +54,7 @@
             <div class="flex justify-between items-center menu-mobile-top ">
               <div class="img-logo">
                 <a href="/">
-                <img src="~/assets/images/logo_header.png" alt="">
+                  <img src="~/assets/images/logo_header.png" alt="">
                 </a>
               </div>
               <label for="nav-mobile-input" class="icon-close">
@@ -46,16 +64,19 @@
             <div class="menu-mobile-alt ">
               <ul>
                 <li>
-                  {{ $t('header.eco') }}</li>
+                  {{ $t('header.eco') }}
+                </li>
                 <li @click="handeClick('/home')">
-                  {{ $t('header.product') }}</li>
+                  {{ $t('header.product') }}
+                </li>
                 <li>
-                  {{ $t('header.partner') }}</li>
+                  {{ $t('header.partner') }}
+                </li>
               </ul>
             </div>
             <div class="header-main-actions-mobile flex">
               <el-button class="btn-mobile" @click="handeClick('/login')">
-              {{ $t('header.login') }}
+                {{ $t('header.login') }}
               </el-button>
               <el-button class="btn-mobile" @click="handeClick('/register')">
                 {{ $t('header.register') }}
@@ -95,11 +116,7 @@ export default {
           icon: require('~/assets/images/vietnam.svg')
         }
       ],
-      languageActive: {
-        id: 1,
-        name: 'English',
-        icon: require('~/assets/images/english.svg')
-      },
+      languageActive: {},
       modalLogin: false,
       modalState: 'login',
       titleRegister: this.$t('register_account'),
@@ -107,13 +124,15 @@ export default {
     }
   },
   computed: {
-    ...mapState('authentication', {
-      resetCartState: state => state.resetCartState,
-      openModalLoginState: state => state.openModalLoginState
-    })
+    ...mapState(['language'])
   },
   watch: {},
   async created() {
+    const dataLanguage = this.$cookies.get('lang') || 'en'
+    this.languageActive = this.listLanguage.find(item => item.lang === dataLanguage)
+    if (!this.languageActive) {
+      this.languageActive = this.listLanguage.find(item => item.lang === 'en')
+    }
     if (this.$auth.loggedIn) {
       await this.fetchData()
     }

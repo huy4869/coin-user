@@ -1,7 +1,7 @@
 <template>
   <div v-if="step === 1" class="main-login">
     <div>
-      <div  class="login login-width login-mobile">
+      <div class="login login-width login-mobile">
         <h3 class="title">{{ $t('account.reset_password') }}</h3>
         <h4 class=" ">{{ $t('account.forgot_title') }}</h4>
         <el-form
@@ -12,7 +12,8 @@
           label-position="left"
           @keydown.enter.native.prevent="submit"
         >
-          <el-form-item class="email-login" :label="$t('account.email')" prop="email" :error="(error.key === 'email') ? error.value : ''">
+          <el-form-item class="email-login" :label="$t('account.email')" prop="email"
+                        :error="(error.key === 'email') ? error.value : ''">
             <el-input
               id="email"
               ref="email"
@@ -27,7 +28,7 @@
           </el-form-item>
 
           <el-form-item>
-            <div :class="{'disabled' : disabledButton, 'common-button': 'common-button'}">
+            <div :class="{'disabled' : disabledButton, 'common-button': 'common-button', 'mb-0' : true}">
               <el-button
                 v-loading.fullscreen.lock="fullscreenLoading"
                 :loading="loading"
@@ -39,7 +40,7 @@
             </div>
           </el-form-item>
           <div class="back" style="margin-top: 1.5rem">
-            <router-link to="/" class="align-items-center cursor-pointer underline lowercase">
+            <router-link to="/" class="align-items-center cursor-pointer underline">
               {{ $t('account.back') }}
             </router-link>
           </div>
@@ -52,11 +53,11 @@
       <img class="noti-img" src="~/assets/images/email.png" alt="">
       <h3 class="noti-title">{{ $t('noti.send_mail_forgot') }}</h3>
       <h4 class="noti-subtitle">{{ $t('noti.send_mail_forgot_sub') }}</h4>
-      <div class="common-button">
+      <div class="common-button mb-0">
         <el-button
           v-loading.fullscreen.lock="fullscreenLoading"
           :loading="loading"
-          @click.native="step = 1"
+          @click.native="$router.push('/')"
 
         >
           {{ $t('noti.ok') }}

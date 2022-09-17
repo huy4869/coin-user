@@ -80,7 +80,7 @@
         </div>
         <div @click="dialogComingSoon=true" data-aos="fade-up" class="product_div bg_pr_2">
           <div class="tex-center img_top_div">
-            <img src="~/assets/images/landing/cup.png" alt="" class="h-100 w-100 cup filter_img">
+            <img src="~/assets/images/landing/cup.svg" alt="" class="h-100 w-100 cup filter_img">
           </div>
           <div class="product_des title--glitch">{{ $t('landing.p2') }}</div>
         </div>

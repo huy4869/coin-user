@@ -1,13 +1,17 @@
 <template>
   <div class="main-setting" style="display: flex">
-    <div class="btn-common">
+    <div class="btn-common btn_setting_div">
       <div class="btn-common-mobile">
-        <el-button :class="{'active' : !isChangePass}" class="btn_common" @click="showChangePass(false)">{{ $t('account.setting') }}</el-button>
+        <el-button :class="{'active' : !isChangePass}" class="btn_common" @click="showChangePass(false)">
+          {{ $t('account.setting') }}
+        </el-button>
         <br>
-        <el-button :class="{'active' : isChangePass}" class="btn_common" @click="showChangePass(true)">{{ $t('account.change_pass') }}</el-button>
+        <el-button :class="{'active' : isChangePass}" class="btn_common" @click="showChangePass(true)">
+          {{ $t('account.change_pass') }}
+        </el-button>
       </div>
     </div>
-    <div class="main-login" style="margin: 0 auto; border: 1px solid #555;">
+    <div class="main-login form_setting_div" style="border: 1px solid #555;">
       <div class="login login-width login-mobile">
         <h3 v-if="!isChangePass" class="title">{{ $t('account.setting') }}</h3>
         <h3 v-else class="title">{{ $t('account.change_pass') }}</h3>
@@ -48,6 +52,8 @@
                 type="text"
                 tabindex="2"
                 maxlength="50"
+                disabled
+                readonly
                 @focus="resetValidate('email')"
               />
             </el-form-item>
@@ -56,6 +62,7 @@
                 ref="phone"
                 v-model.trim="accountForm.phone"
                 :placeholder="$t('register.phone')"
+                oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                 name="phone"
                 type="text"
                 tabindex="3"
@@ -76,7 +83,7 @@
                 @focus="resetValidate('invite_code')"
               />
             </el-form-item> -->
-          <!--  -->
+            <!--  -->
             <hr class="line-through">
             <!--  -->
             <div class="d-flex align-items-center text-center" style="margin-top: 1.5rem">
@@ -85,10 +92,11 @@
               </span>
             </div>
             <div class="bnb-description">
-              <span>Please use BNB Smart Chain wallet (BEP20) to register an account. This wallet address will be used for deposit.</span>
+              <span>{{ $t('common.bnb_des') }}</span>
             </div>
             <!--  -->
-            <el-form-item :label="$t('register.wallet_address')" prop="wallet_address" :error="getErrResponse('wallet_address')">
+            <el-form-item :label="$t('register.wallet_address')" prop="wallet_address"
+                          :error="getErrResponse('wallet_address')">
               <el-input
                 ref="wallet_address"
                 v-model.trim="accountForm.wallet_address"
@@ -182,7 +190,7 @@
             </el-form-item>
           </div>
           <el-form-item>
-            <div :class="{'disabled' : disabledButton, 'common-button': 'common-button'}">
+            <div :class="{'disabled' : disabledButton, 'common-button': 'common-button', 'setting-button' : true}">
               <el-button
                 v-loading.fullscreen.lock="fullscreenLoading"
                 :loading="loading"
@@ -199,7 +207,13 @@
   </div>
 </template>
 <script>
-import { INDEX_SET_ERROR, INDEX_SET_LOADING, INDEX_SET_SUCCESS, USER_UPDATE, USER_UPDATE_PASS } from '@/store/store.const'
+import {
+  INDEX_SET_ERROR,
+  INDEX_SET_LOADING,
+  INDEX_SET_SUCCESS,
+  USER_UPDATE,
+  USER_UPDATE_PASS
+} from '@/store/store.const'
 import { validEmail, validPassword, validPhoneNoPrefix } from '@/utils/validate'
 
 export default {
@@ -256,6 +270,7 @@ export default {
     }
 
     const validPhoneNumber = (rule, value, callback) => {
+      console.log(1)
       if (value == null || value === '') {
         callback()
       } else if (!validPhoneNoPrefix(value)) {
@@ -342,7 +357,8 @@ export default {
       isAuthErr: false,
       fullscreenLoading: false,
       loading: false,
-      isChangePass: false
+      isChangePass: false,
+      errorResponse: []
     }
   },
   computed: {
@@ -376,6 +392,7 @@ export default {
       this.accountForm.errors[ref] = ''
     },
     async update() {
+      this.errorResponse = []
       this.error = { key: null, value: '' }
       await this.validateForm()
       if (!this.isValid) {
@@ -415,7 +432,15 @@ export default {
           show: true,
           text: response.message
         })
+        this.accountForm.password = ''
+        this.accountForm.new_password = ''
+        this.accountForm.new_password_confirmation = ''
         await this.$auth.fetchUser()
+      } else if (response.status_code === 422) {
+        for (const [k] of Object.entries(response.data)) {
+          this.error = { key: k, value: response.data[k][0] }
+          this.errorResponse.push({ key: k, value: response.data[k][0] })
+        }
       } else {
         await this.$store.commit(INDEX_SET_ERROR, {
           show: true,

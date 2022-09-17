@@ -542,7 +542,7 @@ a.color-red:hover {
 
 .el-button, .el-button:focus {
   background: $color-btn-active;
-  border: 1px solid white;
+  border: 1px solid $color-btn-active;
   color: $color-white;
 }
 
@@ -840,4 +840,17 @@ a.color-red:hover {
   background: $color-background;
   padding: 12px;
   border: 1px solid $color-border-sidebar;
+}
+
+
+.el-input.is-disabled .el-input__inner {
+  background-color: #C0C4CC;
+  border-color: #C0C4CC;
+  color: $color-black;
+  cursor: not-allowed;
+  font-weight: 500;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
 }

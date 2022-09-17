@@ -2,9 +2,9 @@
   <div class="coming-soon">
     <img src="~/assets/images/icons/close.svg" alt="" class="close_img" @click="$emit('close')">
 
-    <img :src="require('~/assets/images/coming-soon/coin.png')" alt="" class="coin filter_img pulse">
+    <img :src="require('~/assets/images/coming-soon/coin.png')" alt="" class="coin filter_img">
     <p class="title_home_coming title--glitch">Chiliz Meta Zone</p>
-    <p class="content title--glitch" :data-text="$t('noti.coming')">{{ $t('noti.coming') }}</p>
+    <p class="content title--glitch">{{ $t('noti.coming') }}</p>
   </div>
 </template>
 
