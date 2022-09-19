@@ -7,6 +7,7 @@
       <ul>
         <li><h3 class="sub-title">{{ $t('deposit.direct1') }}</h3></li>
         <li><h3 class="sub-title">{{ $t('deposit.direct2') }}</h3></li>
+        <li><h3 class="sub-title">{{ $t('deposit.direct3') }}</h3></li>
       </ul>
       <el-form
         autocomplete="off"

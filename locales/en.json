@@ -5,7 +5,7 @@
     "zoomIn": "Zoom In",
     "zoomOut": "Zoom Out",
     "zoomReset": "Reset",
-    "bnb_des": "Please use BNB Smart Chain wallet (BEP20) to register an account. This wallet address will be used for deposit."
+    "bnb_des": "Please use BNB Smart Chain wallet to register an account. This wallet address will be used for deposit."
   },
   "header": {
     "eco": "Eco System",
@@ -15,7 +15,7 @@
     "register": "Register",
     "logout": "Sign out",
     "token": "{v} CHZ",
-    "receive": "Receive"
+      "receive": "Buy package"
   },
   "footer": {
     "copyright": "© Copyright 2022. All Rights Reserved"
@@ -125,9 +125,10 @@
   },
   "deposit": {
     "title": "Receive",
-    "direct_title": "BNB Smart Chain (BEP20)",
-    "direct1": "Send CHZ tokens to this correct wallet address. Sending another token may cause you to lose your token.",
-    "direct2": "After send token to wallet , you can click \"confirm\" button for speed up or wait a few minute.",
+    "direct_title": "BNB Smart Chain",
+    "direct1": "Please use BNB Beacon Chain (BEP2) send CHZ tokens to this wallet address with this memo (If not correct memo, you will lost token).",
+    "direct2": "For every 150CHZ, you have registered a system code. If you want to buy multiple codes, you can send token at the same time.",
+    "direct3": "After send token, please wait a few minutes.",
     "address": "Wallet address",
     "memo": "Memo",
     "confirm": "Confirm"
