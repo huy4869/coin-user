@@ -112,14 +112,14 @@
           <!--  -->
           <hr class="line-through">
           <!--  -->
-          <div class="d-flex align-items-center text-center" style="margin-top: 1.5rem">
-            <span class="bnb-title">
-              BNB Smart Chain (BEP20)
-            </span>
-          </div>
-          <div class="bnb-description">
-            <span>{{ $t('common.bnb_des') }}</span>
-          </div>
+<!--          <div class="d-flex align-items-center text-center" style="margin-top: 1.5rem">-->
+<!--            <span class="bnb-title">-->
+<!--              BNB Smart Chain (BEP20)-->
+<!--            </span>-->
+<!--          </div>-->
+<!--          <div class="bnb-description">-->
+<!--            <span>{{ $t('common.bnb_des') }}</span>-->
+<!--          </div>-->
           <!--  -->
           <el-form-item :label="$t('register.wallet_address')" prop="wallet_address"
                         :error="getErrResponse('wallet_address')">
