@@ -11,7 +11,7 @@
           @keyup.enter.native="reset"
         >
           <el-form-item
-            class="email-login" :label="$t('account.new_password')" prop="password"
+            class="email-login mb-32" :label="$t('account.new_password')" prop="password"
             :error="getErrResponse('password')">
             <el-input
               ref="password"
@@ -63,7 +63,7 @@
             </div>
           </el-form-item>
           <div class="back" style="margin-top: 1.5rem">
-            <router-link to="/" class="align-items-center color-orange cursor-pointer underline">
+            <router-link to="/" class="align-items-center color-orange cursor-pointer">
               {{ $t('account.back') }}
             </router-link>
           </div>

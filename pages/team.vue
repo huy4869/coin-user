@@ -1,6 +1,12 @@
 <template>
   <div class="team_component">
-    <div class="team_btn_div">
+    <div v-if="lstTeam.length === 0" class="team_btn_div">
+      <el-button
+        class="btn_common_red"
+        @click="changeTeam(null, null)">Team 1
+      </el-button>
+    </div>
+    <div v-else class="team_btn_div">
       <el-button
         v-for="(team, index) in lstTeam" :key="index"
         :class="[idTeam===team?'btn_common_red':'btn_common_black']"
@@ -63,6 +69,9 @@ export default {
   },
   methods: {
     async changeTeam(id, index) {
+      if (this.lstTeam.length < 1) {
+        return false
+      }
       this.idTeam = id
       this.selectedTeam = index + 1
       await this.getTree()
@@ -88,6 +97,10 @@ export default {
       }
     },
     async getTree() {
+      if (this.lstTeam.length === 0) {
+        this.userRoot = {}
+        return
+      }
       await this.$store.commit(INDEX_SET_LOADING, true)
       try {
         const data = await this.$store.dispatch(USER_TREE_BY_TEAM, this.idTeam)

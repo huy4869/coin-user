@@ -14,7 +14,7 @@
       link-style="straight"
     >
       <template #node>
-        <tree-component :data-prop="dataTree"/>
+        <tree-component :data-prop="getData"/>
       </template>
     </vue-tree>
   </div>
@@ -31,7 +31,15 @@ export default {
   data() {
     return {
       dataTreeRoot: { id: 1 },
-      treeConfig: { nodeWidth: 300, nodeHeight: 184, levelHeight: 300 }
+      treeConfig: { nodeWidth: 300, nodeHeight: 184, levelHeight: 300 },
+      user: this.$auth.user
+    }
+  },
+  computed: {
+    getData() {
+      return (this.dataTree.value !== null && this.dataTree.value !== undefined)
+        ? this.dataTree
+        : this.user
     }
   },
   mounted() {
