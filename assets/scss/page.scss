@@ -507,7 +507,7 @@ a {
 
 .home-auth {
   padding: 40px 60px;
-  min-height: calc(100vh - $height-footer-home - 80px - 2 * 40px);
+  min-height: calc(100vh - $height-footer-home - 80px - 2 * 40px + 30px);
 }
 
 .home-sidebar {
