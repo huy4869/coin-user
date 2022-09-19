@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     getData() {
-      return (this.dataTree.value !== null && this.dataTree.value !== undefined)
+      return (this.dataTree.value !== null && this.dataTree.value !== undefined) || (this.dataTree.children !== null && this.dataTree.children !== undefined && this.dataTree.children.length > 0)
         ? this.dataTree
         : this.user
     }
@@ -107,10 +107,10 @@ export default {
   .rich-media-node {
     background-color: $color-bg-node !important;
     height: 200px;
-    padding: 9px;
+    padding: 9px 15px;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: left;
     color: white;
     border: 1px solid $color-red-primary;
     border-radius: 4px;
