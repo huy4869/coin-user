@@ -149,7 +149,7 @@
               </el-input>
             </el-form-item>
             <el-form-item
-              class="email-login" :label="$t('account.new_password')" prop="new_password"
+              class="email-login mb-32" :label="$t('account.new_password')" prop="new_password"
               :error="getErrResponse('new_password')">
               <el-input
                 ref="new_password"
@@ -242,35 +242,26 @@ export default {
     // }
 
     const validateConfirmPass = (rule, value, callback) => {
-      if (this.accountForm.password) {
-        if (!value) {
-          callback(new Error(this.$t('validation.required', { _field_: this.$t('account.password_confirmation') })))
-        } else if (value !== this.accountForm.new_password) {
-          callback(new Error(this.$t('validation.passNotMatch')))
-        } else {
-          callback()
-        }
+      if (!value) {
+        callback(new Error(this.$t('validation.required', { _field_: this.$t('account.password_confirmation') })))
+      } else if (value !== this.accountForm.new_password) {
+        callback(new Error(this.$t('validation.passNotMatch')))
       } else {
         callback()
       }
     }
 
     const validateNewPass = (rule, value, callback) => {
-      if (this.accountForm.password) {
-        if (!value) {
-          callback(new Error(this.$t('validation.required', { _field_: this.$t('account.password_confirmation') })))
-        } else if (value.length < 8 || value > 32 || !validPassword(value)) {
-          callback(new Error(this.$t('validation.pass_format')))
-        } else {
-          callback()
-        }
+      if (!value) {
+        callback(new Error(this.$t('validation.required', { _field_: this.$t('account.password_confirmation') })))
+      } else if (value.length < 8 || value > 32 || !validPassword(value)) {
+        callback(new Error(this.$t('validation.pass_format')))
       } else {
         callback()
       }
     }
 
     const validPhoneNumber = (rule, value, callback) => {
-      console.log(1)
       if (value == null || value === '') {
         callback()
       } else if (!validPhoneNoPrefix(value)) {
@@ -308,44 +299,43 @@ export default {
           }
         ],
         phone: [
-          // {
-          //   required: !this.isChangePass,
-          //   message: this.$t('validation.required', { _field_: this.$t('account.phoneNumber') }),
-          //   trigger: 'blur'
-          // },
+          {
+            required: !this.isChangePass,
+            message: this.$t('validation.required', { _field_: this.$t('account.phoneNumber') }),
+            trigger: 'blur'
+          },
           {
             validator: validPhoneNumber, trigger: 'blur'
           }
         ],
         name: [
-          // {
-          //   required: !this.isChangePass,
-          //   message: this.$t('validation.required', { _field_: this.$t('account.fullName') }),
-          //   trigger: 'blur'
-          // }
+          {
+            required: !this.isChangePass,
+            message: this.$t('validation.required', { _field_: this.$t('account.fullName') }),
+            trigger: 'blur'
+          }
         ],
-        // password: [
-        //   {
-        //     required: true,
-        //     message: this.$t('validation.required', { _field_: this.$t('account.current_pass') }),
-        //     trigger: 'blur'
-        //   },
-        //   { validator: validatePass, trigger: 'blur' }
-        // ],
+        password: [
+          {
+            required: true,
+            message: this.$t('validation.required', { _field_: this.$t('account.current_pass') }),
+            trigger: 'blur'
+          }
+        ],
         new_password: [
-          // {
-          //   required: true,
-          //   message: this.$t('validation.required', { _field_: this.$t('account.new_password') }),
-          //   trigger: 'blur'
-          // },
+          {
+            required: true,
+            message: this.$t('validation.required', { _field_: this.$t('account.new_password') }),
+            trigger: 'blur'
+          },
           { validator: validateNewPass, trigger: 'blur' }
         ],
         new_password_confirmation: [
-          // {
-          //   required: true,
-          //   message: this.$t('validation.required', { _field_: this.$t('account.password_confirmation') }),
-          //   trigger: 'blur'
-          // },
+          {
+            required: true,
+            message: this.$t('validation.required', { _field_: this.$t('account.password_confirmation') }),
+            trigger: 'blur'
+          },
           { validator: validateConfirmPass, trigger: 'blur' }
         ]
       },

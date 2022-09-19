@@ -40,7 +40,7 @@
             </div>
           </el-form-item>
           <div class="back" style="margin-top: 1.5rem">
-            <router-link to="/" class="align-items-center cursor-pointer underline">
+            <router-link to="/" class="align-items-center cursor-pointer">
               {{ $t('account.back') }}
             </router-link>
           </div>
