@@ -4,6 +4,12 @@
       width: 109% !important;
       margin-left: -15px !important;
     }
+    .btn_common {
+      width: 50% !important;
+    }
+    .btn_setting_div {
+      margin-left: -7px !important;
+    }
   }
 }
 
@@ -98,7 +104,7 @@
       gap: 5px;
 
       .btn_common {
-        width: 50% !important;
+        width: 47% !important;
         margin: 0 0 12px 0 !important;
       }
     }
@@ -157,7 +163,7 @@
       display: inline-block;
 
       .product_div {
-        height: 250px !important;
+        height: 220px !important;
         margin: 24px 12px;
       }
     }
@@ -195,8 +201,23 @@
   }
   .product_component {
     .lst_product_div {
-      grid-gap: 0px !important
+      grid-gap: 0px !important;
+      .product_div {
+        height: 180px !important;
+      }
     }
+  }
+  .container-footer {
+    .footer-left {
+      justify-content: center !important;
+      margin-bottom: 30px;
+    }
+
+    .footer-right {
+      justify-content: center !important;
+      gap: 50px !important;
+    }
+
   }
 }
 
@@ -210,29 +231,34 @@
       margin: 24px 12px;
     }
   }
+  .product_des {
+    font-size: 14px !important;
+  }
 
   .container-footer {
     .footer-left {
-      justify-content: space-around !important;
+      justify-content: center !important;
       margin-bottom: 30px;
     }
 
     .footer-right {
-      justify-content: space-around !important;
+      justify-content: center !important;
+      gap: 50px !important;
     }
 
-    .img_messi {
-      margin: 30px 0 0 15% !important
-    }
   }
-
+  .img_messi {
+    margin: 30px 0 0 15% !important
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 860px) {
   .product_component {
     .lst_product_div {
       grid-gap: 10px !important;
       width: 96% !important;
 
       .product_div {
-        height: 220px !important;
+        height: 180px !important;
       }
     }
   }
@@ -287,6 +313,13 @@
     .eco_content_div {
       margin: 50px 0 25px 20px !important;
     }
+    .eco_right {
+      .img_messi {
+        position: relative !important;
+        margin: 30px 0 0 15% !important
+
+      }
+    }
   }
   .system_title, .eco_title {
     letter-spacing: 0 !important
@@ -322,6 +355,9 @@
     .lang_mobile_div {
       display: block !important;
     }
+  }
+  .container-header {
+    padding: 0 !important
   }
   .main-container {
     margin: 0 !important;
