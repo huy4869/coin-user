@@ -112,7 +112,7 @@
       :show-close="true" :visible.sync="receiveModal" class="dialog-deposit">
       <modal-deposit
         :address="address"
-        :memo="user.memo"
+        :memo="user.send_memo"
         @close="closeReceive()"/>
     </el-dialog>
   </div>
