@@ -4,8 +4,9 @@
       <div class="container-header">
         <div class="header_left">
           <img src="~/assets/images/logo_header.png" alt="" class="logo_header" @click="redirect('/')">
+          <span class="title_nav" id="nav-item" @click="$router.push('/home')">{{ $t('header.dashboard') }}</span>
           <span class="title_nav" id="nav-item">{{ $t('header.eco') }}</span>
-          <span class="title_nav" id="nav-item" @click="$router.push('/home')">{{ $t('header.product') }}</span>
+          <span class="title_nav" id="nav-item">{{ $t('header.product') }}</span>
           <span class="title_nav" id="nav-item">{{ $t('header.partner') }}</span>
         </div>
         <div class="header_right">
@@ -69,7 +70,7 @@
             <div class="flex justify-between items-center menu-mobile-top ">
               <div class="img-logo">
                 <a href="/">
-                <img src="~/assets/images/logo_header.png" alt="">
+                  <img src="~/assets/images/logo_header.png" alt="">
                 </a>
               </div>
               <label for="nav-mobile-input" class="icon-close">
@@ -79,19 +80,24 @@
             <div class="menu-mobile-alt ">
               <ul>
                 <li>
-                  {{ $t('header.eco') }}</li>
+                  {{ $t('header.eco') }}
+                </li>
                 <li @click="handeClick('/home')">
-                  {{ $t('header.product') }}</li>
+                  {{ $t('header.product') }}
+                </li>
                 <li>
-                  {{ $t('header.partner') }}</li>
+                  {{ $t('header.partner') }}
+                </li>
                 <li v-if="$auth.loggedIn" @click="logout">
-                  <img style="width: 18px; height: 18px; margin-right: 11px" :src="require('@/assets/images/icons/logout.svg')" alt="logout">
-                {{ $t('header.logout') }}</li>
+                  <img style="width: 18px; height: 18px; margin-right: 11px"
+                       :src="require('@/assets/images/icons/logout.svg')" alt="logout">
+                  {{ $t('header.logout') }}
+                </li>
               </ul>
             </div>
             <div v-if="!$auth.loggedIn" class="header-main-actions-mobile flex">
               <el-button class="btn-mobile" @click="handeClick('/login')">
-              {{ $t('header.login') }}
+                {{ $t('header.login') }}
               </el-button>
               <el-button class="btn-mobile" @click="handeClick('/register')">
                 {{ $t('header.register') }}
