@@ -8,6 +8,7 @@
     "bnb_des": "Please use BNB Smart Chain wallet to register an account. This wallet address will be used for deposit."
   },
   "header": {
+    "dashboard": "Dashboard",
     "eco": "Eco System",
     "product": "Product",
     "partner": "Partners",
