@@ -92,6 +92,14 @@ export default {
           title: this.$t('home.setting'),
           active: false,
           hidden: false
+        }, {
+          id: 3,
+          icon: 'user.svg',
+          icon_active: 'user_active.svg',
+          path: '/history',
+          title: this.$t('home.history'),
+          active: false,
+          hidden: false
         }
       ]
     }

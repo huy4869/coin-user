@@ -571,6 +571,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .home-sidebar {
+    padding: 40px 13px;
+  }
   .main-setting {
     display: block !important;
 
@@ -582,7 +585,7 @@
 
 @media only screen and (max-width: 300px) {
   .home-sidebar {
-    padding: 40px 13px;
+    padding: 20px 13px;
   }
   .main-setting {
     .form_setting_div {

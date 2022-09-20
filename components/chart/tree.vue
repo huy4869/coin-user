@@ -78,7 +78,7 @@ export default {
             </div>
             <div class="row_info">
               <span class="title">Wallet address:</span>
-              <span class="value">{ data.wallet_address }</span>
+              <span class="value">111111111111111111111eeeeeeeeeeeeeeeee11111111111111111111111</span>
             </div>
           </div>
         )

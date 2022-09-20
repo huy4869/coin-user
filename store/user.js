@@ -41,5 +41,10 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.get(`/profile/nodes/${data}`), context)
     })
+  },
+  getHistory(context, query) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/profile/history?' + new URLSearchParams(query).toString()), context)
+    })
   }
 }
