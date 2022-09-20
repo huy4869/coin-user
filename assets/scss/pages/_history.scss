@@ -1,0 +1,251 @@
+.history_component {
+  .title_div {
+    margin-bottom: 50px;
+  }
+
+  .minus {
+    color: $color-red-primary;
+  }
+
+  .bonus {
+    color: $color-green-functional;
+  }
+
+  .map {
+    margin-top: 48px;
+    margin-bottom: 108px;
+    position: relative;
+
+    .el-select {
+      position: absolute;
+      right: 0;
+      top: -11px;
+      width: 130px;
+      height: 48px;
+      border-radius: 2px;
+
+      input {
+        border-radius: 2px;
+      }
+    }
+
+    h4 {
+      font-family: $fonts-root;
+      text-align: center;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 33px;
+      margin-bottom: 28px;
+    }
+  }
+
+  .history-table {
+    tbody {
+      color: #041B49;
+    }
+  }
+
+  .table_history_mobile {
+    display: none;
+  }
+
+  .status-label {
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .button-row {
+    margin-bottom: 24px;
+
+    .el-select {
+      max-width: 161px;
+    }
+
+    .button {
+      float: right;
+      height: 48px;
+    }
+  }
+
+  .el-table {
+    border-radius: 10px;
+    background-color: $color-bg-navbar;
+    color: $color-white;
+  }
+
+  .el-table th.el-table__cell {
+    background-color: $color-bg-navbar;
+    color: $color-white;
+  }
+
+  .el-table tr {
+    background-color: $color-bg-navbar;
+  }
+}
+
+.pagination-container {
+  li.active {
+    width: unset !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .table_history_pc {
+    display: none;
+  }
+
+  .table_history_mobile {
+    display: block !important;
+    border-radius: 8px;
+    padding-top: 10px;
+
+    table {
+      border-radius: 8px 8px 0px 0px;
+      width: 100%;
+    }
+
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    table tr {
+      display: block;
+      margin-bottom: .625em;
+      padding: 5px 0;
+      border-radius: 10px;
+    }
+
+    table td {
+      display: block;
+      text-align: right;
+      padding: 12px;
+      color: $color-white;
+      min-height: 25px;
+      font-weight: 500;
+      font-family: $fonts-root;
+
+      &:nth-child(even) {
+        background-color: $color-table-even-mobile !important;
+      }
+
+      &:nth-child(odd) {
+        background-color: $color-bg-navbar !important;
+      }
+
+      span {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        align-items: center;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+        //color: $color-text-common;
+      }
+    }
+
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      align-items: center;
+      font-feature-settings: 'pnum' on, 'lnum' on;
+
+      //color: $color-text-common;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .history_component {
+    .title_div {
+      margin-bottom: 0px;
+      .title {
+        font-size: 20px;
+      }
+    }
+  }
+  .table_history_mobile {
+    display: block !important;
+    border-radius: 8px;
+    padding-top: 10px;
+
+    table {
+      border-radius: 8px 8px 0px 0px;
+      width: 100%;
+    }
+
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    table tr {
+      display: block;
+      margin-bottom: .625em;
+      padding: 5px 0;
+      border-radius: 10px;
+    }
+
+    table td {
+      display: block;
+      text-align: right;
+      padding: 10px 5px;
+      color: $color-white;
+      min-height: 20px;
+      font-weight: 500;
+      font-family: $fonts-root;
+      font-size: 13px;
+
+      &:nth-child(even) {
+        background-color: $color-table-even-mobile !important;
+      }
+
+      &:nth-child(odd) {
+        background-color: $color-bg-navbar !important;
+      }
+
+      span {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        align-items: center;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+        //color: $color-text-common;
+      }
+    }
+
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 13px;
+      align-items: center;
+      font-feature-settings: 'pnum' on, 'lnum' on;
+
+      //color: $color-text-common;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+}

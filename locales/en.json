@@ -16,7 +16,7 @@
     "register": "Register",
     "logout": "Sign out",
     "token": "{v} CHZ",
-      "receive": "Buy package"
+    "receive": "Buy package"
   },
   "footer": {
     "copyright": "© Copyright 2022. All Rights Reserved"
@@ -67,7 +67,7 @@
     "phone": "Phone Number",
     "wallet_address": "Wallet address",
     "memo": "BNB Memo",
-    "memo-sub" : "* You might lose your tokens if you dont fill the MEMO (Binance wallet users)"
+    "memo-sub": "* You might lose your tokens if you dont fill the MEMO (Binance wallet users)"
   },
   "forgot_password": {
     "title": "Forgot Password",
@@ -122,7 +122,8 @@
   "home": {
     "home": "Home",
     "team": "My team",
-    "setting": "Account"
+    "setting": "Account",
+    "history": "Transaction History"
   },
   "deposit": {
     "title": "Receive",
@@ -158,5 +159,18 @@
     "note2": "Share your referral/affiliate ID with a friend who doesn't have an account.",
     "note3": "Referred person must register an account and use the system to count as a successful referral.",
     "product": "product"
+  },
+  "history": {
+    "no": "No",
+    "created_at": "Created at",
+    "email": "Email",
+    "tx_hash": "Transaction hash",
+    "token": "Token",
+    "from_address": "From",
+    "to_address": "To",
+    "type_name": "Type",
+    "description": "Description",
+    "status": "Status",
+    "title": "Transaction History"
   }
 }

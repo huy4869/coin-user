@@ -115,7 +115,8 @@ export default {
     border: 1px solid $color-red-primary;
     border-radius: 4px;
     font-family: 'Montserrat';
-    width: 200px;
+    width: fit-content;
+    min-width: 200px;
     display: grid;
     grid-template-columns: auto;
     gap: 15px;

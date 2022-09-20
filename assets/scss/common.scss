@@ -858,3 +858,40 @@ a.color-red:hover {
 .mb-32 {
   margin-bottom: 32px !important;
 }
+
+.el-table .cell {
+  font-family: $fonts-root !important;
+  font-weight: 500;
+}
+
+.el-table__empty-block {
+  display: none;
+}
+
+.table-empty {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.empty_img {
+  max-width: 100%;
+  max-height: 100%;
+  width: unset;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: $color-bg-navbar;
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  background-color: #142744;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped.current-row td.el-table__cell, .el-table__body tr.current-row>td.el-table__cell {
+  background-color: #142744;
+}
+
+.el-table td.el-table__cell, .el-table th.el-table__cell.is-leaf {
+  border-bottom: unset;
+}
+
