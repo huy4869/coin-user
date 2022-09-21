@@ -5,9 +5,18 @@
         <div class="header_left" id="header_left_home">
           <div class="token_div">
             <img src="~/assets/images/icons/logo_token.svg" alt="" class="w-100">
-            <span class="token_title">{{ $t('header.token', { v: user ? user.coin : 0 }) }}</span>
+            <span class="token_title">{{ $t('header.token', { v: user ? user.coin_format : 0 }) }}</span>
           </div>
           <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
+          <div class="token_div">
+            <img style="width: 24px; height: 24px" src="~/assets/images/icons/logo_transfer.svg" alt="" class="w-100">
+            <span class="token_title">{{ $t('header.cmz', { v: user ? user.cmz_coin_format : 0 }) }}</span>
+          </div>
+          <el-tooltip class="item" effect="dark" content="After KYC" placement="bottom">
+            <span>
+              <el-button disabled="disabled" class="btn_transfer">{{ $t('header.transfer') }}</el-button>
+            </span>
+          </el-tooltip>
         </div>
         <div class="header_left_home_mobile">
           <img v-if="!$device.isDesktop" src="~/assets/images/logo_header.png" alt="" class="logo_header"
@@ -172,7 +181,8 @@ export default {
       modalLogin: false,
       modalState: 'login',
       titleRegister: this.$t('register_account'),
-      titleForgot: this.$t('modal_login.send_forgot_password')
+      titleForgot: this.$t('modal_login.send_forgot_password'),
+      timer: null
     }
   },
   watch: {},
@@ -185,6 +195,9 @@ export default {
   },
   async mounted() {
     await this.init()
+    this.timer = setInterval(async() => {
+      await this.$auth.fetchUser()
+    }, 60000)
   },
   methods: {
     async handeClick(link) {
@@ -245,6 +258,9 @@ export default {
         this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
       }
     }
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
   }
 }
 </script>

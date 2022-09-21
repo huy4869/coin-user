@@ -253,10 +253,8 @@ export default {
 
     const validateNewPass = (rule, value, callback) => {
       if (!value) {
-        console.log('a')
         callback(new Error(this.$t('validation.required', { _field_: this.$t('account.password_confirmation') })))
       } else if (value.length < 8 || value.length > 32) {
-        console.log(value.length)
         callback(new Error(this.$t('validation.pass_format')))
       } else {
         callback()
