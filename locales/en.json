@@ -5,7 +5,7 @@
     "zoomIn": "Zoom In",
     "zoomOut": "Zoom Out",
     "zoomReset": "Reset",
-    "bnb_des": "Please use BNB Smart Chain wallet to register an account. This wallet address will be used for deposit."
+    "bnb_des": "Please bind Bep2 CHZ to your account, all of your rewards will be automatically transferred to this wallet."
   },
   "header": {
     "dashboard": "Dashboard",
@@ -84,7 +84,7 @@
     "max": "{_field_} must be within {length} characters.",
     "passNotMatch": "The Password do not match. Please try again",
     "email_format": "The Email format is incorrect",
-    "pass_format": "Password must be between 8 and 32 characters, including letters, numbers and special characters.",
+    "pass_format": "Password must be between 8 and 32 characters.",
     "insufficient_balance": "Insufficient available balance",
     "phone": "Prefix and Phone",
     "code_phone_format": "The Code format is incorrect",

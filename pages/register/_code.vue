@@ -1,5 +1,5 @@
 <template>
-  <div class="main-login" id="register">
+  <div id="register" class="main-login">
     <div>
       <div class="login login-width login-mobile">
         <h3 v-if="step===1" class="title">{{ $t('register.title') }}</h3>
@@ -114,7 +114,7 @@
           <!--  -->
           <div class="d-flex align-items-center text-center" style="margin-top: 1.5rem">
             <span class="bnb-title">
-              BNB Smart Chain
+              Bep2 CHZ wallet
             </span>
           </div>
           <div class="bnb-description">
@@ -183,7 +183,7 @@
 import { mapState } from 'vuex'
 import { AUTH_REGISTER, INDEX_SET_ERROR, INDEX_SET_LOADING, INDEX_SET_SUCCESS, SET_EMAIL } from '@/store/store.const'
 import { TYPE_REGISTER_OTP } from '@/constants/store'
-import { validEmail, validPassword, validPhoneNoPrefix } from '@/utils/validate'
+import { validEmail, validPhoneNoPrefix } from '@/utils/validate'
 import OtpPage from '@/components/auth/otp'
 
 export default {
@@ -203,7 +203,7 @@ export default {
       if (value === '') {
         callback(new Error(this.$t('validation.required', { _field_: this.$t('account.password') }).toString()))
       } else {
-        if (!validPassword(value)) {
+        if (value.length < 8 || value > 32) {
           callback(new Error(this.$t('validation.pass_format')))
         }
         if (this.accountForm.password_confirmation !== '') {
@@ -229,8 +229,10 @@ export default {
       }
     }
     const validPhoneNumber = (rule, value, callback) => {
-      if (!validPhoneNoPrefix(value)) {
-        callback(new Error(this.$t('validation.phone')))
+      if (value == null || value === '') {
+        callback()
+      } else if (!validPhoneNoPrefix(value)) {
+        callback(new Error(this.$t('validation.phone_length')))
       } else {
         callback()
       }
@@ -304,11 +306,6 @@ export default {
           }
         ],
         phone: [
-          {
-            required: true,
-            message: this.$t('validation.required', { _field_: this.$t('register.phone') }),
-            trigger: 'blur'
-          },
           { validator: validPhoneNumber, trigger: 'blur' }
         ],
         captcha: [
@@ -353,7 +350,7 @@ export default {
         if (value === '') {
           callback(new Error(this.$t('validation.required', { _field_: this.$t('account.password') }).toString()))
         } else {
-          if (!validPassword(value)) {
+          if (value.length < 8 || value > 32) {
             callback(new Error(this.$t('validation.pass_format')))
           }
           if (this.accountForm.password_confirmation !== '') {
