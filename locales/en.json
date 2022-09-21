@@ -16,6 +16,8 @@
     "register": "Register",
     "logout": "Sign out",
     "token": "{v} CHZ",
+    "cmz": "{v} CMZ",
+    "transfer": "Transfer",
     "receive": "Buy package"
   },
   "footer": {
