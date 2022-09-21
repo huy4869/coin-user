@@ -214,7 +214,7 @@ import {
   USER_UPDATE,
   USER_UPDATE_PASS
 } from '@/store/store.const'
-import { validEmail, validPassword, validPhoneNoPrefix } from '@/utils/validate'
+import { validEmail, validPhoneNoPrefix } from '@/utils/validate'
 
 export default {
   name: 'ProfilePage',
@@ -253,8 +253,10 @@ export default {
 
     const validateNewPass = (rule, value, callback) => {
       if (!value) {
+        console.log('a')
         callback(new Error(this.$t('validation.required', { _field_: this.$t('account.password_confirmation') })))
-      } else if (value.length < 8 || value > 32 || !validPassword(value)) {
+      } else if (value.length < 8 || value.length > 32) {
+        console.log(value.length)
         callback(new Error(this.$t('validation.pass_format')))
       } else {
         callback()
