@@ -145,8 +145,8 @@ import {
   INDEX_SET_ERROR,
   INDEX_SET_LOADING,
   SET_LANGUAGE,
-  USER_GET_SYSTEM_WALLET,
-  USER_GET_CMZ
+  USER_GET_CMZ,
+  USER_GET_SYSTEM_WALLET
 } from '@/store/store.const'
 import ModalDeposit from '@/components/modals/modal-deposit'
 
@@ -208,8 +208,9 @@ export default {
   },
   async mounted() {
     await this.init()
-    this.timer = setInterval(() => {
-      this.getCMZ()
+    await this.getCMZ()
+    this.timer = setInterval(async() => {
+      await this.getCMZ()
     }, 60000)
   },
   methods: {
