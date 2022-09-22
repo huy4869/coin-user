@@ -94,8 +94,8 @@ export default {
           hidden: false
         }, {
           id: 3,
-          icon: 'user.svg',
-          icon_active: 'user_active.svg',
+          icon: 'history.svg',
+          icon_active: 'history_active.svg',
           path: '/history',
           title: this.$t('home.history'),
           active: false,

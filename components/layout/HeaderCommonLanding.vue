@@ -1,18 +1,20 @@
 <template>
   <div>
-    <div class="header">
+    <div class="header header_landing">
       <div class="container-header">
         <div class="header_left">
           <img src="~/assets/images/logo_header.png" alt="" class="logo_header" @click="redirect('/')">
-          <span class="title_nav" id="nav-item" @click="$router.push('/home')">{{ $t('header.dashboard') }}</span>
-          <span class="title_nav" id="nav-item">{{ $t('header.eco') }}</span>
-          <span class="title_nav" id="nav-item">{{ $t('header.product') }}</span>
-          <span class="title_nav" id="nav-item">{{ $t('header.partner') }}</span>
+         <div class="lst_menu">
+           <div class="title_nav title_nav_left" id="nav-item" @click="$router.push('/home')">{{ $t('header.dashboard') }}</div>
+           <div class="title_nav title_nav_left" id="nav-item">{{ $t('header.eco') }}</div>
+           <div class="title_nav title_nav_left" id="nav-item">{{ $t('header.product') }}</div>
+           <div class="title_nav title_nav_left" id="nav-item">{{ $t('header.partner') }}</div>
+         </div>
         </div>
         <div class="header_right">
           <template v-if="!$auth.loggedIn">
             <span class="title_nav" @click="$router.push('/login')">{{ $t('header.login') }}</span>
-            <el-button class="btn_register title_nav" @click="$router.push('/register')">
+            <el-button class="btn_register" @click="$router.push('/register')">
               {{ $t('header.register') }}
             </el-button>
           </template>
