@@ -81,10 +81,13 @@
             </div>
             <div class="menu-mobile-alt ">
               <ul>
+                <li @click="handeClick('/home')">
+                  {{ $t('header.dashboard') }}
+                </li>
                 <li>
                   {{ $t('header.eco') }}
                 </li>
-                <li @click="handeClick('/home')">
+                <li>
                   {{ $t('header.product') }}
                 </li>
                 <li>
