@@ -74,7 +74,7 @@
     }
 
     .bg_video {
-        background-image: url("assets/images/landing/mobile/bg1.png");
+      background-image: url("assets/images/landing/mobile/bg1.png");
     }
 
     .bg_video .text_des_div {
@@ -119,12 +119,11 @@
 
     .product_component {
       background-image: url("assets/images/landing/mobile/bg4.png") !important;
-      padding: 50px 0 30px !important;
       margin-bottom: -100px;
     }
 
     .roadmap_component {
-      padding: 30px 15px !important;
+      padding: 0 15px 30px !important;
       background-image: url("assets/images/landing/mobile/bg5.png") !important;
 
       .title_home {
@@ -183,7 +182,6 @@
   }
   .product_div {
     margin: 24px !important;
-    height: 195px !important;
   }
   .header-left-mobile {
     padding: 0 15px;
@@ -337,7 +335,6 @@
       display: inline-block;
 
       .product_div {
-        height: 300px !important;
         margin: 24px 12px;
       }
     }
@@ -450,9 +447,6 @@
       grid-gap: 10px !important;
       width: 96% !important;
 
-      .product_div {
-        height: 180px !important;
-      }
     }
   }
 }
@@ -462,7 +456,7 @@
 
     .bg_video {
       //.img_bg_1 {
-        background-image: url("assets/images/landing/mobile/bg1.png");
+      background-image: url("assets/images/landing/mobile/bg1.png");
       //}
     }
 
@@ -511,12 +505,12 @@
 
     .product_component {
       margin-top: -5px;
-      padding: 50px 0 100px !important;
+      padding: 50px 0 100px;
     }
 
     .lst_product_div {
       .product_div {
-        height: 300px !important;
+        height: 300px;
       }
     }
 
@@ -545,6 +539,7 @@
 
     .partner_component {
       margin-top: -5px;
+      padding: 50px 0 100px;
 
       .mask {
         content: url("assets/images/landing/mobile/mask.png") !important;
@@ -618,7 +613,7 @@
       display: block !important;
     }
   }
-  .container-header {
+  .header #header_landing {
     padding: 0 1rem !important
   }
   .main-container {
@@ -798,6 +793,7 @@
         line-height: 20px;
         width: 46%;
       }
+
       .btn_transfer {
         padding: 12px;
         font-weight: 600;
@@ -850,6 +846,51 @@
       position: relative !important;
     }
   }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .landing_component {
+    .bg_eco {
+      padding: 45px 20px !important;
+    }
+
+    .system_div_component {
+      .coin_system_div {
+        .coin_system1 {
+          position: absolute;
+          z-index: 1;
+          right: -28px;
+        }
+      }
+
+      .enter_app {
+        padding-top: 60px;
+      }
+    }
+
+    .lst_product_div .product_div {
+      height: 250px;
+
+      button.btn_product, .lst_product_div .product_div_home button.btn_product {
+        width: 174px;
+        height: 53px;
+      }
+    }
+
+    .product_component {
+      padding: 25px 0 100px;
+    }
+
+    .roadmap_component .main_roadmap {
+      margin: 0;
+    }
+
+    .partner_component .div_main_partner {
+      padding: 20px 0 0;
+    }
+  }
+
 }
 
 @media only screen and (max-width: 300px) {
