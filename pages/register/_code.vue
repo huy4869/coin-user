@@ -44,19 +44,19 @@
               @focus="resetValidate('email')"
             />
           </el-form-item>
-          <el-form-item :label="$t('register.phone')" prop="phone" :error="getErrResponse('phone')">
-            <el-input
-              ref="phone"
-              v-model.trim="accountForm.phone"
-              :placeholder="$t('register.phone')"
-              name="phone"
-              type="text"
-              tabindex="3"
-              maxlength="12"
-              oninput="this.value=this.value.replace(/[^/0-9]/g,'');"
-              @focus="resetValidate('phone')"
-            />
-          </el-form-item>
+<!--          <el-form-item :label="$t('register.phone')" prop="phone" :error="getErrResponse('phone')">-->
+<!--            <el-input-->
+<!--              ref="phone"-->
+<!--              v-model.trim="accountForm.phone"-->
+<!--              :placeholder="$t('register.phone')"-->
+<!--              name="phone"-->
+<!--              type="text"-->
+<!--              tabindex="3"-->
+<!--              maxlength="12"-->
+<!--              oninput="this.value=this.value.replace(/[^/0-9]/g,'');"-->
+<!--              @focus="resetValidate('phone')"-->
+<!--            />-->
+<!--          </el-form-item>-->
           <el-form-item
             class="email-login" :label="$t('account.password')" prop="password"
             :error="getErrResponse('password')">
@@ -183,7 +183,7 @@
 import { mapState } from 'vuex'
 import { AUTH_REGISTER, INDEX_SET_ERROR, INDEX_SET_LOADING, INDEX_SET_SUCCESS, SET_EMAIL } from '@/store/store.const'
 import { TYPE_REGISTER_OTP } from '@/constants/store'
-import { validEmail, validPhoneNoPrefix } from '@/utils/validate'
+import { validEmail } from '@/utils/validate'
 import OtpPage from '@/components/auth/otp'
 
 export default {
@@ -228,15 +228,15 @@ export default {
         callback()
       }
     }
-    const validPhoneNumber = (rule, value, callback) => {
-      if (value == null || value === '') {
-        callback()
-      } else if (!validPhoneNoPrefix(value)) {
-        callback(new Error(this.$t('validation.phone_length')))
-      } else {
-        callback()
-      }
-    }
+    // const validPhoneNumber = (rule, value, callback) => {
+    //   if (value == null || value === '') {
+    //     callback()
+    //   } else if (!validPhoneNoPrefix(value)) {
+    //     callback(new Error(this.$t('validation.phone_length')))
+    //   } else {
+    //     callback()
+    //   }
+    // }
     return {
       typeVerify: TYPE_REGISTER_OTP,
       token: '',
@@ -248,7 +248,7 @@ export default {
         name: '',
         email: '',
         password: '',
-        phone: '',
+        // phone: '',
         password_confirmation: '',
         wallet_address: '',
         memo: '',
@@ -305,9 +305,9 @@ export default {
             trigger: 'blur'
           }
         ],
-        phone: [
-          { validator: validPhoneNumber, trigger: 'blur' }
-        ],
+        // phone: [
+        //   { validator: validPhoneNumber, trigger: 'blur' }
+        // ],
         captcha: [
           {
             validator: validateCaptcha, trigger: 'blur'
@@ -375,13 +375,13 @@ export default {
           callback()
         }
       }
-      const validPhoneNumber = (rule, value, callback) => {
-        if (!validPhoneNoPrefix(value)) {
-          callback(new Error(this.$t('validation.phone')))
-        } else {
-          callback()
-        }
-      }
+      // const validPhoneNumber = (rule, value, callback) => {
+      //   if (!validPhoneNoPrefix(value)) {
+      //     callback(new Error(this.$t('validation.phone')))
+      //   } else {
+      //     callback()
+      //   }
+      // }
       this.accountRules = {
         name: [
           {
@@ -420,14 +420,14 @@ export default {
             trigger: 'blur'
           }
         ],
-        phone: [
-          {
-            required: true,
-            message: this.$t('validation.required', { _field_: this.$t('register.phone') }),
-            trigger: 'blur'
-          },
-          { validator: validPhoneNumber, trigger: 'blur' }
-        ],
+        // phone: [
+        //   {
+        //     required: true,
+        //     message: this.$t('validation.required', { _field_: this.$t('register.phone') }),
+        //     trigger: 'blur'
+        //   },
+        //   { validator: validPhoneNumber, trigger: 'blur' }
+        // ],
         wallet_address: [
           {
             required: true,
@@ -489,8 +489,8 @@ export default {
           password: this.accountForm.password,
           password_confirmation: this.accountForm.password_confirmation,
           memo: this.accountForm.memo,
-          wallet_address: this.accountForm.wallet_address,
-          phone: this.accountForm.phone
+          wallet_address: this.accountForm.wallet_address
+          // phone: this.accountForm.phone
         }
         if (this.accountForm.invite_code != null && this.accountForm.invite_code !== '') {
           dto = { ...dto, invite_code: this.accountForm.invite_code }

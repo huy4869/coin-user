@@ -46,5 +46,10 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.get('/profile/history?' + new URLSearchParams(query).toString()), context)
     })
+  },
+  getCMZ(context, query) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/cmz'), context)
+    })
   }
 }
