@@ -1,3 +1,9 @@
+@media only screen and (max-width: 860px) {
+  .roadmap_component {
+    padding: 50px !important;
+  }
+}
+
 @media only screen and (max-width: 376px) {
   .main-setting {
     .btn-common {
@@ -57,6 +63,20 @@
   }
 
   .landing_component {
+
+    .title_home {
+      font-size: 30px !important;
+    }
+
+    .sub_title_home {
+      font-size: 18px !important;
+      text-align: center;
+    }
+
+    .bg_video {
+        background-image: url("assets/images/landing/mobile/bg1.png");
+    }
+
     .bg_video .text_des_div {
       padding: 30px 20px !important;
       text-align: center;
@@ -65,23 +85,50 @@
 
     .bg_eco {
       padding: $pd-mobile;
+      background-image: url("assets/images/landing/mobile/bg2.png") !important;
 
       .eco_home {
         .eco_left {
           display: none;
         }
+
+        .eco_right {
+          img.img_messi {
+            filter: unset !important;
+          }
+        }
+      }
+    }
+
+    .system_div_component {
+      background-image: url("assets/images/landing/mobile/bg3.png") !important;
+
+      .title_system_div .sub_system_title {
+        font-size: 16px !important;
+        margin-top: 0 !important;
+      }
+    }
+
+    .system_main_div .content {
+      display: inline-block !important;
+
+      .system_right {
+        margin-top: 40px !important;
       }
     }
 
     .product_component {
+      background-image: url("assets/images/landing/mobile/bg4.png") !important;
       padding: 50px 0 30px !important;
+      margin-bottom: -100px;
     }
 
     .roadmap_component {
       padding: 30px 15px !important;
+      background-image: url("assets/images/landing/mobile/bg5.png") !important;
 
       .title_home {
-        font-size: 22px !important;
+        font-size: 18px !important;
       }
 
       .main_roadmap {
@@ -115,7 +162,12 @@
     }
 
     .partner_component {
+      background-image: url("assets/images/landing/mobile/bg5.png") !important;
       padding: 10px 0 !important;
+
+      .mask {
+        content: url("assets/images/landing/mobile/mask.png") !important;
+      }
     }
   }
 
@@ -407,13 +459,24 @@
 
 @media only screen and (max-width: 860px) {
   .landing_component {
+
+    .bg_video {
+      //.img_bg_1 {
+        background-image: url("assets/images/landing/mobile/bg1.png");
+      //}
+    }
+
     .title_home {
-      font-size: 30px !important;
+      font-size: 70px;
     }
 
     .sub_title_home {
-      font-size: 18px !important;
-      text-align: center;
+      font-size: 30px;
+      //text-align: center;
+    }
+
+    .bg_eco {
+      padding: 100px 55px 0 !important;
     }
 
     .eco_title, .title_partner, .title_product {
@@ -421,14 +484,17 @@
     }
 
     .system_div_component {
+      margin-top: -10px !important;
+      padding-bottom: 50px;
+
       .title_system_div {
         .system_title {
           font-size: 32px !important;
         }
 
         .sub_system_title {
-          font-size: 16px !important;
-          margin-top: 0 !important;
+          //font-size: 27px !important;
+          //margin-top: 20px;
         }
       }
 
@@ -442,6 +508,48 @@
         }
       }
     }
+
+    .product_component {
+      margin-top: -5px;
+      padding: 50px 0 100px !important;
+    }
+
+    .lst_product_div {
+      .product_div {
+        height: 300px !important;
+      }
+    }
+
+    .roadmap_component {
+      margin-top: -5px;
+
+      .main_roadmap {
+        .q1 {
+          top: 0;
+          left: -35px;
+        }
+
+        .q2 {
+          top: 67px;
+        }
+
+        .q3 {
+          top: 163px;
+        }
+
+        .q4 {
+          bottom: 68px;
+        }
+      }
+    }
+
+    .partner_component {
+      margin-top: -5px;
+
+      .mask {
+        content: url("assets/images/landing/mobile/mask.png") !important;
+      }
+    }
   }
   .footer {
     .container-footer {
@@ -451,7 +559,15 @@
     }
   }
   .eco_home {
-    display: block !important;
+    display: grid !important;
+    grid-template-columns: 55% 45% !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 !important;
+
+    .eco_left {
+      display: none;
+    }
 
     .eco_content_div {
       margin: 50px 0 25px 20px !important;
@@ -472,10 +588,12 @@
     padding-top: 50px !important;
 
     .content {
-      display: inline-block !important;
+      //display: inline-block !important;
+      justify-content: center !important;
+      gap: 100px !important;
 
       .system_right {
-        margin-top: 40px !important;
+        margin-top: 0 !important;
       }
     }
   }
@@ -754,6 +872,47 @@
       }
     }
   }
+  .main-setting {
+    .btn-common {
+      width: 109% !important;
+      margin-left: -15px !important;
+    }
+
+    .btn_common {
+      width: 50% !important;
+    }
+
+    .btn_setting_div {
+      margin-left: -7px !important;
+    }
+  }
+  .landing_component {
+    .title_home {
+      font-size: 26px !important;
+    }
+
+    .bg_eco {
+      padding: 50px 10px !important;
+    }
+
+    .roadmap_component .title_home {
+      letter-spacing: 0px !important;
+    }
+
+    .lst_product_div .product_div .img_cup .img_cup_under {
+      width: 100%;
+    }
+
+    .partner_component .div_main_partner {
+      padding: 28px 0 0;
+    }
+  }
+  .footer .container-footer .content {
+    padding: 15px;
+
+    .footer-right {
+      gap: 15px !important;
+    }
+  }
+
 }
-
-

@@ -3,7 +3,6 @@
 @import './element-variables.scss';
 @import './common.scss';
 @import './page.scss';
-@import './responsive.scss';
 @import './pages/_header.scss';
 @import './pages/login.scss';
 @import './pages/_footer.scss';
@@ -17,5 +16,6 @@
 @import "./pages/res_tree.scss";
 @import "./pages/history.scss";
 @import "pages/team";
+@import './responsive.scss';
 
 

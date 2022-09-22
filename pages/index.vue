@@ -5,7 +5,7 @@
       <!--        <source src="~/assets/video/messi.mp4" type="video/mp4">-->
       <!--        Your browser does not support HTML video.-->
       <!--      </video>-->
-      <img src="~/assets/images/landing/bg1.png" alt="" class="img_bg_1">
+<!--      <img src="~/assets/images/landing/bg1.png" alt="" class="img_bg_1">-->
 
       <div class="text_des_div" data-aos="fade-up" data-aos-duration="1500">
         <div class="title_div_1">
@@ -14,7 +14,7 @@
           <h1 class="title_home">{{ $t('landing.title') }}</h1>
         </div>
         <h3 class="sub_title_home">{{ $t('landing.sub_title') }}</h3>
-        <el-button class="btn_app" @click="$router.push('/register')">
+        <el-button class="btn_app" @click="dialogComingSoon=true">
           {{ $t('landing.app') }}
         </el-button>
       </div>
@@ -95,7 +95,7 @@
         <img src="~/assets/images/coin_system2.png" alt="" class="coin_system1 filter_img">
       </div>
       <div class="enter_app">
-        <el-button class="enter_app_btn">{{ $t('landing.app') }}</el-button>
+        <el-button class="enter_app_btn" @click="dialogComingSoon=true">{{ $t('landing.app') }}</el-button>
       </div>
     </section>
     <section class="product_component">
