@@ -247,7 +247,7 @@ export default {
         const data = await this.$store.dispatch(USER_GET_CMZ)
         switch (data.status_code) {
           case 200:
-            this.cmz = data.data.coin_format
+            this.cmz = data.data.coin
             break
           default:
             this.$store.commit(INDEX_SET_ERROR, { show: true, text: data.message })
