@@ -1,28 +1,36 @@
 <template>
   <div class="landing_component">
     <section class="bg_video">
-      <video class="video_goal" autoplay loop muted>
-        <source src="~/assets/video/messi.mp4" type="video/mp4">
-        Your browser does not support HTML video.
-      </video>
+      <!--      <video class="video_goal" autoplay loop muted>-->
+      <!--        <source src="~/assets/video/messi.mp4" type="video/mp4">-->
+      <!--        Your browser does not support HTML video.-->
+      <!--      </video>-->
+      <img src="~/assets/images/landing/bg1.png" alt="" class="img_bg_1">
 
       <div class="text_des_div" data-aos="fade-up" data-aos-duration="1500">
-        <h1 class="title_home">{{ $t('landing.title') }}</h1>
-        <h3 class="sub_title_home title--glitch" :data-text="$t('landing.sub_title')">{{ $t('landing.sub_title') }}</h3>
+        <div class="title_div_1">
+          <img src="~/assets/images/landing/text1.png" alt="" class="bg_text bg_text_1"
+               data-aos="fade-up" data-aos-duration="1500" data-aos-easing="linear">
+          <h1 class="title_home">{{ $t('landing.title') }}</h1>
+        </div>
+        <h3 class="sub_title_home">{{ $t('landing.sub_title') }}</h3>
+        <el-button class="btn_app" @click="$router.push('/register')">
+          {{ $t('landing.app') }}
+        </el-button>
       </div>
     </section>
-
     <div class='stars'></div>
     <div class='stars2'></div>
     <div class='stars3'></div>
 
     <section class="bg_eco">
+      <div class="title_div_1">
+        <img src="~/assets/images/landing/text2.png" alt="" class="bg_text"
+             data-aos="fade-up" data-aos-duration="1500" data-aos-easing="linear">
+        <h1 class="title_home">{{ $t('landing.eco') }}</h1>
+      </div>
       <div class="eco_home">
         <div class="eco_left" data-aos="fade-up-right" data-aos-duration="1500">
-          <div class="title_left_div">
-            <div class="red_hr"></div>
-            <span class="eco_title title--glitch" :data-text="$t('landing.eco')">{{ $t('landing.eco') }}</span>
-          </div>
           <div class="eco_content_div" data-aos="fade-up-right" data-aos-duration="1500">
             <a href="https://www.chiliz.net/" target="_blank"><img src="~/assets/images/eco1.png" alt=""
                                                                    class="eco_img"></a>
@@ -40,15 +48,11 @@
 
         <div class="eco_center" data-aos="fade-up" data-aos-duration="1500">
           <div class="bg_nft">
-            <img src="~/assets/images/list_nft.png" alt="" class="list_nft filter_img">
             <div class="nft_div">
               <img
-                src="~/assets/images/cup_logo.png" alt="" class="cup_img pulse filter_img" data-aos="fade-up"
+                src="~/assets/images/cup_logo.png" alt="" class="cup_img filter_img" data-aos="fade-up"
                 data-aos-duration="1500"/>
-              <div class="gift_div">
-                <img src="~/assets/images/box.png" alt="" class="box shake">
-                <img src="~/assets/images/under_gift.png" alt="" class="under_gift filter_img">
-              </div>
+              <img src="~/assets/gif/nft.gif" alt="" class="img_nft">
             </div>
           </div>
         </div>
@@ -59,23 +63,13 @@
       </div>
     </section>
 
-    <!--    <section class="bg_nft">-->
-    <!--      <img src="~/assets/images/list_nft.png" alt="" class="list_nft filter_img">-->
-    <!--      <div class="nft_div">-->
-    <!--        <img-->
-    <!--          src="~/assets/images/cup_logo.png" alt="" class="cup_img pulse filter_img" data-aos="fade-up"-->
-    <!--          data-aos-duration="1500"/>-->
-    <!--        <div class="gift_div">-->
-    <!--          <img src="~/assets/images/box.png" alt="" class="box shake">-->
-    <!--          <img src="~/assets/images/under_gift.png" alt="" class="under_gift filter_img">-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </section>-->
-
     <section class="system_div_component">
-      <img src="~/assets/images/bg_meta1.png" alt="" class="bg_meta1">
+      <div class="title_div_1 title_div_system">
+        <img src="~/assets/images/landing/text3.png" alt="" class="bg_text bg_text_system"
+             data-aos="fade-up" data-aos-duration="1500" data-aos-easing="linear">
+        <h1 class="title_home">{{ $t('landing.system') }}</h1>
+      </div>
       <div class="title_system_div">
-        <h1 class="system_title title--glitch" :data-text="$t('landing.system')">{{ $t('landing.system') }}</h1>
         <h3 class="sub_system_title work-break">{{ $t('landing.sub_system') }}</h3>
       </div>
 
@@ -95,89 +89,97 @@
             <img src="~/assets/images/system2.png" alt="" class="w-100 pt-20">
           </div>
         </div>
-        <div class="enter_app">
-          <el-button class="enter_app_btn">{{ $t('landing.app') }}</el-button>
-        </div>
       </div>
-      <img src="~/assets/images/coin_system1.png" alt="" class="coin_system1_bottom filter_img">
-      <img src="~/assets/images/coin_system1.png" alt="" class="coin_system1 filter_img">
-      <img src="~/assets/images/bg_meta2.png" alt="" class="bg_meta2">
-
+      <div class="coin_system_div">
+        <img src="~/assets/images/coin_system1.png" alt="" class="coin_system1_bottom filter_img">
+        <img src="~/assets/images/coin_system2.png" alt="" class="coin_system1 filter_img">
+      </div>
+      <div class="enter_app">
+        <el-button class="enter_app_btn">{{ $t('landing.app') }}</el-button>
+      </div>
     </section>
     <section class="product_component">
-      <h1 class="title_product title--glitch" :data-text="$t('landing.product')">{{ $t('landing.product') }}</h1>
+      <div class="title_div_1 title_div_product">
+        <img src="~/assets/images/landing/text4.png" alt="" class="bg_text bg_text_system"
+             data-aos="fade-up" data-aos-duration="4500" data-aos-easing="linear">
+        <h1 class="title_home">{{ $t('landing.product') }}</h1>
+      </div>
       <div class="lst_product_div">
         <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div bg_pr_1">
+          <el-button class="btn_product">{{ $t('landing.p1') }}</el-button>
           <div class="img_top img_top_div">
             <img src="~/assets/images/landing/ball_red.png" alt="" class="img_ball">
-            <img src="~/assets/images/landing/vs.png" alt="" class="">
-            <img src="~/assets/images/landing/ball_blue.png" alt="" class="img_ball img_ball_right">
+            <img src="~/assets/images/landing/vs.svg" alt="" class="">
+            <img src="~/assets/images/landing/ball_blue.png" alt="" class="img_ball">
           </div>
-          <div class="product_des title--glitch">{{ $t('landing.p1') }}</div>
         </div>
-        <div @click="dialogComingSoon=true" data-aos="fade-up" class="product_div bg_pr_2">
-          <div class="tex-center img_top_div">
-            <img src="~/assets/images/landing/cup.svg" alt="" class="h-100 w-100 cup filter_img">
+        <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div bg_pr_2">
+          <el-button class="btn_product">{{ $t('landing.p2') }}</el-button>
+          <div class="img_top_div img_cup">
+            <img src="~/assets/images/landing/cup1.png" alt="" class="img_cup_1">
+            <div class="img_cup_under">
+              <img src="~/assets/images/landing/cup2.png" alt="" class="">
+              <img src="~/assets/images/landing/cup3.png" alt="" class="">
+            </div>
           </div>
-          <div class="product_des title--glitch">{{ $t('landing.p2') }}</div>
         </div>
         <div @click="dialogComingSoon=true" data-aos="fade-up-left" class="product_div bg_pr_3">
+          <el-button class="btn_product">{{ $t('landing.p3') }}</el-button>
           <div class="tex-center img_top_div img_jackpot">
             <img src="~/assets/images/landing/arrow_jackpot.png" alt="" class="w-100 arrow_jackpot filter_img">
             <img src="~/assets/images/landing/jackpot.png" alt="" class="h-100 w-100 jackpot filter_img">
           </div>
-          <img src="~/assets/images/landing/coin.png" alt="" class="w-100 coin filter_img">
-          <div class="product_des title--glitch">{{ $t('landing.p3') }}</div>
-
         </div>
       </div>
     </section>
 
+    <section class="roadmap_component">
+      <div class="title_div_1 title_div_roadmap">
+        <img src="~/assets/images/landing/text5.png" alt="" class="bg_text bg_text_system"
+             data-aos="fade-up" data-aos-duration="5500" data-aos-easing="linear">
+        <h1 class="title_home">{{ $t('landing.roadmap') }}</h1>
+      </div>
+      <div class="main_roadmap">
+        <img src="~/assets/images/landing/roadmap.png" alt="" class="img_roadmap">
+
+        <img src="~/assets/images/landing/q1.png" alt="" class="q1 img_q">
+        <img src="~/assets/images/landing/q2.png" alt="" class="q2 img_q">
+        <img src="~/assets/images/landing/q3.png" alt="" class="q3 img_q">
+        <img src="~/assets/images/landing/q4.png" alt="" class="q4 img_q">
+      </div>
+    </section>
+
     <section class="partner_component">
-      <div>
-        <div class="star"></div>
-        <div class="meteor-1"></div>
-        <div class="meteor-2"></div>
-        <div class="meteor-3"></div>
-        <div class="meteor-4"></div>
-        <div class="meteor-5"></div>
-        <div class="meteor-6"></div>
-        <div class="meteor-7"></div>
-        <div class="meteor-8"></div>
-        <div class="meteor-9"></div>
-        <div class="meteor-10"></div>
-        <div class="meteor-11"></div>
-        <div class="meteor-12"></div>
-        <div class="meteor-13"></div>
-        <div class="meteor-14"></div>
-        <div class="meteor-15"></div>
+      <div class="title_div_1 title_div_partner">
+        <img src="~/assets/images/landing/text6.png" alt="" class="bg_text bg_text_system"
+             data-aos="fade-up" data-aos-duration="5500" data-aos-easing="linear">
+        <h1 class="title_home">{{ $t('landing.partner') }}</h1>
       </div>
-      <h1 class="title_partner title--glitch" :data-text="$t('landing.partner')">{{ $t('landing.partner') }}</h1>
-      <div class="div_main_partner">
-        <VueSlickCarousel v-bind="slickOptions" rtl class="row_partner">
-          <div v-for="index in 16" :key="index" class="slide">
-            <img :src="require('@/assets/images/partner/row1/p'+index+'.png')" alt="" class="img-partner"/>
-          </div>
-        </VueSlickCarousel>
-        <VueSlickCarousel class="row_partner" v-bind="slickOptions">
-          <div v-for="index in 15" :key="index" class="slide">
-            <img :src="require('@/assets/images/partner/row2/p'+Number(16 + index)+'.png')" alt=""
-                 class="img-partner"/>
-          </div>
-        </VueSlickCarousel>
-        <VueSlickCarousel class="row_partner" v-bind="slickOptions" rtl>
-          <div v-for="index in 16" :key="index" class="slide">
-            <img :src="require('@/assets/images/partner/row3/p'+Number(31 + index)+'.png')" alt=""
-                 class="img-partner"/>
-          </div>
-        </VueSlickCarousel>
-        <VueSlickCarousel class="row_partner" v-bind="slickOptions">
-          <div v-for="index in 15" :key="index" class="slide">
-            <img :src="require('@/assets/images/partner/row4/p'+Number(47 + index)+'.png')" alt=""
-                 class="img-partner"/>
-          </div>
-        </VueSlickCarousel>
+      <div v-if="$device.isMobile" class="div_main_partner">
+        <div v-for="(size, row) in lstLengthRow" :key="row">
+          <VueSlickCarousel v-bind="slickOptions" :rtl="row % 2 === 0" class="row_partner">
+            <div v-for="index in size" :key="index" class="slide">
+              <img
+                :src="require('@/assets/images/partner/row'+Number(Math.floor(row / 2) + 1)+'/p'+Number(index + lstLengthRowBefore[row])+'.png')"
+                alt="" class="img-partner"/>
+            </div>
+          </VueSlickCarousel>
+        </div>
       </div>
+
+      <div v-else class="div_main_partner">
+        <div v-for="(size, row) in lstLengthRow" :key="row">
+          <VueSlickCarousel v-bind="slickOptions" :rtl="row % 2 === 0" class="row_partner">
+            <div v-for="index in size" :key="index" class="slide">
+              <img
+                :src="require('@/assets/images/partner/row'+Number(row+1)+'/p'+Number(index + lstLengthRowBefore[row])+'.png')"
+                alt="" class="img-partner"/>
+            </div>
+          </VueSlickCarousel>
+        </div>
+      </div>
+
+      <img src="~/assets/images/landing/mask.png" alt="" class="mask">
     </section>
 
     <el-dialog :visible.sync="dialogComingSoon" top="5vh" class="dialog-coming-soon" :center="true">
@@ -188,6 +190,7 @@
 
 <script>
 import ComingSoonModal from '@/components/modals/coming_soon'
+
 export default {
   name: 'IndexPage',
   components: { ComingSoonModal },
@@ -206,7 +209,7 @@ export default {
         autoplaySpeed: 1,
         pauseOnHover: true,
         touchMove: false,
-        slidesToShow: 10,
+        slidesToShow: 12,
         speed: 4000,
         cssEase: 'linear',
         responsive: [
@@ -232,7 +235,8 @@ export default {
           }
         ]
       },
-      lstLengthRow: [16, 15, 16, 15],
+      lstLengthRow: this.$device.isMobile ? [8, 8, 7, 8, 8, 8, 7, 8] : [16, 15, 16, 15],
+      lstLengthRowBefore: this.$device.isMobile ? [0, 8, 16, 23, 31, 39, 47, 54] : [0, 16, 31, 47],
       countPartner: 0,
       htmlRow1: '',
       htmlRow2: '',

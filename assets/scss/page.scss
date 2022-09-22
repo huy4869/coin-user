@@ -506,6 +506,9 @@ a {
 }
 
 .home-auth {
+  background-image: url('../images/BG.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 40px 60px;
   min-height: calc(100vh - $height-footer-home - 80px - 2 * 40px + 30px);
 }

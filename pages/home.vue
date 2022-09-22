@@ -70,29 +70,30 @@
         <h3>{{ $t('profile.product') }}</h3>
       </div>
       <div class="lst_product_div lst_product_div_home">
-        <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div bg_pr_1">
+        <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div_home bg_pr_1">
+          <el-button class="btn_product">{{ $t('landing.p1') }}</el-button>
           <div class="img_top img_top_div">
             <img src="~/assets/images/landing/ball_red.png" alt="" class="img_ball">
-            <img src="~/assets/images/landing/vs.png" alt="" class="">
-            <img src="~/assets/images/landing/ball_blue.png" alt="" class="img_ball img_ball_right">
+            <img src="~/assets/images/landing/vs.svg" alt="" class="">
+            <img src="~/assets/images/landing/ball_blue.png" alt="" class="img_ball">
           </div>
-          <div class="product_des title--glitch">{{ $t('landing.p1') }}</div>
         </div>
-        <div @click="dialogComingSoon=true" data-aos="fade-up" class="product_div bg_pr_2">
-          <div class="tex-center img_top_div">
-            <img src="~/assets/images/landing/cup.svg" alt="" class="h-100 w-100 cup filter_img">
+        <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div_home bg_pr_2">
+          <el-button class="btn_product">{{ $t('landing.p2') }}</el-button>
+          <div class="img_top_div img_cup">
+            <img src="~/assets/images/landing/cup1.png" alt="" class="img_cup_1">
+            <div class="img_cup_under">
+              <img src="~/assets/images/landing/cup2.png" alt="" class="">
+              <img src="~/assets/images/landing/cup3.png" alt="" class="">
+            </div>
           </div>
-          <div class="product_des title--glitch">{{ $t('landing.p2') }}</div>
         </div>
-        <div @click="dialogComingSoon=true" :data-aos="$device.isDesktop?'fade-up-left':'fade-up'"
-             class="product_div bg_pr_3">
+        <div @click="dialogComingSoon=true" data-aos="fade-up-left" class="product_div_home bg_pr_3">
+          <el-button class="btn_product">{{ $t('landing.p3') }}</el-button>
           <div class="tex-center img_top_div img_jackpot">
             <img src="~/assets/images/landing/arrow_jackpot.png" alt="" class="w-100 arrow_jackpot filter_img">
             <img src="~/assets/images/landing/jackpot.png" alt="" class="h-100 w-100 jackpot filter_img">
           </div>
-          <img src="~/assets/images/landing/coin.png" alt="" class="w-100 coin filter_img">
-          <div class="product_des title--glitch">{{ $t('landing.p3') }}</div>
-
         </div>
       </div>
     </div>

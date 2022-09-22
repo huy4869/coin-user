@@ -1,13 +1,14 @@
 body {
-  font-family: $font-mont;
+  //font-family: $font-mont;
+  font-family: $font-gemunu;
   font-size: 16px;
   margin: 0;
   font-style: normal;
   color: $color-white;
-  background-color: $color-background-default;
-  background-image: url('../images/BG.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+  //background-color: $color-background-default;
+  //background-image: url('../images/BG.png');
+  //background-size: cover;
+  //background-repeat: no-repeat;
   z-index: 2;
   min-height: 100vh;
 }
@@ -541,16 +542,24 @@ a.color-red:hover {
 }
 
 .el-button, .el-button:focus {
-  background: $color-btn-active;
+  font-family: $font-gemunu;
+  background: linear-gradient(268.36deg, #CB2734 1.48%, #8F1010 99.77%);
+  box-shadow: 0px 3px 24px rgba(255, 57, 57, 0.75);
+  border-radius: 8px;
   border: 1px solid $color-btn-active;
   color: $color-white;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
 }
 
 .el-button:hover {
   color: $color-white;
-  background: $color-btn-hover;
+  background: linear-gradient(268.36deg, #CB2734 1.48%, #8F1010 99.77%);
+  border-radius: 8px;
   border: 1px solid $color-btn-hover;
-  box-shadow: 0px 0px 30px rgba(202, 1, 36, 0.7);
+  box-shadow: 0px 0px 30px rgb(255, 0, 44);
 }
 
 .el-button.is-disabled, .el-button.is-disabled:focus, .el-button.is-disabled:hover {
@@ -583,6 +592,9 @@ a.color-red:hover {
 }
 
 .el-input {
+  input {
+    background: linear-gradient(180deg, #0B1023 0%, #17182D 100%);
+  }
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
@@ -893,5 +905,9 @@ a.color-red:hover {
 
 .el-table td.el-table__cell, .el-table th.el-table__cell.is-leaf {
   border-bottom: unset;
+}
+
+.z-index1 {
+  z-index: 1;
 }
 

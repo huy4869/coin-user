@@ -6,8 +6,7 @@
         <h1 v-else class="sidebar-title mr-3">{{ title }} </h1>
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link flex justify-center text-center items-center" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo">
-        <h1 class="sidebar-title pl-3">{{ title }} </h1>
+        <img v-if="logo_full" :src="logo_full" class="sidebar-logo">
       </router-link>
     </transition>
   </div>
@@ -25,7 +24,8 @@ export default {
   data() {
     return {
       title: 'chiliz',
-      logo: require('@/assets/logo.svg')
+      logo: require('@/assets/logo.svg'),
+      logo_full: require('@/assets/logo_full.svg')
     }
   }
 }
@@ -58,8 +58,8 @@ export default {
     justify-content: center;
 
     & .sidebar-logo {
-      width: 32px;
-      height: 32px;
+      width: 120px;
+      height: 53px;
       vertical-align: middle;
       object-fit: contain;
     }

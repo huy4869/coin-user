@@ -4,9 +4,11 @@
       width: 109% !important;
       margin-left: -15px !important;
     }
+
     .btn_common {
       width: 50% !important;
     }
+
     .btn_setting_div {
       margin-left: -7px !important;
     }
@@ -30,8 +32,105 @@
 }
 
 @media only screen and (max-width: 500px) {
+
+  body {
+    background-color: $color-bg-mobile;
+  }
+
+  .body-content {
+    position: relative;
+  }
+  .header_landing {
+    //position: relative !important;
+    padding: 10px;
+    height: fit-content !important;
+    border: unset !important;
+  }
+  .eco_div_mobile {
+    display: flex !important;
+    justify-content: space-between;
+    padding: 15px;
+
+    .eco_img_mobile {
+      max-width: calc((100% - 2 * 15px) / 3);
+    }
+  }
+
+  .landing_component {
+    .bg_video .text_des_div {
+      padding: 30px 20px !important;
+      text-align: center;
+      margin: auto;
+    }
+
+    .bg_eco {
+      padding: $pd-mobile;
+
+      .eco_home {
+        .eco_left {
+          display: none;
+        }
+      }
+    }
+
+    .product_component {
+      padding: 50px 0 30px !important;
+    }
+
+    .roadmap_component {
+      padding: 30px 15px !important;
+
+      .title_home {
+        font-size: 22px !important;
+      }
+
+      .main_roadmap {
+        .q1 {
+          top: 7px !important;
+          left: -10px !important;
+          max-width: 21px;
+        }
+
+        .q2, .q3, .q4 {
+          max-height: 15px;
+        }
+
+        .q2 {
+          top: 32px !important;
+          right: 46px !important;
+        }
+
+        .q3 {
+          top: 78px !important;
+          left: 47px !important;
+        }
+
+        .q4 {
+          bottom: 35px !important;
+          right: 44px !important;
+        }
+
+
+      }
+    }
+
+    .partner_component {
+      padding: 10px 0 !important;
+    }
+  }
+
+  .title_div_1 {
+    margin: auto;
+    padding-bottom: 0 !important;
+
+    .bg_text {
+      top: 0 !important;
+      left: -15% !important;
+      max-width: 130% !important;
+    }
+  }
   .product_div {
-    margin: 24px 0 !important;
+    margin: 24px !important;
     height: 195px !important;
   }
   .header-left-mobile {
@@ -41,6 +140,25 @@
     .lst_product_div {
       width: 90%;
     }
+  }
+
+  .partner_component {
+    .title_div_1 .bg_text {
+      top: -20px !important;
+    }
+
+    .title_home {
+      font-size: 42px !important;
+      max-width: 100% !important;
+      word-break: break-word !important;
+      line-height: unset !important;
+    }
+  }
+
+  .img-partner {
+    cursor: pointer;
+    max-width: 50px !important;
+    max-height: 50px !important;
   }
 }
 
@@ -121,7 +239,7 @@
   .landing_component {
     .text_des_div {
       position: absolute;
-      top: 30px !important;
+      top: 60px !important;
       left: 0;
       right: 0;
     }
@@ -130,7 +248,11 @@
     //   width: 300px;
     // }
     .eco_home {
-      display: block !important;
+      display: grid !important;
+      grid-template-columns: 55% 45% !important;
+      width: 100% !important;
+      max-width: calc(100vw) !important;
+      padding: 0 !important;
 
       .eco_right {
         .img_messi {
@@ -148,7 +270,7 @@
     }
 
     .system_main_div {
-      padding-top: 50px !important;
+      padding-top: 0px !important;
 
       .content {
         display: inline-block !important;
@@ -163,8 +285,25 @@
       display: inline-block;
 
       .product_div {
-        height: 220px !important;
+        height: 300px !important;
         margin: 24px 12px;
+      }
+    }
+
+    .system_div_component {
+      padding: 0 !important;
+
+      .title_system_div {
+        padding-bottom: 38px !important;
+      }
+
+      .coin_system1_top {
+        right: 15px !important;
+      }
+
+      .coin_system_div .coin_system1_bottom {
+        top: -250px !important;
+        left: 5% !important;
       }
     }
   }
@@ -202,6 +341,7 @@
   .product_component {
     .lst_product_div {
       grid-gap: 0px !important;
+
       .product_div {
         height: 180px !important;
       }
@@ -251,6 +391,7 @@
     margin: 30px 0 0 15% !important
   }
 }
+
 @media only screen and (min-width: 769px) and (max-width: 860px) {
   .product_component {
     .lst_product_div {
@@ -271,7 +412,8 @@
     }
 
     .sub_title_home {
-      font-size: 20px !important;
+      font-size: 18px !important;
+      text-align: center;
     }
 
     .eco_title, .title_partner, .title_product {
@@ -286,6 +428,7 @@
 
         .sub_system_title {
           font-size: 16px !important;
+          margin-top: 0 !important;
         }
       }
 
@@ -313,10 +456,11 @@
     .eco_content_div {
       margin: 50px 0 25px 20px !important;
     }
+
     .eco_right {
       .img_messi {
         position: relative !important;
-        margin: 30px 0 0 15% !important
+        margin: 30px 0 0 0 !important
 
       }
     }
