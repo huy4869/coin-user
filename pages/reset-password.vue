@@ -86,7 +86,7 @@ export default {
       if (value === '') {
         callback(new Error(this.$t('validation.required', { _field_: this.$t('account.password') }).toString()))
       } else {
-        if (!validPassword(value)) {
+        if (value.length < 8 || value.length > 32) {
           callback(new Error(this.$t('validation.pass_format')))
         }
         if (this.accountForm.password_confirmation !== '') {

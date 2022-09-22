@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header header_landing">
-      <div class="container-header">
+      <div id="header_landing" class="container-header">
         <div class="header_left">
           <img src="~/assets/images/logo_header.png" alt="" class="logo_header" @click="redirect('/')">
          <div class="lst_menu">

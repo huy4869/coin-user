@@ -7,6 +7,9 @@
   box-shadow: inset 0px -1px 0px $color-dark-functional-300;
   z-index: 5;
 
+  #header_landing {
+    padding: 0 $pd-common !important;
+  }
   .container-header {
     margin: auto;
     //max-width: $max-width-header;
@@ -14,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     height: 100%;
-    padding: 0 $pd-common;
+    padding: 0 24px;
 
     .title_nav {
       font-style: normal;
