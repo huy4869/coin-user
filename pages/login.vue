@@ -102,13 +102,13 @@ export default {
       }
     }
 
-    // const validateCaptcha = (rule, value, callback) => {
-    //   if (this.captcha == null || !this.captcha) {
-    //     callback(new Error(this.$t('validation.captcha_req')))
-    //   } else {
-    //     callback()
-    //   }
-    // }
+    const validateCaptcha = (rule, value, callback) => {
+      if (this.captcha == null || !this.captcha) {
+        callback(new Error(this.$t('validation.captcha_req')))
+      } else {
+        callback()
+      }
+    }
     return {
       step: 1,
       token: '',
@@ -144,11 +144,11 @@ export default {
             trigger: 'blur'
           }
         ],
-        // captcha: [
-        //   {
-        //     validator: validateCaptcha, trigger: 'blur'
-        //   }
-        // ],
+        captcha: [
+          {
+            validator: validateCaptcha, trigger: 'blur'
+          }
+        ],
         remember: []
       },
       valid: false,
@@ -162,7 +162,7 @@ export default {
   },
   computed: {
     disabledButton() {
-      return this.accountForm.email === '' || this.accountForm.password === ''
+      return this.accountForm.email === '' || this.accountForm.password === '' || this.captcha === ''
     }
   },
   methods: {
@@ -188,10 +188,10 @@ export default {
       }
       try {
         this.$store.commit(INDEX_SET_LOADING, true)
-        // const token = await this.$recaptcha.getResponse()
-        // if (this.captcha == null || this.captcha !== token.toString()) {
-        //   this.captcha = token.toString()
-        // }
+        const token = await this.$recaptcha.getResponse()
+        if (this.captcha == null || this.captcha !== token.toString()) {
+          this.captcha = token.toString()
+        }
         const dto = {
           email: this.accountForm.email,
           password: this.accountForm.password,
