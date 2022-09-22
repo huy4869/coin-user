@@ -300,11 +300,6 @@ export default {
         ],
         phone: [
           {
-            required: !this.isChangePass,
-            message: this.$t('validation.required', { _field_: this.$t('account.phoneNumber') }),
-            trigger: 'blur'
-          },
-          {
             validator: validPhoneNumber, trigger: 'blur'
           }
         ],
@@ -357,7 +352,7 @@ export default {
       this.isChangePass
         ? check = this.accountForm.password === '' ||
           this.accountForm.new_password === '' || this.accountForm.new_password_confirmation === ''
-        : check = this.accountForm.name === '' || this.accountForm.email === '' || this.accountForm.phone === ''
+        : check = this.accountForm.name === '' || this.accountForm.email === ''
       return check
     }
   },

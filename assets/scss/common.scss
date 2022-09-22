@@ -544,14 +544,14 @@ a.color-red:hover {
 .el-button, .el-button:focus {
   font-family: $font-gemunu;
   background: linear-gradient(268.36deg, #CB2734 1.48%, #8F1010 99.77%);
-  box-shadow: 0px 3px 24px rgba(255, 57, 57, 0.75);
+  box-shadow: 0 3px 24px rgba(255, 57, 57, 0.75);
   border-radius: 8px;
   border: 1px solid $color-btn-active;
   color: $color-white;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 22px;
+  //font-style: normal;
+  //font-weight: 400;
+  //font-size: 20px;
+  //line-height: 22px;
 }
 
 .el-button:hover {
@@ -858,7 +858,7 @@ a.color-red:hover {
 .el-input.is-disabled .el-input__inner {
   background-color: #C0C4CC;
   border-color: #C0C4CC;
-  color: $color-black;
+  color: $color-white;
   cursor: not-allowed;
   font-weight: 500;
 }

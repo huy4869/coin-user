@@ -111,9 +111,16 @@
       <div v-if="$route.path === '/home'" class="header-left-mobile" style="display: none">
         <div class="token_div">
           <img src="~/assets/images/icons/logo_token.svg" alt="" class="w-100">
-          <span class="token_title">{{ $t('header.token', { v: user ? user.coin : 0 }) }}</span>
+          <span class="token_title">{{ $t('header.token', { v: user ? user.coin_format : 0 }) }}</span>
         </div>
         <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
+      </div>
+      <div v-if="$route.path === '/home'" class="header-left-mobile" style="display: none">
+        <div class="token_div">
+          <img style="width: 24px; height: 24px" src="~/assets/images/icons/logo_transfer.svg" alt="" class="w-100">
+          <span class="token_title">{{ $t('header.cmz', { v: cmz ? cmz : 0 }) }}</span>
+        </div>
+        <el-button class="btn_receive" @click="openReceive">{{ $t('header.transfer') }}</el-button>
       </div>
     </div>
     <el-dialog
@@ -265,7 +272,7 @@ export default {
         const data = await this.$store.dispatch(USER_GET_CMZ)
         switch (data.status_code) {
           case 200:
-            this.cmz = data.data.coin
+            this.cmz = data.data.coin_format
             break
           default:
             this.$store.commit(INDEX_SET_ERROR, { show: true, text: data.message })
