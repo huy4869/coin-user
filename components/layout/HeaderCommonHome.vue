@@ -120,7 +120,11 @@
           <img style="width: 24px; height: 24px" src="~/assets/images/icons/logo_transfer.svg" alt="" class="w-100">
           <span class="token_title">{{ $t('header.cmz', { v: cmz ? cmz : 0 }) }}</span>
         </div>
-        <el-button class="btn_receive" @click="openReceive">{{ $t('header.transfer') }}</el-button>
+        <el-tooltip style="width: 46%" class="item" effect="dark" content="After KYC" placement="bottom">
+            <span>
+              <el-button disabled="disabled" class="btn_transfer">{{ $t('header.transfer') }}</el-button>
+            </span>
+        </el-tooltip>
       </div>
     </div>
     <el-dialog
