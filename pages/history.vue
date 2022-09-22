@@ -15,17 +15,17 @@
         class="table_history_pc"
       >
         <el-table-column :label="$t('history.created_at')" prop="created_at" width="200"></el-table-column>
-        <el-table-column :label="$t('history.email')" prop="email" width="300"></el-table-column>
-        <el-table-column :label="$t('history.tx_hash')" prop="tx_hash"></el-table-column>
+        <el-table-column :label="$t('history.email')" prop="email"></el-table-column>
+        <el-table-column :label="$t('history.tx_hash')" prop="tx_hash" width="800"></el-table-column>
         <el-table-column :label="$t('history.token')" prop="value_text" width="200">
           <template slot-scope="{row}">
-            <span v-if="row.operator === '-'" class="minus">{{ row.value_text }} point</span>
-            <span v-else class="bonus">{{ row.value_text }} point</span>
+            <span v-if="row.operator === '-'" class="minus">{{ row.value_text }} CHZ</span>
+            <span v-else class="bonus">{{ row.value_text }} CHZ</span>
           </template>
         </el-table-column>
 
-        <el-table-column :label="$t('history.type_name')" prop="type_name" width="200"></el-table-column>
-        <el-table-column :label="$t('history.status')" prop="status_text" width="200"></el-table-column>
+        <el-table-column :label="$t('history.type_name')" prop="type_name"></el-table-column>
+        <el-table-column :label="$t('history.status')" prop="status_text"></el-table-column>
         <div v-if="histories.length===0" slot="append" class="table-empty">
           <div>
             <div>
@@ -62,8 +62,8 @@
               {{ renderTxHash(value.tx_hash) }}
             </td>
             <td :data-label="$t('history.token')">
-              <span v-if="value.operator === '-'" class="minus">{{ value.value_text }} point</span>
-              <span v-else class="bonus">{{ value.value_text }} point</span>
+              <span v-if="value.operator === '-'" class="minus">{{ value.value_text }} CHZ</span>
+              <span v-else class="bonus">{{ value.value_text }} CHZ</span>
             </td>
             <td :data-label="$t('history.type_name')">
               {{ value.type_name }}

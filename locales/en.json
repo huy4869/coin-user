@@ -18,7 +18,7 @@
     "token": "{v} CHZ",
     "cmz": "{v} CMZ",
     "transfer": "Transfer",
-    "receive": "Receive"
+    "receive": "Activate"
   },
   "footer": {
     "copyright": "© Copyright 2022. All Rights Reserved"
@@ -129,13 +129,15 @@
     "history": "Transaction History"
   },
   "deposit": {
-    "title": "Receive",
-    "direct_title": "BNB Smart Chain",
+    "title": "Activate",
+    "direct_title": "BEP2 Wallet",
     "direct1": "Please use BNB Beacon Chain (BEP2) send CHZ tokens to this wallet address with this memo (If not correct memo, you will lost token).",
     "direct2": "For every 150CHZ, you have registered a system code. If you want to buy multiple codes, you can send token at the same time.",
     "direct3": "After send token, please wait a few minutes.",
+    "direct4": "If you transfer from Binance please be aware of 0.7 CHZ will be deducted as fee, make sure you add more 0.7 CHZ when you process the transaction from Binance.",
     "address": "Wallet address",
     "memo": "Memo",
+    "activate": "Activate node",
     "confirm": "Confirm"
   },
   "noti": {

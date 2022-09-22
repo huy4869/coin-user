@@ -88,7 +88,7 @@
             <!--  -->
             <div class="d-flex align-items-center text-center" style="margin-top: 1.5rem">
               <span class="bnb-title">
-                BNB Smart Chain
+                BEP2 Wallet
               </span>
             </div>
             <div class="bnb-description">

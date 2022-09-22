@@ -24,22 +24,6 @@
         </div>
         <div class="header_right">
 
-          <el-dropdown class="cursor-pointer d-flex lang_div" trigger="click" placement="bottom-start">
-            <span class="img_lang">
-              <img class="image-language" :src="languageActive.icon" alt="">
-              <img class="image-dropdown" src="~/assets/images/icons/arrow_down.svg" alt="">
-            </span>
-            <template #dropdown>
-              <el-dropdown-menu class="dropdown-language">
-                <el-dropdown-item v-for="(language, index) in listLanguage" :key="index" :command="index">
-                  <div class="select-language d-flex" @click="changeLanguage(language)">
-                    <img :src="language.icon" alt="">
-                    <div class="language-name pd-l-10">{{ language.name }}</div>
-                  </div>
-                </el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
           <div class="logout_div" @click="logout">
             <img src="~/assets/images/icons/logout.svg" alt="" class="img_logout">
             <span class="logout_title">{{ $t('header.logout') }}</span>
@@ -47,24 +31,6 @@
         </div>
         <!--  -->
         <div class="header-main-menu-mobile">
-          <div class="header_right lang_mobile_div">
-            <el-dropdown class="cursor-pointer d-flex lang_div" trigger="click" placement="bottom-start">
-            <span class="img_lang">
-              <img class="image-language" :src="languageActive.icon" alt="">
-              <img class="image-dropdown" src="~/assets/images/icons/arrow_down.svg" alt="">
-            </span>
-              <template #dropdown>
-                <el-dropdown-menu class="dropdown-language">
-                  <el-dropdown-item v-for="(language, index) in listLanguage" :key="index" :command="index">
-                    <div class="select-language d-flex" @click="changeLanguage(language)">
-                      <img :src="language.icon" alt="">
-                      <div class="language-name pd-l-10">{{ language.name }}</div>
-                    </div>
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
-          </div>
           <label for="nav-mobile-input">
             <div class="menu-mobile pointer">
               <img src="@/assets/images/icons/menu.svg" alt="">
@@ -97,6 +63,10 @@
                 <li id="li-home" @click="handeClick('/setting')" :class="{'is-active' : $route.path === '/setting' }">
                   <img style="width: 18px; height: 18px; margin-right: 11px"
                        :src="require('@/assets/images/icons/menu/user.svg')" alt="copy">{{ $t('home.setting') }}
+                </li>
+                <li id="li-home" @click="handeClick('/history')" :class="{'is-active' : $route.path === '/history' }">
+                  <img style="width: 18px; height: 18px; margin-right: 11px"
+                       :src="require('@/assets/images/icons/menu/history.svg')" alt="copy">{{ $t('home.history') }}
                 </li>
                 <li id="li-home" @click="logout">
                   <img style="width: 18px; height: 18px; margin-right: 11px"
@@ -132,7 +102,7 @@
       :show-close="true" :visible.sync="receiveModal" class="dialog-deposit">
       <modal-deposit
         :address="address"
-        :memo="user.send_memo"
+        :memo="user.send_memo.toString()"
         @close="closeReceive()"/>
     </el-dialog>
   </div>
