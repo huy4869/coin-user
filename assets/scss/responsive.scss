@@ -894,6 +894,10 @@
 }
 
 @media only screen and (max-width: 300px) {
+  .header #header_landing {
+    padding: 0 !important;
+  }
+
   .home-sidebar {
     padding: 20px 13px;
   }
@@ -946,6 +950,10 @@
 
     .partner_component .div_main_partner {
       padding: 28px 0 0;
+    }
+
+    .system_div_component .coin_system_div img.coin_system1 {
+      transform: scale(0.5);
     }
   }
   .footer .container-footer .content {
