@@ -17,6 +17,8 @@
     "logout": "Sign out",
     "token": "{v} CHZ",
     "cmz": "{v} CMZ",
+    "node": "{v} NODE",
+    "total_commission": "Total Commission: {v} CHZ",
     "transfer": "Transfer",
     "receive": "Activate"
   },

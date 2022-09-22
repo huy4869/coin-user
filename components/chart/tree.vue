@@ -50,19 +50,19 @@ export default {
         return <div class="rich-media-node">
           <div class="row_info">
             <span class="title">Name:</span>
-            <span class="value">{ data.name }</span>
+            <span class="value">{data.name}</span>
           </div>
           <div class="row_info">
             <span class="title">Email:</span>
-            <span class="value">{ data.email }</span>
+            <span class="value">{data.email}</span>
           </div>
           <div class="row_info">
             <span class="title">Wallet address:</span>
-            <span class="value">{ data.wallet_address }</span>
+            <span class="value">{data.wallet_address}</span>
           </div>
           <div class="row_info">
             <span class="title">Transaction hash:</span>
-            <span class="value">{ data.txhash }</span>
+            <span class="value">{this.renderHash(data.txhash)}</span>
           </div>
         </div>
       } else {
@@ -70,19 +70,27 @@ export default {
           <div class="rich-media-node">
             <div class="row_info">
               <span class="title">Name:</span>
-              <span class="value">{ data.name }</span>
+              <span class="value">{data.name}</span>
             </div>
             <div class="row_info">
               <span class="title">Email:</span>
-              <span class="value">{ data.email }</span>
+              <span class="value">{data.email}</span>
             </div>
             <div class="row_info">
               <span class="title">Wallet address:</span>
-              <span class="value">{ data.wallet_address }</span>
+              <span class="value">{data.wallet_address}</span>
             </div>
           </div>
         )
       }
+    },
+
+    renderHash(hash) {
+      if (hash !== null && hash !== undefined && hash !== '') {
+        hash = hash.toString()
+        hash = hash.slice(0, 10) + '........' + hash.slice(hash.length - 10)
+      }
+      return hash
     },
     onClick(type, node) {
       console.log(type, node)

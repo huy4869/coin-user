@@ -595,6 +595,7 @@ a.color-red:hover {
   input {
     background: linear-gradient(180deg, #0B1023 0%, #17182D 100%);
   }
+
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
@@ -874,6 +875,12 @@ a.color-red:hover {
 .el-table .cell {
   font-family: $fonts-root !important;
   font-weight: 500;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.el-table .el-table__cell {
+  padding: 20px 0;
 }
 
 .el-table__empty-block {
@@ -899,7 +906,7 @@ a.color-red:hover {
   background-color: #142744;
 }
 
-.el-table--striped .el-table__body tr.el-table__row--striped.current-row td.el-table__cell, .el-table__body tr.current-row>td.el-table__cell {
+.el-table--striped .el-table__body tr.el-table__row--striped.current-row td.el-table__cell, .el-table__body tr.current-row > td.el-table__cell {
   background-color: #142744;
 }
 

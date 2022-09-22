@@ -515,8 +515,8 @@ a {
 
 .home-sidebar {
   background: linear-gradient(100.46deg, #091530 0%, #340A11 100%);
-  padding: 40px 24px;
-  min-height: calc(100vh - $height-footer-home - $height-header-home - 2 * 40px);
+  padding: 10px 24px;
+  min-height: calc(100vh - $height-footer-home - $height-header-home - 2 * 10px);
 
   img {
     object-fit: cover;

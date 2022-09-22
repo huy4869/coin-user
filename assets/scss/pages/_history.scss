@@ -1,6 +1,24 @@
 .history_component {
   .title_div {
-    margin-bottom: 50px;
+
+    .title {
+      margin-bottom: 0;
+    }
+  }
+
+  .title_commission_div {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    height: fit-content;
+    margin-bottom: 30px;
+
+    .total_commission {
+      margin: auto;
+      width: fit-content;
+      height: fit-content;
+      color: $color-red-primary;
+    }
   }
 
   .minus {
@@ -171,6 +189,7 @@
   .history_component {
     .title_div {
       margin-bottom: 0px;
+
       .title {
         font-size: 20px;
       }

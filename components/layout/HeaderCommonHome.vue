@@ -2,21 +2,27 @@
   <div>
     <div class="header header_home">
       <div class="container-header">
-        <div class="header_left" id="header_left_home">
+        <div class="node_left">
           <div class="token_div">
-            <img src="~/assets/images/icons/logo_token.svg" alt="" class="w-100">
-            <span class="token_title">{{ $t('header.token', { v: user ? user.coin_format : 0 }) }}</span>
+            <img src="~/assets/images/icons/menu/user_active.svg" alt="" class="w-100">
+            <span class="token_title">{{ $t('header.node', { v: user ? user.total_node_buy : 0 }) }}</span>
           </div>
-          <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
-          <div class="token_div">
-            <img style="width: 24px; height: 24px" src="~/assets/images/icons/logo_transfer.svg" alt="" class="w-100">
-            <span class="token_title">{{ $t('header.cmz', { v: cmz ? cmz : 0 }) }}</span>
-          </div>
-          <el-tooltip class="item" effect="dark" content="After KYC" placement="bottom">
+          <div class="header_left" id="header_left_home">
+            <div class="token_div">
+              <img src="~/assets/images/icons/logo_token.svg" alt="" class="w-100">
+              <span class="token_title">{{ $t('header.token', { v: user ? user.coin_format : 0 }) }}</span>
+            </div>
+            <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
+            <div class="token_div">
+              <img style="width: 24px; height: 24px" src="~/assets/images/icons/logo_transfer.svg" alt="" class="w-100">
+              <span class="token_title">{{ $t('header.cmz', { v: cmz ? cmz : 0 }) }}</span>
+            </div>
+            <el-tooltip class="item" effect="dark" content="After KYC" placement="bottom">
             <span>
               <el-button disabled="disabled" class="btn_transfer">{{ $t('header.transfer') }}</el-button>
             </span>
-          </el-tooltip>
+            </el-tooltip>
+          </div>
         </div>
         <div class="header_left_home_mobile">
           <img v-if="!$device.isDesktop" src="~/assets/images/logo_header.png" alt="" class="logo_header"
@@ -110,6 +116,7 @@
 </template>
 <script>
 import { mapGetters, mapState } from 'vuex'
+import { USER_GET_USER_NODE } from '../../store/store.const'
 import {
   AUTH_LOGOUT,
   INDEX_SET_ERROR,
@@ -165,6 +172,7 @@ export default {
       titleRegister: this.$t('register_account'),
       titleForgot: this.$t('modal_login.send_forgot_password'),
       cmz: 0,
+      userNode: 0,
       timer: null
     }
   },
@@ -201,6 +209,7 @@ export default {
     async init() {
       await this.$store.commit(INDEX_SET_LOADING, true)
       await this.getSystemWallet()
+      // await this.getUserNode()
       await this.$store.commit(INDEX_SET_LOADING, false)
     },
     changeLanguage(language) {
@@ -248,6 +257,21 @@ export default {
         switch (data.status_code) {
           case 200:
             this.cmz = data.data.coin
+            break
+          default:
+            this.$store.commit(INDEX_SET_ERROR, { show: true, text: data.message })
+            break
+        }
+      } catch (e) {
+        this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
+      }
+    },
+    async getUserNode() {
+      try {
+        const data = await this.$store.dispatch(USER_GET_USER_NODE)
+        switch (data.status_code) {
+          case 200:
+            this.userNode = data.data
             break
           default:
             this.$store.commit(INDEX_SET_ERROR, { show: true, text: data.message })
