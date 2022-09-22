@@ -10,7 +10,7 @@
           <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
           <div class="token_div">
             <img style="width: 24px; height: 24px" src="~/assets/images/icons/logo_transfer.svg" alt="" class="w-100">
-            <span class="token_title">{{ $t('header.cmz', { v: user ? user.cmz_coin_format : 0 }) }}</span>
+            <span class="token_title">{{ $t('header.cmz', { v: cmz ? cmz : 0 }) }}</span>
           </div>
           <el-tooltip class="item" effect="dark" content="After KYC" placement="bottom">
             <span>
@@ -134,7 +134,8 @@ import {
   INDEX_SET_ERROR,
   INDEX_SET_LOADING,
   SET_LANGUAGE,
-  USER_GET_SYSTEM_WALLET
+  USER_GET_SYSTEM_WALLET,
+  USER_GET_CMZ
 } from '@/store/store.const'
 import ModalDeposit from '@/components/modals/modal-deposit'
 
@@ -182,6 +183,7 @@ export default {
       modalState: 'login',
       titleRegister: this.$t('register_account'),
       titleForgot: this.$t('modal_login.send_forgot_password'),
+      cmz: 0,
       timer: null
     }
   },
@@ -195,8 +197,8 @@ export default {
   },
   async mounted() {
     await this.init()
-    this.timer = setInterval(async() => {
-      await this.$auth.fetchUser()
+    this.timer = setInterval(() => {
+      this.getCMZ()
     }, 60000)
   },
   methods: {
@@ -255,6 +257,21 @@ export default {
             break
         }
       } catch (err) {
+        this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
+      }
+    },
+    async getCMZ() {
+      try {
+        const data = await this.$store.dispatch(USER_GET_CMZ)
+        switch (data.status_code) {
+          case 200:
+            this.cmz = data.data.coin
+            break
+          default:
+            this.$store.commit(INDEX_SET_ERROR, { show: true, text: data.message })
+            break
+        }
+      } catch (e) {
         this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
       }
     }
