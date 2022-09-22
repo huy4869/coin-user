@@ -80,12 +80,12 @@
         <div class="content">
           <div class="system_div system_left" data-aos="fade-up-right" data-aos-duration="1500">
             <span class="system_div_title">{{ $t('landing.total_user') }}</span>
-            <span class="system_div_title">10,000,000</span>
+            <span class="system_div_title">562,345</span>
             <img src="~/assets/images/system1.png" alt="" class="w-100 pt-20">
           </div>
           <div class="system_div system_right" data-aos="fade-up-left" data-aos-duration="1500">
             <span class="system_div_title">{{ $t('landing.total_chz') }}</span>
-            <span class="system_div_title">100,000,000 CHZ</span>
+            <span class="system_div_title">6,325,435 CHZ</span>
             <img src="~/assets/images/system2.png" alt="" class="w-100 pt-20">
           </div>
         </div>

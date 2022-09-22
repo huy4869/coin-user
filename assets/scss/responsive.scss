@@ -6,10 +6,6 @@
 
 @media only screen and (max-width: 376px) {
   .main-setting {
-    .btn-common {
-      width: 100% !important;
-    }
-
     .btn_common {
       width: 50% !important;
     }
@@ -30,7 +26,7 @@
   }
   .main-setting {
     .btn-common {
-      width: 107% !important;
+      //width: 107% !important;
 
       .btn-common-mobile {
         // margin-left: -20px;
@@ -53,6 +49,10 @@
     padding: 10px;
     height: fit-content !important;
     border: unset !important;
+  }
+
+  .btn-common {
+    width: 100% !important;
   }
   .eco_div_mobile {
     display: flex !important;
@@ -943,16 +943,12 @@
   .main-setting {
     .btn-common {
       width: 109% !important;
-      margin-left: -15px !important;
     }
 
     .btn_common {
       width: 50% !important;
     }
 
-    .btn_setting_div {
-      margin-left: -7px !important;
-    }
   }
   .landing_component {
     .title_home {
