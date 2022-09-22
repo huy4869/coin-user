@@ -19,9 +19,9 @@
         </el-button>
       </div>
     </section>
-    <div class='stars'></div>
-    <div class='stars2'></div>
-    <div class='stars3'></div>
+<!--    <div class='stars'></div>-->
+<!--    <div class='stars2'></div>-->
+<!--    <div class='stars3'></div>-->
 
     <section class="bg_eco">
       <div class="title_div_1">

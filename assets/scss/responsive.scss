@@ -388,7 +388,6 @@
     }
   }
   .product_div {
-    height: 210px !important;
     margin: 24px 12px;
   }
   .img_messi {
@@ -399,7 +398,6 @@
       grid-gap: 0px !important;
 
       .product_div {
-        height: 180px !important;
       }
     }
   }
@@ -614,7 +612,7 @@
     display: flex !important;
     justify-content: space-between;
     width: fit-content;
-    gap: 20px;
+    gap: 10px;
 
     .lang_mobile_div {
       display: block !important;

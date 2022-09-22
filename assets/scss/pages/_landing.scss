@@ -181,7 +181,7 @@
             &:hover {
               transform: scale(1.5);
               transition-duration: 1s;
-              filter: drop-shadow(-10px 7px 60px #1400e0) !important;
+              //filter: drop-shadow(-10px 7px 60px #1400e0) !important;
             }
           }
         }
@@ -200,7 +200,7 @@
           max-width: 100%;
           width: 100%;
           margin: auto;
-          filter: drop-shadow(-10px 7px 60px #1400e0) !important;
+          //filter: drop-shadow(-10px 7px 60px #1400e0) !important;
         }
       }
     }
@@ -321,7 +321,7 @@
 
           &:hover {
             transform: scale(1.2);
-            filter: drop-shadow(-10px 7px 60px #1400e0) !important;
+            //filter: drop-shadow(-10px 7px 60px #1400e0) !important;
           }
 
           .system_div_title {
@@ -420,7 +420,7 @@
 
         &:hover {
           animation: zoominout 2s infinite;
-          filter: drop-shadow(-10px 7px 60px #1400e0) !important;
+          //filter: drop-shadow(-10px 7px 60px #1400e0) !important;
         }
       }
 
@@ -499,19 +499,21 @@
     padding: 30px 20px 30px;
     cursor: pointer;
     z-index: 1;
-    background: rgb(24 30 44 / 55%);
+    background: #70717b00;
     opacity: 0.55;
     border-radius: 8px;
-    border: 1px solid;
-    border-image-source: linear-gradient(32.08deg, rgba(255, 255, 255, 0.75) -0.18%, rgba(255, 255, 255, 0) 59.03%);
-    border-image-slice: 10;
+    background-image: url("assets/images/landing/bg_product.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    //border-image-source: linear-gradient(32.08deg, rgba(255, 255, 255, 0.75) -0.18%, rgba(255, 255, 255, 0) 59.03%);
+    //border-image-slice: 10;
     box-sizing: border-box;
     text-align: left;
 
     &:hover {
       transform: scale(1.2) !important;
       transition-duration: 1s;
-      filter: drop-shadow(-10px 7px 60px #1802ff) !important;
+      //filter: drop-shadow(-10px 7px 60px #1802ff) !important;
       z-index: 2;
     }
 
