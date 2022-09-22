@@ -51,5 +51,10 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.get('/cmz'), context)
     })
+  },
+  getUserNode(context, query) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/cmz'), context)
+    })
   }
 }

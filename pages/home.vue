@@ -7,21 +7,6 @@
           autocomplete="off"
           label-position="left">
           <br/>
-          <el-form-item class="" :label="$t('profile.address')">
-            <el-input
-              ref="walletAddress"
-              :value="account.wallet_address"
-              name="walletAddress"
-              type="text"
-              tabindex="2"
-              class="address disabled-common"
-              readonly
-            >
-              <img
-                slot="suffix" class="cursor-pointer pd-r-10" src="~/assets/images/icons/copy.svg" alt="copy"
-                @click="copy(account.wallet_address)">
-            </el-input>
-          </el-form-item>
           <el-form-item class="" :label="$t('profile.referral')">
             <el-input
               ref="walletAddress"

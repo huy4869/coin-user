@@ -10,6 +10,7 @@
   #header_landing {
     padding: 0 $pd-common !important;
   }
+
   .container-header {
     margin: auto;
     //max-width: $max-width-header;
@@ -17,7 +18,7 @@
     display: flex;
     justify-content: space-between;
     height: 100%;
-    padding: 10px 24px;
+    padding: 10px 15px;
 
     .title_nav {
       font-style: normal;
@@ -50,6 +51,12 @@
       }
     }
 
+    .node_left {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
     .header_left, .header_right {
       display: flex;
       justify-content: space-between;
@@ -64,6 +71,7 @@
 
     .header_left {
       height: 100%;
+
       .lst_menu {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -117,6 +125,7 @@
         }
       }
     }
+
     .header-main-menu-mobile {
       display: none;
     }
@@ -128,9 +137,7 @@
   box-shadow: unset;
 
   .container-header {
-
-    .header_left {
-      gap: 24px;
+    .node_left {
       .token_div {
         border: 1px solid $color-border-sidebar;
         border-radius: 8px;
@@ -146,19 +153,23 @@
           line-height: 17px;
         }
       }
+      .header_left {
+        gap: 24px;
 
-      .btn_receive {
-        padding: 12px 17px;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-      }
-      .btn_transfer {
-        //background: $color-background;
-        padding: 12px 17px;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
+        .btn_receive {
+          padding: 12px 17px;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        .btn_transfer {
+          //background: $color-background;
+          padding: 12px 17px;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 20px;
+        }
       }
     }
   }

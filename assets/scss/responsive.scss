@@ -849,6 +849,7 @@
   }
 
 }
+
 @media only screen and (max-width: 600px) {
   .home-sidebar {
     padding: 40px 13px;
@@ -914,11 +915,40 @@
     }
   }
 
+  .history_component {
+    margin-top: -30px;
+
+    h1 {
+      font-size: 25px;
+    }
+
+    .title_commission_div {
+      text-align: left;
+
+      .total_commission {
+        margin-right: auto;
+        margin-left: 0;
+        max-width: 100%;
+        word-break: break-word;
+      }
+    }
+
+    .table_history_mobile {
+      margin-top: -20px;
+    }
+  }
+
 }
 
 @media only screen and (max-width: 300px) {
   .header #header_landing {
     padding: 0 !important;
+  }
+  .header .container-header {
+    padding: 10px 10px;
+  }
+  .logo_header {
+    width: 80px;
   }
 
   .home-sidebar {

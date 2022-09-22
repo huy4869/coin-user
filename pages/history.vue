@@ -3,6 +3,11 @@
     <div class="title_div">
       <h1 class="title">{{ $t('history.title') }}</h1>
     </div>
+    <div class="title_commission_div">
+      <h1 class="total_commission">{{
+          $t('header.total_commission', { v: user ? user.total_coin_commission : 0 })
+        }}</h1>
+    </div>
     <div class="">
       <el-table
         ref="productTable"
@@ -14,10 +19,10 @@
         :row-class-name="(row, rowIndex) => 'item-row-table'"
         class="table_history_pc"
       >
-        <el-table-column :label="$t('history.created_at')" prop="created_at" width="200"></el-table-column>
-        <el-table-column :label="$t('history.email')" prop="email"></el-table-column>
-        <el-table-column :label="$t('history.tx_hash')" prop="tx_hash" width="800"></el-table-column>
-        <el-table-column :label="$t('history.token')" prop="value_text" width="200">
+        <el-table-column :label="$t('history.created_at')" prop="created_at" width="170"></el-table-column>
+        <el-table-column :label="$t('history.email')" prop="email" width="290"></el-table-column>
+        <el-table-column :label="$t('history.tx_hash')" prop="tx_hash" width="660"></el-table-column>
+        <el-table-column :label="$t('history.token')" prop="value_text" width="170">
           <template slot-scope="{row}">
             <span v-if="row.operator === '-'" class="minus">{{ row.value_text }} CHZ</span>
             <span v-else class="bonus">{{ row.value_text }} CHZ</span>
@@ -25,7 +30,7 @@
         </el-table-column>
 
         <el-table-column :label="$t('history.type_name')" prop="type_name"></el-table-column>
-        <el-table-column :label="$t('history.status')" prop="status_text"></el-table-column>
+        <el-table-column :label="$t('history.status')" prop="status_text" width="120"></el-table-column>
         <div v-if="histories.length===0" slot="append" class="table-empty">
           <div>
             <div>
@@ -110,6 +115,7 @@ export default {
   components: { Pagination },
   data() {
     return {
+      user: this.$auth.user,
       histories: [],
       total: 0,
       listQuery: {
