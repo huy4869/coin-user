@@ -1220,6 +1220,32 @@ a {
   border-color: $color-dark-functional-300;
 }
 
+.el-select-dropdown {
+  position: absolute;
+  z-index: 1001;
+  border: 1px solid #E4E7ED;
+  border-radius: 4px;
+  background-color: $color-bg-navbar;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+  margin: 5px 0;
+}
+
+.el-select-dropdown__item {
+  height: 40px;
+  line-height: unset;
+  padding: 10px 20px;
+  color: $color-white;
+  font-weight: 500;
+  font-size: 17px;
+  background: linear-gradient(180deg, #0B1023 0%, #17182D 100%);
+  //font-family: $font-mont;
+}
+
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+  background-color: $color-hover;
+}
+
 .form_birthday {
   .el-form-item {
     margin-bottom: 0;

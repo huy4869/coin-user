@@ -43,6 +43,7 @@ export const USER_TREE_BY_TEAM = 'user/getTreeByTeam'
 export const USER_GET_HISTORY = 'user/getHistory'
 export const USER_GET_CMZ = 'user/getCMZ'
 export const USER_GET_USER_NODE = 'user/getUserNode'
+export const USER_GET_TRANSACTION_TYPE = 'user/getTransactionType'
 
 // plan
 export const PLAN_BUY_PACKAGE = 'plan/buyPackage'

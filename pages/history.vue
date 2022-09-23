@@ -9,6 +9,17 @@
         }}</h1>
     </div>
     <div class="">
+      <div class="select_type_div">
+        <el-select v-model="type" placeholder="Type Transaction">
+          <el-option
+            v-for="item in optionsType"
+            :key="item.id"
+            :label="item.name"
+            :value="item.id">
+          </el-option>
+        </el-select>
+      </div>
+
       <el-table
         ref="productTable"
         :data="histories"
@@ -107,7 +118,7 @@
 </template>
 
 <script>
-import { INDEX_SET_ERROR, INDEX_SET_LOADING, USER_GET_HISTORY } from '@/store/store.const'
+import { INDEX_SET_ERROR, INDEX_SET_LOADING, USER_GET_HISTORY, USER_GET_TRANSACTION_TYPE } from '@/store/store.const'
 import Pagination from '@/components/element-ui/Pagination'
 
 export default {
@@ -115,14 +126,28 @@ export default {
   components: { Pagination },
   data() {
     return {
+      optionsType: [],
+      type: '',
       user: this.$auth.user,
       histories: [],
       total: 0,
       listQuery: {
+        search: '',
         page: 1,
-        per_page: this.$device.isDesktop ? 10 : 5
-        // per_page: 2
+        per_page: this.$device.isDesktop ? 10 : 5,
+        'orders[0][key]': 'updated_at',
+        'orders[0][dir]': 'desc',
+        'filters[0][key]': 'type',
+        'filters[0][data]': ''
       }
+    }
+  },
+  watch: {
+    async type() {
+      await this.$store.commit(INDEX_SET_LOADING, true)
+      this.listQuery['filters[0][data]'] = this.type !== -1 ? this.type : ''
+      await this.getHistory()
+      await this.$store.commit(INDEX_SET_LOADING, false)
     }
   },
   async mounted() {
@@ -136,7 +161,29 @@ export default {
         switch (response.status_code) {
           case 200:
             this.histories = response.data.data
-            this.total = response.data.total
+            this.total = Number(response.data.total)
+            break
+          case 422:
+            for (const [key] of Object.entries(response.data)) {
+              this.error = { key, value: response.data[key][0] }
+            }
+            break
+          default:
+            this.$store.commit(INDEX_SET_ERROR, { show: true, text: response.message })
+            break
+        }
+      } catch (err) {
+        this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
+      }
+      await this.$store.commit(INDEX_SET_LOADING, false)
+    },
+    async getTransactionType() {
+      await this.$store.commit(INDEX_SET_LOADING, true)
+      try {
+        const response = await this.$store.dispatch(USER_GET_TRANSACTION_TYPE)
+        switch (response.status_code) {
+          case 200:
+            this.optionsType = response.data
             break
           case 422:
             for (const [key] of Object.entries(response.data)) {
@@ -155,6 +202,7 @@ export default {
     async init() {
       await this.$store.commit(INDEX_SET_LOADING, true)
       await this.getHistory()
+      await this.getTransactionType()
       await this.$store.commit(INDEX_SET_LOADING, false)
     },
     renderTxHash(hash) {

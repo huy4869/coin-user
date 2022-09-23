@@ -56,5 +56,10 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.get('/cmz'), context)
     })
+  },
+  getTransactionType(context, query) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/profile/history-types'), context)
+    })
   }
 }

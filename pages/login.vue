@@ -207,11 +207,11 @@ export default {
             await this.$router.push('/home')
             break
           default:
-            this.$store.commit(INDEX_SET_ERROR, { show: true, text: 'Lỗi !', message: data.message })
+            this.$store.commit(INDEX_SET_ERROR, { show: true, text: 'Error!', message: data.message })
             break
         }
       } catch (err) {
-        this.$store.commit(INDEX_SET_ERROR, { show: true, text: 'Lỗi !', message: this.$t('message.message_error') })
+        this.$store.commit(INDEX_SET_ERROR, { show: true, text: 'Error!', message: this.$t('message.message_error') })
       }
       if (this.isCaptchaExpireOrError) {
         this.captcha = ''
