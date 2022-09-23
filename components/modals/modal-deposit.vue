@@ -56,10 +56,10 @@
           <el-input
             name="amount"
             type="number"
-            :value="amount"
+            v-model="amount"
             tabindex="1"
-            maxlength="3"
-            :max="this.amount_max"
+            maxlength="1000000000"
+            :max="amount_max"
             :min="1"
             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
             pattern="[0-9]*" inputmode="numeric"
@@ -68,9 +68,10 @@
                  slot="prepend" @click="changeAmount('-')">
               <el-button :disabled="amount <= 1" class="btn_amount_el">-</el-button>
             </div>
-            <div :class="['btn_amount', {'btn_disable' : amount >= this.amount_max}]"
+            <div :class="['btn_amount', {'btn_disable' : false}]"
                  slot="append" @click="changeAmount('+')">
-              <el-button :disabled="amount >= this.amount_max" class="btn_amount_el">+</el-button>
+<!--              <el-button :disabled="amount >= amount_max" class="btn_amount_el">+</el-button>-->
+              <el-button class="btn_amount_el">+</el-button>
             </div>
           </el-input>
         </el-form-item>
@@ -105,7 +106,7 @@ export default {
   data() {
     return {
       amount: 1,
-      amount_max: 100000000,
+      amount_max: 99999999999999,
       total_price: 150,
       valid: false,
       loading: false,
@@ -134,7 +135,8 @@ export default {
       })
     },
     changeAmount(type) {
-      if (type === '+' && this.amount < this.amount_max) {
+      // if (type === '+' && this.amount < this.amount_max) {
+      if (type === '+') {
         this.amount++
       } else if (type === '-' && this.amount > 1) {
         this.amount--
