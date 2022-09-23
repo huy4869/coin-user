@@ -21,6 +21,15 @@
     }
   }
 
+  .table_history_pc {
+    .el-table__header-wrapper, .el-table__body-wrapper {
+      table {
+        width: unset !important;
+        max-width: 100%;
+      }
+    }
+  }
+
   .minus {
     color: $color-red-primary;
   }

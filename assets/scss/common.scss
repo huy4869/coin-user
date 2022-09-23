@@ -876,7 +876,11 @@ a.color-red:hover {
   font-family: $fonts-root !important;
   font-weight: 500;
   max-width: 100%;
-  word-break: break-word;
+  word-break: break-all;
+  @media only screen and (max-width: 1280px) {
+    font-size: 13px;
+    line-height: unset;
+  }
 }
 
 .el-table .el-table__cell {

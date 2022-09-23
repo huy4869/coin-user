@@ -22,7 +22,7 @@
         <el-table-column :label="$t('history.created_at')" prop="created_at" width="170"></el-table-column>
         <el-table-column :label="$t('history.email')" prop="email" width="290"></el-table-column>
         <el-table-column :label="$t('history.tx_hash')" prop="tx_hash" width="660"></el-table-column>
-        <el-table-column :label="$t('history.token')" prop="value_text" width="170">
+        <el-table-column :label="$t('history.token')" prop="value_text" width="150">
           <template slot-scope="{row}">
             <span v-if="row.operator === '-'" class="minus">{{ row.value_text }} CHZ</span>
             <span v-else class="bonus">{{ row.value_text }} CHZ</span>
