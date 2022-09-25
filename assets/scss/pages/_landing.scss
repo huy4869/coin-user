@@ -381,7 +381,7 @@
     text-align: center;
     width: 100%;
     height: fit-content;
-    padding: 50px 0 250px;
+    padding: 150px 0 250px;
 
     .title_div_product {
       margin: auto;
@@ -390,9 +390,65 @@
     }
   }
 
+  //.roadmap_component {
+  //  background-image: url("assets/images/landing/bg5.png");
+  //  background-size: cover;
+  //  background-repeat: no-repeat;
+  //  padding: 100px 200px;
+  //
+  //  .title_div_roadmap {
+  //    margin: auto;
+  //    text-align: center;
+  //    padding-bottom: 50px;
+  //  }
+  //
+  //  .main_roadmap {
+  //    text-align: center;
+  //    margin: 20px auto auto;
+  //    width: fit-content;
+  //    position: relative;
+  //
+  //    .img_roadmap {
+  //      width: 100%;
+  //      max-width: 794px;
+  //      max-height: 392px;
+  //    }
+  //
+  //    .img_q {
+  //      position: absolute;
+  //      cursor: pointer;
+  //
+  //      &:hover {
+  //        animation: zoominout 2s infinite;
+  //        //filter: drop-shadow(-10px 7px 60px #1400e0) !important;
+  //      }
+  //    }
+  //
+  //    .q1 {
+  //      top: 0;
+  //      left: -50px;
+  //    }
+  //
+  //    .q2 {
+  //      top: 77px;
+  //      right: 126px;
+  //    }
+  //
+  //    .q3 {
+  //      top: 179px;
+  //      left: 89px;
+  //    }
+  //
+  //    .q4 {
+  //      bottom: 77px;
+  //      right: 85px;
+  //    }
+  //  }
+  //}
+
   .roadmap_component {
     background-image: url("assets/images/landing/bg5.png");
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     padding: 100px 200px;
 
@@ -407,11 +463,12 @@
       margin: 20px auto auto;
       width: fit-content;
       position: relative;
+      height: fit-content;
 
       .img_roadmap {
-        width: 100%;
-        max-width: 794px;
-        max-height: 392px;
+        width: 75vw;
+        //max-width: 794px;
+        //max-height: 392px;
       }
 
       .img_q {
@@ -425,23 +482,27 @@
       }
 
       .q1 {
-        top: 0;
-        left: -50px;
+        top: 30px;
+        left: -25px;
+        width: 4vw;
       }
 
       .q2 {
-        top: 77px;
-        right: 126px;
+        top: calc(100% / 5);
+        right: 9vw;
+        width: 9vw;
       }
 
       .q3 {
-        top: 179px;
-        left: 89px;
+        top: 46%;
+        left:9vw;
+        width: 9vw;
       }
 
       .q4 {
-        bottom: 77px;
-        right: 85px;
+        bottom: calc(100% / 5);
+        right: 9vw;
+        width: 12vw;
       }
     }
   }
@@ -473,10 +534,10 @@
     .div_main_partner {
       width: 100%;
       gap: 20px;
-      padding: 70px 0 0;
+      padding: 90px 0 30px;
 
       .row_partner {
-        padding: 10px 0;
+        padding: 15px 0;
       }
     }
   }
@@ -487,16 +548,16 @@
   grid-auto-columns: minmax(0, 1fr);
   grid-auto-flow: column;
   gap: 50px;
-  width: 100%;
-  max-width: $max-width;
+  width: 80vw;
+  //max-width: $max-width;
   margin: auto;
 
   .product_div, .product_div_home {
     //border: 2px solid #FFFFFF;
     //border-radius: 35px;
 
-    height: 100%;
-    padding: 30px 20px 30px;
+    height: calc((80vw - 3 * 50px) / 3);
+    padding: 30px 20px 0px;
     cursor: pointer;
     z-index: 1;
     background: #70717b00;
@@ -519,17 +580,18 @@
 
     button.btn_product {
       width: 250px;
-      height: 80px;
+      height: 20%;
       padding: 0 20px;
       margin-left: -50px;
-      margin-bottom: 25px;
+      margin-bottom: 10px;
       background: linear-gradient(268.36deg, #CB2734 1.48%, #8F1010 99.77%);
       box-shadow: 0px 4px 60px rgba(255, 57, 57, 0.8);
       border-radius: 8px;
     }
 
     .img_top_div {
-      height: 65%;
+      height: 75%;
+      padding: 0 0 20px;
       //padding-bottom: 20px;
 
       .cup {
@@ -548,6 +610,7 @@
         left: 0;
         right: 0;
         margin: auto;
+        width: 50%;
       }
 
       .img_cup_under {
@@ -558,29 +621,39 @@
         right: 0;
         display: flex;
         justify-content: space-between;
-        width: 72%;
+        width: 95%;
         z-index: -1;
-        height: 48%;
+        height: 50%;
         margin: auto;
 
         img {
-          max-width: 95px;
+          max-width: 50%;
         }
       }
     }
 
     .img_jackpot {
-      display: grid;
-      grid-template-columns: auto;
+      //display: grid;
+      //grid-template-columns: auto;
       text-align: center;
       margin: auto;
       width: 100%;
 
       .arrow_jackpot {
         margin: auto;
+        height: 25%;
+        position: relative;
+        img {
+          position: absolute;
+          bottom: 20px;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
       }
 
       .jackpot {
+        height: 70%;
         margin: -20px auto auto;
         z-index: -1;
       }
@@ -590,10 +663,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 0 40px;
 
       .img_ball {
-        max-width: 65px;
-        max-height: 65px;
+        max-width: 30%;
+        width: 30%;
       }
 
       .img_ball_right {

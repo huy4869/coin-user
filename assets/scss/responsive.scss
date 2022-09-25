@@ -143,20 +143,20 @@
           max-height: 15px;
         }
 
-        .q2 {
-          top: 32px !important;
-          right: 46px !important;
-        }
-
-        .q3 {
-          top: 78px !important;
-          left: 47px !important;
-        }
-
-        .q4 {
-          bottom: 35px !important;
-          right: 44px !important;
-        }
+        //.q2 {
+        //  top: 32px !important;
+        //  right: 46px !important;
+        //}
+        //
+        //.q3 {
+        //  top: 78px !important;
+        //  left: 47px !important;
+        //}
+        //
+        //.q4 {
+        //  bottom: 35px !important;
+        //  right: 44px !important;
+        //}
 
 
       }
@@ -528,17 +528,17 @@
           left: -35px;
         }
 
-        .q2 {
-          top: 67px;
-        }
-
-        .q3 {
-          top: 163px;
-        }
-
-        .q4 {
-          bottom: 68px;
-        }
+        //.q2 {
+        //  top: 67px;
+        //}
+        //
+        //.q3 {
+        //  top: 163px;
+        //}
+        //
+        //.q4 {
+        //  bottom: 68px;
+        //}
       }
     }
 
@@ -883,6 +883,18 @@
     }
   }
 
+  .lst_product_div .product_div, .lst_product_div .product_div_home {
+    height: calc((70vw));
+
+    .img_top {
+      padding: 0;
+    }
+  }
+
+  .home_component .div_product {
+    margin-bottom: 20px;
+  }
+
   .landing_component {
     .bg_eco {
       padding: 45px 20px !important;
@@ -903,10 +915,10 @@
     }
 
     .lst_product_div .product_div {
-      height: 250px;
+      //height: 250px;
 
       button.btn_product, .lst_product_div .product_div_home button.btn_product {
-        width: 174px;
+        width: 227px;
         height: 53px;
       }
     }
@@ -916,11 +928,15 @@
     }
 
     .roadmap_component .main_roadmap {
-      margin: 0;
+      //margin: 0;
     }
 
     .partner_component .div_main_partner {
       padding: 20px 0 0;
+    }
+
+    .partner_component .div_main_partner .row_partner {
+      padding: 5px 0;
     }
   }
 

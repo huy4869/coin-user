@@ -5,7 +5,7 @@
       <!--        <source src="~/assets/video/messi.mp4" type="video/mp4">-->
       <!--        Your browser does not support HTML video.-->
       <!--      </video>-->
-<!--      <img src="~/assets/images/landing/bg1.png" alt="" class="img_bg_1">-->
+      <!--      <img src="~/assets/images/landing/bg1.png" alt="" class="img_bg_1">-->
 
       <div class="text_des_div" data-aos="fade-up" data-aos-duration="1500">
         <div class="title_div_1">
@@ -19,9 +19,9 @@
         </el-button>
       </div>
     </section>
-<!--    <div class='stars'></div>-->
-<!--    <div class='stars2'></div>-->
-<!--    <div class='stars3'></div>-->
+    <!--    <div class='stars'></div>-->
+    <!--    <div class='stars2'></div>-->
+    <!--    <div class='stars3'></div>-->
 
     <section class="bg_eco">
       <div class="title_div_1">
@@ -108,15 +108,16 @@
         <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div bg_pr_1">
           <el-button class="btn_product">{{ $t('landing.p1') }}</el-button>
           <div class="img_top img_top_div">
-            <img src="~/assets/images/landing/ball_red.png" alt="" class="img_ball">
+            <img src="~/assets/images/landing/ball_red.svg" alt="" class="img_ball">
             <img src="~/assets/images/landing/vs.svg" alt="" class="">
-            <img src="~/assets/images/landing/ball_blue.png" alt="" class="img_ball">
+            <img src="~/assets/images/landing/ball_blue.svg" alt="" class="img_ball">
           </div>
         </div>
         <div @click="dialogComingSoon=true" data-aos="fade-up" class="product_div bg_pr_2">
           <el-button class="btn_product">{{ $t('landing.p2') }}</el-button>
           <div class="img_top_div img_cup">
-            <img src="~/assets/images/landing/cup1.png" alt="" class="img_cup_1">
+            <!--            <img src="~/assets/images/landing/cup1.png" alt="" class="img_cup_1">-->
+            <img src="~/assets/images/landing/cup1.svg" alt="" class="img_cup_1">
             <div class="img_cup_under">
               <img src="~/assets/images/landing/cup2.png" alt="" class="">
               <img src="~/assets/images/landing/cup3.png" alt="" class="">
@@ -126,8 +127,12 @@
         <div @click="dialogComingSoon=true" data-aos="fade-up-left" class="product_div bg_pr_3">
           <el-button class="btn_product">{{ $t('landing.p3') }}</el-button>
           <div class="tex-center img_top_div img_jackpot">
-            <img src="~/assets/images/landing/arrow_jackpot.png" alt="" class="w-100 arrow_jackpot filter_img">
-            <img src="~/assets/images/landing/jackpot.png" alt="" class="h-100 w-100 jackpot filter_img">
+            <div class="arrow_jackpot">
+              <img src="~/assets/images/landing/arrow_jackpot.png" alt="" class="w-100 filter_img">
+            </div>
+            <div class="jackpot">
+              <img src="~/assets/images/landing/jackpot.png" alt="" class="h-100 w-100 filter_img">
+            </div>
           </div>
         </div>
       </div>
@@ -140,12 +145,12 @@
         <h1 class="title_home">{{ $t('landing.roadmap') }}</h1>
       </div>
       <div class="main_roadmap">
-        <img src="~/assets/images/landing/roadmap.png" alt="" class="img_roadmap">
+        <img src="~/assets/images/landing/roadmap.svg" alt="" class="img_roadmap">
 
-        <img src="~/assets/images/landing/q1.png" alt="" class="q1 img_q">
-        <img src="~/assets/images/landing/q2.png" alt="" class="q2 img_q">
-        <img src="~/assets/images/landing/q3.png" alt="" class="q3 img_q">
-        <img src="~/assets/images/landing/q4.png" alt="" class="q4 img_q">
+        <img src="~/assets/images/landing/q1.svg" alt="" class="q1 img_q">
+        <img src="~/assets/images/landing/q2.svg" alt="" class="q2 img_q">
+        <img src="~/assets/images/landing/q3.svg" alt="" class="q3 img_q">
+        <img src="~/assets/images/landing/q4.svg" alt="" class="q4 img_q">
       </div>
     </section>
 
@@ -163,6 +168,11 @@
                 :src="require('@/assets/images/partner/row'+Number(Math.floor(row / 2) + 1)+'/p'+Number(index + lstLengthRowBefore[row])+'.png')"
                 alt="" class="img-partner"/>
             </div>
+            <div v-for="index in size" :key="index" class="slide">
+              <img
+                :src="require('@/assets/images/partner/row'+Number(Math.floor(row / 2) + 1)+'/p'+Number(index + lstLengthRowBefore[row])+'.png')"
+                alt="" class="img-partner"/>
+            </div>
           </VueSlickCarousel>
         </div>
       </div>
@@ -170,6 +180,11 @@
       <div v-else class="div_main_partner">
         <div v-for="(size, row) in lstLengthRow" :key="row">
           <VueSlickCarousel v-bind="slickOptions" :rtl="row % 2 === 0" class="row_partner">
+            <div v-for="index in size" :key="index" class="slide">
+              <img
+                :src="require('@/assets/images/partner/row'+Number(row+1)+'/p'+Number(index + lstLengthRowBefore[row])+'.png')"
+                alt="" class="img-partner"/>
+            </div>
             <div v-for="index in size" :key="index" class="slide">
               <img
                 :src="require('@/assets/images/partner/row'+Number(row+1)+'/p'+Number(index + lstLengthRowBefore[row])+'.png')"
@@ -209,15 +224,15 @@ export default {
         autoplaySpeed: 1,
         pauseOnHover: true,
         touchMove: false,
-        slidesToShow: 12,
+        slidesToShow: 16,
         speed: 4000,
         cssEase: 'linear',
         responsive: [
           {
-            breakpoint: 1000,
+            breakpoint: 1300,
             settings: {
               autoplay: true,
-              slidesToShow: 6
+              slidesToShow: 10
             }
           },
           {
