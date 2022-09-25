@@ -17,6 +17,7 @@
     "logout": "Sign out",
     "token": "{v} CHZ",
     "cmz": "{v} CMZ",
+    "cmz_speed": "{v} CMZ/H",
     "node": "{v} NODE",
     "total_commission": "Total Commission: {v} CHZ",
     "transfer": "Transfer",
