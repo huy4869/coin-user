@@ -113,7 +113,7 @@
             <img src="~/assets/images/landing/ball_blue.png" alt="" class="img_ball">
           </div>
         </div>
-        <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div bg_pr_2">
+        <div @click="dialogComingSoon=true" data-aos="fade-up" class="product_div bg_pr_2">
           <el-button class="btn_product">{{ $t('landing.p2') }}</el-button>
           <div class="img_top_div img_cup">
             <img src="~/assets/images/landing/cup1.png" alt="" class="img_cup_1">

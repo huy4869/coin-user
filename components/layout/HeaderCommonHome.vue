@@ -13,9 +13,12 @@
               <span class="token_title">{{ $t('header.token', { v: user ? user.coin_format : 0 }) }}</span>
             </div>
             <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
-            <div class="token_div">
+            <div class="token_div cmz_div">
               <img style="width: 24px; height: 24px" src="~/assets/images/icons/logo_transfer.svg" alt="" class="w-100">
-              <span class="token_title">{{ $t('header.cmz', { v: cmz ? cmz : 0 }) }}</span>
+              <div class="info_cmz">
+                <span class="token_title">{{ $t('header.cmz', { v: cmz ? cmz : 0 }) }}</span>
+                <span class="token_title">{{ $t('header.cmz_speed', { v: user ? user.cmz_speed : 0 }) }}</span>
+              </div>
             </div>
             <el-tooltip class="item" effect="dark" content="After KYC" placement="bottom">
             <span>
@@ -92,9 +95,12 @@
         <el-button class="btn_receive" @click="openReceive">{{ $t('header.receive') }}</el-button>
       </div>
       <div v-if="$route.path === '/home'" class="header-left-mobile" style="display: none">
-        <div class="token_div">
+        <div class="token_div cmz_div">
           <img style="width: 24px; height: 24px" src="~/assets/images/icons/logo_transfer.svg" alt="" class="w-100">
-          <span class="token_title">{{ $t('header.cmz', { v: cmz ? cmz : 0 }) }}</span>
+          <div class="info_cmz">
+            <span class="token_title">{{ $t('header.cmz', { v: cmz ? cmz : 0 }) }}</span>
+            <span class="token_title">{{ $t('header.cmz_speed', { v: user ? user.cmz_speed : 0 }) }}</span>
+          </div>
         </div>
         <el-tooltip style="width: 46%" class="item" effect="dark" content="After KYC" placement="bottom">
             <span>

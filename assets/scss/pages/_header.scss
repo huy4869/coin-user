@@ -147,12 +147,27 @@
         justify-content: left;
         gap: 10px;
 
-        .token_title {
-          font-weight: 600;
-          font-size: 14px;
-          line-height: 17px;
+        @media only screen and (max-width: 992px) {
+          padding: 8px;
+        }
+
+        .info_cmz {
+          display: grid;
+          grid-template-columns: auto;
+          gap: 5px;
+
+          .token_title {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+          }
         }
       }
+
+      .cmz_div {
+        padding: 5px 12px;
+      }
+
       .header_left {
         gap: 24px;
 
