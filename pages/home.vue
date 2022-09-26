@@ -79,10 +79,10 @@
           <el-button class="btn_product">{{ $t('landing.p3') }}</el-button>
           <div class="tex-center img_top_div img_jackpot">
             <div class="arrow_jackpot">
-              <img src="~/assets/images/landing/arrow_jackpot.png" alt="" class="w-100 filter_img">
+              <img src="~/assets/images/landing/arrow_jackpot.svg" alt="" class="w-100 filter_img">
             </div>
             <div class="jackpot">
-              <img src="~/assets/images/landing/jackpot.png" alt="" class="h-100 w-100 filter_img">
+              <img src="~/assets/images/landing/jackpot.svg" alt="" class="h-100 w-100 filter_img">
             </div>
           </div>
         </div>
