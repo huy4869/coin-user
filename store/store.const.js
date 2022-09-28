@@ -44,6 +44,7 @@ export const USER_GET_HISTORY = 'user/getHistory'
 export const USER_GET_CMZ = 'user/getCMZ'
 export const USER_GET_USER_NODE = 'user/getUserNode'
 export const USER_GET_TRANSACTION_TYPE = 'user/getTransactionType'
+export const USER_GET_F1 = 'user/getF1'
 
 // plan
 export const PLAN_BUY_PACKAGE = 'plan/buyPackage'

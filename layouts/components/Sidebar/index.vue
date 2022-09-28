@@ -100,6 +100,15 @@ export default {
           title: this.$t('home.history'),
           active: false,
           hidden: false
+        },
+        {
+          id: 4,
+          icon: 'team.svg',
+          icon_active: 'team_active.svg',
+          path: '/direct-referrals',
+          title: this.$t('home.f1'),
+          active: false,
+          hidden: false
         }
       ]
     }

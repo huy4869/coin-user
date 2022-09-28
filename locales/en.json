@@ -129,7 +129,8 @@
     "home": "Home",
     "team": "My team",
     "setting": "Account",
-    "history": "Transaction History"
+    "history": "Transaction History",
+    "f1": "Direct Referrals"
   },
   "deposit": {
     "title": "Activate",
@@ -180,5 +181,12 @@
     "description": "Description",
     "status": "Status",
     "title": "Transaction History"
+  },
+  "f1": {
+    "title": "Direct Referrals ( {v} )",
+    "no": "No",
+    "email": "Email",
+    "wallet_address": "Wallet Address",
+    "node": "Nodes"
   }
 }

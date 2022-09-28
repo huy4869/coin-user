@@ -61,5 +61,10 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.get('/profile/history-types'), context)
     })
+  },
+  getF1(context, query) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/presenter?' + new URLSearchParams(query).toString()), context)
+    })
   }
 }
