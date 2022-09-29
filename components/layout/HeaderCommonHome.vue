@@ -77,6 +77,10 @@
                   <img style="width: 18px; height: 18px; margin-right: 11px"
                        :src="require('@/assets/images/icons/menu/history.svg')" alt="copy">{{ $t('home.history') }}
                 </li>
+                <li id="li-home" @click="handeClick('/direct-referrals')" :class="{'is-active' : $route.path === '/direct-referrals' }">
+                  <img style="width: 18px; height: 18px; margin-right: 11px"
+                       :src="require('@/assets/images/icons/menu/team.svg')" alt="copy">{{ $t('home.f1') }}
+                </li>
                 <li id="li-home" @click="logout">
                   <img style="width: 18px; height: 18px; margin-right: 11px"
                        :src="require('@/assets/images/icons/logout.svg')" alt="copy">{{ $t('header.logout') }}
