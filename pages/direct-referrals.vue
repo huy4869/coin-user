@@ -57,7 +57,7 @@
               {{ renderLongText(value.wallet_address) }}
             </td>
             <td :data-label="$t('f1.node')">
-              {{ value.node }}
+              {{ value.nodes }}
             </td>
           </tr>
           </tbody>
