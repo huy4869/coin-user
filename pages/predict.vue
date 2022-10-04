@@ -31,7 +31,9 @@
         <h3>{{ $t('predict.nft') }}</h3>
       </div>
       <div class="lst_nft">
-        <div v-for="item in listTokenOpened" :key="item.id" class="bg_box_common bg_nft_item">
+        <div v-for="item in listTokenOpened" :key="item.id" class="bg_box_common bg_nft_item"
+             data-aos="flip-left"
+             data-aos-duration="2000">
           <el-button class="btn_box">{{ $t('predict.nft') }}</el-button>
           <div class="info_nft">
             <img src="~/assets/images/predict/bg_nft.svg" alt="" class="img_bg_nft filter_img_red">
@@ -103,6 +105,7 @@ import ModalOpenBox from '@/components/modals/modal-open-box'
 export default {
   name: 'PredictComponent',
   components: { ModalOpenBox, ModalBuyBox },
+  middleware: 'auth-guard',
   data() {
     return {
       listTokenOpened: [],
