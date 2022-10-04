@@ -64,7 +64,7 @@
             <img src="~/assets/images/landing/ball_blue.svg" alt="" class="img_ball">
           </div>
         </div>
-        <div @click="dialogComingSoon=true" data-aos="fade-up" class="product_div bg_pr_2">
+        <div @click="$router.push('/predict')" data-aos="fade-up" class="product_div bg_pr_2">
           <el-button class="btn_product">{{ $t('landing.p2') }}</el-button>
           <div class="img_top_div img_cup">
             <!--            <img src="~/assets/images/landing/cup1.png" alt="" class="img_cup_1">-->
@@ -75,7 +75,8 @@
             </div>
           </div>
         </div>
-        <div @click="dialogComingSoon=true" :data-aos="$device.isDesktop?'fade-up-left':'fade-up-right'" class="product_div bg_pr_3">
+        <div @click="dialogComingSoon=true" :data-aos="$device.isDesktop?'fade-up-left':'fade-up-right'"
+             class="product_div bg_pr_3">
           <el-button class="btn_product">{{ $t('landing.p3') }}</el-button>
           <div class="tex-center img_top_div img_jackpot">
             <div class="arrow_jackpot">
