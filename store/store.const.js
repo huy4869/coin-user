@@ -15,6 +15,7 @@ export const PUBLIC_LAYOUT = 'default-layout'
 export const AUTH_SET_ROLES = 'authentication/setRoles'
 export const AUTH_SET_PERMISSIONS = 'authentication/setPermissions'
 export const LENGTH_CODE_OTP = 6
+export const MAX_OPEN_BOX = 10
 export const OTP_EXPIRE = 60
 export const SET_EMAIL = 'setEmail'
 export const SET_IS_OPT_PAGE = 'setIsOtpPage'
@@ -45,6 +46,9 @@ export const USER_GET_CMZ = 'user/getCMZ'
 export const USER_GET_USER_NODE = 'user/getUserNode'
 export const USER_GET_TRANSACTION_TYPE = 'user/getTransactionType'
 export const USER_GET_F1 = 'user/getF1'
+export const USER_GET_LST_TOKEN_OPENED = 'user/getListTokenOpened'
+export const USER_GET_WALLET_MYSTERY = 'user/getWalletMystery'
+export const USER_OPEN_BOX = 'user/openBox'
 
 // plan
 export const PLAN_BUY_PACKAGE = 'plan/buyPackage'

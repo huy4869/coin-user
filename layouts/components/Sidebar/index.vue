@@ -86,6 +86,15 @@ export default {
         },
         {
           id: 2,
+          icon: 'predict.svg',
+          icon_active: 'predict_active.svg',
+          path: '/predict',
+          title: this.$t('home.predict'),
+          active: false,
+          hidden: false
+        },
+        {
+          id: 3,
           icon: 'user.svg',
           icon_active: 'user_active.svg',
           path: '/setting',
@@ -93,7 +102,7 @@ export default {
           active: false,
           hidden: false
         }, {
-          id: 3,
+          id: 4,
           icon: 'history.svg',
           icon_active: 'history_active.svg',
           path: '/history',
@@ -102,7 +111,7 @@ export default {
           hidden: false
         },
         {
-          id: 4,
+          id: 5,
           icon: 'team.svg',
           icon_active: 'team_active.svg',
           path: '/direct-referrals',

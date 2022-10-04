@@ -78,6 +78,7 @@ $color-hover: #162852;
 //height
 $height-header-home: 72px;
 $height-footer-home: 43px;
+$height-btn-common:  48px;
 
 
 // padding
@@ -98,7 +99,7 @@ $menuBg: #002337;
 
 $subMenuBg: #002337;
 
-$sideBarWidth: 250px;
+$sideBarWidth: 300px;
 
 :export {
   menuText: $color-white;

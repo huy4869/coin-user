@@ -1,0 +1,196 @@
+.dialog-open-box {
+
+  .el-dialog {
+    background-image: url("assets/images/predict/bg_open.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    width: 70%;
+
+    overflow: hidden;
+
+    .el-dialog__body {
+      padding: 0px 25px 30px;
+    }
+  }
+}
+
+.open_box_component {
+  position: relative;
+
+  .close_img {
+    z-index: 1000;
+    position: absolute;
+    top: 15px;
+    right: -5px;
+    cursor: pointer;
+  }
+
+  .main_open_div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+
+    .open_left, .open_right {
+      width: 45%;
+    }
+
+    .open_left {
+      font-family: $font-gemunu;
+      text-align: center;
+      display: grid;
+      grid-template-columns: auto;
+      gap: 30px;
+
+      .open_max_title {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 22px;
+      }
+
+      .amount_open_div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+
+        .set_amount_div {
+          background: linear-gradient(180deg, #0B1023 0%, #17182D 100%);
+          border: 1px solid #555555;
+          border-radius: 6px;
+          height: 100%;
+          width: calc((100% - 24px) / 2);
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+          padding: 0 12px;
+          align-items: center;
+
+          img {
+            max-width: 20%;
+            height: 100%;
+            cursor: pointer;
+          }
+
+          .input_amount_open {
+            margin-bottom: 0 !important;
+
+            .el-input__inner {
+              border: none !important;
+              text-align: center;
+              font-family: $font-gemunu;
+              font-style: normal;
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 17px;
+            }
+
+            .el-form-item__error {
+              text-align: center;
+              width: 100%;
+              font-size: 15px;
+              top: 115%;
+              word-break: break-word;
+            }
+          }
+        }
+
+        button {
+          width: calc((100% - 24px) / 2);
+        }
+      }
+
+    }
+
+    .open_right {
+      position: relative;
+
+      .under_box {
+        max-width: 100%;
+        max-height: 100%;
+        //position: absolute;
+        bottom: 0;
+      }
+
+      .nft_box {
+        transform: scale(0);
+        position: absolute;
+        bottom: 40%;
+        left: 60px;
+        right: 0;
+        margin: auto;
+        width: 23%;
+      }
+
+      .lid_box {
+        position: absolute;
+        max-width: 100%;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    }
+  }
+}
+
+.reset_lid_box {
+  top: -50px !important;
+  transform: translate(0, 50%);
+  transition: all .5s linear;
+}
+
+.before_open {
+  top: 24%;
+  animation: MoveUpDownShortLidBox 2s linear infinite
+}
+
+.shake_lid_box {
+  -webkit-animation-name: shake_fixed;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+.moveUpLidBox {
+  transform: translate(0%, -100%) !important;
+}
+
+.appear_nft {
+  animation: appear-nft 2s ease-out infinite;
+  animation-delay: 1.6s;
+}
+
+@keyframes MoveUpDownShortLidBox {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-11px);
+  }
+}
+
+@keyframes MoveUpLidBox {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes appear-nft {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
