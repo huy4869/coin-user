@@ -66,5 +66,24 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.get('/presenter?' + new URLSearchParams(query).toString()), context)
     })
+  },
+  getListTokenOpened(context, query) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/tokens'), context)
+    })
+  },
+  getWalletMystery(context, query) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/wallets/mystery'), context)
+    })
+  },
+  openBox(context, data) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post(`/mystery-box/open`, data,
+        {
+          headers: { 'Access-Control-Allow-Origin': '*' }
+        }), context)
+    })
   }
+
 }

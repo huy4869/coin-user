@@ -7,7 +7,7 @@
             <img src="~/assets/images/icons/menu/user_active.svg" alt="" class="w-100">
             <span class="token_title">{{ $t('header.node', { v: user ? user.total_node_buy : 0 }) }}</span>
           </div>
-          <div class="header_left" id="header_left_home">
+          <div id="header_left_home" class="header_left">
             <div class="token_div">
               <img src="~/assets/images/icons/logo_token.svg" alt="" class="w-100">
               <span class="token_title">{{ $t('header.token', { v: user ? user.coin_format : 0 }) }}</span>
@@ -28,8 +28,9 @@
           </div>
         </div>
         <div class="header_left_home_mobile">
-          <img v-if="!$device.isDesktop" src="~/assets/images/logo_header.png" alt="" class="logo_header"
-               @click="redirect('/')">
+          <img
+            v-if="!$device.isDesktop" src="~/assets/images/logo_header.png" alt="" class="logo_header"
+            @click="redirect('/')">
         </div>
         <div class="header_right">
 
@@ -61,29 +62,42 @@
             <div class="hr-moblie"></div>
             <div class="menu-mobile-alt ">
               <ul>
-                <li id="li-home" @click="handeClick('/home')" :class="{'is-active' : $route.path === '/home' }">
-                  <img style="width: 18px; height: 18px; margin-right: 11px"
-                       :src="require('@/assets/images/icons/menu/home.svg')" alt="copy">{{ $t('home.home') }}
+                <li id="li-home" :class="{'is-active' : $route.path === '/home' }" @click="handeClick('/home')">
+                  <img
+                    style="width: 18px; height: 18px; margin-right: 11px"
+                    :src="require('@/assets/images/icons/menu/home.svg')" alt="copy">{{ $t('home.home') }}
                 </li>
-                <li id="li-home" @click="handeClick('/team')" :class="{'is-active' : $route.path === '/team' }">
-                  <img style="width: 18px; height: 18px; margin-right: 11px"
-                       :src="require('@/assets/images/icons/menu/team.svg')" alt="copy">{{ $t('home.team') }}
+                <li id="li-home" :class="{'is-active' : $route.path === '/team' }" @click="handeClick('/team')">
+                  <img
+                    style="width: 18px; height: 18px; margin-right: 11px"
+                    :src="require('@/assets/images/icons/menu/team.svg')" alt="copy">{{ $t('home.team') }}
                 </li>
-                <li id="li-home" @click="handeClick('/setting')" :class="{'is-active' : $route.path === '/setting' }">
-                  <img style="width: 18px; height: 18px; margin-right: 11px"
-                       :src="require('@/assets/images/icons/menu/user.svg')" alt="copy">{{ $t('home.setting') }}
+                <li id="li-home" :class="{'is-active' : $route.path === '/predict' }" @click="handeClick('/predict')">
+                  <img
+                    style="width: 18px; height: 18px; margin-right: 11px"
+                    :src="require('@/assets/images/icons/menu/predict.svg')" alt="copy">{{ $t('home.predict') }}
                 </li>
-                <li id="li-home" @click="handeClick('/history')" :class="{'is-active' : $route.path === '/history' }">
-                  <img style="width: 18px; height: 18px; margin-right: 11px"
-                       :src="require('@/assets/images/icons/menu/history.svg')" alt="copy">{{ $t('home.history') }}
+                <li id="li-home" :class="{'is-active' : $route.path === '/setting' }" @click="handeClick('/setting')">
+                  <img
+                    style="width: 18px; height: 18px; margin-right: 11px"
+                    :src="require('@/assets/images/icons/menu/user.svg')" alt="copy">{{ $t('home.setting') }}
                 </li>
-                <li id="li-home" @click="handeClick('/direct-referrals')" :class="{'is-active' : $route.path === '/direct-referrals' }">
-                  <img style="width: 18px; height: 18px; margin-right: 11px"
-                       :src="require('@/assets/images/icons/menu/team.svg')" alt="copy">{{ $t('home.f1') }}
+                <li id="li-home" :class="{'is-active' : $route.path === '/history' }" @click="handeClick('/history')">
+                  <img
+                    style="width: 18px; height: 18px; margin-right: 11px"
+                    :src="require('@/assets/images/icons/menu/history.svg')" alt="copy">{{ $t('home.history') }}
+                </li>
+                <li
+                  id="li-home" :class="{'is-active' : $route.path === '/direct-referrals' }"
+                  @click="handeClick('/direct-referrals')">
+                  <img
+                    style="width: 18px; height: 18px; margin-right: 11px"
+                    :src="require('@/assets/images/icons/menu/team.svg')" alt="copy">{{ $t('home.f1') }}
                 </li>
                 <li id="li-home" @click="logout">
-                  <img style="width: 18px; height: 18px; margin-right: 11px"
-                       :src="require('@/assets/images/icons/logout.svg')" alt="copy">{{ $t('header.logout') }}
+                  <img
+                    style="width: 18px; height: 18px; margin-right: 11px"
+                    :src="require('@/assets/images/icons/logout.svg')" alt="copy">{{ $t('header.logout') }}
                 </li>
               </ul>
             </div>
@@ -140,16 +154,6 @@ import ModalDeposit from '@/components/modals/modal-deposit'
 export default {
   name: 'HeaderCommonHome',
   components: { ModalDeposit },
-  computed: {
-    ...mapGetters([
-      'sidebar',
-      'device'
-    ]),
-    ...mapState('authentication', {
-      resetCartState: state => state.resetCartState,
-      openModalLoginState: state => state.openModalLoginState
-    })
-  },
   data() {
     return {
       keyword: '',
@@ -186,6 +190,16 @@ export default {
       timer: null
     }
   },
+  computed: {
+    ...mapGetters([
+      'sidebar',
+      'device'
+    ]),
+    ...mapState('authentication', {
+      resetCartState: state => state.resetCartState,
+      openModalLoginState: state => state.openModalLoginState
+    })
+  },
   watch: {},
   created() {
     const dataLanguage = this.$cookies.get('lang') || 'en'
@@ -200,6 +214,9 @@ export default {
     this.timer = setInterval(async() => {
       await this.getCMZ()
     }, 60000)
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
   },
   methods: {
     async handeClick(link) {
@@ -291,9 +308,6 @@ export default {
         this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
       }
     }
-  },
-  beforeDestroy() {
-    clearInterval(this.timer)
   }
 }
 </script>

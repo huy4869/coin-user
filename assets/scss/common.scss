@@ -341,7 +341,7 @@ input, button, textarea {
 
 .el-button--default {
   border-radius: 4px;
-  height: 48px;
+  height: $height-btn-common;
   border: 1px solid $color-btn;
   color: $color-btn-white;
   background: $color-red-primary;
@@ -784,6 +784,10 @@ a.color-red:hover {
   //filter: drop-shadow(-10px 7px 60px #1400e0) !important;
 }
 
+.filter_img_red {
+  filter: drop-shadow(-10px 7px 60px rgba(245, 44, 44, 0.79)) !important;
+}
+
 .work-break {
   max-width: 100%;
   word-break: break-word;
@@ -822,6 +826,9 @@ a.color-red:hover {
   animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite
 }
 
+.moveYShort {
+  animation: MoveUpDownShort 3s linear infinite
+}
 
 .tex-center {
   text-align: center;
@@ -930,3 +937,26 @@ a.color-red:hover {
   z-index: 1;
 }
 
+.title_box {
+  font-family: $font-gemunu;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 69px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+
+  /* text 2 */
+
+  background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.disable_img {
+  cursor: not-allowed !important;
+  pointer-events: none;
+}

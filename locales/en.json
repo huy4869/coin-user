@@ -130,7 +130,8 @@
     "team": "My team",
     "setting": "Account",
     "history": "Transaction History",
-    "f1": "Direct Referrals"
+    "f1": "Direct Referrals",
+    "predict": "Predict the champion team"
   },
   "deposit": {
     "title": "Activate",
@@ -188,5 +189,36 @@
     "email": "Email",
     "wallet_address": "Wallet Address",
     "node": "Nodes"
+  },
+  "predict": {
+    "box": "Box",
+    "box_title": "Mystery Box",
+    "amount_convert": "Amount: {v}",
+    "open": "Open",
+    "des_title": "How to buy Mystery Box",
+    "des1": "Press “Buy Mystery Box”",
+    "des2": "Transfer the amount of CHZ corresponding to the number of Boxes you want to buy into the wallet address and memo in the popup",
+    "des3": "Mystery box price: 50 CHZ/Box",
+    "buy": "Buy Mystery Box",
+    "nft": "NFT"
+  },
+  "buy_box": {
+    "title": "Buy Mystery Box ",
+    "sub_title": "BNB beacon chain (BEP2)",
+    "des1": "Send CHZ tokens to this correct wallet address. Sending another token may cause you to lose your token.",
+    "des2": "After send token to wallet , you can click \"Confirm\" button for speed up or wait a few minute.",
+    "wallet_address": "Wallet address",
+    "memo": "Memo",
+    "confirm": "Confirm"
+  },
+  "open_box": {
+    "title": "Open Mystery Box",
+    "amount": "Amount",
+    "max": "Number of boxes that can be opened:    {v}",
+    "open": "Open",
+    "congratulation": "CONGRATULATION",
+    "confirm": "Confirm",
+    "validate_balance": "Insufficient balance",
+    "validate_max": "The number of mystery box must be less than or equal to 10."
   }
 }

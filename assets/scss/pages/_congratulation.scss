@@ -1,0 +1,87 @@
+.dialog-congratulation {
+
+  .el-dialog {
+    background-image: url("assets/images/predict/bg_congra.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    width: 70%;
+    margin-top: 10vh !important;
+
+    .el-dialog__body {
+      padding: 0px 25px 30px;
+    }
+  }
+}
+
+
+.congratulation_component {
+  position: relative;
+  height: 100%;
+
+  .congratulation_text {
+    pointer-events: none;
+    background: linear-gradient(180deg, #0B1023 0%, #17182D 100%);
+    border: 1px solid #555555;
+    border-radius: 8px;
+    box-shadow: unset;
+    padding: 25px 100px;
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    top: -3rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    span {
+      font-family: $font-gemunu;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 52px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+
+      mix-blend-mode: normal;
+    }
+  }
+
+  .close_img {
+    z-index: 1000;
+    position: absolute;
+    top: 15px;
+    right: -5px;
+    cursor: pointer;
+  }
+
+  .lst_nft_opened {
+    padding: 48px 20px 30px 50px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, calc((100% - (5 - 1) * 20px) / 5)));
+    grid-gap: 0 20px;
+
+    .bg_nft_item_opened {
+      min-width: 200px;
+      max-width: 100%;
+
+      .info_nft .img_nation {
+        left: 0;
+      }
+    }
+  }
+
+  .btn_confirm {
+    padding: 13px 70px;
+    margin: auto;
+    display: flex;
+  }
+}
