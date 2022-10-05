@@ -946,6 +946,8 @@ a.color-red:hover {
   display: flex;
   align-items: center;
   text-transform: uppercase;
+  max-width: 100%;
+  word-break: break-word;
 
   /* text 2 */
 

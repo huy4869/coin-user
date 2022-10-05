@@ -51,7 +51,7 @@
 
     <el-dialog
       :center="true" :close-on-click-modal="false" :destroy-on-close="true"
-      :show-close="true" :visible.sync="buyModal" class="dialog-deposit">
+      :show-close="true" :visible.sync="buyModal" class="dialog-deposit dialog-buy-box">
       <modal-buy-box
         :address="walletMystery.address"
         :memo="walletMystery.memo"
@@ -86,6 +86,7 @@
       :show-close="true" :visible.sync="isCongratulation" class="dialog-congratulation">
       <modals-modal-congratulation
         :lst-nft="lstNftOpened"
+        :lst-nft-unique="lstNftUniqueOpened"
         @close="isCongratulation = false"
       />
     </el-dialog>
@@ -118,7 +119,8 @@ export default {
         value: ''
       },
       isCongratulation: false,
-      lstNftOpened: []
+      lstNftOpened: [],
+      lstNftUniqueOpened: []
     }
   },
   computed: {
@@ -192,6 +194,19 @@ export default {
       this.isOpenBox = false
     },
     async completeOpen(lstNft) {
+      const temp = {}
+      lstNft.forEach(item => {
+        if (temp[item.id]) {
+          temp[item.id].total = temp[item.id].total + 1
+        } else {
+          temp[item.id] = item
+          temp[item.id].total = 1
+        }
+      })
+      this.lstNftUniqueOpened = []
+      for (const key in temp) {
+        this.lstNftUniqueOpened.push(temp[key])
+      }
       this.lstNftOpened = lstNft
       this.isCongratulation = true
       this.closeOpenBox()

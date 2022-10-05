@@ -67,7 +67,6 @@ export default {
       default: ''
     },
     memo: {
-      type: String,
       default: ''
     }
   },

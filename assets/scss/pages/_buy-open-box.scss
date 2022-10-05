@@ -48,6 +48,8 @@
         font-weight: 600;
         font-size: 20px;
         line-height: 22px;
+        max-width: 100%;
+        word-break: break-word;
       }
 
       .amount_open_div {
@@ -192,5 +194,195 @@
   }
   100% {
     transform: scale(1, 1);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  @keyframes MoveUpDownShortLidBox {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .before_open {
+    top: 30%;
+  }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .dialog-open-box {
+    .el-dialog {
+      width: 93% !important;
+
+      .el-dialog__body {
+        padding: 0px 15px 40px;
+      }
+    }
+
+  }
+  .open_box_component {
+    .main_open_div {
+      .open_left, .open_right {
+        width: 100%;
+      }
+
+      .open_left {
+        .title_box {
+          font-size: 48px;
+          line-height: 45px;
+          margin: auto;
+          padding-top: 30px;
+          max-width: 100%;
+          word-break: break-word;
+        }
+
+        .open_max_title {
+          font-size: 18px;
+        }
+
+        .amount_open_div {
+          .set_amount_div {
+            padding: 0 5px !important;
+
+            input {
+              height: unset;
+            }
+
+            .el-form-item__error {
+              text-align: left !important;
+              width: 220% !important;
+              top: 100% !important;
+              font-size: 12px !important;
+              margin-left: -60%;
+            }
+          }
+
+          button {
+            height: 42px;
+          }
+        }
+      }
+
+      .open_right {
+
+        .under_box {
+          position: absolute;
+        }
+
+        .lid_box {
+          width: 50%;
+        }
+
+        .nft_box {
+          left: 40px !important;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .dialog-buy-box {
+    .el-dialog {
+      width: 90% !important;
+
+      .el-dialog__body {
+        padding: 15px 15px 5px;
+
+        .address input {
+          font-size: 14px;
+          padding-right: 50px;
+        }
+      }
+    }
+  }
+  .dialog-open-box {
+    .el-dialog {
+      width: 93% !important;
+
+      .el-dialog__body {
+        padding: 0px 15px 20px;
+      }
+    }
+
+  }
+
+  .open_box_component {
+    .close_img {
+      top: 5px;
+      right: -11px;
+      max-width: 30px;
+    }
+
+    .main_open_div {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 70px;
+
+      .open_left, .open_right {
+        width: 100%;
+      }
+
+      .open_left {
+        .title_box {
+          font-size: 32px;
+          line-height: 35px;
+          margin: auto;
+          padding-top: 30px;
+        }
+
+        .open_max_title {
+          font-size: 18px;
+        }
+
+        .amount_open_div {
+          .set_amount_div {
+            padding: 0 5px !important;
+
+            input {
+              height: unset;
+            }
+
+            .el-form-item__error {
+              text-align: left !important;
+              width: 220% !important;
+              font-size: 12px !important;
+              margin-left: -60%;
+            }
+          }
+
+          button {
+            height: 42px;
+          }
+        }
+      }
+
+      .open_right {
+        .lid_box {
+          width: 50%;
+        }
+
+        .nft_box {
+          left: 40px !important;
+        }
+      }
+    }
+  }
+
+  .before_open {
+    top: 26%;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .input_amount_open {
+    input {
+      padding: 0 !important;
+    }
   }
 }

@@ -188,3 +188,159 @@
     text-transform: uppercase;
   }
 }
+
+// responsive
+
+@media only screen and (max-width: 1200px) {
+  @keyframes MoveUpDownShort {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .predict_component {
+    overflow-x: hidden;
+
+    .box_div .mystery_box {
+      width: 60%;
+    }
+
+    .lst_nft_div .lst_nft {
+      //grid-template-columns: repeat(2, auto);
+      gap: 50px 2vw;
+    }
+
+    .bg_nft_item {
+      min-width: 20vw;
+
+      .btn_box {
+        box-shadow: unset;
+      }
+
+      .info_nft {
+
+        .img_bg_nft {
+          filter: unset !important;
+        }
+
+        .name_nft {
+          top: 3rem;
+        }
+
+        .img_nation {
+          max-width: 70px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .predict_component {
+    overflow-x: hidden;
+
+    .bg_box_common {
+      padding: 0 7px 12px;
+    }
+
+    .title_red_div {
+      display: none;
+    }
+
+    .box_div {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+
+      .mystery_box {
+        width: 100%;
+      }
+
+      .des_div {
+        width: unset;
+      }
+    }
+
+    .lst_nft_div .lst_nft {
+      grid-template-columns: repeat(2, auto);
+      gap: 50px 3vw;
+    }
+
+    .bg_nft_item {
+      min-width: 45vw;
+
+      .btn_box {
+        box-shadow: unset;
+      }
+
+      .info_nft {
+
+        .img_bg_nft {
+          filter: unset !important;
+        }
+
+        .name_nft {
+          top: 3rem;
+        }
+
+        .img_nation {
+          max-width: 70px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .predict_component {
+    .bg_box_common {
+      padding: 0 5px 12px;
+    }
+
+    .lst_nft_div .lst_nft {
+      grid-template-columns: repeat(2, auto);
+      gap: 50px 3vw;
+    }
+
+    .bg_nft_item {
+      min-width: 40vw;
+
+      .btn_box {
+        box-shadow: unset;
+        height: 30px;
+        top: -15px;
+      }
+
+      .info_nft {
+
+        .img_bg_nft {
+          filter: unset !important;
+        }
+
+        .name_nft {
+          top: 2.6rem;
+          left: 0.7rem;
+          font-size: 11px;
+        }
+
+        .img_nation {
+          max-width: 50px;
+          top: 15px;
+        }
+      }
+
+      .nav_btn_div .amount_div {
+        width: 100%;
+      }
+
+      .nav_btn_div .amount_div_nft {
+        height: 40px;
+      }
+    }
+  }
+}
