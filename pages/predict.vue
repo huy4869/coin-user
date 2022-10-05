@@ -50,7 +50,7 @@
     </div>
 
     <el-dialog
-      :center="true" :close-on-click-modal="false" :destroy-on-close="true"
+      :center="true" :close-on-click-modal="false" :destroy-on-close="true" :lock-scroll="true"
       :show-close="true" :visible.sync="buyModal" class="dialog-deposit dialog-buy-box">
       <modal-buy-box
         :address="walletMystery.address"
@@ -59,7 +59,7 @@
     </el-dialog>
 
     <el-dialog
-      :center="true" :close-on-click-modal="false" :destroy-on-close="true"
+      :center="true" :close-on-click-modal="false" :destroy-on-close="true" :lock-scroll="true"
       :show-close="true" :visible.sync="isOpenBox" class="dialog-open-box">
       <div class="bg_fog">
         <div id="foglayer_01" class="fog">
@@ -82,7 +82,7 @@
     </el-dialog>
 
     <el-dialog
-      :center="true" :close-on-click-modal="false" :destroy-on-close="true"
+      :center="true" :close-on-click-modal="false" :destroy-on-close="true" :lock-scroll="true"
       :show-close="true" :visible.sync="isCongratulation" class="dialog-congratulation">
       <modals-modal-congratulation
         :lst-nft="lstNftOpened"
@@ -208,9 +208,14 @@ export default {
         this.lstNftUniqueOpened.push(temp[key])
       }
       this.lstNftOpened = lstNft
-      this.isCongratulation = true
+
       this.closeOpenBox()
       await this.init()
+      setTimeout(
+        () => {
+          this.isCongratulation = true
+        }, 0
+      )
     }
   }
 }
