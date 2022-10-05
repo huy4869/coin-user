@@ -63,6 +63,10 @@
     cursor: pointer;
   }
 
+  .lst_nft_opened_mobile {
+    display: none;
+  }
+
   .lst_nft_opened {
     padding: 48px 20px 30px 50px;
     display: grid;
@@ -85,3 +89,146 @@
     display: flex;
   }
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .dialog-congratulation {
+    .el-dialog {
+      width: 95% !important;
+    }
+  }
+
+  .congratulation_component {
+    .lst_nft_opened {
+      padding: 50px 0 0 10px;
+
+      .bg_nft_item_opened {
+        min-width: unset;
+      }
+    }
+
+    .bg_nft_item_opened .info_nft {
+      .name_nft {
+        top: 1.75rem;
+        left: 0.5rem;
+        font-size: 14px;
+      }
+
+      .img_nation {
+        top: 7px;
+      }
+
+      .img_bg_nft {
+        padding: 15px 0 10px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .dialog-congratulation {
+    .el-dialog {
+      width: 95% !important;
+      margin-top: 10vh !important;
+
+      .el-dialog__body {
+        padding: 20px 0 0;
+      }
+    }
+  }
+  .congratulation_component {
+
+    .close_img {
+      top: -10vh;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .congratulation_text {
+      padding: 10px 30px;
+      top: -1.5rem;
+
+      span {
+        font-size: 24px;
+        line-height: 26px;
+      }
+    }
+
+    .lst_nft_opened {
+      display: none;
+    }
+
+    .lst_nft_opened_mobile {
+      display: block;
+
+      .lst_token_img {
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        padding: 70px 0 20px;
+        row-gap: 20px;
+
+        .info_nft_mobile {
+          text-align: center;
+
+          .img_nation_mobile {
+            max-width: 50px;
+          }
+        }
+      }
+
+      .summary_token {
+        background-image: url("assets/images/predict/bg_open.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        padding-bottom: 20px;
+
+        .lst_row {
+          width: 100%;
+          display: grid;
+          grid-template-columns: auto;
+          margin: 30px 0;
+
+          .row_token {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 12px;
+            border: 1px solid $color-border-sidebar;
+
+            span {
+              font-size: 20px;
+              line-height: 22px;
+              color: #E8E8F2;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .congratulation_component {
+    .close_img {
+      top: -12vh;
+    }
+
+    .congratulation_text {
+      padding: 10px;
+      top: -2.5rem;
+
+      span {
+        font-size: 18px;
+        line-height: 26px;
+      }
+    }
+
+    .lst_nft_opened_mobile .summary_token .lst_row {
+      margin: 20px 0;
+    }
+    .lst_token_img .info_nft_mobile .img_nation_mobile {
+      max-width: 40px;
+    }
+  }
+}
+

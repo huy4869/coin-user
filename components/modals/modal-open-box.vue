@@ -59,7 +59,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { INDEX_SET_ERROR, INDEX_SET_LOADING, MAX_OPEN_BOX, USER_OPEN_BOX } from '@/store/store.const'
+import { INDEX_SET_ERROR, MAX_OPEN_BOX, USER_OPEN_BOX } from '@/store/store.const'
 
 export default {
   name: 'ModalOpenBox',
@@ -125,7 +125,6 @@ export default {
       this.isCompleteOpen = true
     },
     async handleOpen() {
-      this.$store.commit(INDEX_SET_LOADING, true)
       try {
         this.isCompleteOpen = false
         const response = await this.$store.dispatch(USER_OPEN_BOX,
@@ -158,7 +157,6 @@ export default {
       } catch (err) {
         this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
       }
-      this.$store.commit(INDEX_SET_LOADING, false)
     }
   }
 
