@@ -84,6 +84,7 @@
     background-image: url("assets/images/landing/bg1.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: right;
 
     //.video_goal {
     //  width: 100%;
@@ -381,12 +382,12 @@
     text-align: center;
     width: 100%;
     height: fit-content;
-    padding: 150px 0 250px;
+    padding: 100px 0 200px;
 
     .title_div_product {
       margin: auto;
       text-align: center;
-      padding-bottom: 50px;
+      padding-bottom: 60px;
     }
   }
 
@@ -495,7 +496,7 @@
 
       .q3 {
         top: 46%;
-        left:9vw;
+        left: 9vw;
         width: 9vw;
       }
 
@@ -643,6 +644,7 @@
         margin: auto;
         height: 25%;
         position: relative;
+
         img {
           position: absolute;
           bottom: 20px;
