@@ -8,6 +8,10 @@
     width: 70%;
     margin-top: 10vh !important;
 
+    @media screen and (min-width: 1200px) and (max-width: 1600px) {
+      width: 80%;
+    }
+
     .el-dialog__body {
       padding: 0px 25px 30px;
     }
@@ -72,6 +76,9 @@
     display: grid;
     grid-template-columns: repeat(5, minmax(0, calc((100% - (5 - 1) * 20px) / 5)));
     grid-gap: 0 20px;
+    @media screen and (min-width: 1200px) and (max-width: 1600px) {
+      padding: 48px 20px 30px 0px;
+    }
 
     .bg_nft_item_opened {
       min-width: 200px;
@@ -79,6 +86,12 @@
 
       .info_nft .img_nation {
         left: 0;
+      }
+
+      @media screen and (min-width: 1200px) and (max-width: 1600px) {
+        .info_nft .name_nft {
+          top: 3.5rem;
+        }
       }
     }
   }
