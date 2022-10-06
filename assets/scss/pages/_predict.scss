@@ -7,19 +7,20 @@
     gap: 48px;
 
     .mystery_box {
-      width: 35%;
+      width: 40%;
       height: inherit;
 
     }
 
     .des_div {
-      margin-top: 20px;
       width: 100%;
       height: inherit;
       background: linear-gradient(180deg, #0B1023 0%, #17182D 100%);
       border-radius: 8px;
       padding: 12px;
       font-family: $font-gemunu;
+      display: flex;
+      flex-direction: column;
 
       .title_des {
         font-style: normal;
@@ -59,6 +60,8 @@
   }
 
   .bg_box_common {
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     position: relative;
     background-image: url("assets/images/predict/bg_box.png");
@@ -85,9 +88,9 @@
     }
 
     .img_box {
-      max-width: 100%;
+      //max-width: 100%;
       padding: 30px 0;
-      max-height: calc(100% - 2 * 12px - $height-btn-common);
+      //max-height: calc(100% - 2 * 12px - $height-btn-common);
     }
 
     .info_nft {
@@ -118,7 +121,7 @@
         text-fill-color: transparent;
 
         position: absolute;
-        top: 3.8rem;
+        top: 3.5rem;
         left: 1.5rem;
 
       }
@@ -141,7 +144,9 @@
       //width: calc(100% - 2 * 12px);
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 10px;
+      margin-top: auto;
+      width: 100%;
 
       .amount_div {
         box-sizing: border-box;
@@ -152,6 +157,8 @@
         align-items: center;
         width: calc((100% - 12px * 2 - 24px));
         display: flex;
+        max-width: 100%;
+        word-break: break-word;
 
         .amount_text {
           height: fit-content;
@@ -263,7 +270,7 @@
 
 @media only screen and (max-width: 768px) {
   .predict_component {
-    overflow-x: hidden;
+    //overflow-x: hidden;
 
     .bg_box_common {
       padding: 0 7px 12px;
@@ -276,10 +283,11 @@
     .box_div {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 0px;
 
       .mystery_box {
-        width: 100%;
+        width: 88%;
+        margin: auto;
       }
 
       .des_div {
