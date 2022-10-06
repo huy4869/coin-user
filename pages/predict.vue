@@ -37,7 +37,7 @@
           <el-button class="btn_box">{{ $t('predict.nft') }}</el-button>
           <div class="info_nft">
             <img src="~/assets/images/predict/bg_nft.svg" alt="" class="img_bg_nft filter_img_red">
-            <span class="name_nft">{{ item.name }}</span>
+            <span class="name_nft name_nft_home">{{ item.name }}</span>
             <img :src="item.logo" alt="" class="img_nation moveYShort">
           </div>
           <div class="nav_btn_div">
@@ -210,7 +210,9 @@ export default {
       this.lstNftOpened = lstNft
 
       this.closeOpenBox()
-      await this.init()
+      await this.getListTokenOpened()
+      await this.getWalletMystery()
+      await this.$auth.fetchUser()
       setTimeout(
         () => {
           this.isCongratulation = true
