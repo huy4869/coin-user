@@ -17,6 +17,9 @@
 
 .open_box_component {
   position: relative;
+  @media screen and (min-width: 1200px) and (max-width: 1600px) {
+    padding-top: 20px;
+  }
 
   .close_img {
     z-index: 1000;
@@ -132,6 +135,9 @@
         left: 0;
         right: 0;
         margin: auto;
+        @media screen and (min-width: 1200px) and (max-width: 1600px) {
+          max-width: 50%;
+        }
       }
     }
   }
