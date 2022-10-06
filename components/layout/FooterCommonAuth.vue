@@ -3,7 +3,7 @@
     <div class="container-footer container-footer-auth">
       <div class="content">
         <div class="footer-left">
-          <img src="~/assets/images/logo_header.png" alt="" class="img_footer"
+          <img src="~/assets/images/logo_header.svg" alt="" class="img_footer"
                @click="$router.push('/')">
           <div class="hr"></div>
           <span class="title_nav_footer">{{ $t('header.eco') }}</span>

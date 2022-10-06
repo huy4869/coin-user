@@ -3,7 +3,7 @@
     <div class="header header_landing">
       <div id="header_landing" class="container-header">
         <div class="header_left">
-          <img src="~/assets/images/logo_header.png" alt="" class="logo_header" @click="redirect('/')">
+          <img src="~/assets/images/logo_header.svg" alt="" class="logo_header" @click="redirect('/')">
          <div class="lst_menu">
            <div class="title_nav title_nav_left" id="nav-item" @click="$router.push('/home')">{{ $t('header.dashboard') }}</div>
            <div class="title_nav title_nav_left" id="nav-item">{{ $t('header.eco') }}</div>
@@ -37,7 +37,7 @@
             <div class="flex justify-between items-center menu-mobile-top ">
               <div class="img-logo">
                 <a href="/">
-                  <img src="~/assets/images/logo_header.png" alt="">
+                  <img src="~/assets/images/logo_header.svg" alt="">
                 </a>
               </div>
               <label for="nav-mobile-input" class="icon-close">

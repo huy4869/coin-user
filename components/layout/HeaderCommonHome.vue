@@ -29,7 +29,7 @@
         </div>
         <div class="header_left_home_mobile">
           <img
-            v-if="!$device.isDesktop" src="~/assets/images/logo_header.png" alt="" class="logo_header"
+            v-if="!$device.isDesktop" src="~/assets/images/logo_header.svg" alt="" class="logo_header"
             @click="redirect('/')">
         </div>
         <div class="header_right">
@@ -52,7 +52,7 @@
             <div class="flex justify-between items-center menu-mobile-top ">
               <div class="img-logo">
                 <a href="/">
-                  <img src="~/assets/images/logo_header.png" alt="">
+                  <img src="~/assets/images/logo_header.svg" alt="">
                 </a>
               </div>
               <label for="nav-mobile-input" class="icon-close">
