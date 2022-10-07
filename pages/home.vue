@@ -97,7 +97,7 @@
 </template>
 
 <script>
-import { INDEX_SET_SUCCESS } from '@/store/store.const'
+import { INDEX_SET_SUCCESS, SET_BG_TYPE } from '@/store/store.const'
 import ComingSoonModal from '@/components/modals/coming_soon'
 
 export default {
@@ -114,6 +114,7 @@ export default {
     }
   },
   async created() {
+    this.$store.commit(SET_BG_TYPE, 'home')
     await this.$auth.fetchUser()
     this.account = this.$auth.user
     this.link_ref_short += '//...?code=' + this.account.memo

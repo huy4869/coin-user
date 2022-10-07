@@ -506,15 +506,46 @@ a {
 }
 
 .home-auth {
-  background-image: url('../images/BG.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 40px 60px;
+  background-position: center;
+  padding: 40px 60px 25px;
   min-height: calc(100vh - $height-footer-home - 80px - 2 * 40px + 30px);
 }
 
+.bg_login {
+  background-image: url('../images/bg_login.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg_register {
+  background-image: url('../images/bg_register.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg_auth {
+  background-image: url('../images/bg_auth.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg_home {
+  background-image: url('../images/bg_home.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg_setting {
+  background-image: url('../images/bg_setting.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .home-sidebar {
-  background: linear-gradient(100.46deg, #091530 0%, #340A11 100%);
+  background-position: center;
+  //background: linear-gradient(100.46deg, #091530 0%, #340A11 100%);
   padding: 10px 24px;
   min-height: calc(100vh - $height-footer-home - $height-header-home - 2 * 10px);
 
@@ -522,6 +553,12 @@ a {
     object-fit: cover;
     border-radius: unset;
   }
+}
+
+.bg_predict {
+  background-image: url('../images/predict/bg_predict.png');
+  background-size: 100%;
+  background-repeat: repeat-y;
 }
 
 .home_background {

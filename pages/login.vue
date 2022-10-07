@@ -1,92 +1,100 @@
 <template>
-  <div class="main-login" style="margin: 31px 0 0 71px">
-    <div>
-      <div class="login login-width login-mobile">
-        <h3 class="title">{{ $t('account.login_title') }}</h3>
-        <el-form
-          ref="accountForm"
-          :model="accountForm"
-          :rules="accountRules"
-          autocomplete="off"
-          label-position="left"
-          @keyup.enter.native="login"
-        >
-          <el-form-item class="email-login" prop="email" :error="(error.key === 'email') ? error.value : ''">
-            <label for="email">{{ $t('account.email') }}</label>
-            <el-input
-              id="email"
-              ref="email"
-              v-model.trim="accountForm.email"
-              :placeholder="$t('account.email')"
-              name="email"
-              type="text"
-              tabindex="2"
-              maxlength="50"
-              @focus="resetValidate('email')"
-            />
-          </el-form-item>
-          <el-form-item class="email-login" prop="password" :error="(error.key === 'password') ? error.value : ''">
-            <label for="password">{{ $t('account.password') }}</label>
-            <el-input
-              id="password"
-              ref="password"
-              v-model="accountForm.password"
-              :placeholder="$t('account.password')"
-              name="password"
-              :type="showPass?'text':'password'"
-              tabindex="3"
-              maxlength="32"
-              autocomplete="off"
-              @focus="resetValidate('password')"
-            >
-              <i slot="suffix" class="cursor-pointer" @click="displayPass()">
-                <img v-if="showPass" class="icon-show-pass" src="~/assets/images/icons/eye-input.svg" alt="showpass"/>
-                <img v-else class="icon-show-pass" src="@/assets/images/icons/hide-eye.svg" alt="hidepass"/>
-              </i>
-            </el-input>
-          </el-form-item>
-
-          <el-form-item :error="(error.key === 'g-recaptcha-response') ? error.value : ''" prop="captcha" class="captcha">
-            <template>
-              <recaptcha
-                ref="captcha"
-                @error="onError"
-                @success="onSuccess"
-                @expired="onExpired"
+  <div class="grid_login">
+    <div class="main-login">
+      <div>
+        <div class="login login-width login-mobile">
+          <h3 class="title">{{ $t('account.login_title') }}</h3>
+          <el-form
+            ref="accountForm"
+            :model="accountForm"
+            :rules="accountRules"
+            autocomplete="off"
+            label-position="left"
+            @keyup.enter.native="login"
+          >
+            <el-form-item class="email-login" prop="email" :error="(error.key === 'email') ? error.value : ''">
+              <label for="email">{{ $t('account.email') }}</label>
+              <el-input
+                id="email"
+                ref="email"
+                v-model.trim="accountForm.email"
+                :placeholder="$t('account.email')"
+                name="email"
+                type="text"
+                tabindex="2"
+                maxlength="50"
+                @focus="resetValidate('email')"
               />
-            </template>
-          </el-form-item>
-          <div class="d-flex align-items-center forgot-pass">
-            <div
-              class="content cursor-pointer login-page__forgot-password align-items-center" @click="$router.push('/forgot-pass')">
-              {{ $t('account.forgot_password') }}
-            </div>
-          </div>
-          <el-form-item>
-            <div :class="{'disabled' : disabledButton, 'common-button': 'common-button'}">
-              <el-button
-                v-loading.fullscreen.lock="fullscreenLoading"
-                :loading="loading"
-                :disabled="disabledButton"
-                @click.native="login"
+            </el-form-item>
+            <el-form-item class="email-login" prop="password" :error="(error.key === 'password') ? error.value : ''">
+              <label for="password">{{ $t('account.password') }}</label>
+              <el-input
+                id="password"
+                ref="password"
+                v-model="accountForm.password"
+                :placeholder="$t('account.password')"
+                name="password"
+                :type="showPass?'text':'password'"
+                tabindex="3"
+                maxlength="32"
+                autocomplete="off"
+                @focus="resetValidate('password')"
               >
-                {{ $t('account.login') }}
-              </el-button>
+                <i slot="suffix" class="cursor-pointer" @click="displayPass()">
+                  <img v-if="showPass" class="icon-show-pass" src="~/assets/images/icons/eye-input.svg" alt="showpass"/>
+                  <img v-else class="icon-show-pass" src="@/assets/images/icons/hide-eye.svg" alt="hidepass"/>
+                </i>
+              </el-input>
+            </el-form-item>
+
+            <el-form-item :error="(error.key === 'g-recaptcha-response') ? error.value : ''" prop="captcha"
+                          class="captcha">
+              <template>
+                <recaptcha
+                  ref="captcha"
+                  @error="onError"
+                  @success="onSuccess"
+                  @expired="onExpired"
+                />
+              </template>
+            </el-form-item>
+            <div class="d-flex align-items-center forgot-pass">
+              <div
+                class="content cursor-pointer login-page__forgot-password align-items-center"
+                @click="$router.push('/forgot-pass')">
+                {{ $t('account.forgot_password') }}
+              </div>
             </div>
-          </el-form-item>
-          <div class="align-items-center no_account">
-            <div
-              class="content cursor-pointer login-page__forgot-password align-items-center" @click="step=3">
-              {{ $t('account.no_account') }} <span class="here" @click="handeRegister">{{ $t('account.register')  }}</span>
+            <el-form-item>
+              <div :class="{'disabled' : disabledButton, 'common-button': 'common-button'}">
+                <el-button
+                  v-loading.fullscreen.lock="fullscreenLoading"
+                  :loading="loading"
+                  :disabled="disabledButton"
+                  @click.native="login"
+                >
+                  {{ $t('account.login') }}
+                </el-button>
+              </div>
+            </el-form-item>
+            <div class="align-items-center no_account">
+              <div
+                class="content cursor-pointer login-page__forgot-password align-items-center" @click="step=3">
+                {{ $t('account.no_account') }} <span class="here" @click="handeRegister">{{
+                  $t('account.register')
+                }}</span>
+              </div>
             </div>
-          </div>
-        </el-form>
+          </el-form>
+        </div>
       </div>
     </div>
+
+    <img src="~/assets/images/img_login.png" alt="" class="img_login">
   </div>
 </template>
 <script>
-import { INDEX_SET_ERROR, INDEX_SET_LOADING } from '@/store/store.const'
+import { INDEX_SET_ERROR, INDEX_SET_LOADING, SET_BG_TYPE } from '@/store/store.const'
 import { validEmail } from '@/utils/validate'
 
 export default {
@@ -164,6 +172,9 @@ export default {
     disabledButton() {
       return this.accountForm.email === '' || this.accountForm.password === '' || this.captcha === ''
     }
+  },
+  created() {
+    this.$store.commit(SET_BG_TYPE, 'login')
   },
   methods: {
     handeRegister() {

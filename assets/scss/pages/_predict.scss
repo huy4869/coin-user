@@ -36,12 +36,36 @@
         color: $color-text-6;
       }
 
-      .btn_buy_box {
+      .btn_under {
         display: flex;
-        margin: auto;
+        justify-content: left;
+        gap: 5%;
 
-        span {
-          padding: 13px 40px;
+        .amount_div {
+          box-sizing: border-box;
+          background: linear-gradient(180deg, #0B1023 0%, #17182D 100%);
+          border: 1px solid #555555;
+          border-radius: 6px;
+          text-align: center;
+          align-items: center;
+          width: 35%;
+          display: flex;
+          max-width: 35%;
+          word-break: break-word;
+
+          .amount_text {
+            height: fit-content;
+            width: fit-content;
+            margin: auto;
+          }
+        }
+
+        .btn_buy_box {
+          width: 35%;
+
+          span {
+            padding: 13px 40px;
+          }
         }
       }
     }

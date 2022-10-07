@@ -74,7 +74,7 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import { INDEX_SET_ERROR, INDEX_SET_LOADING, INDEX_SET_SUCCESS } from '@/store/store.const'
+import { INDEX_SET_ERROR, INDEX_SET_LOADING, INDEX_SET_SUCCESS, SET_BG_TYPE } from '@/store/store.const'
 import { AUTH_CHECK_TOKEN, AUTH_RESET_PASS, TYPE_REGISTER_OTP } from '@/constants/store'
 import { validPassword } from '@/utils/validate'
 
@@ -207,6 +207,7 @@ export default {
     }
   },
   async created() {
+    this.$store.commit(SET_BG_TYPE, 'auth')
     this.token = this.$route.query.token
     if (this.token == null || this.token === '') {
       this.$router.push('/')

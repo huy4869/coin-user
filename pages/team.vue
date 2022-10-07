@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { INDEX_SET_ERROR, INDEX_SET_LOADING, USER_LST_TEAM, USER_TREE_BY_TEAM } from '../store/store.const'
+import { INDEX_SET_ERROR, INDEX_SET_LOADING, SET_BG_TYPE, USER_LST_TEAM, USER_TREE_BY_TEAM } from '../store/store.const'
 import Chart from '@/components/chart/Chart'
 
 export default {
@@ -59,6 +59,9 @@ export default {
       lstUser: [],
       error: {}
     }
+  },
+  created() {
+    this.$store.commit(SET_BG_TYPE, 'home')
   },
   async mounted() {
     await this.$store.commit(INDEX_SET_LOADING, true)

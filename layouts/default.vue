@@ -5,7 +5,7 @@
       <div class="main-container">
         <header-common-home/>
         <NotificationBlock/>
-        <div class="home-sidebar">
+        <div class="home-sidebar" :class="getBg">
           <nuxt/>
         </div>
         <LoadingBar/>
@@ -29,7 +29,8 @@ export default {
   computed: {
     ...mapState({
       sidebar: state => state.sidebar,
-      device: state => state.device
+      device: state => state.device,
+      bgType: state => state.bgType
     }),
     classObj() {
       return {
@@ -38,6 +39,24 @@ export default {
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === 'mobile'
       }
+    },
+    getBg() {
+      let temp = ''
+      switch (this.bgType) {
+        case 'home':
+          temp = 'bg_home'
+          break
+        case 'setting':
+          temp = 'bg_setting'
+          break
+        case 'predict':
+          temp = 'bg_predict'
+          break
+        default:
+          temp = 'bg_home'
+      }
+
+      return temp
     }
   },
   mounted() {

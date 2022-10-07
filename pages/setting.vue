@@ -95,7 +95,8 @@
               <span>{{ $t('common.bnb_des') }}</span>
             </div>
             <!--  -->
-            <el-form-item :label="$t('register.wallet_address')" prop="wallet_address"
+            <el-form-item
+:label="$t('register.wallet_address')" prop="wallet_address"
                           :error="getErrResponse('wallet_address')">
               <el-input
                 ref="wallet_address"
@@ -210,7 +211,7 @@
 import {
   INDEX_SET_ERROR,
   INDEX_SET_LOADING,
-  INDEX_SET_SUCCESS,
+  INDEX_SET_SUCCESS, SET_BG_TYPE,
   USER_UPDATE,
   USER_UPDATE_PASS
 } from '@/store/store.const'
@@ -355,6 +356,9 @@ export default {
         : check = this.accountForm.name === '' || this.accountForm.email === ''
       return check
     }
+  },
+  created() {
+    this.$store.commit(SET_BG_TYPE, 'setting')
   },
   methods: {
     handeRegister() {
