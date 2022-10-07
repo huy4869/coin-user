@@ -2,6 +2,7 @@ import _ from 'lodash'
 import Cookies from 'js-cookie'
 import { handleApi } from '../utils/handleApi'
 import defaultSettings from '../settings'
+
 const { tagsView, fixedHeader, sidebarLogo, supportPinyinSearch } = defaultSettings
 
 export const state = () => ({
@@ -22,7 +23,8 @@ export const state = () => ({
   fixedHeader,
   sidebarLogo,
   supportPinyinSearch,
-  rightComponent: null
+  rightComponent: null,
+  bgType: 'auth'
 })
 
 export const getters = {}
@@ -48,6 +50,9 @@ export const mutations = {
   },
   setIsOtpPage(state, isOtpPage) {
     state.isOtpPage = isOtpPage
+  },
+  setBgType(state, bgType) {
+    state.bgType = bgType
   },
   TOGGLE_SIDEBAR: state => {
     state.sidebar.opened = !state.sidebar.opened

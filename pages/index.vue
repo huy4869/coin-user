@@ -264,10 +264,13 @@ export default {
       htmlRow3: '',
       htmlRow4: '',
       dialogComingSoon: false,
-      dialogEvent: true
+      dialogEvent: false
     }
   },
   created() {
+    setTimeout(() => {
+      this.dialogEvent = true
+    }, 1000)
   }, methods: {}
 }
 </script>

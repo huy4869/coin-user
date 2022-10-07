@@ -19,6 +19,7 @@ export const MAX_OPEN_BOX = 10
 export const OTP_EXPIRE = 60
 export const SET_EMAIL = 'setEmail'
 export const SET_IS_OPT_PAGE = 'setIsOtpPage'
+export const SET_BG_TYPE = 'setBgType'
 export const SET_IS_HAS_REF = 'setIsHasRef'
 export const SET_HOME_CLASS = 'setHomeClass'
 export const AUTH_SEND_OTP = 'authentication/sendOtp'

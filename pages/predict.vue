@@ -22,8 +22,14 @@
           <li><h3 class="sub-title">{{ $t('predict.des1') }}</h3></li>
           <li><h3 class="sub-title">{{ $t('predict.des2') }}</h3></li>
           <li><h3 class="sub-title">{{ $t('predict.des3') }}</h3></li>
+          <li><h3 class="sub-title">{{ $t('predict.des4') }}</h3></li>
         </ul>
-        <el-button class="btn_buy_box" @click="openBuyBox">{{ $t('predict.buy') }}</el-button>
+        <div class="btn_under">
+          <div class="amount_div">
+            <span class="amount_text">{{ $t('predict.total_remaining') }}</span>
+          </div>
+          <el-button class="btn_buy_box" @click="openBuyBox">{{ $t('predict.buy') }}</el-button>
+        </div>
       </div>
     </div>
     <div class="lst_nft_div">
@@ -36,7 +42,7 @@
              data-aos-duration="2000">
           <el-button class="btn_box">{{ $t('predict.nft') }}</el-button>
           <div class="info_nft">
-            <img src="~/assets/images/predict/bg_nft.svg" alt="" class="img_bg_nft filter_img_red">
+            <img src="~/assets/images/predict/bg_nft.svg" alt="" class="img_bg_nft">
             <span class="name_nft name_nft_home">{{ item.name }}</span>
             <img :src="item.logo" alt="" class="img_nation moveYShort">
           </div>
@@ -97,6 +103,7 @@
 import {
   INDEX_SET_ERROR,
   INDEX_SET_LOADING,
+  SET_BG_TYPE,
   USER_GET_LST_TOKEN_OPENED,
   USER_GET_WALLET_MYSTERY
 } from '@/store/store.const'
@@ -127,6 +134,9 @@ export default {
     amountBox() {
       return this.$auth.user.mystery_box
     }
+  },
+  created() {
+    this.$store.commit(SET_BG_TYPE, 'predict')
   },
   async mounted() {
     await this.init()

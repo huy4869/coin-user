@@ -44,19 +44,19 @@
               @focus="resetValidate('email')"
             />
           </el-form-item>
-<!--          <el-form-item :label="$t('register.phone')" prop="phone" :error="getErrResponse('phone')">-->
-<!--            <el-input-->
-<!--              ref="phone"-->
-<!--              v-model.trim="accountForm.phone"-->
-<!--              :placeholder="$t('register.phone')"-->
-<!--              name="phone"-->
-<!--              type="text"-->
-<!--              tabindex="3"-->
-<!--              maxlength="12"-->
-<!--              oninput="this.value=this.value.replace(/[^/0-9]/g,'');"-->
-<!--              @focus="resetValidate('phone')"-->
-<!--            />-->
-<!--          </el-form-item>-->
+          <!--          <el-form-item :label="$t('register.phone')" prop="phone" :error="getErrResponse('phone')">-->
+          <!--            <el-input-->
+          <!--              ref="phone"-->
+          <!--              v-model.trim="accountForm.phone"-->
+          <!--              :placeholder="$t('register.phone')"-->
+          <!--              name="phone"-->
+          <!--              type="text"-->
+          <!--              tabindex="3"-->
+          <!--              maxlength="12"-->
+          <!--              oninput="this.value=this.value.replace(/[^/0-9]/g,'');"-->
+          <!--              @focus="resetValidate('phone')"-->
+          <!--            />-->
+          <!--          </el-form-item>-->
           <el-form-item
             class="email-login" :label="$t('account.password')" prop="password"
             :error="getErrResponse('password')">
@@ -181,7 +181,14 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import { AUTH_REGISTER, INDEX_SET_ERROR, INDEX_SET_LOADING, INDEX_SET_SUCCESS, SET_EMAIL } from '@/store/store.const'
+import {
+  AUTH_REGISTER,
+  INDEX_SET_ERROR,
+  INDEX_SET_LOADING,
+  INDEX_SET_SUCCESS,
+  SET_BG_TYPE,
+  SET_EMAIL
+} from '@/store/store.const'
 import { TYPE_REGISTER_OTP } from '@/constants/store'
 import { validEmail } from '@/utils/validate'
 import OtpPage from '@/components/auth/otp'
@@ -451,6 +458,7 @@ export default {
     }
   },
   created() {
+    this.$store.commit(SET_BG_TYPE, 'register')
   },
   mounted() {
     this.isMounted = true
@@ -508,6 +516,7 @@ export default {
             this.$store.commit(SET_EMAIL, this.accountForm.email)
             this.token = data.data.token
             this.user = { ...dto, 'g-recaptcha-response': this.captcha }
+            this.$store.commit(SET_BG_TYPE, 'auth')
             this.step = 2
             break
           case 422:

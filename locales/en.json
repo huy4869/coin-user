@@ -192,18 +192,20 @@
   },
   "predict": {
     "box": "Box",
-    "box_title": "Mystery Box",
+    "box_title": "MYSTERY WC2022 Box",
     "amount_convert": "Amount: {v}",
     "open": "Open",
-    "des_title": "How to buy Mystery Box",
-    "des1": "Press “Buy Mystery Box”",
+    "des_title": "How to buy Mystery WC2022 Box",
+    "des1": "Press “Buy Mystery WC2022 Box”",
     "des2": "Transfer the amount of CHZ corresponding to the number of Boxes you want to buy into the wallet address and memo in the popup",
-    "des3": "Mystery box price: 50 CHZ/Box",
-    "buy": "Buy Mystery Box",
+    "des3": "Mystery WC2022 box price: 450 CHZ/Box",
+    "des4": "Total amount of NFT: 100.000 NFT",
+    "total_remaining": "Total amount of NFT remaining:       83.900",
+    "buy": "Buy Mystery WC2022 Box",
     "nft": "NFT"
   },
   "buy_box": {
-    "title": "Buy Mystery Box ",
+    "title": "Buy Mystery WC2022 Box ",
     "sub_title": "BNB beacon chain (BEP2)",
     "des1": "Send CHZ tokens to this correct wallet address. Sending another token may cause you to lose your token.",
     "des2": "After send token to wallet , you can click \"Confirm\" button for speed up or wait a few minute.",
@@ -212,7 +214,7 @@
     "confirm": "Confirm"
   },
   "open_box": {
-    "title": "Open Mystery Box",
+    "title": "Open MYSTERY WC2022 Box",
     "amount": "Amount",
     "max": "Number of boxes that can be opened:    {v}",
     "open": "Open",

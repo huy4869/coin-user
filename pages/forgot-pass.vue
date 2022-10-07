@@ -67,7 +67,7 @@
   </div>
 </template>
 <script>
-import { INDEX_SET_ERROR, INDEX_SET_LOADING } from '@/store/store.const'
+import { INDEX_SET_ERROR, INDEX_SET_LOADING, SET_BG_TYPE } from '@/store/store.const'
 import { validEmail } from '@/utils/validate'
 import { AUTH_SEND_EMAIL_FORGOT } from '@/constants/store'
 
@@ -121,6 +121,9 @@ export default {
     disabledButton() {
       return this.accountForm.email === ''
     }
+  },
+  created() {
+    this.$store.commit(SET_BG_TYPE, 'auth')
   },
   methods: {
     resetValidate(ref) {
