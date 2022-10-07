@@ -26,6 +26,9 @@ export default {
     ...mapState(['bgType']),
     getBg() {
       let temp = ''
+      if (this.$device.isMobile) {
+        return temp
+      }
       switch (this.bgType) {
         case 'login':
           temp = 'bg_login'
