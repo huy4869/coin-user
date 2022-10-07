@@ -50,6 +50,7 @@ export const USER_GET_F1 = 'user/getF1'
 export const USER_GET_LST_TOKEN_OPENED = 'user/getListTokenOpened'
 export const USER_GET_WALLET_MYSTERY = 'user/getWalletMystery'
 export const USER_OPEN_BOX = 'user/openBox'
+export const USER_GET_INFO_NFT = 'user/getInfoNft'
 
 // plan
 export const PLAN_BUY_PACKAGE = 'plan/buyPackage'
