@@ -6,7 +6,7 @@
 
     <div class="main_open_div">
       <div class="open_left">
-        <span class="open_title title_box">{{ $t('open_box.title') }}</span>
+        <span class="open_title title_box">{{ $t('open_box.title', { v: ifoBox.name }) }}</span>
         <span class="open_max_title">{{ $t('open_box.max', { v: $auth.user.mystery_box }) }}</span>
         <el-form
           ref="openForm"
@@ -63,6 +63,7 @@ import { INDEX_SET_ERROR, MAX_OPEN_BOX, USER_OPEN_BOX } from '@/store/store.cons
 
 export default {
   name: 'ModalOpenBox',
+  props: ['ifoBox'],
   data() {
     const validateAmount = (rule, value, callback) => {
       if (Number(value) > Number(this.$auth.user.mystery_box)) {
