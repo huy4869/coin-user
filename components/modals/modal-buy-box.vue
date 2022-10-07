@@ -2,7 +2,7 @@
   <div class="buy_box_component deposit_component deposit-mobile">
     <img src="~/assets/images/icons/close.svg" alt="" class="close_img" @click="close">
     <div>
-      <h3 class="modal-title">{{ $t('buy_box.title') }}</h3>
+      <h3 class="modal-title">{{ $t('buy_box.title', { v: ifoBox.name }) }}</h3>
       <h3 class="modal-title">{{ $t('buy_box.sub_title') }}</h3>
       <ul>
         <li><h3 class="sub-title">{{ $t('buy_box.des1') }}</h3></li>
@@ -62,6 +62,7 @@ export default {
   name: 'ModalBuyBox',
   components: {},
   props: {
+    ifoBox: {},
     address: {
       type: String,
       default: ''

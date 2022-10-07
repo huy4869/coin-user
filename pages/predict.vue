@@ -6,7 +6,7 @@
     <div class="box_div">
       <div data-aos="fade-right" data-aos-duration="1500" class="mystery_box">
         <div class="bg_box_nft bg_box_common">
-          <el-button class="btn_box">{{ $t('predict.box_title') }}</el-button>
+          <el-button class="btn_box">{{ $t('predict.box_title',{v:ifoBox.name}) }}</el-button>
           <img src="~/assets/images/predict/box.svg" alt="" class="img_box filter_img_red">
           <div class="nav_btn_div">
             <div class="amount_div">
@@ -17,18 +17,18 @@
         </div>
       </div>
       <div data-aos="fade-left" data-aos-duration="1500" class="des_div">
-        <h1 class="title_des">{{ $t('predict.des_title') }}</h1>
+        <h1 class="title_des">{{ $t('predict.des_title',{v:ifoBox.name}) }}</h1>
         <ul>
-          <li><h3 class="sub-title">{{ $t('predict.des1') }}</h3></li>
+          <li><h3 class="sub-title">{{ $t('predict.des1',{v:ifoBox.name}) }}</h3></li>
           <li><h3 class="sub-title">{{ $t('predict.des2') }}</h3></li>
-          <li><h3 class="sub-title">{{ $t('predict.des3') }}</h3></li>
+          <li><h3 class="sub-title">{{ $t('predict.des3',{v1:ifoBox.name, v2:ifoBox.price}) }}</h3></li>
           <li><h3 class="sub-title">{{ $t('predict.des4', { v: ifoNft.total }) }}</h3></li>
         </ul>
         <div class="btn_under">
           <div class="amount_div">
             <span class="amount_text">{{ $t('predict.total_remaining', { v: ifoNft.remain }) }}</span>
           </div>
-          <el-button class="btn_buy_box" @click="openBuyBox">{{ $t('predict.buy') }}</el-button>
+          <el-button class="btn_buy_box" @click="openBuyBox">{{ $t('predict.buy',{v:ifoBox.name}) }}</el-button>
         </div>
       </div>
     </div>
@@ -60,6 +60,7 @@
       :center="true" :close-on-click-modal="false" :destroy-on-close="true" :lock-scroll="true"
       :show-close="true" :visible.sync="buyModal" class="dialog-deposit dialog-buy-box">
       <modal-buy-box
+        :ifo-box="ifoBox"
         :address="walletMystery.address"
         :memo="walletMystery.memo"
         @close="closeBuyBox()"/>
@@ -83,6 +84,7 @@
         </div>
       </div>
       <modal-open-box
+        :ifo-box="ifoBox"
         @close="closeOpenBox()"
         @completeOpen="completeOpen"
       />
@@ -104,7 +106,7 @@
 import {
   INDEX_SET_ERROR,
   INDEX_SET_LOADING,
-  SET_BG_TYPE,
+  SET_BG_TYPE, USER_GET_BOX_INFO,
   USER_GET_INFO_NFT,
   USER_GET_LST_TOKEN_OPENED,
   USER_GET_WALLET_MYSTERY
@@ -121,6 +123,7 @@ export default {
       listTokenOpened: [],
       walletMystery: {},
       ifoNft: {},
+      ifoBox: {},
       user: this.$auth.user,
       buyModal: false,
       isOpenBox: false,
@@ -154,6 +157,7 @@ export default {
   methods: {
     async init() {
       await this.$store.commit(INDEX_SET_LOADING, true)
+      await this.getBoxInfo()
       await this.getListTokenOpened()
       await this.getWalletMystery()
       await this.getInfoNft()
@@ -207,6 +211,26 @@ export default {
         switch (response.status_code) {
           case 200:
             this.ifoNft = response.data
+            break
+          case 422:
+            for (const [key] of Object.entries(response.data)) {
+              this.error = { key, value: response.data[key][0] }
+            }
+            break
+          default:
+            this.$store.commit(INDEX_SET_ERROR, { show: true, text: response.message })
+            break
+        }
+      } catch (err) {
+        this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
+      }
+    },
+    async getBoxInfo() {
+      try {
+        const response = await this.$store.dispatch(USER_GET_BOX_INFO)
+        switch (response.status_code) {
+          case 200:
+            this.ifoBox = response.data
             break
           case 422:
             for (const [key] of Object.entries(response.data)) {
