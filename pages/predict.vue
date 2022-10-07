@@ -22,11 +22,11 @@
           <li><h3 class="sub-title">{{ $t('predict.des1') }}</h3></li>
           <li><h3 class="sub-title">{{ $t('predict.des2') }}</h3></li>
           <li><h3 class="sub-title">{{ $t('predict.des3') }}</h3></li>
-          <li><h3 class="sub-title">{{ $t('predict.des4') }}</h3></li>
+          <li><h3 class="sub-title">{{ $t('predict.des4', { v: ifoNft.total }) }}</h3></li>
         </ul>
         <div class="btn_under">
           <div class="amount_div">
-            <span class="amount_text">{{ $t('predict.total_remaining') }}</span>
+            <span class="amount_text">{{ $t('predict.total_remaining', { v: ifoNft.remain }) }}</span>
           </div>
           <el-button class="btn_buy_box" @click="openBuyBox">{{ $t('predict.buy') }}</el-button>
         </div>
@@ -38,6 +38,7 @@
       </div>
       <div class="lst_nft">
         <div v-for="item in listTokenOpened" :key="item.id" class="bg_box_common bg_nft_item"
+             :class="{'bg_box_common_gray' : item.status === 0}"
              data-aos="flip-left"
              data-aos-duration="2000">
           <el-button class="btn_box">{{ $t('predict.nft') }}</el-button>
@@ -104,6 +105,7 @@ import {
   INDEX_SET_ERROR,
   INDEX_SET_LOADING,
   SET_BG_TYPE,
+  USER_GET_INFO_NFT,
   USER_GET_LST_TOKEN_OPENED,
   USER_GET_WALLET_MYSTERY
 } from '@/store/store.const'
@@ -118,6 +120,7 @@ export default {
     return {
       listTokenOpened: [],
       walletMystery: {},
+      ifoNft: {},
       user: this.$auth.user,
       buyModal: false,
       isOpenBox: false,
@@ -127,7 +130,8 @@ export default {
       },
       isCongratulation: false,
       lstNftOpened: [],
-      lstNftUniqueOpened: []
+      lstNftUniqueOpened: [],
+      timer: null
     }
   },
   computed: {
@@ -140,12 +144,19 @@ export default {
   },
   async mounted() {
     await this.init()
+    this.timer = setInterval(async() => {
+      await this.getInfoNft()
+    }, 60000)
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
   },
   methods: {
     async init() {
       await this.$store.commit(INDEX_SET_LOADING, true)
       await this.getListTokenOpened()
       await this.getWalletMystery()
+      await this.getInfoNft()
       await this.$auth.fetchUser()
       await this.$store.commit(INDEX_SET_LOADING, false)
     },
@@ -176,6 +187,26 @@ export default {
           case 200:
             this.walletMystery = response.data
             this.walletMystery.memo = this.user.send_memo
+            break
+          case 422:
+            for (const [key] of Object.entries(response.data)) {
+              this.error = { key, value: response.data[key][0] }
+            }
+            break
+          default:
+            this.$store.commit(INDEX_SET_ERROR, { show: true, text: response.message })
+            break
+        }
+      } catch (err) {
+        this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
+      }
+    },
+    async getInfoNft() {
+      try {
+        const response = await this.$store.dispatch(USER_GET_INFO_NFT)
+        switch (response.status_code) {
+          case 200:
+            this.ifoNft = response.data
             break
           case 422:
             for (const [key] of Object.entries(response.data)) {

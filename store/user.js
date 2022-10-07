@@ -84,6 +84,11 @@ export const actions = {
           headers: { 'Access-Control-Allow-Origin': '*' }
         }), context)
     })
+  },
+  getInfoNft(context, query) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/mystery-box/count'), context)
+    })
   }
 
 }

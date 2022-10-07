@@ -199,8 +199,8 @@
     "des1": "Press “Buy Mystery WC2022 Box”",
     "des2": "Transfer the amount of CHZ corresponding to the number of Boxes you want to buy into the wallet address and memo in the popup",
     "des3": "Mystery WC2022 box price: 450 CHZ/Box",
-    "des4": "Total amount of NFT: 100.000 NFT",
-    "total_remaining": "Total amount of NFT remaining:       83.900",
+    "des4": "Total amount of NFT: {v} NFT",
+    "total_remaining": "Total amount of NFT remaining:       {v}",
     "buy": "Buy Mystery WC2022 Box",
     "nft": "NFT"
   },

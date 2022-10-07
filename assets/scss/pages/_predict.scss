@@ -116,6 +116,11 @@
     height: 100%;
   }
 
+  .bg_box_common_gray {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
   .bg_box_nft, .bg_nft_item {
 
     .btn_box {
