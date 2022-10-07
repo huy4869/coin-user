@@ -200,6 +200,12 @@
     <el-dialog :visible.sync="dialogComingSoon" top="5vh" class="dialog-coming-soon" :center="true">
       <coming-soon-modal @close="dialogComingSoon = false"/>
     </el-dialog>
+
+    <el-dialog :visible.sync="dialogEvent" top="5vh" class="dialog-event" :center="true" :close-on-click-modal="false">
+      <img src="~/assets/images/icons/close.svg" alt="" class="img_close"
+           @click="dialogEvent = false">
+      <img src="~/assets/images/event.jpg" alt="" class="img_event">
+    </el-dialog>
   </div>
 </template>
 
@@ -257,7 +263,8 @@ export default {
       htmlRow2: '',
       htmlRow3: '',
       htmlRow4: '',
-      dialogComingSoon: false
+      dialogComingSoon: false,
+      dialogEvent: true
     }
   },
   created() {
