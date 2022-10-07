@@ -1197,6 +1197,20 @@
         max-width: 100%;
       }
     }
+
+    @media screen and (max-width: 768px) {
+      width: 95% !important;
+      .el-dialog__body {
+
+        .img_close {
+          top: 10px;
+          right: 15px;
+          width: 1.5rem;
+          height: 1.5rem;
+          max-width: 36px;
+        }
+      }
+    }
   }
 }
 

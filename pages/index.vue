@@ -204,7 +204,8 @@
     <el-dialog :visible.sync="dialogEvent" top="5vh" class="dialog-event" :center="true" :close-on-click-modal="false">
       <img src="~/assets/images/icons/close.svg" alt="" class="img_close"
            @click="dialogEvent = false">
-      <img src="~/assets/images/event.jpg" alt="" class="img_event">
+      <img v-if="!$device.isMobile" src="~/assets/images/event.jpg" alt="" class="img_event">
+      <img v-else src="~/assets/images/event_mobile.jpg" alt="" class="img_event">
     </el-dialog>
   </div>
 </template>

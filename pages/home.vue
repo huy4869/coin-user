@@ -1,5 +1,6 @@
 <template>
   <div class="home_component">
+    <img v-if="$device.isMobile" src="~/assets/images/event.jpg" alt="" class="img_banner_home">
     <div class="account_div">
       <div class="account_left sub_div">
         <h3 class="title">{{ $t('profile.title') }}</h3>
@@ -7,7 +8,7 @@
           autocomplete="off"
           label-position="left">
           <br/>
-          <el-form-item class="" :label="$t('profile.referral')">
+          <el-form-item v-if="!$device.isMobile" class="" :label="$t('profile.referral')">
             <el-input
               ref="walletAddress"
               :value="account.memo"
@@ -39,7 +40,7 @@
           </el-form-item>
         </el-form>
       </div>
-      <div class="account_right sub_div">
+      <div v-if="!$device.isMobile" class="account_right sub_div">
         <div>
           <h3 class="title">{{ $t('profile.note_title') }}</h3>
           <ul>
