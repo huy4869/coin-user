@@ -2,6 +2,11 @@
   overflow-x: hidden;
 }
 
+.css-gray {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
 .landing_component {
   font-family: $font-gemunu;
   overflow-x: hidden;

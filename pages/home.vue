@@ -56,14 +56,6 @@
         <h3>{{ $t('profile.product') }}</h3>
       </div>
       <div class="lst_product_div lst_product_div_home">
-        <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div bg_pr_1">
-          <el-button class="btn_product">{{ $t('landing.p1') }}</el-button>
-          <div class="img_top img_top_div">
-            <img src="~/assets/images/landing/ball_red.svg" alt="" class="img_ball">
-            <img src="~/assets/images/landing/vs.svg" alt="" class="">
-            <img src="~/assets/images/landing/ball_blue.svg" alt="" class="img_ball">
-          </div>
-        </div>
         <div @click="$router.push('/predict')" data-aos="fade-up" class="product_div bg_pr_2">
           <el-button class="btn_product">{{ $t('landing.p2') }}</el-button>
           <div class="img_top_div img_cup">
@@ -75,8 +67,16 @@
             </div>
           </div>
         </div>
+        <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div bg_pr_1 css-gray ">
+          <el-button class="btn_product">{{ $t('landing.p1') }}</el-button>
+          <div class="img_top img_top_div">
+            <img src="~/assets/images/landing/ball_red.svg" alt="" class="img_ball">
+            <img src="~/assets/images/landing/vs.svg" alt="" class="">
+            <img src="~/assets/images/landing/ball_blue.svg" alt="" class="img_ball">
+          </div>
+        </div>
         <div @click="dialogComingSoon=true" :data-aos="$device.isDesktop?'fade-up-left':'fade-up-right'"
-             class="product_div bg_pr_3">
+             class="product_div bg_pr_3 css-gray ">
           <el-button class="btn_product">{{ $t('landing.p3') }}</el-button>
           <div class="tex-center img_top_div img_jackpot">
             <div class="arrow_jackpot">
