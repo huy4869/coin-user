@@ -1166,4 +1166,33 @@
   word-break: break-word;
 }
 
+.dialog-event {
+  display: flex;
+
+  .el-dialog {
+    margin: auto !important;
+    width: 60%;
+    background-color: unset;
+
+    .el-dialog__body {
+      padding: 0;
+      position: relative;
+
+      .img_close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        width: 2rem;
+        height: 2rem;
+        max-width: 36px;
+        cursor: pointer;
+      }
+
+      .img_event {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
 

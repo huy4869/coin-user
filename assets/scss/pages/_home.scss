@@ -43,6 +43,7 @@
 
   .div_product {
     margin-bottom: 100px;
+
     .title_product_div {
       border-left: 4px solid $color-red-primary;
 
@@ -75,7 +76,11 @@
 .dialog-coming-soon {
   .el-dialog {
     margin-top: 100px !important;
+  }
+}
 
+.dialog-coming-soon {
+  .el-dialog {
     .el-dialog__header {
       display: none;
     }
