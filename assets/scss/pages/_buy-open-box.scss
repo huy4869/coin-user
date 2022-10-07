@@ -10,7 +10,7 @@
     overflow-x: hidden;
     @media screen and (max-width: 768px) {
       overflow-x: unset;
-
+      background-image: unset;
     }
 
     .el-dialog__body {
@@ -390,7 +390,8 @@
 
       .open_right {
         .lid_box {
-          width: 50%;
+          width: 60%;
+          left: 0;
         }
 
         .nft_box {
@@ -401,7 +402,7 @@
   }
 
   .before_open {
-    top: 26%;
+    top: 20%;
   }
 }
 

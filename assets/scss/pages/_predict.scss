@@ -57,6 +57,7 @@
             height: fit-content;
             width: fit-content;
             margin: auto;
+            font-size: 20px;
           }
         }
 
@@ -65,6 +66,22 @@
 
           span {
             padding: 13px 40px;
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          display: grid;
+          grid-template-columns: auto;
+          justify-content: unset;
+          gap: 15px;
+          .amount_div {
+            width: 100%;
+            max-width: 100%;
+            height: $height-btn-common;
+
+          }
+          .btn_buy_box {
+            width: 100%;
           }
         }
       }
@@ -191,6 +208,7 @@
           height: fit-content;
           width: fit-content;
           margin: auto;
+          font-size: 20px;
         }
       }
 
