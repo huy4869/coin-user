@@ -245,6 +245,11 @@
 
 @media only screen and (max-width: 300px) {
   .congratulation_component {
+
+    .lst_nft_opened_mobile {
+      padding: 12px 0px 20px;
+    }
+
     .close_img {
       top: -12vh;
     }
@@ -264,7 +269,7 @@
     }
 
     .lst_token_img .info_nft_mobile .img_nation_mobile {
-      max-width: 40px;
+      max-width: 40px !important;
     }
   }
 }
