@@ -75,9 +75,14 @@
 
 <script>
 import { mapState } from 'vuex'
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+// optional style for arrows & dots
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
   name: 'ModalCongratulation',
+  components: { VueSlickCarousel },
   props: ['lstNft', 'lstNftUnique'],
   data() {
     return {
@@ -91,7 +96,16 @@ export default {
         touchMove: true,
         slidesToShow: 1,
         speed: 500,
-        cssEase: 'linear'
+        cssEase: 'linear',
+        responsive: [
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              speed: 500
+            }
+          }
+        ]
       }
     }
   },

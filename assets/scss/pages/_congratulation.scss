@@ -362,10 +362,12 @@
 
   .slick-prev {
     left: 17px;
+    z-index: 999;
   }
 
   .slick-next {
     right: 17px;
+    z-index: 999;
   }
 }
 
