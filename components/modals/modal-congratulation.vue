@@ -4,60 +4,59 @@
     <img src="~/assets/images/icons/close.svg" alt="" class="close_img" @click="close">
     <div class="lst_nft_opened_pc">
       <div class="lst_nft_opened">
-        <div v-for="(item, index) in lstNft.slice(0, lstNft.length > 5 ? 5 : lstNft.length)" :key="index" class="bg_nft_item bg_nft_item_opened" data-aos="flip-left"
+        <div v-for="(item, index) in lstNft.slice(0, lstNft.length > 5 ? 5 : lstNft.length)" :key="index"
+             class="bg_nft_item bg_nft_item_opened" data-aos="flip-left"
              data-aos-duration="2500">
           <div class="info_nft">
-            <img src="~/assets/images/predict/bg_nft.svg" alt="" class="img_bg_nft filter_img_red">
-            <span class="name_nft">{{ item.name }}</span>
+            <img :src="require('assets/images/predict/bg_nft'+item.level.toString()+'.svg')" alt=""
+                 class="img_bg_nft">
+            <span class="name_nft_congra" :class="'name_nft_'+item.level.toString()">{{ item.name }}</span>
             <img :src="item.logo" alt="" class="img_nation moveYShort">
           </div>
         </div>
       </div>
       <div v-if="lstNft.length > 5" class="lst_nft_opened">
-        <div v-for="(item, index) in lstNft.slice(5)" :key="index" class="bg_nft_item bg_nft_item_opened" data-aos="flip-left"
+        <div v-for="(item, index) in lstNft.slice(5)" :key="index" class="bg_nft_item bg_nft_item_opened"
+             data-aos="flip-left"
              data-aos-duration="2500">
           <div class="info_nft">
-            <img src="~/assets/images/predict/bg_nft.svg" alt="" class="img_bg_nft filter_img_red">
-            <span class="name_nft">{{ item.name }}</span>
+            <img :src="require('assets/images/predict/bg_nft'+item.level.toString()+'.svg')" alt=""
+                 class="img_bg_nft">
+            <span class="name_nft_congra" :class="'name_nft_'+item.level.toString()">{{ item.name }}</span>
             <img :src="item.logo" alt="" class="img_nation moveYShort">
           </div>
         </div>
 
-        <!--      <div v-for="index in 10" :key="index" class="bg_nft_item bg_nft_item_opened" data-aos="flip-left"-->
-        <!--           data-aos-duration="2500">-->
-        <!--        <div class="info_nft">-->
-        <!--          <img src="~/assets/images/predict/bg_nft.svg" alt="" class="img_bg_nft filter_img_red">-->
-        <!--          <span class="name_nft">sdfsdfdsfds</span>-->
-        <!--          <img src="~/assets/images/predict/nation.png" alt="" class="img_nation moveYShort">-->
-        <!--        </div>-->
-        <!--      </div>-->
+        <!--              <div v-for="index in 5" :key="index" class="bg_nft_item bg_nft_item_opened" data-aos="flip-left"-->
+        <!--                   data-aos-duration="2500">-->
+        <!--                <div class="info_nft">-->
+        <!--                  <img src="~/assets/images/predict/bg_nft5.svg" alt="" class="img_bg_nft filter_img_red">-->
+        <!--                  <span class="name_nft">sdfsdfdsfds</span>-->
+        <!--                  <img src="~/assets/images/predict/nation.png" alt="" class="img_nation moveYShort">-->
+        <!--                </div>-->
+        <!--              </div>-->
       </div>
       <el-button class="btn_confirm" @click="close">{{ $t('open_box.confirm') }}</el-button>
     </div>
 
     <div class="lst_nft_opened_mobile">
-      <div class="lst_token_img">
-
-        <div v-for="(item, index) in lstNft.slice(0, lstNft.length > 5 ? 5 : lstNft.length)" :key="index"
-             class="bg_nft_item_opened"
-             data-aos="flip-left"
-             data-aos-duration="2500">
-          <div class="info_nft_mobile">
-            <!--            <img src="~/assets/images/predict/nation.png" alt="" class="img_nation_mobile">-->
-            <img :src="item.logo" alt="" class="img_nation_mobile">
+      <div class="slide_nft_div">
+        <VueSlickCarousel v-bind="slickOptions" class="row_nft">
+          <div v-for="(item, index) in lstNft" :key="index" class="slide">
+            <img :src="require('assets/images/predict/bg_nft'+item.level.toString()+'.svg')" alt=""
+                 class="img_bg_nft_mobile filter_img_red">
+            <span class="name_nft" :class="'name_nft_'+item.level.toString()">{{ item.name }}</span>
+            <img :src="item.logo" alt="" class="img-nft-mobile img_nation moveYShort">
           </div>
-        </div>
-      </div>
-      <div v-if="lstNft.length > 5" class="lst_token_img">
-
-        <div v-for="(item, index) in lstNft.slice(5)" :key="index" class="bg_nft_item_opened"
-             data-aos="flip-left"
-             data-aos-duration="2500">
-          <div class="info_nft_mobile">
-            <img :src="item.logo" alt="" class="img_nation_mobile">
-            <!--            <img src="~/assets/images/predict/nation.png" alt="" class="img_nation_mobile">-->
-          </div>
-        </div>
+          <!--          <div v-for="index in 6" :key="index" class="slide">-->
+          <!--            <img src="~/assets/images/predict/bg_nft5.svg" alt=""-->
+          <!--                 class="img_bg_nft_mobile filter_img_red">-->
+          <!--            <span class="name_nft">asdas</span>-->
+          <!--            <img-->
+          <!--              src="~/assets/images/predict/nation.png"-->
+          <!--              alt="" class="img-nft-mobile img_nation moveYShort"/>-->
+          <!--          </div>-->
+        </VueSlickCarousel>
       </div>
 
       <div class="summary_token">
@@ -81,7 +80,20 @@ export default {
   name: 'ModalCongratulation',
   props: ['lstNft', 'lstNftUnique'],
   data() {
-    return {}
+    return {
+      slickOptions: {
+        dots: true,
+        arrows: true,
+        infinite: true,
+        autoplay: false,
+        autoplaySpeed: 1000,
+        pauseOnHover: true,
+        touchMove: true,
+        slidesToShow: 1,
+        speed: 500,
+        cssEase: 'linear'
+      }
+    }
   },
   computed: {
     ...mapState(['loading'])
