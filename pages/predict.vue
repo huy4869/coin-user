@@ -6,7 +6,7 @@
     <div class="box_div">
       <div data-aos="fade-right" data-aos-duration="1500" class="mystery_box">
         <div class="bg_box_nft bg_box_common">
-          <el-button class="btn_box">{{ $t('predict.box_title',{v:ifoBox.name}) }}</el-button>
+          <el-button class="btn_box">{{ $t('predict.box_title', { v: ifoBox.name }) }}</el-button>
           <img src="~/assets/images/predict/box.svg" alt="" class="img_box filter_img_red">
           <div class="nav_btn_div">
             <div class="amount_div">
@@ -17,18 +17,18 @@
         </div>
       </div>
       <div data-aos="fade-left" data-aos-duration="1500" class="des_div">
-        <h1 class="title_des">{{ $t('predict.des_title',{v:ifoBox.name}) }}</h1>
+        <h1 class="title_des">{{ $t('predict.des_title', { v: ifoBox.name }) }}</h1>
         <ul>
-          <li><h3 class="sub-title">{{ $t('predict.des1',{v:ifoBox.name}) }}</h3></li>
+          <li><h3 class="sub-title">{{ $t('predict.des1', { v: ifoBox.name }) }}</h3></li>
           <li><h3 class="sub-title">{{ $t('predict.des2') }}</h3></li>
-          <li><h3 class="sub-title">{{ $t('predict.des3',{v1:ifoBox.name, v2:ifoBox.price}) }}</h3></li>
+          <li><h3 class="sub-title">{{ $t('predict.des3', { v1: ifoBox.name, v2: ifoBox.price }) }}</h3></li>
           <li><h3 class="sub-title">{{ $t('predict.des4', { v: ifoNft.total }) }}</h3></li>
         </ul>
         <div class="btn_under">
           <div class="amount_div">
             <span class="amount_text">{{ $t('predict.total_remaining', { v: ifoNft.remain }) }}</span>
           </div>
-          <el-button class="btn_buy_box" @click="openBuyBox">{{ $t('predict.buy',{v:ifoBox.name}) }}</el-button>
+          <el-button class="btn_buy_box" @click="openBuyBox">{{ $t('predict.buy', { v: ifoBox.name }) }}</el-button>
         </div>
       </div>
     </div>
@@ -43,8 +43,9 @@
              data-aos-duration="2000">
           <el-button class="btn_box">{{ $t('predict.nft') }}</el-button>
           <div class="info_nft">
-            <img src="~/assets/images/predict/bg_nft.svg" alt="" class="img_bg_nft">
-            <span class="name_nft name_nft_home">{{ item.name }}</span>
+            <img :src="require('assets/images/predict/bg_nft'+item.level.toString()+'.svg')" alt=""
+                 class="img_bg_nft">
+            <span class="name_nft" :class="'name_nft_'+item.level.toString()">{{ item.name }}</span>
             <img :src="item.logo" alt="" class="img_nation moveYShort">
           </div>
           <div class="nav_btn_div">
@@ -106,7 +107,8 @@
 import {
   INDEX_SET_ERROR,
   INDEX_SET_LOADING,
-  SET_BG_TYPE, USER_GET_BOX_INFO,
+  SET_BG_TYPE,
+  USER_GET_BOX_INFO,
   USER_GET_INFO_NFT,
   USER_GET_LST_TOKEN_OPENED,
   USER_GET_WALLET_MYSTERY

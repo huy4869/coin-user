@@ -146,7 +146,7 @@
       margin-top: 10px;
 
       .img_bg_nft {
-        width: 95%;
+        width: 100%;
         padding: 30px 0 10px;
         //max-height: calc(100% - 2 * 12px - $height-btn-common);
       }
@@ -155,20 +155,20 @@
         font-family: $font-gemunu;
         font-style: normal;
         font-weight: 800;
-        font-size: 16px;
+        font-size: 18px;
         line-height: 17px;
         align-items: center;
         text-align: center;
         text-transform: uppercase;
-        background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         text-fill-color: transparent;
 
         position: absolute;
-        top: 3.5rem;
-        left: 1.5rem;
+        top: 5rem;
+        left: 0;
+        right: 0;
       }
 
       .name_nft_home {
@@ -177,9 +177,9 @@
 
       .img_nation {
         position: absolute;
-        top: 0;
+        top: 2rem;
         bottom: 0rem;
-        left: 0.55rem;
+        left: 0;
         right: 0;
         width: 50%;
         max-width: 80px;
@@ -280,7 +280,7 @@
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1000px) {
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
   .predict_component {
     overflow-x: hidden;
 
@@ -307,7 +307,7 @@
         }
 
         .name_nft {
-          top: 3rem;
+          top: 3.6rem;
         }
 
         .img_nation {
@@ -318,7 +318,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 640px) {
   .predict_component {
     //overflow-x: hidden;
 
@@ -364,11 +364,12 @@
         }
 
         .name_nft {
-          top: 3rem;
+          top: 3.9rem;
         }
 
         .img_nation {
           max-width: 70px;
+          top: 0.5rem;
         }
       }
     }
@@ -402,8 +403,10 @@
         }
 
         .name_nft {
-          top: 2.6rem;
-          left: 0.7rem;
+          top: 3.2rem;
+          left: 0;
+          right: 0;
+          margin: auto;
           font-size: 11px;
         }
 

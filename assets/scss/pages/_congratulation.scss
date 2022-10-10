@@ -23,6 +23,23 @@
   position: relative;
   height: 100%;
 
+  .name_nft_congra {
+    position: absolute;
+    left: 0;
+    right: 0;
+    font-family: "Gemunu Libre", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 17px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    top: 75px;
+  }
+
   .lst_nft_opened_pc {
     padding: 30px 0 0;
   }
@@ -153,14 +170,20 @@
         padding: 15px 0 10px;
       }
     }
+
+    .name_nft_congra {
+      top: 40px;
+      font-size: 15px;
+    }
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 640px) {
   .dialog-congratulation {
     .el-dialog {
       width: 95% !important;
       margin-top: 10vh !important;
+      background-image: unset;
 
       .el-dialog__body {
         padding: 20px 0 0;
@@ -213,9 +236,9 @@
       }
 
       .summary_token {
-        background-image: url("assets/images/predict/bg_open.png");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
+        //background-image: url("assets/images/predict/bg_open.png");
+        //background-size: 100% 100%;
+        //background-repeat: no-repeat;
         padding-bottom: 20px;
 
         .lst_row {
@@ -236,6 +259,24 @@
               color: #E8E8F2;
 
             }
+          }
+        }
+      }
+
+      .slide_nft_div {
+        background-image: url("assets/images/predict/bg_congra_mobile.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        max-width: 100%;
+
+        .row_nft {
+          .img-nft-mobile {
+            margin: auto;
+            position: absolute;
+            top: 35%;
+            left: 0;
+            right: 0;
+            max-width: 25%;
           }
         }
       }
@@ -271,6 +312,92 @@
     .lst_token_img .info_nft_mobile .img_nation_mobile {
       max-width: 40px !important;
     }
+  }
+}
+
+.row_nft {
+  .slick-list {
+    padding: 20px 0 !important;
+  }
+
+  .slide {
+    position: relative;
+    text-align: center;
+
+    .name_nft {
+      position: absolute;
+      top: 2.4rem;
+      left: 0;
+      right: 0;
+      font-family: $font-gemunu;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 16px;
+      text-transform: uppercase;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    .img_bg_nft_mobile {
+      width: 50%;
+      margin: auto;
+    }
+  }
+
+  .slick-dots {
+    padding: 0px 0 12px;
+    position: relative;
+    bottom: -6px;
+
+    li {
+      content: url("assets/images/gray_dot.svg");
+    }
+
+    li.slick-active {
+      content: url("assets/images/red_dot.svg");
+    }
+  }
+
+  .slick-prev {
+    left: 17px;
+  }
+
+  .slick-next {
+    right: 17px;
+  }
+}
+
+.name_nft_5 {
+  background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
+}
+
+.name_nft_4 {
+  background: linear-gradient(180deg, #A88884 32.9%, #F3EFEF 50.88%, #8D706C 80.06%);
+}
+
+.name_nft_3 {
+  background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
+}
+
+.name_nft_2 {
+  background: linear-gradient(180deg, #FF9900 0%, #ED8001 100%);
+}
+
+.name_nft_1 {
+  background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
+}
+
+@media only screen and (max-width: 300px) {
+  .row_nft .slide .name_nft {
+    top: 1.7rem;
+    font-size: 13px;
+  }
+
+  .slick-dots li {
+    width: 15px !important;
+    height: 15px !important;
   }
 }
 

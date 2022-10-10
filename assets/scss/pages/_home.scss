@@ -5,7 +5,7 @@
     //  max-width: calc(100% + 2 * 24px);
     //  margin: 0 -24px;
     //}
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 640px) {
       max-width: calc(100% + 2 * 13px);
       margin: 0 -13px;
     }
@@ -32,7 +32,7 @@
         margin-top: 0;
       }
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 640px) {
         padding: 10px;
         .title {
           margin-bottom: 0
@@ -201,7 +201,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 640px) {
   .el-dialog__body {
     .coming-soon {
       border-radius: 20px;
