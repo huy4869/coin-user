@@ -9,17 +9,21 @@
           <span class="title_nav_footer">{{ $t('header.eco') }}</span>
           <span class="title_nav_footer">{{ $t('header.product') }}</span>
           <span class="title_nav_footer">{{ $t('header.partner') }}</span>
+          <span class="title_nav_footer"
+                @click="dialogContact=true">{{ $t('header.contact') }}</span>
         </div>
         <div class="footer-left-mobile">
           <div>
             <img src="~/assets/images/logo_header.svg" alt="" class="img_footer"
-               @click="$router.push('/')">
+                 @click="$router.push('/')">
           </div>
           <div class="hr-moblie"></div>
           <div class="nav-item-mobile">
             <span class="title_nav_footer">{{ $t('header.eco') }}</span>
             <span class="title_nav_footer">{{ $t('header.product') }}</span>
             <span class="title_nav_footer">{{ $t('header.partner') }}</span>
+            <span class="title_nav_footer"
+                  @click="dialogContact=true">{{ $t('header.contact') }}</span>
           </div>
         </div>
         <div class="footer-right">
@@ -38,15 +42,24 @@
     <div class="footer-bottom">
       <span>{{ $t('footer.copyright') }}</span>
     </div>
+    <el-dialog :visible.sync="dialogContact" top="5vh" class="dialog-contact" :center="true"
+               :close-on-click-modal="false" :destroy-on-close="true">
+      <contact-modal @close="dialogContact = false"/>
+    </el-dialog>
   </div>
 </template>
 <script>
+import ContactModal from '@/components/modals/modal-contact'
+
 export default {
   name: 'FooterCommon',
+  components: { ContactModal },
   // eslint-disable-next-line vue/require-prop-types
   props: ['listMenu'],
   data() {
-    return {}
+    return {
+      dialogContact: false
+    }
   }
 }
 </script>

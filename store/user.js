@@ -94,6 +94,11 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.get('/mystery-box/info'), context)
     })
+  },
+  contact(context, data) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post(`/contacts`, data), context)
+    })
   }
 
 }

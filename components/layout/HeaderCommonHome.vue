@@ -94,6 +94,13 @@
                     style="width: 18px; height: 18px; margin-right: 11px"
                     :src="require('@/assets/images/icons/menu/team.svg')" alt="copy">{{ $t('home.f1') }}
                 </li>
+                <li
+                  id="li-home"
+                  @click="openContact()">
+                  <img
+                    style="width: 18px; height: 18px; margin-right: 11px"
+                    :src="require('@/assets/images/icons/menu/home.svg')" alt="copy">{{ $t('header.contact') }}
+                </li>
                 <li id="li-home" @click="logout">
                   <img
                     style="width: 18px; height: 18px; margin-right: 11px"
@@ -135,6 +142,12 @@
         :memo="user.send_memo.toString()"
         @close="closeReceive()"/>
     </el-dialog>
+
+    <el-dialog :visible.sync="dialogContact" top="5vh" class="dialog-contact" :center="true"
+               :close-on-click-modal="false"
+               :destroy-on-close="true">
+      <contact-modal @close="dialogContact = false"/>
+    </el-dialog>
   </div>
 
 </template>
@@ -150,12 +163,14 @@ import {
   USER_GET_SYSTEM_WALLET
 } from '@/store/store.const'
 import ModalDeposit from '@/components/modals/modal-deposit'
+import ContactModal from '@/components/modals/modal-contact'
 
 export default {
   name: 'HeaderCommonHome',
-  components: { ModalDeposit },
+  components: { ContactModal, ModalDeposit },
   data() {
     return {
+      dialogContact: false,
       keyword: '',
       showModal: false,
       hideModal: false,
@@ -221,6 +236,10 @@ export default {
   methods: {
     async handeClick(link) {
       await this.$router.push(link)
+      document.getElementById('close_btn').click()
+    },
+    openContact() {
+      this.dialogContact = true
       document.getElementById('close_btn').click()
     },
     async logout() {

@@ -4,12 +4,18 @@
       <div id="header_landing" class="container-header">
         <div class="header_left">
           <img src="~/assets/images/logo_header.svg" alt="" class="logo_header" @click="redirect('/')">
-         <div class="lst_menu">
-           <div class="title_nav title_nav_left" id="nav-item" @click="$router.push('/home')">{{ $t('header.dashboard') }}</div>
-           <div class="title_nav title_nav_left" id="nav-item">{{ $t('header.eco') }}</div>
-           <div class="title_nav title_nav_left" id="nav-item">{{ $t('header.product') }}</div>
-           <div class="title_nav title_nav_left" id="nav-item">{{ $t('header.partner') }}</div>
-         </div>
+          <div class="lst_menu">
+            <div class="title_nav title_nav_left" id="nav-item" @click="$router.push('/home')">{{
+                $t('header.dashboard')
+              }}
+            </div>
+            <div class="title_nav title_nav_left" id="nav-item">{{ $t('header.eco') }}</div>
+            <div class="title_nav title_nav_left" id="nav-item">{{ $t('header.product') }}</div>
+            <div class="title_nav title_nav_left" id="nav-item">{{ $t('header.partner') }}</div>
+            <div class="title_nav title_nav_left" id="nav-item"
+                 @click="dialogContact=true">{{ $t('header.contact') }}
+            </div>
+          </div>
         </div>
         <div class="header_right">
           <template v-if="!$auth.loggedIn">
@@ -58,6 +64,9 @@
                 <li>
                   {{ $t('header.partner') }}
                 </li>
+                <li @click="dialogContact=true">
+                  {{ $t('header.contact') }}
+                </li>
                 <li v-if="$auth.loggedIn" @click="logout">
                   <img style="width: 18px; height: 18px; margin-right: 11px"
                        :src="require('@/assets/images/icons/logout.svg')" alt="logout">
@@ -78,15 +87,21 @@
         <!--  -->
       </div>
     </div>
+    <el-dialog :visible.sync="dialogContact" top="5vh" class="dialog-contact" :center="true" :close-on-click-modal="false"
+    :destroy-on-close="true">
+      <contact-modal @close="dialogContact = false"/>
+    </el-dialog>
   </div>
 
 </template>
 <script>
 import { mapState } from 'vuex'
 import { AUTH_LOGOUT, INDEX_SET_LOADING, SET_LANGUAGE } from '@/store/store.const'
+import ContactModal from '@/components/modals/modal-contact'
 
 export default {
   name: 'HeaderCommon',
+  components: { ContactModal },
   data() {
     return {
       keyword: '',
@@ -116,7 +131,8 @@ export default {
       modalLogin: false,
       modalState: 'login',
       titleRegister: this.$t('register_account'),
-      titleForgot: this.$t('modal_login.send_forgot_password')
+      titleForgot: this.$t('modal_login.send_forgot_password'),
+      dialogContact: false
     }
   },
   computed: {
