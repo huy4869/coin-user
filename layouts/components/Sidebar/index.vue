@@ -15,6 +15,13 @@
       >
         <sidebar-item v-for="menu in lstMenu" :key="menu.id" :item="menu" :base-path="menu.path"/>
         <div class="toggle_sidebar">
+          <div @click="dialogContact=true">
+            <sidebar-item class="contact_menu" :item="menuContact"/>
+          </div>
+          <el-dialog :visible.sync="dialogContact" top="5vh" class="dialog-contact" :center="true"
+                     :close-on-click-modal="false" :destroy-on-close="true">
+            <contact-modal @close="dialogContact = false"/>
+          </el-dialog>
           <el-menu-item>
             <hamburger
               id="hamburger-container"
@@ -35,10 +42,11 @@ import Hamburger from '../../../components/Hamburger'
 import Logo from './Logo'
 import SidebarItem from './SidebarItem'
 import variables from '@/assets/scss/variables.scss'
+import ContactModal from '@/components/modals/modal-contact'
 
 export default {
   name: 'SidebarComponent',
-  components: { SidebarItem, Logo, Hamburger },
+  components: { ContactModal, SidebarItem, Logo, Hamburger },
   computed: {
     ...mapGetters([
       'sidebar',
@@ -63,8 +71,19 @@ export default {
       return !this.sidebar.opened
     }
   },
+  // eslint-disable-next-line vue/order-in-components
   data() {
     return {
+      dialogContact: false,
+      menuContact: {
+        id: 6,
+        icon: 'home.svg',
+        icon_active: 'home_active.svg',
+        path: '',
+        title: this.$t('header.contact'),
+        active: true,
+        hidden: false
+      },
       lstMenu: [
         {
           id: 0,

@@ -962,3 +962,7 @@ a.color-red:hover {
   cursor: not-allowed !important;
   pointer-events: none;
 }
+
+.v-modal {
+  z-index: 1000 !important;
+}

@@ -21,7 +21,8 @@
     "node": "{v} NODE",
     "total_commission": "Total Commission: {v} CHZ",
     "transfer": "Transfer",
-    "receive": "Activate"
+    "receive": "Activate",
+    "contact": "Contact Us"
   },
   "footer": {
     "copyright": "© Copyright 2022. All Rights Reserved"
@@ -222,5 +223,11 @@
     "confirm": "Confirm",
     "validate_balance": "Insufficient balance",
     "validate_max": "The number of mystery box must be less than or equal to 10."
+  },
+  "contact": {
+    "email": "Email",
+    "title": "Title",
+    "content": "Content",
+    "submit": "Submit"
   }
 }
