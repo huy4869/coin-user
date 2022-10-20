@@ -77,6 +77,11 @@
                     style="width: 18px; height: 18px; margin-right: 11px"
                     :src="require('@/assets/images/icons/menu/predict.svg')" alt="copy">{{ $t('home.predict') }}
                 </li>
+                <li id="li-home" :class="{'is-active' : $route.path === '/predict-team' }" @click="handeClick('/predict-team')">
+                  <img
+                    style="width: 18px; height: 18px; margin-right: 11px"
+                    :src="require('@/assets/images/icons/menu/vs.svg')" alt="copy">{{ $t('home.predict_team') }}
+                </li>
                 <li id="li-home" :class="{'is-active' : $route.path === '/setting' }" @click="handeClick('/setting')">
                   <img
                     style="width: 18px; height: 18px; margin-right: 11px"

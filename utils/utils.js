@@ -160,6 +160,7 @@ export function formatDateVN(date) {
   const format = 'DD/MM/YYYY'
   return date ? moment(date).format(format) : ''
 }
+
 export function getTimeStamp(date) {
   return date ? moment(date, 'DD/MM/YYYY').unix() : ''
 }
@@ -175,6 +176,7 @@ export async function getFileFromUrl(url, name, defaultType = 'image/jpeg') {
     type: response.headers.get('content-type') || defaultType
   })
 }
+
 export function groupArrayOfObjectsByDate(list, key, dateFormat) {
   return list.reduce(function(rv, x) {
     (rv[moment(x[key]).format(dateFormat)] = rv[moment(x[key]).format(dateFormat)] || []).push(x)
@@ -194,4 +196,27 @@ export function formatPrice(value) {
   if (value) {
     return value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
   }
+}
+
+export function convertMatchToArr(object) {
+  const result = []
+  for (const property in object) {
+    result.push({
+      key: property,
+      matches: object[property]
+    })
+  }
+  return result
+}
+
+export function convertTimestampToDate(date) {
+  const format = 'DD/MM/YYYY'
+  const str = moment.unix(date).format(format)
+  return date ? str : ''
+}
+
+export function convertTimestampToTime(date) {
+  const format = 'DD/MM/YYYY HH:mm'
+  const str = moment.unix(date).format(format)
+  return str.substring(11)
 }

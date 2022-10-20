@@ -138,31 +138,6 @@
 
   .container-header {
     .node_left {
-      .token_div {
-        border: 1px solid $color-border-sidebar;
-        border-radius: 8px;
-        padding: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: left;
-        gap: 10px;
-
-        @media only screen and (max-width: 992px) {
-          padding: 8px;
-        }
-
-        .info_cmz {
-          display: grid;
-          grid-template-columns: auto;
-          gap: 5px;
-
-          .token_title {
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 17px;
-          }
-        }
-      }
 
       .cmz_div {
         padding: 5px 12px;

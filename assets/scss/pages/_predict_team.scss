@@ -1,0 +1,317 @@
+.predict_team_component {
+  display: grid;
+  width: calc(100% - 20px);
+  grid-template-columns: 70% 30%;
+  gap: 20px;
+}
+
+.predict_left {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 15px;
+}
+
+.info_current_match {
+  padding: 24px;
+  text-align: center;
+  height: fit-content;
+
+  .name_match {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+    width: 90%;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #555555;
+  }
+
+  .main_info {
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+
+    .all_info_match {
+      display: grid;
+      grid-template-columns: auto;
+      gap: 30px;
+      align-items: center;
+      text-align: center;
+      margin: auto;
+      width: 40%;
+
+      .score {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 52px;
+      }
+
+      .time_start {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 52px;
+      }
+
+      .date_start {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 22px;
+      }
+
+      .amount_vote {
+        background: linear-gradient(180deg, #CB2734 0%, #8F1010 100%);
+        border-radius: 15px 15px;
+        display: flex;
+        justify-content: center;
+        padding: 5px 10px;
+        gap: 10px;
+
+        span {
+          //width: 45%;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 22px;
+        }
+
+        .hr {
+          width: 1px;
+          background: $color-white;
+        }
+      }
+    }
+  }
+}
+
+.summary {
+  .status_div {
+    padding-bottom: 10px;
+  }
+}
+
+.team_vote, .team_vote_modal {
+  position: relative;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 32px;
+
+  .name_nft_team {
+    position: absolute;
+    top: 1.7rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: fit-content;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 17px;
+  }
+
+  .img_nation_team {
+    max-width: 64px;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.predict_right {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 24px;
+
+  .wallet_div {
+    padding: 24px;
+
+    .title_wallet {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 22px;
+    }
+
+    .wallet_info {
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+
+      .btn_receive {
+        width: 100px;
+        padding: 13px 15px;
+      }
+    }
+  }
+
+  .lst_match_div {
+    .lst_date_match {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      text-align: center;
+      align-items: center;
+      align-content: center;
+      padding: 12px 0;
+
+      .img_arrow_date {
+        cursor: pointer;
+        max-width: 32px;
+
+        &:hover {
+          border-radius: 50%;
+          box-shadow: 0px 0px 30px rgb(255, 0, 44);
+        }
+      }
+    }
+  }
+}
+
+.day_match_div {
+  padding: 12px 0 0;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  display: grid;
+  grid-template-columns: auto;
+  border-top: 1px solid #555555;
+
+  .time_title {
+    width: 90%;
+    margin: auto;
+    padding: 8px 0;
+    background: #393F48;
+    border-radius: 8px;
+  }
+
+  .match_detail {
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    margin: 10px 0;
+    cursor: pointer;
+
+    .detail_team {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      gap: 10px;
+
+      &_left {
+        justify-content: right;
+      }
+
+      &_right {
+        justify-content: left;
+      }
+
+      .name_team {
+
+      }
+
+      .img_team {
+        max-width: 28px;
+      }
+    }
+  }
+}
+
+.border_match {
+  border-bottom: 1px solid #555555;
+}
+
+
+.dialog-vote {
+  .el-dialog__body {
+    background: linear-gradient(100.46deg, #091530 0%, #340A11 100%);
+    padding-bottom: 10px !important;
+
+  }
+
+  .vote_modal {
+    .close_img {
+      top: 0;
+    }
+
+    .modal-title-vote {
+      margin: 0;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 35px;
+    }
+
+    .modal-subtitle-vote, .el-form-item__label {
+      margin: 10px 0;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 22px;
+    }
+
+    .team_vote_modal {
+      margin: 30px auto;
+    }
+
+    .el-form-item__label {
+      margin-top: -10px;
+    }
+  }
+}
+
+.selected {
+  background: #202134;
+}
+
+.table_vote {
+  font-family: $font-gemunu !important;
+  border-radius: 8px;
+  color: $color-white;
+
+
+  .el-table__cell {
+    padding: 12px 0 !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17px;
+  }
+
+  tr {
+    background-color: #202134;
+  }
+
+  th.el-table__cell {
+    background: linear-gradient(180deg, #CB2734 0%, #8F1010 100%);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 17px;
+    color: $color-white;
+  }
+}
+
+.img_couple_team {
+  max-width: 24px;
+}
+
+.couple_team {
+  display: flex;
+  justify-content: left;
+  gap: 12px;
+  align-items: center;
+
+  span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17px;
+  }
+}
+
+.score_value {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17px;
+}
+
+.bonus {
+  color: $color-green-functional;
+}
