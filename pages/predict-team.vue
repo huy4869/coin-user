@@ -20,8 +20,12 @@
           <div class="all_info_match">
             <div class="score">{{ currentMatch.home_score + ' - ' + currentMatch.away_score }}</div>
             <div>
-              <div class="time_start">{{ convertTimestampToTime(currentMatch.match_time_timestamp) }}</div>
-              <div class="date_start">{{ convertTimestampToDate(currentMatch.match_time_timestamp) }}</div>
+              <div class="time_start">
+                {{ currentMatch.match_time_timestamp ? convertTimestampToTime(currentMatch.match_time_timestamp) : '' }}
+              </div>
+              <div class="date_start">
+                {{ currentMatch.match_time_timestamp ? convertTimestampToDate(currentMatch.match_time_timestamp) : '' }}
+              </div>
             </div>
             <div class="amount_vote">
               <span>{{ currentMatch.home_coin_format + 'CHZ' }}</span>
@@ -225,7 +229,12 @@ export default {
       lstDate: [],
       lstMatch: [],
       indexDate: 0,
-      currentMatch: {},
+      currentMatch: {
+        home_score: 0,
+        away_score: 0,
+        home_coin_format: 0,
+        away_coin_format: 0
+      },
       idCurrentMatch: null,
       teamVote: {},
       statusVote: '-1',
@@ -249,8 +258,10 @@ export default {
     }
   },
   watch: {
-    indexDate() {
-      this.getLstMatch()
+    async indexDate() {
+      this.$store.commit(INDEX_SET_LOADING, true)
+      await this.getLstMatch()
+      this.$store.commit(INDEX_SET_LOADING, false)
     },
     async statusVote() {
       await this.$store.commit(INDEX_SET_LOADING, true)
@@ -260,7 +271,9 @@ export default {
     }
   },
   async mounted() {
+    this.$store.commit(INDEX_SET_LOADING, true)
     await this.init()
+    this.$store.commit(INDEX_SET_LOADING, false)
   },
   methods: {
     openReceive() {
@@ -284,7 +297,6 @@ export default {
       await this.init()
     },
     async init() {
-      this.$store.commit(INDEX_SET_LOADING, true)
       await this.getPredictWallet()
       await this.getLstDate()
       await this.getLstMatch()
@@ -296,7 +308,6 @@ export default {
         this.currentMatch = this.lstMatch[0].matches[0]
         this.idCurrentMatch = this.currentMatch.id
       }
-      this.$store.commit(INDEX_SET_LOADING, false)
     },
     async getPredictWallet() {
       try {
@@ -387,7 +398,6 @@ export default {
       }
     },
     async getLstMatch() {
-      this.$store.commit(INDEX_SET_LOADING, true)
       try {
         const data = await this.$store.dispatch(PREDICT_GET_LST_MATCH, this.lstDate[this.indexDate].key)
         switch (data.status_code) {
@@ -406,7 +416,6 @@ export default {
       } catch (err) {
         this.$store.commit(INDEX_SET_ERROR, { show: true, text: this.$t('message.message_error') })
       }
-      this.$store.commit(INDEX_SET_LOADING, false)
     },
     async viewMatch(match) {
       this.idCurrentMatch = match.id
