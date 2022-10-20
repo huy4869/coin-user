@@ -10,6 +10,7 @@ export const SET_LANGUAGE = 'setLanguage'
 export const TIME_GET_RATE = 10000
 export const LAYOUT_AUTH = 'auth-layout'
 export const PUBLIC_LAYOUT = 'default-layout'
+export const MIN_BET = 50
 
 // authentication
 export const AUTH_SET_ROLES = 'authentication/setRoles'
@@ -49,10 +50,12 @@ export const USER_GET_TRANSACTION_TYPE = 'user/getTransactionType'
 export const USER_GET_F1 = 'user/getF1'
 export const USER_GET_LST_TOKEN_OPENED = 'user/getListTokenOpened'
 export const USER_GET_WALLET_MYSTERY = 'user/getWalletMystery'
+export const USER_GET_WALLET_PREDICT = 'user/getWalletPredict'
 export const USER_OPEN_BOX = 'user/openBox'
 export const USER_GET_INFO_NFT = 'user/getInfoNft'
 export const USER_GET_BOX_INFO = 'user/getBoxInfo'
 export const USER_CONTACT = 'user/contact'
+export const USER_WITHDRAW_PREDICT = 'user/withdrawPredict'
 
 // plan
 export const PLAN_BUY_PACKAGE = 'plan/buyPackage'
@@ -73,3 +76,11 @@ export const WALLET_WITHDRAW_NOW = 'wallet/postWithdrawNow'
 export const WALLET_DEPOSIT = 'wallet/postDeposit'
 export const WALLET_SEND_OTP = 'wallet/sendOtp'
 export const WALLET_RESEND_OTP = 'wallet/resendOtp'
+
+// predict
+export const PREDICT_GET_LST_DATE = 'predict/getLstDate'
+export const PREDICT_GET_LST_MATCH = 'predict/getLstMatch'
+export const PREDICT_VOTE_TEAM = 'predict/voteTeam'
+export const PREDICT_GET_DETAIL_MATCH = 'predict/getDetailMatch'
+export const PREDICT_GET_HISTORIES = 'predict/getHistories'
+export const PREDICT_GET_LST_STATUS = 'predict/getLstStatus'

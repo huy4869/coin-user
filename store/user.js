@@ -99,6 +99,15 @@ export const actions = {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.post(`/contacts`, data), context)
     })
+  },
+  getWalletPredict(context, query) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/wallets/prediction'), context)
+    })
+  },
+  withdrawPredict(context, data) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.post(`/withdraw`, data), context)
+    })
   }
-
 }

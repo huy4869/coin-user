@@ -132,7 +132,8 @@
     "setting": "Account",
     "history": "Transaction History",
     "f1": "Direct Referrals",
-    "predict": "Predict the champion team"
+    "predict": "Predict the champion team",
+    "predict_team": "Predict the winning team"
   },
   "deposit": {
     "title": "Activate",
@@ -229,5 +230,34 @@
     "title": "Title",
     "content": "Content",
     "submit": "Submit"
+  },
+  "predict_team": {
+    "date": "Date",
+    "bet": "Bet (CHZ)",
+    "match": "Match",
+    "vote": "Vote",
+    "score": "Score",
+    "reward": "Rewarded (CHZ)",
+    "wallet": "Wallet",
+    "receive": "Receive",
+    "withdraw": "Withdraw",
+    "chz": "{v} CHZ",
+    "title_receive": "BNB beacon chain (BEP2)",
+    "direct1": "Send CHZ tokens to this correct wallet address. Sending another token may cause you to lose your token.",
+    "direct2": "After send token to wallet , you can click \"confirm\" button for speed up or wait a few minute.",
+    "direct3": "you can only withdraw CHZ to the wallet you declared when you registered your account.",
+    "address": "Wallet address",
+    "memo": "Memo",
+    "confirm": "Confirm",
+    "amount": "Amount of CHZ you want to withdraw",
+    "amount_text": "Amount",
+    "fee": "Transaction fee: {v} CHZ/Time",
+    "predict_title": "Predict the champion team",
+    "available": "Amount available: {v} CHZ",
+    "min_bet": "Minimum bet amount: {v} CHZ",
+    "amount_bet": "Bet amount",
+    "valid_min": "Amount at least 50CHZ",
+    "valid_max": "Insufficient balance",
+    "score_value": "{v1}-{v2}"
   }
 }

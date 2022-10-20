@@ -805,6 +805,10 @@ a.color-red:hover {
   padding-top: 20px;
 }
 
+.pb-10 {
+  padding-bottom: 10px;
+}
+
 .zoom_hover {
   transition: transform 1s;
 }
@@ -888,7 +892,8 @@ a.color-red:hover {
 }
 
 .el-table .cell {
-  font-family: $fonts-root !important;
+  //font-family: $fonts-root !important;
+  font-family: $font-gemunu !important;
   font-weight: 500;
   max-width: 100%;
   word-break: break-all;
@@ -909,6 +914,7 @@ a.color-red:hover {
 .table-empty {
   padding: 10px 0;
   text-align: center;
+  background-color: $color-bg-navbar;
 }
 
 .empty_img {
@@ -965,4 +971,45 @@ a.color-red:hover {
 
 .v-modal {
   z-index: 1000 !important;
+}
+
+.bg_div {
+  background: linear-gradient(180deg, #0B1023 0%, #17182D 100%);
+  border-radius: 8px;
+}
+
+.token_div {
+  border: 1px solid $color-border-sidebar;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+
+  .token_title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    max-width: 100%;
+    word-break: break-all;
+  }
+
+  @media only screen and (max-width: 992px) {
+    padding: 8px;
+  }
+
+  .info_cmz {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 5px;
+
+    .token_title {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      max-width: 100%;
+      word-break: break-all;
+    }
+  }
 }
