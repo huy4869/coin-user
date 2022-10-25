@@ -30,7 +30,7 @@
     display: flex;
     justify-content: space-between;
 
-    .all_info_match {
+    .all_info_match, .all_info_match_mobile {
       display: grid;
       grid-template-columns: auto;
       gap: 30px;
@@ -78,12 +78,27 @@
         }
       }
     }
+
+    .all_info_match_mobile {
+      width: 100%;
+      gap: 10px;
+    }
   }
 }
 
 .summary {
   .status_div {
     padding-bottom: 10px;
+  }
+
+  .title_tab {
+    font-family: $font-mont;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
   }
 }
 
@@ -114,6 +129,10 @@
     right: 0;
     margin: auto;
   }
+
+  .img_bg_team {
+    max-width: 100%;
+  }
 }
 
 .predict_right {
@@ -139,6 +158,26 @@
       .btn_receive {
         width: 100px;
         padding: 13px 15px;
+      }
+    }
+  }
+
+  .wallet_div_mobile {
+    .wallet_info {
+      display: grid;
+      grid-template-columns: 100%;
+      gap: 18px;
+      justify-content: center;
+
+      .btn_wallet_mobile {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        button {
+          width: 100%;
+        }
       }
     }
   }
@@ -240,6 +279,11 @@
       font-weight: 700;
       font-size: 32px;
       line-height: 35px;
+
+      @media only screen and (max-width: 600px) {
+        font-size: 23px;
+
+      }
     }
 
     .modal-subtitle-vote, .el-form-item__label {
@@ -247,6 +291,7 @@
       font-weight: 600;
       font-size: 20px;
       line-height: 22px;
+      word-break: break-word;
     }
 
     .team_vote_modal {
@@ -304,6 +349,11 @@
     font-size: 16px;
     line-height: 17px;
   }
+
+  @media only screen and (max-width: 600px) {
+    justify-content: right;
+
+  }
 }
 
 .score_value {
@@ -315,3 +365,72 @@
 .bonus {
   color: $color-green-functional;
 }
+
+.tabs_div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  button {
+    width: 100%;
+    height: $height-btn-tab;
+  }
+}
+
+.tab_disabled {
+  background: $color-tab_disabled !important;
+  border: unset !important;
+  box-shadow: unset !important;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1000px) {
+
+  .home-sidebar {
+    padding: 10px;
+  }
+  .predict_team_component {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .info_current_match .main_info {
+    gap: 15px;
+  }
+  .team_vote .img_nation_team {
+    max-width: 50%;
+    top: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .predict_team_component {
+    grid-template-columns: auto;
+    width: 100%;
+  }
+
+  .info_current_match {
+    padding: 12px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .team_vote .img_nation_team {
+    max-width: 46px;
+    top: 4rem;
+  }
+
+  .team_vote button {
+    width: 80%;
+    margin: auto;
+  }
+  .dialog-vote .vote_modal .modal-title-vote {
+    font-size: 20px;
+    max-width: 80%;
+    word-break: break-word;
+  }
+
+}
+
+

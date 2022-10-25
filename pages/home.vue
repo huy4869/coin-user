@@ -68,7 +68,7 @@
             </div>
           </div>
         </div>
-        <div @click="dialogComingSoon=true" data-aos="fade-up-right" class="product_div bg_pr_1 css-gray ">
+        <div @click="$router.push('/predict-team')" data-aos="fade-up-right" class="product_div bg_pr_1">
           <el-button class="btn_product">{{ $t('landing.p1') }}</el-button>
           <div class="img_top img_top_div">
             <img src="~/assets/images/landing/ball_red.svg" alt="" class="img_ball">

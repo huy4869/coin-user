@@ -18,6 +18,11 @@ export const actions = {
       handleApi(resolve, reject, this.$axios.post(`/predictions/match`, data), context)
     })
   },
+  checkExpired(context, id) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get(`/leagues/matches/${id}/is_expire`), context)
+    })
+  },
   getDetailMatch(context, data) {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.get(`/leagues/matches/${data}`), context)
