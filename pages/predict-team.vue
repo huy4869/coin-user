@@ -64,7 +64,7 @@
                 }}</span>
               <img :src="currentMatch.home_team.logo" alt="" class="img_nation_team moveYShort">
               <el-button
-                :class="{'disable_img':currentMatch.is_expire === 1 || isVoteExpired}"
+                :class="{'disable_img css-gray':currentMatch.is_expire === 1 || isVoteExpired}"
                 @click="openVote(currentMatch.home_team)">{{ $t('predict_team.vote') }}
               </el-button>
             </div>
@@ -99,7 +99,7 @@
                 }}</span>
               <img :src="currentMatch.away_team.logo" alt="" class="img_nation_team moveYShort">
               <el-button
-                :class="{'disable_img':currentMatch.is_expire === 1 || isVoteExpired}"
+                :class="{'disable_img css-gray':currentMatch.is_expire === 1 || isVoteExpired}"
                 @click="openVote(currentMatch.away_team)">{{ $t('predict_team.vote') }}
               </el-button>
             </div>
