@@ -156,7 +156,8 @@
     "register_success": "Register successful",
     "ok": "OK",
     "copy_success": "Copy successful!",
-    "coming": "COMING SOON"
+    "coming": "COMING SOON",
+    "timed_vote": "Timed votes"
   },
   "message": {
     "message_error": "Something Went Wrong"
@@ -259,5 +260,9 @@
     "valid_min": "Amount at least 50CHZ",
     "valid_max": "Insufficient balance",
     "score_value": "{v1}-{v2}"
+  },
+  "tabs": {
+    "predict": "Predict",
+    "history": "History"
   }
 }
