@@ -372,6 +372,7 @@ import Pagination from '@/components/element-ui/Pagination'
 
 export default {
   name: 'PredictTeamComponent',
+  middleware: 'auth-guard',
   components: { ModalVotePredict, ModalWithdrawPredict, ModalReceivePredict, Pagination },
   data() {
     return {
