@@ -1013,3 +1013,14 @@ a.color-red:hover {
     }
   }
 }
+
+@media only screen and (max-width: 300px) {
+  .el-pagination.is-background {
+    padding: 0;
+  }
+
+  .el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li {
+    min-width: 26px !important;
+    margin: 0 5px !important;
+  }
+}

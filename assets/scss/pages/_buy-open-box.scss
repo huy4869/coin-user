@@ -14,7 +14,8 @@
     }
 
     .el-dialog__body {
-      padding: 0px 25px 30px;
+      //padding: 0px 25px 30px;
+      padding: 0;
     }
   }
 }
@@ -29,7 +30,7 @@
     z-index: 1000;
     position: absolute;
     top: 15px;
-    right: -5px;
+    right: 15px;
     cursor: pointer;
   }
 
@@ -116,6 +117,12 @@
         button {
           width: calc((100% - 24px) / 2);
         }
+
+        @media only screen and (max-width: 600px) {
+          padding: 0px 15px 20px;
+          width: fit-content;
+
+        }
       }
 
     }
@@ -146,7 +153,7 @@
       .lid_box {
         position: absolute;
         max-width: 100%;
-        left: -26px;
+        left: -44px;
         right: 0;
         margin: auto;
         @media screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -336,7 +343,8 @@
       width: 93% !important;
 
       .el-dialog__body {
-        padding: 0px 15px 20px;
+        //padding: 0px 15px 20px;
+        padding: 0;
 
         .bg_fog {
           .fog .image02 {

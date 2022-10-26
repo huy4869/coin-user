@@ -153,6 +153,7 @@
 
       .name_nft {
         font-family: $font-gemunu;
+        background: linear-gradient(180deg, #FFFFFF 40.11%, #ffffff 74.64%);
         font-style: normal;
         font-weight: 800;
         font-size: 18px;
@@ -166,7 +167,7 @@
         text-fill-color: transparent;
 
         position: absolute;
-        top: 5rem;
+        top: 4.8rem;
         left: 0;
         right: 0;
       }
@@ -364,12 +365,13 @@
         }
 
         .name_nft {
-          top: 3.9rem;
+          top: 3.7rem;
         }
 
         .img_nation {
           max-width: 70px;
-          top: 0.5rem;
+          top: 1.5rem;
+          width: 37%;
         }
       }
     }

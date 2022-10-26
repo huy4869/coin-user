@@ -37,7 +37,7 @@
         <h3>{{ $t('predict.nft') }}</h3>
       </div>
       <div class="lst_nft">
-        <div v-for="item in listTokenOpened" :key="item.id" class="bg_box_common bg_nft_item"
+        <div v-for="item in listTokenOpened" :key="item.nft_id" class="bg_box_common bg_nft_item"
              :class="{'bg_box_common_gray' : item.status === 0}"
              data-aos="flip-left"
              data-aos-duration="2000">
@@ -50,12 +50,23 @@
           </div>
           <div class="nav_btn_div">
             <div class="amount_div amount_div_nft">
-              <span class="amount_text">{{ $t('predict.amount_convert', { v: item.total_quantity }) }}</span>
+              <span class="amount_text">{{ $t('predict.nft_id', { v: item.nft_id }) }}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <pagination
+      v-show="total > 0"
+      :total="total"
+      :page.sync="listQuery.page"
+      :limit.sync="listQuery.per_page"
+      :auto-scroll="false"
+      :paper-count="screenWidth<=300?3:5"
+      :is-small="false"
+      @pagination="getListTokenOpened()"
+      class="pt-20"
+    />
 
     <el-dialog
       :center="true" :close-on-click-modal="false" :destroy-on-close="true" :lock-scroll="true"
@@ -110,15 +121,16 @@ import {
   SET_BG_TYPE,
   USER_GET_BOX_INFO,
   USER_GET_INFO_NFT,
-  USER_GET_LST_TOKEN_OPENED,
+  USER_GET_LST_TOKEN_NFT_OPENED,
   USER_GET_WALLET_MYSTERY
 } from '@/store/store.const'
 import ModalBuyBox from '@/components/modals/modal-buy-box'
 import ModalOpenBox from '@/components/modals/modal-open-box'
+import Pagination from '@/components/element-ui/Pagination'
 
 export default {
   name: 'PredictComponent',
-  components: { ModalOpenBox, ModalBuyBox },
+  components: { ModalOpenBox, ModalBuyBox, Pagination },
   middleware: 'auth-guard',
   data() {
     return {
@@ -136,7 +148,16 @@ export default {
       isCongratulation: false,
       lstNftOpened: [],
       lstNftUniqueOpened: [],
-      timer: null
+      timer: null,
+      screenWidth: screen.width,
+      total: 0,
+      listQuery: {
+        search: '',
+        page: 1,
+        per_page: this.$device.isDesktop ? 8 : 6,
+        'orders[0][key]': 'updated_at',
+        'orders[0][dir]': 'desc'
+      }
     }
   },
   computed: {
@@ -168,10 +189,12 @@ export default {
     },
     async getListTokenOpened() {
       try {
-        const response = await this.$store.dispatch(USER_GET_LST_TOKEN_OPENED)
+        const response = await this.$store.dispatch(USER_GET_LST_TOKEN_NFT_OPENED, this.listQuery)
         switch (response.status_code) {
           case 200:
-            this.listTokenOpened = response.data
+            this.listTokenOpened = response.data.data
+            this.total = Number(response.data.total)
+            // this.total = 18
             break
           case 422:
             for (const [key] of Object.entries(response.data)) {
