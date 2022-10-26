@@ -8,6 +8,7 @@
     max-width: 100%;
     width: 70%;
     overflow-x: hidden;
+    margin-top: 5vh !important;
     @media screen and (max-width: 640px) {
       overflow-x: unset;
       background-image: unset;
