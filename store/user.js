@@ -72,6 +72,11 @@ export const actions = {
       handleApi(resolve, reject, this.$axios.get('/tokens'), context)
     })
   },
+  getListTokenNftOpened(context, query) {
+    return new Promise((resolve, reject) => {
+      handleApi(resolve, reject, this.$axios.get('/tokens/nft?' + new URLSearchParams(query).toString()), context)
+    })
+  },
   getWalletMystery(context, query) {
     return new Promise((resolve, reject) => {
       handleApi(resolve, reject, this.$axios.get('/wallets/mystery'), context)

@@ -28,6 +28,7 @@
     left: 0;
     right: 0;
     font-family: "Gemunu Libre", sans-serif;
+    background: linear-gradient(180deg, #FFFFFF 40.11%, #ffffff 74.64%);
     font-style: normal;
     font-weight: 800;
     font-size: 18px;
@@ -38,6 +39,25 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     top: 75px;
+  }
+
+  .id_nft_congra {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2.5rem;
+    font-family: "Gemunu Libre", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    align-items: center;
+    text-align: center;
+
+    color: $color-white;
+
+    @media only screen and (max-width: 600px) {
+      bottom: 1.5rem;
+    }
   }
 
   .lst_nft_opened_pc {
@@ -276,7 +296,7 @@
             top: 35%;
             left: 0;
             right: 0;
-            max-width: 25%;
+            max-width: 20%;
           }
         }
       }
@@ -330,6 +350,7 @@
       left: 0;
       right: 0;
       font-family: $font-gemunu;
+      background: linear-gradient(180deg, #FFFFFF 40.11%, #ffffff 74.64%);
       font-style: normal;
       font-weight: 800;
       font-size: 16px;
@@ -372,23 +393,23 @@
 }
 
 .name_nft_5 {
-  background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
+  //background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
 }
 
 .name_nft_4 {
-  background: linear-gradient(180deg, #A88884 32.9%, #F3EFEF 50.88%, #8D706C 80.06%);
+  //background: linear-gradient(180deg, #A88884 32.9%, #F3EFEF 50.88%, #8D706C 80.06%);
 }
 
 .name_nft_3 {
-  background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
+  //background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
 }
 
 .name_nft_2 {
-  background: linear-gradient(180deg, #FF9900 0%, #ED8001 100%);
+  //background: linear-gradient(180deg, #FF9900 0%, #ED8001 100%);
 }
 
 .name_nft_1 {
-  background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
+  //background: linear-gradient(180deg, #FFFFFF 40.11%, #ABABAB 74.64%);
 }
 
 @media only screen and (max-width: 300px) {

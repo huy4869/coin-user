@@ -1,59 +1,65 @@
 <template>
   <div class="open_box_component">
-    <img src="~/assets/images/icons/close.svg" alt="" class="close_img"
-         :class="{'disable_img': !isCompleteOpen}"
-         @click="close">
 
-    <div class="main_open_div">
-      <div class="open_left">
-        <span class="open_title title_box">{{ $t('open_box.title', { v: ifoBox.name }) }}</span>
-        <span class="open_max_title">{{ $t('open_box.max', { v: $auth.user.mystery_box }) }}</span>
-        <el-form
-          ref="openForm"
-          :model="openForm"
-          :rules="openRules"
-          autocomplete="off"
-          label-position="left"
-          @keyup.enter.native="handleOpen"
-        >
-          <div class="amount_open_div">
-            <div class="set_amount_div">
-              <img src="~/assets/images/predict/minus.png" alt=""
-                   :class="{'disable_img': openForm.amount <= 0}"
-                   @click="changeAmount('-')">
-              <el-form-item prop="amount" :error="error.value" class="input_amount_open">
-                <el-input
-                  ref="amount"
-                  v-model.trim="openForm.amount"
-                  :placeholder="$t('open_box.amount')"
-                  oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                  name="amount"
-                  type="text"
-                  tabindex="3"
-                  maxlength="12"
-                  @focus="resetValidate('amount')"
-                />
-              </el-form-item>
-              <img src="~/assets/images/predict/plus.png" alt=""
-                   :class="{'disable_img': openForm.amount >= max}"
-                   @click="changeAmount('+')">
+    <template v-if="!isOPenSuccess">
+      <img src="~/assets/images/icons/close.svg" alt="" class="close_img"
+           :class="{'disable_img': !isCompleteOpen}"
+           @click="close">
+
+      <div class="main_open_div">
+        <div class="open_left">
+          <span class="open_title title_box">{{ $t('open_box.title', { v: ifoBox.name }) }}</span>
+          <span class="open_max_title">{{ $t('open_box.max', { v: $auth.user.mystery_box }) }}</span>
+          <el-form
+            ref="openForm"
+            :model="openForm"
+            :rules="openRules"
+            autocomplete="off"
+            label-position="left"
+            @keyup.enter.native="handleOpen"
+          >
+            <div class="amount_open_div">
+              <div class="set_amount_div">
+                <img src="~/assets/images/predict/minus.png" alt=""
+                     :class="{'disable_img': openForm.amount <= 0}"
+                     @click="changeAmount('-')">
+                <el-form-item prop="amount" :error="error.value" class="input_amount_open">
+                  <el-input
+                    ref="amount"
+                    v-model.trim="openForm.amount"
+                    :placeholder="$t('open_box.amount')"
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                    name="amount"
+                    type="text"
+                    tabindex="3"
+                    maxlength="12"
+                    @focus="resetValidate('amount')"
+                  />
+                </el-form-item>
+                <img src="~/assets/images/predict/plus.png" alt=""
+                     :class="{'disable_img': openForm.amount >= max}"
+                     @click="changeAmount('+')">
+              </div>
+              <el-button :disabled="disableBtn"
+                         @click="handleOpen">{{ $t('open_box.open') }}
+              </el-button>
             </div>
-            <el-button :disabled="disableBtn"
-                       @click="handleOpen">{{ $t('open_box.open') }}
-            </el-button>
-          </div>
-        </el-form>
+          </el-form>
+        </div>
+        <div class="open_right" data-aos="fade-down"
+             data-aos-easing="linear"
+             data-aos-duration="1500">
+          <img src="~/assets/images/predict/under_box.svg" alt="" class="under_box">
+          <img src="~/assets/images/predict/nft_box.svg" alt="" class="nft_box"
+               :class="[isOPenSuccess?'appear_nft':'']">
+          <img src="~/assets/images/predict/lid_box.svg" alt="" class="lid_box before_open filter_img_red"
+               :class="[isOPenSuccess?classAfterOpenBox:'before_open']">
+        </div>
       </div>
-      <div class="open_right" data-aos="fade-down"
-           data-aos-easing="linear"
-           data-aos-duration="1500">
-        <img src="~/assets/images/predict/under_box.svg" alt="" class="under_box">
-        <img src="~/assets/images/predict/nft_box.svg" alt="" class="nft_box"
-             :class="[isOPenSuccess?'appear_nft':'']">
-        <img src="~/assets/images/predict/lid_box.svg" alt="" class="lid_box before_open filter_img_red"
-             :class="[isOPenSuccess?classAfterOpenBox:'before_open']">
-      </div>
-    </div>
+    </template>
+    <template v-else>
+      <prepare-open-nft/>
+    </template>
   </div>
 </template>
 

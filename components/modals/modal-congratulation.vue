@@ -12,6 +12,7 @@
                  class="img_bg_nft">
             <span class="name_nft_congra" :class="'name_nft_'+item.level.toString()">{{ item.name }}</span>
             <img :src="item.logo" alt="" class="img_nation moveYShort">
+            <span class="id_nft_congra" :class="'name_nft_'+item.level.toString()">{{ item.nft_id }}</span>
           </div>
         </div>
       </div>
@@ -24,6 +25,7 @@
                  class="img_bg_nft">
             <span class="name_nft_congra" :class="'name_nft_'+item.level.toString()">{{ item.name }}</span>
             <img :src="item.logo" alt="" class="img_nation moveYShort">
+            <span class="id_nft_congra" :class="'name_nft_'+item.level.toString()">{{ item.nft_id }}</span>
           </div>
         </div>
 
@@ -47,6 +49,7 @@
                  class="img_bg_nft_mobile filter_img_red">
             <span class="name_nft" :class="'name_nft_'+item.level.toString()">{{ item.name }}</span>
             <img :src="item.logo" alt="" class="img-nft-mobile img_nation moveYShort">
+            <span class="id_nft_congra" :class="'name_nft_'+item.level.toString()">{{ item.nft_id }}</span>
           </div>
           <!--          <div v-for="index in 6" :key="index" class="slide">-->
           <!--            <img src="~/assets/images/predict/bg_nft5.svg" alt=""-->

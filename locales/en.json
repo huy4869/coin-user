@@ -197,6 +197,7 @@
     "box": "Box",
     "box_title": "{v}",
     "amount_convert": "Amount: {v}",
+    "nft_id": "ID: {v}",
     "open": "Open",
     "des_title": "How to buy {v}",
     "des1": "Press “Buy {v}”",
