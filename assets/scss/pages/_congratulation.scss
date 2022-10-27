@@ -38,14 +38,14 @@
     text-transform: uppercase;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    top: 75px;
+    top: 3.6rem;
   }
 
   .id_nft_congra {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 2.5rem;
+    top: 4.9rem;
     font-family: "Gemunu Libre", sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -56,7 +56,7 @@
     color: $color-white;
 
     @media only screen and (max-width: 600px) {
-      bottom: 1.5rem;
+      top: 2.5rem;
     }
   }
 
@@ -359,6 +359,10 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
+
+      @media only screen and (max-width: 768px) {
+        top: 1.5rem;
+      }
     }
 
     .img_bg_nft_mobile {
@@ -414,8 +418,11 @@
 
 @media only screen and (max-width: 300px) {
   .row_nft .slide .name_nft {
-    top: 1.7rem;
+    top: 1rem;
     font-size: 13px;
+  }
+  .congratulation_component .id_nft_congra {
+    top: 2rem;
   }
 
   .slick-dots li {
